@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'home')->name('index');
+Route::view('about-us', 'about')->name('about');
+Route::view('contact', 'contact.create')->name('contact');
