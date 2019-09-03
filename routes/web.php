@@ -11,6 +11,7 @@
 |
 */
 
-Route::view('/', 'home')->name('index');
+Route::view('/','home')->name('index');
 Route::view('about-us', 'about')->name('about');
-Route::view('contact', 'contact.create')->name('contact');
+Route::view('contact', 'contact.index')->name('contact');
+Route::view('information', 'information.display')->name('information'); 

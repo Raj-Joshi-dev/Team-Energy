@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('content')
-
 @section('title')
     Über uns
 @endsection
+
+@section('content')
 
 <h1>Über uns</h1>
 
  <img src="{{URL::asset('/images/Compass_Trainer_Network_LOGO_green.jpg')}}" alt="Company Pic" height="200">
 
 
-<p style="font-size:120%;">COMPASS TRAINER NETWORK® ist eine Kooperation von Trainern und Beratern.</p>
+<p style="font-size:120%;"><strong>COMPASS TRAINER NETWORK® ist eine Kooperation von Trainern und Beratern.</strong></p>
 
 <p style="font-size:120%;">Sie beraten, begleiten und trainieren Manager, Führungskräfte aller Ebenen, und Fachkräfte von nationalen und internationalen Wirtschaftsunternehmen in unterschiedlichen Themenbereichen.</p>
 
