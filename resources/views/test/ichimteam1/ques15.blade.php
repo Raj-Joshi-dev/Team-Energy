@@ -1,6 +1,6 @@
 
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -125,24 +125,26 @@
 </head>
 <body>
 <div class="container">
-<div class="privew">
-    <div class="questionsBox">
-        <div class="questions"><h1>Ich im Team</h1></div>
-        <div class="questions"><h3>These 1: Ich fahre gerne an ein bekanntes und bewährtes Urlaubsziel zurück. Da weiß ich was ich habe.</h3></div>
-        <ul class="answerList">
-            <li>
-                <label>
-                    <input type="radio" name="answerGroup" value="0" id="answerGroup_0">Ja</label>
-            </li>
-            <li>
-                <label>
-                    <input type="radio" name="answerGroup" value="1" id="answerGroup_1">Eher Ja</label>
-            </li>
-            <li>
-        </ul>
-    </div>
+    <div class="privew">
         <div class="questionsBox">
-            <div class="questions"><h3>These 2: Im Urlaub suche ich neue unbekannte Ziele. Mich reizt das Neue.</h3></div>
+            <div class="questions"><h1>Ich im Team - Privater Bereich</h1></div>
+            <div class="answerList"><h3>Vorsicht! Bitte wählen Sie <span style="color: red; "><b>nur eine</b></span> Option aus der unten angegebenen Arbeit aus.</h3></div>
+            <div class="questions"><h4>Frage 15</h4></div>
+            <div class="questions"><h3>These 1: Wenn jemand aus meinem Bekanntenkreis ein Problem hat, bin ich oft ein Ansprechpartner, der Trost spendet.</h3></div>
+            <ul class="answerList">
+                <li>
+                    <label>
+                        <input type="radio" name="answerGroup" value="0" id="answerGroup_0">Ja</label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="answerGroup" value="1" id="answerGroup_1">Eher Ja</label>
+                </li>
+                <li>
+            </ul>
+        </div>
+        <div class="questionsBox">
+            <div class="questions"><h3>These 2: Ich versuche Hilfe zur Selbsthilfe zu geben. Am Ende muss jeder lernen, sich selbst zu helfen.</h3></div>
             <ul class="answerList">
                 <li>
                     <label>
@@ -154,7 +156,7 @@
                 </li>
             </ul>
         </div>
-        <div class="questionsRow"><a href="#" class="button" id="nextquestions">Nächste</a> <a href="#" class="button" id="skipquestions">Überspringen</a><span>2 von 40</span></div>
+        <div class="questionsRow"><a href="{{ route('ques16') }}" class="button" id="nextquestions">Nächste</a><a href="{{ route('ques14') }}" class="button" id="nextquestions">Früher</a><span>15 von 20</span></div>
     </div>
 </div>
 <script type="text/javascript">
