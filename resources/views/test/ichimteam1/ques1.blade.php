@@ -1,6 +1,6 @@
 
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -125,41 +125,38 @@
 </head>
 <body>
 <div class="container">
-    <div class="privew">
+<div class="privew">
+    <div class="questionsBox">
+        <div class="questions"><h1>Ich im Team - Privater Bereich</h1></div>
+        <div class="answerList"><h3>Vorsicht! Bitte wählen Sie <span style="color: red; "><b>nur eine</b></span> Option aus der unten angegebenen Arbeit aus.</h3></div>
+        <div class="questions"><h4>Frage 1</h4></div>
+        <div class="questions"><h3>These 1: Ich fahre gerne an ein bekanntes und bewährtes Urlaubsziel zurück. Da weiß ich was ich habe.</h3></div>
+        <ul class="answerList">
+            <li>
+                <label>
+                    <input type="radio" name="answerGroup" value="0" id="answerGroup_0">Ja</label>
+            </li>
+            <li>
+                <label>
+                    <input type="radio" name="answerGroup" value="1" id="answerGroup_1">Eher Ja</label>
+            </li>
+            <li>
+        </ul>
+    </div>
         <div class="questionsBox">
-            <div class="questions"><h1>Ich im Team - Privater Bereich</h1></div>
-            <div class="answerList"><h3>Vorsicht! Bitte wählen Sie <span style="color: red; "><b>nur eine</b></span> Option aus der unten angegebenen Arbeit aus.</h3></div>
-            <div class="questions"><h4>Frage 1</h4></div>
-            <form action="{{ action('TestsController@store') }}" method="get">
-                <div class="questions"><h3>These 1: Ich fahre gerne an ein bekanntes und bewährtes Urlaubsziel zurück. Da weiß ich was ich habe.</h3></div>
-                <ul class="answerList">
-                    <li>
-                        <label>
-                            <input type="radio" name="answer[]" value="0" id="answerGroup_0">Ja</label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="answer[]" value="1" id="answerGroup_1">Eher Ja</label>
-                    </li>
-                    <li>
-                </ul>
-            </form>
+            <div class="questions"><h3>These 2: Im Urlaub suche ich neue unbekannte Ziele. Mich reizt das Neue.</h3></div>
+            <ul class="answerList">
+                <li>
+                    <label>
+                        <input type="radio" name="answerGroup" value="2" id="answerGroup_2">Ja</label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="answerGroup" value="3" id="answerGroup_3">Eher Ja</label>
+                </li>
+            </ul>
         </div>
-        <div class="questionsBox">
-            <form action="{{ action('TestsController@store') }}" method="get">
-                <div class="questions"><h3>These 2: Im Urlaub suche ich neue unbekannte Ziele. Mich reizt das Neue.</h3></div>
-                <ul class="answerList">
-                    <li>
-                        <label>
-                            <input type="radio" name="answer[]" value="2" id="answerGroup_2">Ja</label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="answer[]" value="3" id="answerGroup_3">Eher Ja</label>
-                    </li>
-                </ul></form>
-        </div>
-        <div class="questionsRow"><a href="{{ route('ques2') }}" class="button" id="nextquestions">Nächste</a><a href="{{ route('ques20') }}" class="button" id="nextquestions">Früher</a><span>2 von 20</span></div>
+        <div class="questionsRow"><a href="{{ route('ques2') }}" class="button" id="nextquestions">Nächste</a><span>1 von 40</span></div>
     </div>
 </div>
 <script type="text/javascript">
