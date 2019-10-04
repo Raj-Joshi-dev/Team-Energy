@@ -24,6 +24,7 @@ Route::view('main','test.select')->name('main');
 
 // Questions for Ich Im Team-Privater Bereich
 
+Route::get('ques','TestsController@show');
 Route::view('ques1','test.ichimteam1.ques1')->name('ques1');
 Route::view('ques2','test.ichimteam1.ques2')->name('ques2');
 Route::view('ques3','test.ichimteam1.ques3')->name('ques3');
@@ -44,6 +45,8 @@ Route::view('ques17','test.ichimteam1.ques17')->name('ques17');
 Route::view('ques18','test.ichimteam1.ques18')->name('ques18');
 Route::view('ques19','test.ichimteam1.ques19')->name('ques19');
 Route::view('ques20','test.ichimteam1.ques20')->name('ques20');
+
+Route::get('store','TestsController@store');
 
 
 // Questions for Ich Im Team-Beruflicher Bereich

@@ -130,31 +130,34 @@
             <div class="questions"><h1>Ich im Team - Privater Bereich</h1></div>
             <div class="answerList"><h3>Vorsicht! Bitte wählen Sie <span style="color: red; "><b>nur eine</b></span> Option aus der unten angegebenen Arbeit aus.</h3></div>
             <div class="questions"><h4>Frage 2</h4></div>
+            <form action="{{ action('TestsController@show') }}" method="get">
             <div class="questions"><h3>These 1: Ich bevorzuge ausgesuchte Bekanntschaften und Gespräche mit Tiefgang.</h3></div>
             <ul class="answerList">
                 <li>
                     <label>
-                        <input type="radio" name="answerGroup" value="0" id="answerGroup_0">Ja</label>
+                        <input type="radio" name="answer" value="0" id="answerGroup_0">Ja</label>
                 </li>
                 <li>
                     <label>
-                        <input type="radio" name="answerGroup" value="1" id="answerGroup_1">Eher Ja</label>
+                        <input type="radio" name="answer" value="1" id="answerGroup_1">Eher Ja</label>
                 </li>
                 <li>
             </ul>
+            </form>
         </div>
         <div class="questionsBox">
+            <form action="{{ action('TestsController@show') }}" method="get">
             <div class="questions"><h3>These 2: Mich interessieren neue Bekanntschaften und schnell ins Gespräch zu kommen.</h3></div>
             <ul class="answerList">
                 <li>
                     <label>
-                        <input type="radio" name="answerGroup" value="2" id="answerGroup_2">Ja</label>
+                        <input type="radio" name="answer" value="2" id="answerGroup_2">Ja</label>
                 </li>
                 <li>
                     <label>
-                        <input type="radio" name="answerGroup" value="3" id="answerGroup_3">Eher Ja</label>
+                        <input type="radio" name="answer" value="3" id="answerGroup_3">Eher Ja</label>
                 </li>
-            </ul>
+            </ul></form>
         </div>
         <div class="questionsRow"><a href="{{ route('ques3') }}" class="button" id="nextquestions">Nächste</a><a href="{{ route('ques1') }}" class="button" id="nextquestions">Früher</a><span>2 von 20</span></div>
     </div>
