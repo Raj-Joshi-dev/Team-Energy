@@ -14,9 +14,7 @@
 <body>
 <div class="container">
     <h1>Bitte wählen Sie einen Test aus</h1>
-    <a style="font-size: 22px" href="{{ route('ques1') }}">Ich Im Team-Privater Bereich</a><br><br>
-    <a style="font-size: 22px" href="{{ route('test2') }}">Ich Im Team-Beruflicher Bereich</a><br><br>
-    <a style="font-size: 22px" href="{{ route('test3') }}">Kultur im Team</a><br><br>
+    <a style="font-size: 22px" href="{{ route('ques') }}">Ich Im Team-Privater Bereich</a><br><br>
 </div>
 </body>
 </html>

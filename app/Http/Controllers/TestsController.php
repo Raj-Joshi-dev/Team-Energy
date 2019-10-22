@@ -9,10 +9,8 @@ class TestsController extends Controller
 {
 
     public function store(Request $request){
-
-        $request->get('answer[]',0);
-        dd('answers[]');
-
+        
+        dd($request->all());
 
         }
 }
