@@ -1,3 +1,7 @@
+@extends('layouts.app');
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -615,13 +619,15 @@
             </ul>
         </div><br>   
         <div class="container text-center bottom">
-		    <button id="submit-btn" class="btn btn-primary btn-lg">Submit</button>
+		    <button id="submit-btn" class="btn btn-primary btn-lg" value="data">Submit</button>
         </div>
         </form>
         <br><br>    
 
 </div>
 </body>
+
+<!--
 <script>
 $("#nextquestions").click(function(e) {
 
@@ -794,12 +800,15 @@ $.ajax({
 
     ]}, 
     success: function( msg ) {
-        document.location.href = "{{ route('test.store') }}";
+        document.location.href = "{{ route('success') }}";
     }
 });
 e.preventDefault();
 });
 </script>
+
+-->
 </html>
 
+@endsection
 

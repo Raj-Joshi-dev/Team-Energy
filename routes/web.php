@@ -24,9 +24,12 @@ Route::view('main','test.select')->name('main');
 
 // Questions for Ich Im Team-Privater Bereich
 
-Route::view('ques','test.ichimteam1.ques')->name('test.show');
+
+Route::view('ques','test.ichimteam1.ques')->name('test.show')->middleware('auth');
 
 Route::post('test','TestsController@store')->name('test.store');
+
+Route::view('/test/sucess','success')->name('success');
 
 
 
