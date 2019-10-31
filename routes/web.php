@@ -20,26 +20,30 @@ Route::view('about-us', 'about')->name('about');
 Route::view('contact', 'contact.index')->name('contact');
 Route::view('information', 'information.display')->name('information');
 Route::view('model', 'information.model')->name('model');
-Route::view('main','test.select')->name('main');
+Route::view('main','test.select')->name('main')->middleware('auth');
 
 // Questions for Ich Im Team-Privater Bereich
 
 
-Route::view('ques','test.ichimteam1.ques')->name('test.show')->middleware('auth');
+Route::view('ich-im-team1','test.ichimteam1')->name('ichimteam1')->middleware('auth');
 
-Route::post('test','TestsController@store')->name('test.store');
+Route::post('test1','TestsController@store')->name('store');
 
-Route::view('/test/sucess','success')->name('success');
+Route::view('success','success')->name('success');
 
 
 
 // Questions for Ich Im Team-Beruflicher Bereich
 
-Route::view('test2','test.ichimteam2')->name('test2');
+Route::view('ich-im-team2','test.ichimteam2')->name('ichimteam2')->middleware('auth');
+
+Route::post('test2','TestsController@store2')->name('store2');
 
 // Questions for Kultur im Team
 
-Route::view('test3','test.kulturimteam')->name('test3');
+Route::view('kultur-im-team','test.kulturimteam')->name('kulturimteam');
+
+Route::post('test3','TestsController@store3')->name('store3');
 
 
 

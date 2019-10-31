@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Answer extends Model
+class IchimTeam1 extends Model
 {
     protected $guarded = [];
 
@@ -12,6 +12,4 @@ class Answer extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-
 }
