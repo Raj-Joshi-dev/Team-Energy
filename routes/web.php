@@ -27,7 +27,7 @@ Route::view('main','test.select')->name('main')->middleware('auth');
 
 Route::view('ich-im-team1','test.ichimteam1')->name('ichimteam1')->middleware('auth');
 
-Route::post('test1','TestsController@store')->name('store');
+Route::post('test1','ResultController@store')->name('store');
 
 Route::view('success','success')->name('success');
 
@@ -37,13 +37,13 @@ Route::view('success','success')->name('success');
 
 Route::view('ich-im-team2','test.ichimteam2')->name('ichimteam2')->middleware('auth');
 
-Route::post('test2','TestsController@store2')->name('store2');
+Route::post('test2','ResultController@store2')->name('store2');
 
 // Questions for Kultur im Team
 
 Route::view('kultur-im-team','test.kulturimteam')->name('kulturimteam');
 
-Route::post('test3','TestsController@store3')->name('store3');
+Route::post('test3','ResultController@store3')->name('store3');
 
 
 
@@ -59,5 +59,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Test
+
+Route::view('/fetch','testing')->name('abc');
+
+Route::get('/testing','LogicController@fetch')->name('testing');
 
 

@@ -26,7 +26,7 @@
                     <h2>Ich im Team - Beruflicher Bereich</h2>
                 </div>
                 <div class="answerList">
-                    <h3>Vorsicht! Bitte wählen Sie <span style="color: red; "><b>nur eine</b></span> Option aus der unten angegebenen Arbeit aus.</h3>
+                    <h3>Bitte wählen Sie im folgenden, bei jeder Frage zuerst eine der beiden Thesen aus. <br> Danach entscheiden Sie in der ausgewählten Theses zwischen  <span style="color: red; "><b>„Ja“ oder „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h3>
                 </div>
 
                 <!--Accordion wrapper-->
@@ -100,11 +100,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup2" value="5" id="answerGroup_2">Ja</label>
+                                            <input type="radio" name="answerGroup2" value="1" id="answerGroup_2">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup2" value="6" id="answerGroup_2">Eher Ja</label>
+                                            <input type="radio" name="answerGroup2" value="2" id="answerGroup_2">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -113,11 +113,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup2" value="7" id="answerGroup_2">Ja</label>
+                                            <input type="radio" name="answerGroup2" value="3" id="answerGroup_2">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup2" value="8" id="answerGroup_2">Eher Ja</label>
+                                            <input type="radio" name="answerGroup2" value="4" id="answerGroup_2">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -147,11 +147,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup3" value="9" id="answerGroup_3">Ja</label>
+                                            <input type="radio" name="answerGroup3" value="1" id="answerGroup_3">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup3" value="10" id="answerGroup_3">Eher Ja</label>
+                                            <input type="radio" name="answerGroup3" value="2" id="answerGroup_3">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -160,11 +160,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup3" value="11" id="answerGroup_3">Ja</label>
+                                            <input type="radio" name="answerGroup3" value="3" id="answerGroup_3">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup3" value="12" id="answerGroup_3">Eher Ja</label>
+                                            <input type="radio" name="answerGroup3" value="4" id="answerGroup_3">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -194,11 +194,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup4" value="13" id="answerGroup_4">Ja</label>
+                                            <input type="radio" name="answerGroup4" value="1" id="answerGroup_4">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup4" value="14" id="answerGroup_4">Eher Ja</label>
+                                            <input type="radio" name="answerGroup4" value="2" id="answerGroup_4">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -207,11 +207,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup4" value="15" id="answerGroup_4">Ja</label>
+                                            <input type="radio" name="answerGroup4" value="3" id="answerGroup_4">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup4" value="16" id="answerGroup_4">Eher Ja</label>
+                                            <input type="radio" name="answerGroup4" value="4" id="answerGroup_4">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -241,11 +241,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup5" value="17" id="answerGroup_5">Ja</label>
+                                            <input type="radio" name="answerGroup5" value="1" id="answerGroup_5">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup5" value="18" id="answerGroup_5">Eher Ja</label>
+                                            <input type="radio" name="answerGroup5" value="2" id="answerGroup_5">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -254,11 +254,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup5" value="19" id="answerGroup_5">Ja</label>
+                                            <input type="radio" name="answerGroup5" value="3" id="answerGroup_5">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup5" value="20" id="answerGroup_5">Eher Ja</label>
+                                            <input type="radio" name="answerGroup5" value="4" id="answerGroup_5">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -288,11 +288,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup6" value="21" id="answerGroup_6">Ja</label>
+                                            <input type="radio" name="answerGroup6" value="1" id="answerGroup_6">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup6" value="22" id="answerGroup_6">Eher Ja</label>
+                                            <input type="radio" name="answerGroup6" value="2" id="answerGroup_6">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -301,11 +301,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup6" value="23" id="answerGroup_6">Ja</label>
+                                            <input type="radio" name="answerGroup6" value="3" id="answerGroup_6">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup6" value="24" id="answerGroup_6">Eher Ja</label>
+                                            <input type="radio" name="answerGroup6" value="4" id="answerGroup_6">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -335,11 +335,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup7" value="25" id="answerGroup_7">Ja</label>
+                                            <input type="radio" name="answerGroup7" value="1" id="answerGroup_7">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup7" value="26" id="answerGroup_7">Eher Ja</label>
+                                            <input type="radio" name="answerGroup7" value="2" id="answerGroup_7">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -348,11 +348,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup7" value="27" id="answerGroup_7">Ja</label>
+                                            <input type="radio" name="answerGroup7" value="3" id="answerGroup_7">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup7" value="28" id="answerGroup_7">Eher Ja</label>
+                                            <input type="radio" name="answerGroup7" value="4" id="answerGroup_7">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -382,11 +382,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup8" value="29" id="answerGroup_8">Ja</label>
+                                            <input type="radio" name="answerGroup8" value="1" id="answerGroup_8">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup8" value="30" id="answerGroup_8">Eher Ja</label>
+                                            <input type="radio" name="answerGroup8" value="2" id="answerGroup_8">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -395,11 +395,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup8" value="31" id="answerGroup_8">Ja</label>
+                                            <input type="radio" name="answerGroup8" value="3" id="answerGroup_8">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup8" value="32" id="answerGroup_8">Eher Ja</label>
+                                            <input type="radio" name="answerGroup8" value="4" id="answerGroup_8">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -429,11 +429,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup9" value="33" id="answerGroup_9">Ja</label>
+                                            <input type="radio" name="answerGroup9" value="1" id="answerGroup_9">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup9" value="34" id="answerGroup_9">Eher Ja</label>
+                                            <input type="radio" name="answerGroup9" value="2" id="answerGroup_9">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -442,11 +442,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup9" value="35" id="answerGroup_9">Ja</label>
+                                            <input type="radio" name="answerGroup9" value="3" id="answerGroup_9">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup9" value="36" id="answerGroup_9">Eher Ja</label>
+                                            <input type="radio" name="answerGroup9" value="4" id="answerGroup_9">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -476,11 +476,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup10" value="37" id="answerGroup_10">Ja</label>
+                                            <input type="radio" name="answerGroup10" value="1" id="answerGroup_10">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup10" value="38" id="answerGroup_10">Eher Ja</label>
+                                            <input type="radio" name="answerGroup10" value="2" id="answerGroup_10">Eher Ja</label>
                                     </li>
                                 </ul>
                                 <div class="questions">
@@ -489,11 +489,11 @@
                                 <ul class="answerList">
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup10" value="39" id="answerGroup_10">Ja</label>
+                                            <input type="radio" name="answerGroup10" value="3" id="answerGroup_10">Ja</label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" name="answerGroup10" value="40" id="answerGroup_10">Eher Ja</label>
+                                            <input type="radio" name="answerGroup10" value="4" id="answerGroup_10">Eher Ja</label>
                                     </li>
                                 </ul>
                             </div>
@@ -520,7 +520,7 @@
                     <div style="font-size:140%">{{ $errors->first('answerGroup10') }}</div>
                 </div>
                 <div class="container text-center bottom">
-                    <button id="submit-btn" style="font-size:150%" class="btn btn-primary btn-lg" value="data">Einreichen</button>
+                    <button id="submit-btn" style="font-size:150%" class="btn btn-primary btn-lg" value="data">Senden</button>
                 </div>
             </form>
             <br><br>

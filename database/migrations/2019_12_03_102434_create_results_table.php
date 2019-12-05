@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIchimTeam1sTable extends Migration
+class CreateResultsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateIchimTeam1sTable extends Migration
      */
     public function up()
     {
-        Schema::create('ichim_team1s', function (Blueprint $table) {
+        Schema::create('results', function (Blueprint $table) {
             $table->increments('answer_id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('user_id')->on('users');
+            $table->integer('kat_id');
             $table->integer('answerGroup1');
             $table->integer('answerGroup2');
             $table->integer('answerGroup3');
@@ -49,6 +50,6 @@ class CreateIchimTeam1sTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ichim_team1s');
+        Schema::dropIfExists('results');
     }
 }
