@@ -48,7 +48,7 @@
                         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Es gibt eine Art Routine, wann wir anfangen und aufhören mit der Arbeit.</font>
+                                    <font size="3">These 1: {{ $question1_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -61,7 +61,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Hier macht jeder seine Arbeit so wie er denkt. Wenn viel anliegt wird viel gearbeitet, wenn es rund läuft, kann man auch früher gehen.</font>
+                                    <font size="3">These 2: {{ $question1_these2 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -95,7 +95,7 @@
                         <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Die Verantwortlichkeiten sind in unserem Team in Arbeitsplatzbeschreibungen geregelt, die auch aktuell gehalten werden.</font>
+                                    <font size="3">These 1: {{ $question2_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -108,7 +108,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Hier entscheidet jeder für sich, was nach aktueller Lage und Aufgabenstellung zu tun ist.</font>
+                                    <font size="3">These 2: {{ $question2_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -142,7 +142,7 @@
                         <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Bei uns im Team herrscht eher eine Kultur der Sicherheit als der Freiheit, mit allen Vor- und Nachteilen.</font>
+                                    <font size="3">These 1: {{ $question3_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -155,7 +155,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Bei uns im Team herrscht eher eine Kultur der Freiheit als der Sicherheit, mit allen Vor- und Nachteilen.</font>
+                                    <font size="3">These 2: {{ $question3_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -189,7 +189,7 @@
                         <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Die Bitte eines Kollegen um Unterstützung abzulehnen, wäre ein Fauxpas.</font>
+                                    <font size="3">These 1: {{ $question4_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -202,7 +202,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Jeder ist grundsätzlich selbst für seine Performance verantwortlich.</font>
+                                    <font size="3">These 2: {{ $question4_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -236,7 +236,7 @@
                         <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wenn es jemanden mal schlecht geht, sagt er das und bekommt dann auch Unterstützung.</font>
+                                    <font size="3">These 1: {{ $question5_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -249,7 +249,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wenn man schlecht drauf ist, reißt man sich besser zusammen, sonst wird einem das als Schwäche ausgelegt.</font>
+                                    <font size="3">These 2: {{ $question5_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -283,7 +283,7 @@
                         <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Neue Mitarbeitersollen sich eingliedern und uns unterstützen.</font>
+                                    <font size="3">These 1: {{ $question6_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -296,7 +296,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Neue Mitarbeiter sollen bei uns frischen Wind bringen und Routinen in Frage stellen.</font>
+                                    <font size="3">These 2: {{ $question6_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -330,7 +330,7 @@
                         <div id="collapse7" class="collapse" role="tabpanel" aria-labelledby="heading7" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wenn jemand krank wird, geht er nach hause, bevor er Andere ansteckt oder es ihn richtig „umhaut“.</font>
+                                    <font size="3">These 1: {{ $question7_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -343,7 +343,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Bevor hier jemand wegen Krankheit fehlt, muss er schon auf der Krankenbahre raus getragen werden.</font>
+                                    <font size="3">These 2: {{ $question7_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -377,7 +377,7 @@
                         <div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="heading8" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Die Geburtstage der Teammitglieder sind bekannt und werden im angemessenen Rahmen gefeiert.</font>
+                                    <font size="3">These 1: {{ $question8_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -390,7 +390,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Geburtstage werden normalerweise nicht gefeiert. </font>
+                                    <font size="3">These 2: {{ $question8_these2 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -424,7 +424,7 @@
                         <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wir stimmen uns oft ab und wenn jemand hinterher hinkt, bekommt er Unterstützung.</font>
+                                    <font size="3">These 1: {{ $question9_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -437,7 +437,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Jeder ist für seinen Job verantwortlich und muss sich zunächst mal selbst helfen. Das schließt nicht aus, dass Dinge neu verteilt werden müssen, wenn jemand zuviel Arbeitslast trägt.</font>
+                                    <font size="3">These 2: {{ $question9_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -471,7 +471,7 @@
                         <div id="collapse10" class="collapse" role="tabpanel" aria-labelledby="heading10" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Es gibt auch einige informelle Kontakte in unserem Team. Gelegentlich gehen wir außerhalb der Arbeit aus.</font>
+                                    <font size="3">These 1: {{ $question10_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -484,7 +484,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Nach Dienst geht jeder seinen Weg. Privates und Hobbys kommen eh zu kurz.</font>
+                                    <font size="3">These 2: {{ $question10_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -518,7 +518,7 @@
                         <div id="collapse11" class="collapse" role="tabpanel" aria-labelledby="heading11" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wenn jemand krank wird, machen wir die Arbeit soweit möglich für ihn mit.</font>
+                                    <font size="3">These 1: {{ $question11_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -531,7 +531,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wenn jemand krank wird, arbeitet er soweit möglich von zuhause oder er muss schauen, wie er wieder Anschluss findet.</font>
+                                    <font size="3">These 2: {{ $question11_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -566,7 +566,7 @@
                         <div id="collapse12" class="collapse" role="tabpanel" aria-labelledby="heading12" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wir achten darauf, dass jedes Teammitglied die gleiche Wertschätzung erfährt.</font>
+                                    <font size="3">These 1: {{ $question12_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -579,7 +579,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Es ist schon klar, wer bei uns die Leistungsträger sind.</font>
+                                    <font size="3">These 2: {{ $question12_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -613,7 +613,7 @@
                         <div id="collapse13" class="collapse" role="tabpanel" aria-labelledby="heading13" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: In Meetings beißen wir uns schon mal an wirklich interessanten Punkten fest. Manchmal sind wir etwas chaotisch.</font>
+                                    <font size="3">These 1: {{ $question13_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -626,7 +626,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: In Meetings arbeiten wir die Agenda diszipliniert ab. Manchmal sind wir etwas starr.</font>
+                                    <font size="3">These 2: {{ $question13_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -660,7 +660,7 @@
                         <div id="collapse14" class="collapse" role="tabpanel" aria-labelledby="heading14" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wir brauchen keine Regeln für Kaffe- oder Spülmaschine. Jeder packt ohne Aufforderung an.</font>
+                                    <font size="3">These 1: {{ $question14_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -673,7 +673,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wir haben klare Verhaltensregeln für das Zusammenleben im Büro/der Arbeit.</font>
+                                    <font size="3">These 2: {{ $question14_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -707,7 +707,7 @@
                         <div id="collapse15" class="collapse" role="tabpanel" aria-labelledby="heading15" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Bei uns herrscht eher eine Vertrauenskultur. Wenn z.B. kein Kaffee mehr da ist, bringt ihn der mit, der es am ersten bemerkt.</font>
+                                    <font size="3">These 1: {{ $question15_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -720,7 +720,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wir halten solche Dinge fest. Jeder kommt im Umlauf mal dran. Sonst gibt es erfahrungsgemäß früher oder später Ärger.</font>
+                                    <font size="3">These 2: {{ $question15_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -754,7 +754,7 @@
                         <div id="collapse16" class="collapse" role="tabpanel" aria-labelledby="heading16" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Die wirklich wichtigen Dinge sind allen klar. Protokolle werden eh nicht gelesen.</font>
+                                    <font size="3">These 1: {{ $question16_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -767,7 +767,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Es gibt Protokolle aller wichtigen Sitzungen. Es gibt auch klare Prozedere, z.B. bis wann Tagesordnungspunkte einzureichen sind.</font>
+                                    <font size="3">These 2: {{ $question16_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -801,7 +801,7 @@
                         <div id="collapse17" class="collapse" role="tabpanel" aria-labelledby="heading17" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Bei uns geht es emotional schon mal auf und ab. Wir versuchen aber immer Lösungen zu finden, mit denen alle leben können.</font>
+                                    <font size="3">These 1: {{ $question17_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -814,7 +814,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wenn wir uneins sind, entscheidet der Chef oder wir stimmen nach angemessener Zeit ab, sonst würde ewig diskutiert.</font>
+                                    <font size="3">These 2: {{ $question17_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -848,7 +848,7 @@
                         <div id="collapse18" class="collapse" role="tabpanel" aria-labelledby="heading18" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Bei uns wird es schon mal laut und emotional, aber wir lachen auch kräftig.</font>
+                                    <font size="3">These 1: {{ $question18_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -861,7 +861,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Bei uns geht es formell und geschäftsmäßig zu.</font>
+                                    <font size="3">These 2: {{ $question18_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -895,7 +895,7 @@
                         <div id="collapse19" class="collapse" role="tabpanel" aria-labelledby="heading19" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Bei uns gibt es klare Vorgaben. Unsere Aufgabe ist es, die Entscheidungen sauber umzusetzen.</font>
+                                    <font size="3">These 1: {{ $question19_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -908,7 +908,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Jeder ist aufgefordert zu widersprechen, auch dem Chef, wenn ihm etwas nicht plausibel erscheint. Tragfähige Entscheidungen entstehen nur in offenen Auseinandersetzungen.</font>
+                                    <font size="3">These 2: {{ $question19_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -942,7 +942,7 @@
                         <div id="collapse20" class="collapse" role="tabpanel" aria-labelledby="heading20" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Bei der Vielzahl der Absprachen kommt es schon mal vor, dass etwas übersehen wird. Wir steuern dann nach.</font>
+                                    <font size="3">These 1: {{ $question20_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -955,7 +955,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Auf Absprachen kann man sich bei uns verlassen. Wir müssen wenig nachsteuern.</font>
+                                    <font size="3">These 2: {{ $question20_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>

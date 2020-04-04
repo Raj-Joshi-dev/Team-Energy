@@ -25,7 +25,7 @@ Route::view('main','test.select')->name('main')->middleware('auth');
 // Questions for Ich Im Team-Privater Bereich
 
 
-Route::view('ich-im-team1','test.ichimteam1')->name('ichimteam1')->middleware('auth');
+Route::get('ich-im-team1','QuestionsController@add_ichimteam1')->name('ichimteam1')->middleware('auth');
 
 Route::post('test1','ResultController@store')->name('store');
 
@@ -35,13 +35,13 @@ Route::view('success','success')->name('success');
 
 // Questions for Ich Im Team-Beruflicher Bereich
 
-Route::view('ich-im-team2','test.ichimteam2')->name('ichimteam2')->middleware('auth');
+Route::get('ich-im-team2','QuestionsController@add_ichimteam2')->name('ichimteam2')->middleware('auth');
 
 Route::post('test2','ResultController@store2')->name('store2');
 
 // Questions for Kultur im Team
 
-Route::view('kultur-im-team','test.kulturimteam')->name('kulturimteam');
+Route::get('kultur-im-team','QuestionsController@add_kulturimteam')->name('kulturimteam');
 
 Route::post('test3','ResultController@store3')->name('store3');
 

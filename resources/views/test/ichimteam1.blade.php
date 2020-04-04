@@ -26,7 +26,7 @@
                     <h2>Ich im Team - Privater Bereich</h2>
                 </div>
                 <div class="answerList">
-                    <h3>Bitte wählen Sie im folgenden, bei jeder Frage zuerst eine der beiden Thesen aus. <br> Danach entscheiden Sie in der ausgewählten Theses zwischen  <span style="color: red; "><b>„Ja“ oder „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h3>
+                    <h3>Bitte wählen Sie im folgenden, bei jeder Frage zuerst eine der beiden Thesen aus. <br> Danach entscheiden Sie in der ausgewählten Theses zwischen <span style="color: red; "><b>„Ja“ oder „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h3>
                 </div>
 
                 <!--Accordion wrapper-->
@@ -48,7 +48,7 @@
                         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Ich fahre gerne an ein bekanntes und bewährtes Urlaubsziel zurück. Da weiß ich was ich habe.</font>
+                                    <font size="3">These 1: {{ $question1_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -61,7 +61,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Im Urlaub suche ich neue unbekannte Ziele. Mich reizt das Neue.</font>
+                                    <font size="3">These 2: {{ $question1_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -95,7 +95,7 @@
                         <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Ich bevorzuge ausgesuchte Bekanntschaften und Gespräche mit Tiefgang.</font>
+                                    <font size="3">These 1: {{ $question2_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -108,7 +108,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Mich interessieren neue Bekanntschaften und schnell ins Gespräch zu kommen.</font>
+                                    <font size="3">These 2: {{ $question2_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -142,7 +142,7 @@
                         <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Jeder hat mal einen schlechten Tag. Dafür zeige ich auch Verständnis.</font>
+                                    <font size="3">These 1: {{ $question3_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -155,7 +155,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Auch als Privatperson bin ich Rollenwerwartungen ausgesetzt. Schwäche und Rückzug akzeptiere ich nicht.</font>
+                                    <font size="3">These 2: {{ $question3_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -189,7 +189,7 @@
                         <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Ich habe meinen privaten Bereich weitgehend durchdacht und geordnet. Um mich richtig wohl zu fühlen brauche ich ein gewisses Maß an Berechenbarkeit und Sicherheit.</font>
+                                    <font size="3">These 1: {{ $question4_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -202,7 +202,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Im privaten Bereich bin ich eher spontan und flexibel. Mein Privatbereich soll Aufregendes und Überraschungen bieten.</font>
+                                    <font size="3">These 2: {{ $question4_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -236,7 +236,7 @@
                         <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Bei uns zuhause gibt es ein paar feste Regeln (Essenszeiten, Familienzeiten,..), die uns helfen ein erfülltes Familienleben zu haben.</font>
+                                    <font size="3">These 1: {{ $question5_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -249,7 +249,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Bei uns zuhause geht es vor allem nach Zweckmäßigkeit. Wer Hunger hat, isst etwas, .. usw.</font>
+                                    <font size="3">These 2: {{ $question5_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -283,7 +283,7 @@
                         <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wenn wir in einer großen Gruppe Essen gehen, finde ich es eine schöne Geste, wenn wir die Rechnung durch die Anzahl der Köpfe teilen – auch wenn ich mehr zahle als ich konsumiert habe.</font>
+                                    <font size="3">These 1: {{ $question6_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -296,7 +296,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Mir ist es lieber, wenn jeder seine eigene Rechnung zahlt. Ich will weder von anderen „subventioniert“ werden, noch für andere mitzahlen.</font>
+                                    <font size="3">These 2: {{ $question6_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -330,7 +330,7 @@
                         <div id="collapse7" class="collapse" role="tabpanel" aria-labelledby="heading7" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Vertrautes Miteinander ist mir wichtiger als persönliche Interessen.</font>
+                                    <font size="3">These 1: {{ $question7_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -343,7 +343,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Meine persönlichen Hobbies und Interessen sind meine stärktste Kraftquelle.</font>
+                                    <font size="3">These 2: {{ $question7_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -377,7 +377,7 @@
                         <div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="heading8" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wenn ich mich mit Freunden treffen will, machen wir meist einen Termin aus.</font>
+                                    <font size="3">These 1: {{ $question8_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -390,7 +390,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Mit Freunden treffe ich mich meist spontan?</font>
+                                    <font size="3">These 2: {{ $question8_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -424,7 +424,7 @@
                         <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Geld ist Mittel zum Zweck. In einer Notlage würde ich Freunden und Angehörigen helfen oder mir helfen lassen.</font>
+                                    <font size="3">These 1: {{ $question9_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -437,7 +437,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Ein finanzielles Polster ist wichtig für die Unabhängigkeit. Jeder ist verantwortlich für Notlagen vorzusorgen.</font>
+                                    <font size="3">These 2: {{ $question9_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -471,7 +471,7 @@
                         <div id="collapse10" class="collapse" role="tabpanel" aria-labelledby="heading10" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Die Welt wird besser, wenn jeder mehr auf seine Mitmenschen eingeht.</font>
+                                    <font size="3">These 1: {{ $question10_these1 }}}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -484,7 +484,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Die Welt wird besser, wenn jeder bei sich selbst anfängt, Dinge besser zu machen.</font>
+                                    <font size="3">These 2: {{ $question10_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -518,7 +518,7 @@
                         <div id="collapse11" class="collapse" role="tabpanel" aria-labelledby="heading11" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Manchmal halte ich notwendige Kritik zurück, weil ich Andere nicht verletzen will.</font>
+                                    <font size="3">These 1: {{ $question11_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -531,7 +531,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Für eine wirklich gute und stabile Beziehung halte ich es für notwendig, dass ich auch offen die Meinung sage.</font>
+                                    <font size="3">These 2: {{ $question11_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -566,7 +566,7 @@
                         <div id="collapse12" class="collapse" role="tabpanel" aria-labelledby="heading12" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Auf Schwächere muss man Rücksicht nehmen.</font>
+                                    <font size="3">These 1: {{ $question12_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -579,7 +579,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Auch Schwächere müssen sich bemühen und dürfgen es sich nicht bequem machen. </font>
+                                    <font size="3">These 2: {{ $question12_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -613,7 +613,7 @@
                         <div id="collapse13" class="collapse" role="tabpanel" aria-labelledby="heading13" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Im Sport tobe ich mich so richtig aus</font>
+                                    <font size="3">These 1: {{ $question13_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -626,7 +626,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Im Sport habe ich ein Trainingsprogramm und ein klares Ziel</font>
+                                    <font size="3">These 2:  {{ $question13_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -660,7 +660,7 @@
                         <div id="collapse14" class="collapse" role="tabpanel" aria-labelledby="heading14" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Man sollte Dinge ausdiskutieren, bis ein Kompromiss gefunden ist, mit dem Alle leben können.</font>
+                                    <font size="3">These 1: {{ $question14_these1 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -673,7 +673,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wenn nach einer angemessenen Zeit keine Einigung zu erzielen ist, sollte einfach abgestimmt werden.</font>
+                                    <font size="3">These 2: {{ $question14_these2 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -707,7 +707,7 @@
                         <div id="collapse15" class="collapse" role="tabpanel" aria-labelledby="heading15" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Wenn jemand aus meinem Bekanntenkreis ein Problem hat, bin ich oft ein Ansprechpartner, der Trost spendet.</font>
+                                    <font size="3">These 1: {{ $question15_these1 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -720,7 +720,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Ich versuche Hilfe zur Selbsthilfe zu geben. Am Ende muss jeder lernen, sich selbst zu helfen.</font>
+                                    <font size="3">These 2: {{ $question15_these2 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -754,7 +754,7 @@
                         <div id="collapse16" class="collapse" role="tabpanel" aria-labelledby="heading16" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Ich vertraue meinem Partner/meinem besten Freund 100% und hinterfrage nicht.</font>
+                                    <font size="3">These 1: {{ $question16_these1 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -767,7 +767,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Jeder Mensch ist Versuchungen ausgesetzt. Es ist weltfremd und unverantwortlich, blind zu vertrauen.</font>
+                                    <font size="3">These 2: {{ $question16_these2 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -801,7 +801,7 @@
                         <div id="collapse17" class="collapse" role="tabpanel" aria-labelledby="heading17" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Beim Skifahren sollte der Langsamste das Tempo bestimmen.</font>
+                                    <font size="3">These 1: {{ $question17_these1 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -814,7 +814,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Es sollten Leistungsgruppen gebildet werden. Man kann sich ja in Abständen treffen.</font>
+                                    <font size="3">These 2: {{ $question17_these2 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -848,7 +848,7 @@
                         <div id="collapse18" class="collapse" role="tabpanel" aria-labelledby="heading18" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: In Liebesfragen orientiere ich mich rein nach meinem Bauchgefühl.</font>
+                                    <font size="3">These 1: {{ $question18_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -861,7 +861,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Eine langfristig erfüllende Beziehung ist nur möglich, wenn gleichartige Grundhaltungen und gemeinsame Ziele gegeben sind.</font>
+                                    <font size="3">These 2: {{ $question18_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -895,7 +895,7 @@
                         <div id="collapse19" class="collapse" role="tabpanel" aria-labelledby="heading19" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Ich spende gerne und oft.</font>
+                                    <font size="3">These 1: {{ $question19_these1 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -908,7 +908,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wenn Personen unverschuldet in Not geraten helfe ich gezielt.</font>
+                                    <font size="3">These 2: {{ $question19_these2 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -942,7 +942,7 @@
                         <div id="collapse20" class="collapse" role="tabpanel" aria-labelledby="heading20" data-parent="#accordionEx1">
                             <div class="card-body">
                                 <div class="questions">
-                                    <font size="3">These 1: Ich spende gerne und oft.</font>
+                                    <font size="3">These 1: {{ $question20_these1 }} </font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -955,7 +955,7 @@
                                     </li>
                                 </ul>
                                 <div class="questions">
-                                    <font size="3">These 2: Wenn Personen unverschuldet in Not geraten helfe ich gezielt.</font>
+                                    <font size="3">These 2: {{ $question20_these2 }}</font>
                                 </div>
                                 <ul class="answerList">
                                     <li>
@@ -972,7 +972,6 @@
 
                     </div>
                     <!-- Accordion card -->
-
                 </div>
                 <!-- Accordion wrapper -->
                 <br>

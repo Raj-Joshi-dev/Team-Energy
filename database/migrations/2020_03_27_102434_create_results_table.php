@@ -14,10 +14,13 @@ class CreateResultsTable extends Migration
     public function up()
     {
         Schema::create('results', function (Blueprint $table) {
-            $table->increments('answer_id');
-            $table->integer('user_id')->unsigned();
+            $table->bigIncrements('answer_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->integer('kat_id');
+            $table->unsignedBigInteger('kat_id');
+            $table->foreign('kat_id')->references('kat_id')->on('categories');
+            //$table->string('group')->unsigned();
+            //$table->foreign('group')->references('group')->on('users');
             $table->integer('answerGroup1');
             $table->integer('answerGroup2');
             $table->integer('answerGroup3');
