@@ -4,7 +4,7 @@ Team Energy is a project focusing on human science and team work. It analyzes pe
 
 ## Build status
 
-Work in Progress - Local hostmachine
+Local hostmachine
 
 ## Tech/framework used
 
