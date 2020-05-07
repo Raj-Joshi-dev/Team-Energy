@@ -13,6 +13,6 @@
 
     <p style="font-size:120%;">oder</p>
 
-    <p style="font-size:120%;">der E-Mail Adresse buero@compass-training.de</p>
+    <p style="font-size:120%;">der E-Mail Adresse kretschmar@compass-training.de</p>
 </div>
 @endsection

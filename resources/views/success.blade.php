@@ -24,12 +24,14 @@
     </div>
   </div>
   <div align="center">
-    <button type="button" id="download-pdf">Download PDF</button>
+    <button type="button" id="download-pdf">Ergebnis Herunterladen</button>
   </div>
 
 
-  <script>
+  <script type="application/javascript">
     window.onload = function() {
+      var x_value = @json($x);
+      var y_value = @json($y);
       var ctx = document.getElementById("bubbleChart").getContext('2d');
       window.myBubble = new Chart(ctx, {
         type: 'bubble',
@@ -60,9 +62,9 @@
               },
               // change value below
               {
-                x: 8,
-                y: 3,
-                r: 50,
+                x: x_value,
+                y: y_value,
+                r: 60,
               }
             ],
           }]

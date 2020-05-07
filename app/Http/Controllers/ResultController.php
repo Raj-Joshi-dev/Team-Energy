@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Key;
 use App\Result;
+use App\ResultAnswer;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ResultController extends Controller
 {
@@ -36,162 +41,164 @@ class ResultController extends Controller
      */
     public function store(Request $request)
     {
+
+        //dd($request->all());
+
+        //$arr = serialize($request['answer']);
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'answer.1' => 'required',
+                'answer.2' => 'required',
+                'answer.3' => 'required',
+                'answer.4' => 'required',
+                'answer.5' => 'required',
+                'answer.6' => 'required',
+                'answer.7' => 'required',
+                'answer.8' => 'required',
+                'answer.9' => 'required',
+                'answer.10' => 'required',
+                'answer.11' => 'required',
+                'answer.12' => 'required',
+                'answer.13' => 'required',
+                'answer.14' => 'required',
+                'answer.15' => 'required',
+                'answer.16' => 'required',
+                'answer.17' => 'required',
+                'answer.18' => 'required',
+                'answer.19' => 'required',
+                'answer.20' => 'required',
+                'answer.*' => 'required|string|in:positive_x,positive_y,negative_x,negative_y',
+            ],
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $keys = Key::get();
+        $result = new Result();
+
+        $result->user_id = Auth::id();
+
+        $result->kat_id = 1;
+
+        $result->save();
+
+
+        foreach ($request->input('answer') as $key => $answer) {
+
+            $ans = new ResultAnswer();
+
+            $ans->user_id = Auth::id();
+
+            $databaseValue = $keys->firstWhere('tid', $key)->$answer;
+
+            $ans->result_id = $result->id;
+
+            $ans->axis = $answer;
+
+            $ans->value = $databaseValue;
+
+            $ans->answer_id = $key;
+
+            $ans->save();
+        }
+
+        return redirect()->action('ResultController@result', $id = $result->id);
+    }
+
+    public function result($id)
+    {
+
+        $data = ResultAnswer::where('result_id', $id)
+            ->groupBy('axis')
+            ->selectRaw('axis,SUM(value) AS value')
+            ->get();
+
+        $x = optional($data->where('axis', 'negative_x')->first())->value - optional($data->where('axis', 'positive_x')->first())->value;
+        $y = optional($data->where('axis', 'negative_y')->first())->value - optional($data->where('axis', 'positive_y')->first())->value;
+
+        return view('success', compact('x', 'y'));
+    }
+
+    public function store2(Request $request)
+    {
+
+
         $data = request()->validate([
-            'answerGroup1' => 'required',
-            'answerGroup2' => 'required',
-            'answerGroup3' => 'required',
-            'answerGroup4' => 'required',
-            'answerGroup5' => 'required',
-            'answerGroup6' => 'required',
-            'answerGroup7' => 'required',
-            'answerGroup8' => 'required',
-            'answerGroup9' => 'required',
-            'answerGroup10' => 'required',
-            'answerGroup11' => 'required',
-            'answerGroup12' => 'required',
-            'answerGroup13' => 'required',
-            'answerGroup14' => 'required',
-            'answerGroup15' => 'required',
-            'answerGroup16' => 'required',
-            'answerGroup17' => 'required',
-            'answerGroup18' => 'required',
-            'answerGroup19' => 'required',
-            'answerGroup20' => 'required',
+            'answer[1]' => 'required',
+            'answer[2]' => 'required',
+            'answer[3]' => 'required',
+            'answer[4]' => 'required',
+            'answer[5]' => 'required',
+            'answer[6]' => 'required',
+            'answer[7]' => 'required',
+            'answer[8]' => 'required',
+            'answer[9]' => 'required',
+            'answer[10]' => 'required',
+
         ]);
 
-        $answer = new Result();
+        $answer = new Result($data);
 
-        $answer->user_id = auth()->user()->user_id; 
-        $answer->kat_id = 1;
-        $answer->answerGroup1 = $request->input('answerGroup1');
-        $answer->answerGroup2 = $request->input('answerGroup2');
-        $answer->answerGroup3 = $request->input('answerGroup3');
-        $answer->answerGroup4 = $request->input('answerGroup4');
-        $answer->answerGroup5 = $request->input('answerGroup5');
-        $answer->answerGroup6 = $request->input('answerGroup6');
-        $answer->answerGroup7 = $request->input('answerGroup7');
-        $answer->answerGroup8 = $request->input('answerGroup8');
-        $answer->answerGroup9 = $request->input('answerGroup9');
-        $answer->answerGroup10 = $request->input('answerGroup10');
-        $answer->answerGroup11 = $request->input('answerGroup11');
-        $answer->answerGroup12 = $request->input('answerGroup12');
-        $answer->answerGroup13 = $request->input('answerGroup13');
-        $answer->answerGroup14 = $request->input('answerGroup14');
-        $answer->answerGroup15 = $request->input('answerGroup15');
-        $answer->answerGroup16 = $request->input('answerGroup16');
-        $answer->answerGroup17 = $request->input('answerGroup17');
-        $answer->answerGroup18 = $request->input('answerGroup18');
-        $answer->answerGroup19 = $request->input('answerGroup19');
-        $answer->answerGroup20 = $request->input('answerGroup20');
-        
+        $answer->user_id = auth()->user()->user_id;
+        $answer->kat_id = 2;
+
+        $answer->answerGroup11 = '';
+        $answer->answerGroup12 = '';
+        $answer->answerGroup13 = '';
+        $answer->answerGroup14 = '';
+        $answer->answerGroup15 = '';
+        $answer->answerGroup16 = '';
+        $answer->answerGroup17 = '';
+        $answer->answerGroup18 = '';
+        $answer->answerGroup19 = '';
+        $answer->answerGroup20 = '';
+
         $answer->save();
-        
+
         return view('success');
     }
 
-    public function store2(Request $request){
-
-
-        $data = request()->validate([
-            'answerGroup1' => 'required',
-            'answerGroup2' => 'required',
-            'answerGroup3' => 'required',
-            'answerGroup4' => 'required',
-            'answerGroup5' => 'required',
-            'answerGroup6' => 'required',
-            'answerGroup7' => 'required',
-            'answerGroup8' => 'required',
-            'answerGroup9' => 'required',
-            'answerGroup10' => 'required',
-        ]);
-
-            $answer = new Result();
-    
-            $answer->user_id = auth()->user()->user_id; 
-            $answer->kat_id = 2;
-            $answer->answerGroup1 = $request->input('answerGroup1');
-            $answer->answerGroup2 = $request->input('answerGroup2');
-            $answer->answerGroup3 = $request->input('answerGroup3');
-            $answer->answerGroup4 = $request->input('answerGroup4');
-            $answer->answerGroup5 = $request->input('answerGroup5');
-            $answer->answerGroup6 = $request->input('answerGroup6');
-            $answer->answerGroup7 = $request->input('answerGroup7');
-            $answer->answerGroup8 = $request->input('answerGroup8');
-            $answer->answerGroup9 = $request->input('answerGroup9');
-            $answer->answerGroup10 = $request->input('answerGroup10');
-            $answer->answerGroup11 = '0';
-            $answer->answerGroup12 = '0';
-            $answer->answerGroup13 = '0';
-            $answer->answerGroup14 = '0';
-            $answer->answerGroup15 = '0';
-            $answer->answerGroup16 = '0';
-            $answer->answerGroup17 = '0';
-            $answer->answerGroup18 = '0';
-            $answer->answerGroup19 = '0';
-            $answer->answerGroup20 = '0';
-            
-            $answer->save();
-            
-            return view('success'); 
-            
-    
-    }  
-    
-    public function store3(Request $request){
+    public function store3(Request $request)
+    {
 
         $data = request()->validate([
-            'answerGroup1' => 'required',
-            'answerGroup2' => 'required',
-            'answerGroup3' => 'required',
-            'answerGroup4' => 'required',
-            'answerGroup5' => 'required',
-            'answerGroup6' => 'required',
-            'answerGroup7' => 'required',
-            'answerGroup8' => 'required',
-            'answerGroup9' => 'required',
-            'answerGroup10' => 'required',
-            'answerGroup11' => 'required',
-            'answerGroup12' => 'required',
-            'answerGroup13' => 'required',
-            'answerGroup14' => 'required',
-            'answerGroup15' => 'required',
-            'answerGroup16' => 'required',
-            'answerGroup17' => 'required',
-            'answerGroup18' => 'required',
-            'answerGroup19' => 'required',
-            'answerGroup20' => 'required',
+            'answerGroup1' => '',
+            'answerGroup2' => '',
+            'answerGroup3' => '',
+            'answerGroup4' => '',
+            'answerGroup5' => '',
+            'answerGroup6' => '',
+            'answerGroup7' => '',
+            'answerGroup8' => '',
+            'answerGroup9' => '',
+            'answerGroup10' => '',
+            'answerGroup11' => '',
+            'answerGroup12' => '',
+            'answerGroup13' => '',
+            'answerGroup14' => '',
+            'answerGroup15' => '',
+            'answerGroup16' => '',
+            'answerGroup17' => '',
+            'answerGroup18' => '',
+            'answerGroup19' => '',
+            'answerGroup20' => '',
         ]);
 
-            $answer = new Result();
-    
-            $answer->user_id = auth()->user()->user_id; 
-            $answer->kat_id = 3;
-            $answer->answerGroup1 = $request->input('answerGroup1');
-            $answer->answerGroup2 = $request->input('answerGroup2');
-            $answer->answerGroup3 = $request->input('answerGroup3');
-            $answer->answerGroup4 = $request->input('answerGroup4');
-            $answer->answerGroup5 = $request->input('answerGroup5');
-            $answer->answerGroup6 = $request->input('answerGroup6');
-            $answer->answerGroup7 = $request->input('answerGroup7');
-            $answer->answerGroup8 = $request->input('answerGroup8');
-            $answer->answerGroup9 = $request->input('answerGroup9');
-            $answer->answerGroup10 = $request->input('answerGroup10');
-            $answer->answerGroup11 = $request->input('answerGroup11');
-            $answer->answerGroup12 = $request->input('answerGroup12');
-            $answer->answerGroup13 = $request->input('answerGroup13');
-            $answer->answerGroup14 = $request->input('answerGroup14');
-            $answer->answerGroup15 = $request->input('answerGroup15');
-            $answer->answerGroup16 = $request->input('answerGroup16');
-            $answer->answerGroup17 = $request->input('answerGroup17');
-            $answer->answerGroup18 = $request->input('answerGroup18');
-            $answer->answerGroup19 = $request->input('answerGroup19');
-            $answer->answerGroup20 = $request->input('answerGroup20');
-            
-            $answer->save();
-            
-            return view('success'); 
-    
-    }     
+        $answer = new Result($data);
+
+        $answer->user_id = auth()->user()->user_id;
+        $answer->kat_id = 3;
+
+        $answer->save();
+
+        return view('success');
+    }
 
     /**
      * Display the specified resource.

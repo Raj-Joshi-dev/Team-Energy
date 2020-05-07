@@ -10,4 +10,6 @@ class Question extends Model
         'these1', 'these2'
     ];
 
+    protected $primaryKey = 'tid';
+
 }

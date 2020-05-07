@@ -26,7 +26,7 @@
                     <h2>Ich im Team - Beruflicher Bereich</h2>
                 </div>
                 <div class="answerList">
-                    <h3>Bitte wählen Sie im folgenden, bei jeder Frage zuerst eine der beiden Thesen aus. <br> Danach entscheiden Sie in der ausgewählten Theses zwischen  <span style="color: red; "><b>„Ja“ oder „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h3>
+                    <h3>Bitte wählen Sie im folgenden, bei jeder Frage zuerst eine der beiden Thesen aus. <br> Danach entscheiden Sie in der ausgewählten Theses zwischen <span style="color: red; "><b>„Ja“ oder „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h3>
                 </div>
 
                 <!--Accordion wrapper-->
@@ -508,16 +508,16 @@
                 <!-- Accordion wrapper -->
                 <br>
                 <div class="container text-center bottom">
-                    <div style="font-size:140%">{{ $errors->first('answerGroup1') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup2') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup3') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup4') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup5') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup6') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup7') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup8') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup9') }}</div>
-                    <div style="font-size:140%">{{ $errors->first('answerGroup10') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[¹]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[2]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[3]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[4]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[5]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[6]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[7]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[8]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[9]') }}</div>
+                    <div style="font-size:140%">{{ $errors->first('answer[10]') }}</div>
                 </div>
                 <div class="container text-center bottom">
                     <button id="submit-btn" style="font-size:150%" class="btn btn-primary btn-lg" value="data">Senden</button>

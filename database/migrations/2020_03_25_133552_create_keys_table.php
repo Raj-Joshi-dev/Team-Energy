@@ -15,15 +15,12 @@ class CreateKeysTable extends Migration
     {
         Schema::create('keys', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('tid');
-            $table->float('stabilitaetl');
-            $table->float('flexibilitaetl');
-            $table->float('selbstverwirklichungl');
-            $table->float('gemeinsinnl');
-            $table->float('stabilitaetr');
-            $table->float('flexibilitaetr');
-            $table->float('selbstverwirklichungr');
-            $table->float('gemeinsinnr');
+            $table->unsignedBigInteger('tid');
+            $table->foreign('tid')->references('tid')->on('questions');
+            $table->float('positive_x');
+            $table->float('negative_x');
+            $table->float('positive_y');
+            $table->float('negative_y');
 
 
         });

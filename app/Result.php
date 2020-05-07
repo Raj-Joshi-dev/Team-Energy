@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Result extends Model
 {
-    
-    protected $primaryKey = 'answer_id';
+
+    protected $guarded = [];
 
     public function users()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function result_answers()
+    {
+        return $this->hasMany(ResultAnswer::class);
     }
 }
