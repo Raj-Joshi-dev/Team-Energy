@@ -22,7 +22,7 @@ Local hostmachine
 ## Credits
 
 -   [Coders Tape](https://coderstape.com/)
--   [Matthijs Huisman] (https://github.com/Matthijs-Huisman)
+-   [Matthijs Huisman](https://github.com/Matthijs-Huisman)
 -   Jopaul John
 -   [Laravel Group](https://t.me/laravel_worldwide)
 
