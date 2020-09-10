@@ -1,190 +1,212 @@
+@extends('layouts.app')
+
+@section('content')
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
-  <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-  <title></title>
+  <script  data-require="d3@3.5.17" data-semver="3.5.17" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <style>
-    button {
-      margin-top: 30px;
-      padding: 10px 20px;
-      border-radius: 0;
+    body {
+      font: 15px Arial;
+    }
+
+    path {
+      stroke: steelblue;
+      stroke-width: 2;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: grey;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
     }
   </style>
 </head>
 
 <body>
-
   <div align="center">
-    <div style="width:85%">
-      <canvas id="bubbleChart"></canvas>
-    </div>
+    <div id="graph"></div>
+    <button id="download">Downloaden PDF</button>
   </div>
-  <div align="center">
-    <button type="button" id="download-pdf">Ergebnis Herunterladen</button>
-  </div>
-
-
-  <script type="application/javascript">
-    window.onload = function() {
-      var x_value = @json($x);
-      var y_value = @json($y);
-      var ctx = document.getElementById("bubbleChart").getContext('2d');
-      window.myBubble = new Chart(ctx, {
-        type: 'bubble',
-        data: {
-          datasets: [{
-            label: ["Ich im Team - Privater Bereich"],
-            backgroundColor: "rgba(193,46,12,0.2)",
-            borderColor: "rgba(193,46,12,1)",
-            data: [{
-                x: -10,
-                y: -10,
-                r: 0,
-              },
-              {
-                x: 10,
-                y: 10,
-                r: 0,
-              },
-              {
-                x: -10,
-                y: 10,
-                r: 0,
-              },
-              {
-                x: 10,
-                y: -10,
-                r: 0,
-              },
-              // change value below
-              {
-                x: x_value,
-                y: y_value,
-                r: 60,
-              }
-            ],
-          }]
-        },
-        options: {
-          responsive: true,
-          legend: {
-            display: true,
-            boxWidth: 50,
-            fontSize: 40,
-            position: 'bottom'
-          },
-          title: {
-            display: true,
-            position: 'top',
-            fontSize: 20,
-            text: 'Ich im Team Results!'
-          },
-          scales: {
-            yAxes: [{
-                type: 'linear',
-                position: 'left',
-                scaleLabel: {
-                  display: true,
-                  fontStyle: 'bold',
-                  fontSize: 20,
-                  fontColor: 'rgba(0,0,0,1)',
-                  labelString: 'Gemeinsinn',
-                  padding: 4
-                },
-                ticks: {
-                  display: false,
-                  autoSkip: false,
-                  minRotation: 90,
-                  maxRotation: 90,
-                  beginAtZero: true,
-                  maxTicksLimit: 3
-                }
-              },
-              {
-                type: 'linear',
-                position: 'right',
-                scaleLabel: {
-                  display: true,
-                  fontStyle: 'bold',
-                  fontColor: 'rgba(0,0,0,1)',
-                  fontSize: 20,
-                  labelString: "Selbstverwirklichung",
-                  padding: 4
-                },
-                ticks: {
-                  display: false,
-                  autoSkip: false,
-                  minRotation: 90,
-                  maxRotation: 90,
-                  maxTicksLimit: 3
-                },
-              }
-            ],
-            xAxes: [{
-                type: 'linear',
-                display: 'true',
-                position: 'top',
-                scaleLabel: {
-                  display: true,
-                  fontStyle: 'bold',
-                  fontSize: 20,
-                  fontColor: 'rgba(0,0,0,1)',
-                  labelString: 'Stabilität'
-                },
-                ticks: {
-                  display: false,
-                  maxRotation: 0,
-                  beginAtZero: true,
-                  maxTicksLimit: 3
-                }
-              },
-              {
-                display: true,
-                position: 'bottom',
-                scaleLabel: {
-                  display: true,
-                  fontStyle: 'bold',
-                  fontSize: 20,
-                  fontColor: 'rgba(0,0,0,1)',
-                  labelString: "Flexibilität"
-                },
-                ticks: {
-                  display: false,
-                  maxRotation: 0,
-                  position: 'right',
-                  beginAtZero: true,
-                  maxTicksLimit: 3
-                },
-                gridLines: {
-                  display: true,
-                  zeroLineColor: 'rgba(0,0,0,1)'
-                }
-              }
-            ],
-          }
-        }
-      });
-    };
-
-    var canvas = document.querySelector('#bubbleChart');
-    var context = canvas.getContext('2d');
-
-    document.getElementById('download-pdf').addEventListener("click", downloadPDF);
-
-    function downloadPDF() {
-      var canvas = document.querySelector('#bubbleChart');
-      var canvasImg = canvas.toDataURL("image/png", 1.0);
-
-      var doc = new jsPDF('landscape');
-      doc.setFontSize(20);
-      doc.addImage(canvasImg, 'PNG', 10, 10, 280, 150);
-      doc.save('YourResult.pdf');
-    }
-  </script>
+  <svg></svg>
+  <canvas id="canvasId"></canvas>
 </body>
+<script type="application/javascript">
+  // graph dimensions
+  var width = 750,
+    height = 750,
+    padding = 70;
+
+  // svg container
+  var vis = d3.select("#graph")
+    .append("svg:svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  var xScale = d3.scale.linear().domain([1, -1]).range([width - padding, padding]);
+  var yScale = d3.scale.linear().domain([-1, 1]).range([height - padding, padding]);
+
+  // y axis
+  var yAxis = d3.svg.axis()
+    .orient("left")
+    .tickValues([])
+    .scale(yScale);
+
+  // x axis
+  var xAxis = d3.svg.axis()
+    .orient("bottom")
+    .tickValues([])
+    .scale(xScale);
+
+
+  var xAxisPlot = vis.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + (height / 2) + ")")
+    .call(xAxis) //.tickSize(-height, 0));
+
+  var yAxisPlot = vis.append("g")
+    .attr("class", "axis axis--y")
+    .attr("transform", "translate(" + (width / 2) + ",0)")
+    .call(yAxis) //.tickSize(-width, 0));
+
+  var x_quad1 = @json($quadrant1_x);
+  var y_quad1 = @json($quadrant1_y);
+
+  var x_quad2 = @json($quadrant2_x);
+  var y_quad2 = @json($quadrant2_y);
+
+  var x_quad3 = @json($quadrant3_x);
+  var y_quad3 = @json($quadrant3_y);
+
+  var x_quad4 = @json($quadrant4_x);
+  var y_quad4 = @json($quadrant4_y);
+
+  var data = [{
+    x: x_quad1,
+    y: y_quad1
+  }, {
+    x: x_quad2,
+    y: y_quad2
+  }, {
+    x: x_quad3,
+    y: y_quad3
+  }, {
+    x: x_quad4,
+    y: y_quad4
+  }];
+
+  var data2 = data.concat([{
+    x: d3.sum(data, d => d.x) / data.length,
+    y: d3.sum(data, d => d.y) / data.length
+  }]);
+
+  vis.selectAll(".xaxis text") // select all the text elements for the xaxis
+    .attr("transform", function(d) {
+      return "translate(" + this.getBBox().height * -2 + "," + this.getBBox().height + ")rotate(-45)";
+    });
+
+  vis.append("text")
+    .attr("text-anchor", "midde")
+    .attr("transform", "translate(30,370)")
+    .text("Gemeinsinn");
+
+  vis.append("text")
+    .attr("text-anchor", "midde")
+    .attr("transform", "translate(345,700)")
+    .text("Flexibilität");
+
+  vis.append("text")
+    .attr("text-anchor", "midde")
+    .attr("transform", "translate(345,60)")
+    .text("Stabilität");
+
+  vis.append("text")
+    .attr("text-anchor", "midde")
+    .attr("transform", "translate(600,370)")
+    .text("Selbstverwirklichung");
+
+  vis.selectAll(".point")
+    .data(data)
+    .enter().append("circle")
+    .attr("class", "point")
+    .attr("r", 5)
+    .style("fill", "steelblue")
+    .attr("cx", function(d) {
+      return xScale(d.x);
+    })
+    .attr("cy", function(d) {
+      return yScale(d.y);
+    });
+
+  vis.append('path')
+    .datum(data)
+    .attr('fill', '#00FFFF')
+    .attr("opacity", "0.5")
+    .attr('stroke', '#69b3a2')
+    .attr('stroke-width', 1.5)
+    .attr('d', d => d3.svg.line()
+      .x(d => xScale(d.x))
+      .y(d => yScale(d.y))(d) + 'Z')
+
+  vis.selectAll(".point")
+    .data(data2)
+    .enter().append("circle")
+    .attr("class", "point")
+    .attr("r", 5)
+    .style("fill", "red")
+    .attr("cx", function(d) {
+      return xScale(d.x);
+    })
+    .attr("cy", function(d) {
+      return yScale(d.y);
+    });
+
+  const svgToPdfExample = (svg) => {
+    const doc = new window.PDFDocument();
+    const chunks = [];
+    const stream = doc.pipe({
+      // writable stream implementation
+      write: (chunk) => chunks.push(chunk),
+      end: () => {
+        const pdfBlob = new Blob(chunks, {
+          type: "application/pdf",
+        });
+        var blobUrl = URL.createObjectURL(pdfBlob);
+        //window.open(`${blobUrl}?customfilename.pdf`);
+
+        /* custom file name download */
+        const a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = blobUrl;
+        a.download = "graph.pdf"; // <---- 👈 file name
+        a.click();
+        window.URL.revokeObjectURL(url);
+      },
+      // readable streaaam stub iplementation
+      on: (event, action) => {},
+      once: (...args) => {},
+      emit: (...args) => {},
+    });
+
+    window.SVGtoPDF(doc, svg, 0, 0);
+
+    doc.end();
+  };
+
+  document.getElementById("download").addEventListener("click", function() {
+    const svgElement = document.getElementById("graph");
+    svgToPdfExample(svgElement.innerHTML);
+  });
+</script>
 
 </html>
+@endsection

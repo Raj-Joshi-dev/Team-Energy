@@ -19,8 +19,11 @@ class CreateResultAnswersTable extends Migration
             $table->bigInteger('result_id')->unsigned();
             $table->foreign('result_id')->references('result_id')->on('results');
             $table->integer('answer_id');
-            $table->string('axis');
-            $table->float('value');
+            $table->string('points');
+            $table->decimal('value_x');
+            $table->decimal('value_y');
+            $table->string('name');
+            $table->integer('quadrant');
             $table->timestamps();
         });
     }

@@ -48,6 +48,15 @@ Route::get('kultur-im-team', 'QuestionsController@add_kulturimteam')->name('kult
 Route::post('test3', 'ResultController@store3')->name('store3');
 
 
+// Testing
+
+//Route::get('test', 'QuestionsController@add_ichimteam1')->name('test')->middleware('auth');
+
+//Route::post('test', 'ResultController@test')->name('test');
+
+//Route::get('result={id}', 'ResultController@graph')->name('graph')->middleware('auth');
+
+
 
 
 Auth::routes();

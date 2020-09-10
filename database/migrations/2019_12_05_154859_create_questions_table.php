@@ -16,7 +16,6 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('tid');
             $table->integer('kat_id');
-            $table->integer('sub_id');
             $table->string('these1');
             $table->string('these2');
         });

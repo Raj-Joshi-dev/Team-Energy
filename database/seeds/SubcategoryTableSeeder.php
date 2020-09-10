@@ -12,214 +12,365 @@ class SubcategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 1,
-            'kat_id' => 1,
-            'namel' => 'Sicherheit',
-            'namer' => 'Freiheit'
+            'tid' => 1,
+            'name' => 'Sicherheit',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 1
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 2,
-            'kat_id' => 1,
-            'namel' => 'Unterordnung',
-            'namer' => 'Emanzipation'
+            'tid' => 1,
+            'name' => 'Freiheit',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 3
+
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 3,
-            'kat_id' => 2,
-            'namel' => 'Sicherheit',
-            'namer' => 'Freiheit'
+            'tid' => 2,
+            'name' => 'Disziplin',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 1
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 4,
-            'kat_id' => 3,
-            'namel' => 'Sicherheit',
-            'namer' => 'Freiheit'
+            'tid' => 2,
+            'name' => 'Lust',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 3
         ]);
-        
-        DB::table('subcategories')->insert([
+
+        DB::table('sub_categories')->insert([
             'sub_id' => 5,
-            'kat_id' => 2,
-            'namel' => 'Unterordnung',
-            'namer' => 'Emanzipation'
+            'tid' => 3,
+            'name' => 'Rationalität',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 1
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 6,
-            'kat_id' => 3,
-            'namel' => 'Unterordnung',
-            'namer' => 'Emanzipation'
+            'tid' => 3,
+            'name' => 'Emotionalität',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 3
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 7,
-            'kat_id' => 1,
-            'namel' => 'Solidarität',
-            'namer' => 'Eigenverantwortung'
+            'tid' => 4,
+            'name' => 'Unterordnung',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 8,
-            'kat_id' => 2,
-            'namel' => 'Solidarität',
-            'namer' => 'Eigenverantwortung'
+            'tid' => 4,
+            'name' => 'Emanzipation',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 9,
-            'kat_id' => 3,
-            'namel' => 'Solidarität',
-            'namer' => 'Eigenverantwortung'
+            'tid' => 5,
+            'name' => 'Solidarität',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 10,
-            'kat_id' => 1,
-            'namel' => 'Bedürftigkeit',
-            'namer' => 'Unabhängigkeit'
+            'tid' => 5,
+            'name' => 'Eingenverantwortnung',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 11,
-            'kat_id' => 1,
-            'namel' => 'Empfindsamkeit',
-            'namer' => 'Belastbarkeit'
+            'tid' => 6,
+            'name' => 'Vertrauen',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 3
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 12,
-            'kat_id' => 1,
-            'namel' => 'Mitgefühl',
-            'namer' => 'Abgrenzung'
+            'tid' => 6,
+            'name' => 'Kontrolle',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 1
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 13,
-            'kat_id' => 1,
-            'namel' => 'Rücksichtnahme',
-            'namer' => 'Selbstbehauptung'
+            'tid' => 7,
+            'name' => 'Empfindsamkeit',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 14,
-            'kat_id' => 1,
-            'namel' => 'Vertrauen',
-            'namer' => 'Kontrolle'
+            'tid' => 7,
+            'name' => 'Belastbarkeit',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 15,
-            'kat_id' => 1,
-            'namel' => 'Emotionalität',
-            'namer' => 'Rationalität'
+            'tid' => 8,
+            'name' => 'Bedürftigkeit',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 16,
-            'kat_id' => 1,
-            'namel' => 'Lust',
-            'namer' => 'Disziplin'
+            'tid' => 8,
+            'name' => 'Unabhängigkeit',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 17,
-            'kat_id' => 2,
-            'namel' => 'Bedürftigkeit',
-            'namer' => 'Unabhängigkeit'
+            'tid' => 9,
+            'name' => 'Mitgefühl',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 18,
-            'kat_id' => 2,
-            'namel' => 'Empfindsamkeit',
-            'namer' => 'Belastbarkeit'
+            'tid' => 9,
+            'name' => 'Abgrenzung',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 19,
-            'kat_id' => 2,
-            'namel' => 'Mitgefühl',
-            'namer' => 'Abgrenzung'
+            'tid' => 10,
+            'name' => 'Rücksichtnahme',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 3
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 20,
-            'kat_id' => 2,
-            'namel' => 'Rücksichtnahme',
-            'namer' => 'Selbstbehauptung'
+            'tid' => 10,
+            'name' => 'Selbstbehauptung',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 1
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 21,
-            'kat_id' => 2,
-            'namel' => 'Vertrauen',
-            'namer' => 'Kontrolle'
+            'tid' => 11,
+            'name' => 'Mitgefühl',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 22,
-            'kat_id' => 2,
-            'namel' => 'Emotionalität',
-            'namer' => 'Rationalität'
+            'tid' => 11,
+            'name' => 'Abgrenzung',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 23,
-            'kat_id' => 2,
-            'namel' => 'Lust',
-            'namer' => 'Disziplin'
+            'tid' => 12,
+            'name' => 'Unterordnung',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 24,
-            'kat_id' => 3,
-            'namel' => 'Bedürftigkeit',
-            'namer' => 'Unabhängigkeit'
+            'tid' => 12,
+            'name' => 'Emanzipation',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 25,
-            'kat_id' => 3,
-            'namel' => 'Empfindsamkeit',
-            'namer' => 'Belastbarkeit'
+            'tid' => 13,
+            'name' => 'Empfindsamkeit',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 26,
-            'kat_id' => 3,
-            'namel' => 'Mitgefühl',
-            'namer' => 'Abgrenzung'
+            'tid' => 13,
+            'name' => 'Belastbarkeit',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 27,
-            'kat_id' => 3,
-            'namel' => 'Rücksichtnahme',
-            'namer' => 'Selbstbehauptung'
+            'tid' => 14,
+            'name' => 'Solidarität',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 28,
-            'kat_id' => 3,
-            'namel' => 'Vertrauen',
-            'namer' => 'Kontrolle'
+            'tid' => 14,
+            'name' => 'Eingenverantwortnung',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 29,
-            'kat_id' => 3,
-            'namel' => 'Emotionalität',
-            'namer' => 'Rationalität'
+            'tid' => 15,
+            'name' => 'Bedürftigkeit',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 4
         ]);
 
-        DB::table('subcategories')->insert([
+        DB::table('sub_categories')->insert([
             'sub_id' => 30,
-            'kat_id' => 3,
-            'namel' => 'Lust',
-            'namer' => 'Disziplin'
+            'tid' => 15,
+            'name' => 'Unabhängigkeit',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 2
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 31,
+            'tid' => 16,
+            'name' => 'Rücksichtnahme',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 3
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 32,
+            'tid' => 16,
+            'name' => 'Selbstbehauptung',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 1
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 33,
+            'tid' => 17,
+            'name' => 'Vertrauen',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 3
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 34,
+            'tid' => 17,
+            'name' => 'Kontrolle',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 1
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 35,
+            'tid' => 18,
+            'name' => 'Freiheit',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 3
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 36,
+            'tid' => 18,
+            'name' => 'Sicherheit',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 1
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 37,
+            'tid' => 19,
+            'name' => 'Lust',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 3
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 38,
+            'tid' => 19,
+            'name' => 'Disziplin',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 1
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 39,
+            'tid' => 20,
+            'name' => 'Emotionalität',
+            'parameter1' => 'ja_x1,ja_y1',
+            'parameter2' => 'eherja_x1,eherja_y1',
+            'quadrant' => 3
+        ]);
+
+        DB::table('sub_categories')->insert([
+            'sub_id' => 40,
+            'tid' => 20,
+            'name' => 'Rationalität',
+            'parameter1' => 'ja_x2,ja_y2',
+            'parameter2' => 'eherja_x2,eherja_y2',
+            'quadrant' => 1
         ]);
     }
 }

@@ -10,13 +10,11 @@
 
     <title>{{ config('app.name', 'Team-Energy') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
