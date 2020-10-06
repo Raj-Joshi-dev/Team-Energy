@@ -18,6 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('kat_id');
             $table->string('these1');
             $table->string('these2');
+            $table->integer('ques_id');
         });
     }
 

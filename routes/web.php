@@ -22,39 +22,48 @@ Route::view('information', 'information.display')->name('information');
 Route::view('model', 'information.model')->name('model');
 Route::view('main', 'test.select')->name('main')->middleware('auth');
 
-// Questions for Ich Im Team-Privater Bereich
+// Ich Im Team-Privater Bereich
 
 
 Route::get('ich-im-team1', 'QuestionsController@add_ichimteam1')->name('ichimteam1')->middleware('auth');
 
-Route::post('test1', 'ResultController@store')->name('store');
+Route::post('test1', 'ResultController@store1')->name('store1');
 
-Route::get('result={id}', 'ResultController@result')->name('result')->middleware('auth');
+Route::get('result1={id}', 'ResultController@result1')->name('result1')->middleware('auth');
 
-Route::view('success', 'success')->name('success');
+Route::view('ichimteam1_graph', 'graphs.ichimteam1_graph')->name('ichimteam1_graph');
 
 
 
-// Questions for Ich Im Team-Beruflicher Bereich
+// Ich im Team-Beruflicher Bereich
 
 Route::get('ich-im-team2', 'QuestionsController@add_ichimteam2')->name('ichimteam2')->middleware('auth');
 
 Route::post('test2', 'ResultController@store2')->name('store2');
 
-// Questions for Kultur im Team
+Route::get('result2={id}', 'ResultController@result2')->name('result2')->middleware('auth');
+
+Route::view('ichimteam2_graph', 'graphs.ichimteam2_graph')->name('ichimteam2_graph');
+
+// Kultur im Team
 
 Route::get('kultur-im-team', 'QuestionsController@add_kulturimteam')->name('kulturimteam');
 
 Route::post('test3', 'ResultController@store3')->name('store3');
 
+Route::get('result3={id}', 'ResultController@result3')->name('result3')->middleware('auth');
 
-// Testing
+Route::view('kulturimteam_graph', 'graphs.kulturimteam_graph')->name('kulturimteam_graph');
 
-//Route::get('test', 'QuestionsController@add_ichimteam1')->name('test')->middleware('auth');
 
-//Route::post('test', 'ResultController@test')->name('test');
+// Potential im Team
 
-//Route::get('result={id}', 'ResultController@graph')->name('graph')->middleware('auth');
+Route::get('potentialimteam', 'PotentialController@potential_graph')->name('potentialimteam')->middleware('auth');
+
+Route::view('potentialim_graph', 'graphs.potentialimteam_graph')->name('potentialimteam_graph');
+
+
+
 
 
 
@@ -72,8 +81,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-// Test
 
-Route::view('/fetch', 'testing')->name('abc');
-
-Route::get('/testing', 'LogicController@fetch')->name('testing');

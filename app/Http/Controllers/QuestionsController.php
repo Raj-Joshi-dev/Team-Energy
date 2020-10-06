@@ -20,143 +20,16 @@ class QuestionsController extends Controller
 
     public function add_ichimteam2()
     {
-        $question1_these1 = Question::where('tid', '40')->get()->first()->these1;
-        $question1_these2 = Question::where('tid', '40')->get()->first()->these2;
-        $question2_these1 = Question::where('tid', '41')->get()->first()->these1;
-        $question2_these2 = Question::where('tid', '41')->get()->first()->these2;
-        $question3_these1 = Question::where('tid', '42')->get()->first()->these1;
-        $question3_these2 = Question::where('tid', '42')->get()->first()->these2;
-        $question4_these1 = Question::where('tid', '43')->get()->first()->these1;
-        $question4_these2 = Question::where('tid', '43')->get()->first()->these2;
-        $question5_these1 = Question::where('tid', '44')->get()->first()->these1;
-        $question5_these2 = Question::where('tid', '44')->get()->first()->these2;
-        $question6_these1 = Question::where('tid', '45')->get()->first()->these1;
-        $question6_these2 = Question::where('tid', '45')->get()->first()->these2;
-        $question7_these1 = Question::where('tid', '46')->get()->first()->these1;
-        $question7_these2 = Question::where('tid', '46')->get()->first()->these2;
-        $question8_these1 = Question::where('tid', '47')->get()->first()->these1;
-        $question8_these2 = Question::where('tid', '47')->get()->first()->these2;
-        $question9_these1 = Question::where('tid', '48')->get()->first()->these1;
-        $question9_these2 = Question::where('tid', '48')->get()->first()->these2;
-        $question10_these1 = Question::where('tid', '49')->get()->first()->these1;
-        $question10_these2 = Question::where('tid', '49')->get()->first()->these2;
+        $questions = Question::orderBy('tid')->offset(20)->take(10)->get();
 
-
-
-        return view('test.ichimteam2', compact([
-            'question1_these1',
-            'question1_these2',
-            'question2_these1',
-            'question2_these2',
-            'question3_these1',
-            'question3_these2',
-            'question4_these1',
-            'question4_these2',
-            'question5_these1',
-            'question5_these2',
-            'question6_these1',
-            'question6_these2',
-            'question7_these1',
-            'question7_these2',
-            'question8_these1',
-            'question8_these2',
-            'question9_these1',
-            'question9_these2',
-            'question10_these1',
-            'question10_these2',
-
-        ]));
+        return view('test.ichimteam2', compact(['questions']));
     }
 
     public function add_kulturimteam()
     {
+        $questions = Question::orderBy('tid')->offset(30)->take(20)->get();
 
-        $question1_these1 = Question::where('tid', '21')->get()->first()->these1;
-        $question1_these2 = Question::where('tid', '21')->get()->first()->these2;
-        $question2_these1 = Question::where('tid', '22')->get()->first()->these1;
-        $question2_these2 = Question::where('tid', '22')->get()->first()->these2;
-        $question3_these1 = Question::where('tid', '23')->get()->first()->these1;
-        $question3_these2 = Question::where('tid', '23')->get()->first()->these2;
-        $question4_these1 = Question::where('tid', '24')->get()->first()->these1;
-        $question4_these2 = Question::where('tid', '24')->get()->first()->these2;
-        $question5_these1 = Question::where('tid', '25')->get()->first()->these1;
-        $question5_these2 = Question::where('tid', '25')->get()->first()->these2;
-        $question6_these1 = Question::where('tid', '26')->get()->first()->these1;
-        $question6_these2 = Question::where('tid', '26')->get()->first()->these2;
-        $question7_these1 = Question::where('tid', '27')->get()->first()->these1;
-        $question7_these2 = Question::where('tid', '27')->get()->first()->these2;
-        $question8_these1 = Question::where('tid', '28')->get()->first()->these1;
-        $question8_these2 = Question::where('tid', '28')->get()->first()->these2;
-        $question9_these1 = Question::where('tid', '29')->get()->first()->these1;
-        $question9_these2 = Question::where('tid', '29')->get()->first()->these2;
-        $question10_these1 = Question::where('tid', '30')->get()->first()->these1;
-        $question10_these2 = Question::where('tid', '30')->get()->first()->these2;
-        $question11_these1 = Question::where('tid', '31')->get()->first()->these1;
-        $question11_these2 = Question::where('tid', '31')->get()->first()->these2;
-        $question12_these1 = Question::where('tid', '32')->get()->first()->these1;
-        $question12_these2 = Question::where('tid', '32')->get()->first()->these2;
-        $question13_these1 = Question::where('tid', '33')->get()->first()->these1;
-        $question13_these2 = Question::where('tid', '33')->get()->first()->these2;
-        $question14_these1 = Question::where('tid', '34')->get()->first()->these1;
-        $question14_these2 = Question::where('tid', '34')->get()->first()->these2;
-        $question15_these1 = Question::where('tid', '35')->get()->first()->these1;
-        $question15_these2 = Question::where('tid', '35')->get()->first()->these2;
-        $question16_these1 = Question::where('tid', '36')->get()->first()->these1;
-        $question16_these2 = Question::where('tid', '36')->get()->first()->these2;
-        $question17_these1 = Question::where('tid', '37')->get()->first()->these1;
-        $question17_these2 = Question::where('tid', '37')->get()->first()->these2;
-        $question18_these1 = Question::where('tid', '38')->get()->first()->these1;
-        $question18_these2 = Question::where('tid', '38')->get()->first()->these2;
-        $question19_these1 = Question::where('tid', '39')->get()->first()->these1;
-        $question19_these2 = Question::where('tid', '39')->get()->first()->these2;
-        $question20_these1 = Question::where('tid', '50')->get()->first()->these1;
-        $question20_these2 = Question::where('tid', '50')->get()->first()->these2;
-
-
-
-
-        return view('test.kulturimteam', compact([
-            'question1_these1',
-            'question1_these2',
-            'question2_these1',
-            'question2_these2',
-            'question3_these1',
-            'question3_these2',
-            'question4_these1',
-            'question4_these2',
-            'question5_these1',
-            'question5_these2',
-            'question6_these1',
-            'question6_these2',
-            'question7_these1',
-            'question7_these2',
-            'question8_these1',
-            'question8_these2',
-            'question9_these1',
-            'question9_these2',
-            'question10_these1',
-            'question10_these2',
-            'question11_these1',
-            'question11_these2',
-            'question12_these1',
-            'question12_these2',
-            'question13_these1',
-            'question13_these2',
-            'question14_these1',
-            'question14_these2',
-            'question15_these1',
-            'question15_these2',
-            'question16_these1',
-            'question16_these2',
-            'question17_these1',
-            'question17_these2',
-            'question18_these1',
-            'question18_these2',
-            'question19_these1',
-            'question19_these2',
-            'question20_these1',
-            'question20_these2'
-
-        ]));
+        return view('test.kulturimteam', compact(['questions']));
+        
     }
 }

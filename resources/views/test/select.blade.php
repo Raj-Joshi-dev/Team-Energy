@@ -18,6 +18,8 @@
         <a style="font-size: 22px" href="{{ route('ichimteam1') }}">Ich im Team-Privater Bereich</a><br><br> 
         <a style="font-size: 22px" href="{{ route('ichimteam2') }}">Ich im Team-Beruflicher Bereich</a><br><br>
         <a style="font-size: 22px" href="{{ route('kulturimteam') }}">Kultur im Team</a><br><br>
+
+        <a style="font-size: 22px" href="{{ route('potentialimteam') }}">Potential im Team</a><br><br>
     </div>
 </body>
 

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Key;
 use App\Result;
 use App\ResultAnswer;
-use App\Test;
+use App\PotentialImTeam;
+use App\IchImTeamPrivat;
+use App\IchImTeamBeruf;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -125,7 +127,7 @@ class ResultController extends Controller
         return view('success', compact('x', 'y'));
     }
     */
-    public function store(Request $request)
+    public function store1(Request $request)
 
     {
 
@@ -225,10 +227,163 @@ class ResultController extends Controller
         }
 
 
-        return redirect()->action('ResultController@result', $id = $result->id);
+        return redirect()->action('ResultController@result1', $id = $result->id);
     }
 
-    public function result($id)
+    public function result1($id)
+    {
+        $avg_quad1_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 1)->avg('value_x');
+
+        $quadrant1_x = number_format($avg_quad1_x, 2, '.', '');
+
+        $avg_quad1_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 1)->avg('value_y');
+
+        $quadrant1_y = number_format($avg_quad1_y, 2, '.', '');
+
+        $avg_quad2_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 2)->avg('value_x');
+
+        $quadrant2_x = number_format($avg_quad2_x, 2, '.', '');
+
+        $avg_quad2_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 2)->avg('value_y');
+
+        $quadrant2_y = number_format($avg_quad2_y, 2, '.', '');
+
+        $avg_quad3_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 3)->avg('value_x');
+
+        $quadrant3_x = number_format($avg_quad3_x, 2, '.', '');
+
+        $avg_quad3_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 3)->avg('value_y');
+
+        $quadrant3_y = number_format($avg_quad3_y, 2, '.', '');
+
+        $avg_quad4_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 4)->avg('value_x');
+
+        $quadrant4_x = number_format($avg_quad4_x, 2, '.', '');
+
+        $avg_quad4_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 4)->avg('value_y');   
+
+        $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
+
+
+        $privat = new IchImTeamPrivat();
+
+        $privat->user_id = Auth::id();
+
+        $privat->result_id = $id;
+
+        $privat->privat_x1 = $quadrant1_x;
+        $privat->privat_y1 = $quadrant1_y;
+
+        $privat->privat_x2 = $quadrant2_x;
+        $privat->privat_y2 = $quadrant2_y;
+
+        $privat->privat_x3 = $quadrant3_x;
+        $privat->privat_y3 = $quadrant3_y;
+
+        $privat->privat_x4 = $quadrant4_x;
+        $privat->privat_y4 = $quadrant4_y;
+
+        $privat->save();
+
+        return view('graphs.ichimteam1_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
+    }
+
+    public function store2(Request $request)
+    {
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'answer.21' => 'required',
+                'answer.22' => 'required',
+                'answer.23' => 'required',
+                'answer.24' => 'required',
+                'answer.25' => 'required',
+                'answer.26' => 'required',
+                'answer.27' => 'required',
+                'answer.28' => 'required',
+                'answer.29' => 'required',
+                'answer.30' => 'required',
+
+            ],
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $keys = Key::get();
+        $result = new Result();
+
+        $result->user_id = Auth::id();
+
+        $result->kat_id = 2;
+
+        $result->save();
+
+        foreach ($request->input('answer') as $key => $answer) {
+
+            $string = explode(',', $answer);
+
+            if (count($string) == 2) {
+
+                $first = strval($string[0]);
+
+                $second = strval($string[1]);
+            }
+
+            $ans = new ResultAnswer();
+
+            $ans->user_id = Auth::id();
+
+            $ans->result_id = $result->id;
+
+            $ans->points = $answer;
+
+            $ans->answer_id = $key;
+
+            $ans->value_x = DB::table('keys')
+                ->where('tid', $key)
+                ->value($first);
+
+            $ans->value_y = DB::table('keys')
+                ->where('tid', $key)
+                ->value($second);
+
+            $ans->quadrant =  DB::table('sub_categories')
+                ->where('tid', $key)
+                ->where(function ($query) use ($answer) {
+                    $query->where('parameter1', $answer)
+                        ->orWhere('parameter2', $answer);
+                })->value('quadrant');
+
+
+            $ans->name =  DB::table('sub_categories')
+                ->where('tid', $key)
+                ->where(function ($query) use ($answer) {
+                    $query->where('parameter1', $answer)
+                        ->orWhere('parameter2', $answer);
+                })->value('name');
+
+
+            $ans->save();
+        }
+
+
+        return redirect()->action('ResultController@result2', $id = $result->id);
+    }
+
+    public function result2($id)
     {
         $avg_quad1_x = ResultAnswer::where('result_id', $id)
             ->where('quadrant', 1)->avg('value_x');
@@ -270,82 +425,175 @@ class ResultController extends Controller
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
-        return view('success', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
-    }
+        $beruf = new IchImTeamBeruf();
 
-    public function store2(Request $request)
-    {
+        $beruf->user_id = Auth::id();
 
+        $beruf->result_id = $id;
 
-        $data = request()->validate([
-            'answer[1]' => 'required',
-            'answer[2]' => 'required',
-            'answer[3]' => 'required',
-            'answer[4]' => 'required',
-            'answer[5]' => 'required',
-            'answer[6]' => 'required',
-            'answer[7]' => 'required',
-            'answer[8]' => 'required',
-            'answer[9]' => 'required',
-            'answer[10]' => 'required',
+        $beruf->beruf_x1 = $quadrant1_x;
+        $beruf->beruf_y1 = $quadrant1_y;
 
-        ]);
+        $beruf->beruf_x2 = $quadrant2_x;
+        $beruf->beruf_y2 = $quadrant2_y;
 
-        $answer = new Result($data);
+        $beruf->beruf_x3 = $quadrant3_x;
+        $beruf->beruf_y3 = $quadrant3_y;
 
-        $answer->user_id = auth()->user()->user_id;
-        $answer->kat_id = 2;
+        $beruf->beruf_x4 = $quadrant4_x;
+        $beruf->beruf_y4 = $quadrant4_y;
 
-        $answer->answerGroup11 = '';
-        $answer->answerGroup12 = '';
-        $answer->answerGroup13 = '';
-        $answer->answerGroup14 = '';
-        $answer->answerGroup15 = '';
-        $answer->answerGroup16 = '';
-        $answer->answerGroup17 = '';
-        $answer->answerGroup18 = '';
-        $answer->answerGroup19 = '';
-        $answer->answerGroup20 = '';
+        $beruf->save();
 
-        $answer->save();
-
-        return view('success');
+        return view('graphs.ichimteam2_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
     }
 
     public function store3(Request $request)
     {
 
-        $data = request()->validate([
-            'answerGroup1' => '',
-            'answerGroup2' => '',
-            'answerGroup3' => '',
-            'answerGroup4' => '',
-            'answerGroup5' => '',
-            'answerGroup6' => '',
-            'answerGroup7' => '',
-            'answerGroup8' => '',
-            'answerGroup9' => '',
-            'answerGroup10' => '',
-            'answerGroup11' => '',
-            'answerGroup12' => '',
-            'answerGroup13' => '',
-            'answerGroup14' => '',
-            'answerGroup15' => '',
-            'answerGroup16' => '',
-            'answerGroup17' => '',
-            'answerGroup18' => '',
-            'answerGroup19' => '',
-            'answerGroup20' => '',
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'answer.31' => 'required',
+                'answer.32' => 'required',
+                'answer.33' => 'required',
+                'answer.34' => 'required',
+                'answer.35' => 'required',
+                'answer.36' => 'required',
+                'answer.37' => 'required',
+                'answer.38' => 'required',
+                'answer.39' => 'required',
+                'answer.40' => 'required',
+                'answer.41' => 'required',
+                'answer.42' => 'required',
+                'answer.43' => 'required',
+                'answer.44' => 'required',
+                'answer.45' => 'required',
+                'answer.46' => 'required',
+                'answer.47' => 'required',
+                'answer.48' => 'required',
+                'answer.49' => 'required',
+                'answer.50' => 'required',
 
-        $answer = new Result($data);
+            ],
+        );
 
-        $answer->user_id = auth()->user()->user_id;
-        $answer->kat_id = 3;
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        $answer->save();
+        $keys = Key::get();
+        $result = new Result();
 
-        return view('success');
+        $result->user_id = Auth::id();
+
+        $result->kat_id = 3;
+
+        $result->save();
+
+        foreach ($request->input('answer') as $key => $answer) {
+
+            $string = explode(',', $answer);
+
+            if (count($string) == 2) {
+
+                $first = strval($string[0]);
+
+                $second = strval($string[1]);
+            }
+
+            $ans = new ResultAnswer();
+
+            $ans->user_id = Auth::id();
+
+            $ans->result_id = $result->id;
+
+            $ans->points = $answer;
+
+            $ans->answer_id = $key;
+
+            $ans->value_x = DB::table('keys')
+                ->where('tid', $key)
+                ->value($first);
+
+            $ans->value_y = DB::table('keys')
+                ->where('tid', $key)
+                ->value($second);
+
+
+            //$databaseValue2 = $keys->firstWhere('tid', $key)->value($second);
+
+            //$Value = $databaseValue1 . "," . $databaseValue2;
+
+            $ans->quadrant =  DB::table('sub_categories')
+                ->where('tid', $key)
+                ->where(function ($query) use ($answer) {
+                    $query->where('parameter1', $answer)
+                        ->orWhere('parameter2', $answer);
+                })->value('quadrant');
+
+
+            $ans->name =  DB::table('sub_categories')
+                ->where('tid', $key)
+                ->where(function ($query) use ($answer) {
+                    $query->where('parameter1', $answer)
+                        ->orWhere('parameter2', $answer);
+                })->value('name');
+
+
+            $ans->save();
+        }
+
+
+        return redirect()->action('ResultController@result3', $id = $result->id);
+    }
+
+    public function result3($id)
+    {
+        $avg_quad1_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 1)->avg('value_x');
+
+        $quadrant1_x = number_format($avg_quad1_x, 2, '.', '');
+
+        $avg_quad1_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 1)->avg('value_y');
+
+        $quadrant1_y = number_format($avg_quad1_y, 2, '.', '');
+
+        $avg_quad2_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 2)->avg('value_x');
+
+        $quadrant2_x = number_format($avg_quad2_x, 2, '.', '');
+
+        $avg_quad2_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 2)->avg('value_y');
+
+        $quadrant2_y = number_format($avg_quad2_y, 2, '.', '');
+
+        $avg_quad3_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 3)->avg('value_x');
+
+        $quadrant3_x = number_format($avg_quad3_x, 2, '.', '');
+
+        $avg_quad3_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 3)->avg('value_y');
+
+        $quadrant3_y = number_format($avg_quad3_y, 2, '.', '');
+
+        $avg_quad4_x = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 4)->avg('value_x');
+
+        $quadrant4_x = number_format($avg_quad4_x, 2, '.', '');
+
+        $avg_quad4_y = ResultAnswer::where('result_id', $id)
+            ->where('quadrant', 4)->avg('value_y');
+
+        $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
+
+        return view('graphs.kulturimteam_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
+        
     }
 
 
