@@ -4,17 +4,13 @@
 <html>
 
 <head>
-
-    <title>Kultur im Team - meine Einschätzung | Team-Energy</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Kultur im Team - unsere Einschätzungen | Team-Energy</title>
     <script src="js/d3-3.5.17.js"></script>
-    <!-- <script data-require="d3@3.5.17" data-semver="3.5.17" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js">
-    </script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
-    <script src="js/kulturimTeam.js"></script>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <script src="js/potentialimTeam.js"></script>
     <style>
         body {
             font: 15px Arial;
@@ -34,6 +30,7 @@
         }
 
     </style>
+    <title>@section('title', 'Kultur im Team - unsere Einschätzungen | Team-Energy')</title>
 </head>
 @section('content')
 

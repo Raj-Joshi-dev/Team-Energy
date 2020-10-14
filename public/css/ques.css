@@ -1,4 +1,4 @@
-.priview {
+.preview {
     margin-bottom: 20px;
 }
 
@@ -14,7 +14,7 @@
 .questions {
     background: #007fbe;
     color: #FFF;
-    font-size: 22px;
+    font-size: 18px;
     padding: 8px 30px;
     font-weight: 300;
     margin: 0 -30px 10px;
@@ -98,21 +98,6 @@ input[type=radio] {
 }
 
 .button,
-.greyButton {
-    background-color: #f2f2f2;
-    color: #888888;
-    display: inline-block;
-    border: solid 3px #cccccc;
-    vertical-align: middle;
-    text-shadow: 0 1px 0 #ffffff;
-    line-height: 27px;
-    min-width: 160px;
-    text-align: center;
-    padding: 5px 20px;
-    text-decoration: none;
-    border-radius: 0px;
-    text-transform: capitalize;
-}
 
 .questionsRow span {
     display: inline-block;

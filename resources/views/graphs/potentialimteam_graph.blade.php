@@ -4,8 +4,9 @@
 <html>
 
 <head>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+    <title>Ihr Potential im Team | Team-Energy</title>
+    <script src="js/d3-3.5.17.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -30,6 +31,7 @@
         }
 
     </style>
+    <title>@section('title', 'Ihr Potential im Team | Team-Energy')</title>
 </head>
 @section('content')
 
@@ -66,18 +68,18 @@
         .style("fill", "none")
         .style("stroke-width", border);
 
-    var xScale = d3.scaleLinear().domain([1, -1]).range([width - padding, padding]);
-    var yScale = d3.scaleLinear().domain([-1, 1]).range([height - padding, padding]);
+    var xScale = d3.scale.linear().domain([1, -1]).range([width - padding, padding]);
+    var yScale = d3.scale.linear().domain([-1, 1]).range([height - padding, padding]);
 
     // y axis
-    var yAxis = d3.axisLeft()
-        // .orient("left")
+    var yAxis = d3.svg.axis()
+        .orient("left")
         .tickValues([])
         .scale(yScale);
 
     // x axis
-    var xAxis = d3.axisBottom()
-        // .orient("bottom")
+    var xAxis = d3.svg.axis()
+        .orient("bottom")
         .tickValues([])
         .scale(xScale);
 

@@ -2,10 +2,8 @@
 
 @section('content')
 
-@section('title', 'Contact Us')
+@section('title', 'Kontakt | Team-Energy')
 <div class="container">
-    <h1>Kontaktiere Uns</h1>
-
 
     <p style="font-size:120%;">Sie erreichen uns unter folgender Telefonnummer </p>
 
@@ -13,6 +11,6 @@
 
     <p style="font-size:120%;">oder</p>
 
-    <p style="font-size:120%;">der E-Mail Adresse kretschmar@compass-training.de</p>
+    <p style="font-size:120%;">der E-Mail Adresse: kretschmar@compass-training.de</p>
 </div>
 @endsection

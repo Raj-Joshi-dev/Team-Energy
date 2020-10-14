@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@section('title', 'Team-Energy')
 <div class="container">
     <div class="row justify-content-center">
-        <!-- <div align="center" class="pb-3"><img src="{{URL::asset('/images/Compass_Trainer_Network_LOGO_green.jpg')}}" alt="Company Pic" height="300" width="1150"></div> -->
+        <!-- <div align="center" class="pb-3"><img src="{{ URL::asset('/images/Compass_Trainer_Network_LOGO_green.jpg') }}" alt="Company Pic" height="300" width="1150"></div> -->
         <div align="center" class="pb-4"><img src="/images/Compass_Trainer_Network_LOGO_green.jpg" alt="Company Pic"
                 height="300" width="1140"></div>
         <p style="font-size:120%">Wir bieten Ihnen verschiedene Instrumente an, um als Individuum im Team (z.B. auch als

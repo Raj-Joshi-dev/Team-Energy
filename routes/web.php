@@ -20,7 +20,8 @@ Route::view('about-us', 'about')->name('about');
 Route::view('contact', 'contact.index')->name('contact');
 Route::view('information', 'information.display')->name('information');
 Route::view('model', 'information.model')->name('model');
-Route::view('main', 'test.select')->name('main')->middleware('auth');
+Route::view('dashboard', 'test.dashboard')->name('dashboard')->middleware('auth');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Ich Im Team-Privater Bereich
 
@@ -45,9 +46,9 @@ Route::get('result2={id}', 'ResultController@result2')->name('result2')->middlew
 
 Route::view('ichimteam2_graph', 'graphs.ichimteam2_graph')->name('ichimteam2_graph');
 
-// Kultur im Team
+// Kultur im Team - mein Einschätzung
 
-Route::get('kultur-im-team', 'QuestionsController@add_kulturimteam')->name('kulturimteam');
+Route::get('kultur-im-team', 'QuestionsController@add_kulturimteam')->name('kulturimteam')->middleware('auth');
 
 Route::post('test3', 'ResultController@store3')->name('store3');
 
@@ -61,6 +62,10 @@ Route::view('kulturimteam_graph', 'graphs.kulturimteam_graph')->name('kulturimte
 Route::get('potentialimteam', 'PotentialController@potential_graph')->name('potentialimteam')->middleware('auth');
 
 Route::view('potentialim_graph', 'graphs.potentialimteam_graph')->name('potentialimteam_graph');
+
+// Kultur im Team - unsere Einschätzungen
+
+Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturimteam2');
 
 
 
@@ -79,6 +84,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-

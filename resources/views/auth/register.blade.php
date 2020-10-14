@@ -12,10 +12,13 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" value="{{ old('name') }}" required autocomplete="name"
+                                    autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -26,10 +29,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Addresse') }}</label>
+                            <label for="email"
+                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Addresse') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" required
+                                    autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -39,25 +45,28 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Gruppe') }}</label>
 
                             <div class="col-md-6">
                                 <input id="group" type="text" class="form-control @error('name') is-invalid @enderror" name="group" value="{{ old('group') }}" required autocomplete="group" autofocus>
 
-                                @error('name')
+@error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+@enderror
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Passwort') }}</label>
+                            <label for="password"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Passwort') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -68,10 +77,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Passwort bestätigen') }}</label>
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Passwort bestätigen') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 

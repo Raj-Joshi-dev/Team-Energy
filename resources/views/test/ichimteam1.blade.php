@@ -8,10 +8,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Persönlichkeitstest</title>
+    <title>@section('title','Ich im Team - Privat | Team-Energy')</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="{{ asset('css/ques.css') }}" rel="stylesheet">
 </head>
 
@@ -20,9 +20,9 @@
         @csrf
         {{ csrf_field() }}
         <div class="container">
-            <div class=" preview">
+            <div class="preview">
                 <div class="questions">
-                    <h5>Ich im Team - Privater Bereich</h5>
+                    <h4>Ich im Team - Privater Bereich</h4>
                 </div>
                 <div class="answerList">
                     <h5>Bitte wählen Sie im folgenden, bei jeder Frage zuerst eine der beiden Thesen aus. <br> Danach
@@ -30,7 +30,7 @@
                                 „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h5>
                 </div>
 
-                <!--Accordion wrapper-->
+                <!-- Accordion wrapper -->
                 <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 
                     <!-- Accordion card -->
@@ -44,9 +44,9 @@
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
                                         href="#collapse{{ $question->ques_id }}" aria-expanded="false"
                                         aria-controls="collapse">
-                                        <h6 class="mb-0">
+                                        <h5 class="mb-0">
                                             Frage {{ $question->ques_id }}<i class="fa fa-angle-down"></i> <br>
-                                        </h6>
+                                        </h5>
                                     </a>
                                 </div>
 
@@ -56,7 +56,7 @@
                                     aria-labelledby="headingOne" data-parent="#accordionEx">
                                     <div class="card-body">
                                         <div class="questions">
-                                            <font size="3">These 1: {{ $question->these1 }}</font>
+                                            These 1: {{ $question->these1 }}
                                         </div>
                                         <ul class="answerList">
                                             <li>
@@ -73,7 +73,7 @@
                                             </li>
                                         </ul>
                                         <div class="questions">
-                                            <font size="3">These 2: {{ $question->these2 }}</font>
+                                            These 2: {{ $question->these2 }}
                                         </div>
                                         <ul class="answerList">
                                             <li>
@@ -95,7 +95,7 @@
                         @endforeach
                     </div>
                     @if($errors->any())
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger" style="font-size:110%">
                             <ul>
                                 @foreach($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -110,10 +110,11 @@
                 <br>
 
                 <div class="container text-center bottom">
-                    <button id="submit-btn" style="font-size:100%" class="btn btn-primary btn-lg"
+                    <button id="submit-btn" style="font-size:120%" class="btn btn-primary btn-lg"
                         value="data">Senden</button>
                 </div>
     </form>
+
 
 </body>
 
