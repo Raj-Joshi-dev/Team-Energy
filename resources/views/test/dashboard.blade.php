@@ -55,8 +55,8 @@
                 <div class="card-body">
                     <div class="card-body">
                         <div style="font-weight: bold; font-size: 16px" class="card-title">Potential im Team</div>
-                        <a style="font-size: 13px" href="{{ route('potentialimteam') }}" class="btn btn-warning">Zeige
-                            ergebnis</a>
+                        <a style="font-size: 13px" href="{{ route('potentialimteam') }}"
+                            class="btn btn-success">Ergebnis verfügbar</a>
                     </div>
                 </div>
             </div>

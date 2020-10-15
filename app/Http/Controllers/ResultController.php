@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
+use App\Events\IchimTeamPrivatSubmitEvent;
 
 class ResultController extends Controller
 {
@@ -293,7 +294,13 @@ class ResultController extends Controller
 
         $privat->save();
 
-        return view('graphs.ichimteam1_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
+        event(new IchimTeamPrivatSubmitEvent($privat));
+
+        
+
+        
+
+        // return view('graphs.ichimteam1_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
     }
 
     public function store2(Request $request)
