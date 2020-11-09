@@ -292,15 +292,7 @@ class ResultController extends Controller
         $privat->privat_x4 = $quadrant4_x;
         $privat->privat_y4 = $quadrant4_y;
 
-        $privat->save();
-
-        event(new IchimTeamPrivatSubmitEvent($privat));
-
-        
-
-        
-
-        // return view('graphs.ichimteam1_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
+        return view('graphs.ichimteam1_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
     }
 
     public function store2(Request $request)
