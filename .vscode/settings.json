@@ -1,3 +1,4 @@
 {
-  "phpcs.composerJsonPath": "/home/reddevil/.composer/composer.json"
+  "phpcs.composerJsonPath": "/home/reddevil/.composer/composer.json",
+  "git.ignoreLimitWarning": true
 }
