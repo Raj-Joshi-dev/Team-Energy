@@ -3,8 +3,7 @@
 Team Energy is a project focusing on human science and team work. It analyzes people's personality based on three types of Test. Output of the results is a graph plot in a cartesian plane.
 
 ## Build status
-
-Homestead local environment
+----Testing------
 
 ## Tech/framework used
 
