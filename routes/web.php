@@ -20,7 +20,8 @@ Route::view('about-us', 'about')->name('about');
 Route::view('contact', 'contact.index')->name('contact');
 Route::view('information', 'information.display')->name('information');
 Route::view('model', 'information.model')->name('model');
-Route::view('dashboard', 'test.dashboard')->name('dashboard')->middleware('auth');
+//Route::view('dashboard', 'test.dashboard')->name('dashboard')->middleware('auth');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Ich Im Team-Privater Bereich

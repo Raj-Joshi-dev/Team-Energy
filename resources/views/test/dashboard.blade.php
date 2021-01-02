@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<form action="{{ route('dashboard') }}" method="post">
     <div class="container">
         <div class="card border-warning">
             <div class="card-header" style="font-weight: bold;font-size: 20px">Hallo {{ Auth::user()->name }}! <br>
@@ -26,8 +27,13 @@
                     <div class="card-body">
                         <div style="font-weight: bold; font-size: 16px" class="card-title">Ich im Team - Privater
                             Bereich</div>
-                        <a style="font-size: 13px" href="{{ route('ichimteam1') }}" class="btn btn-primary">Test
-                            geben</a>
+                         @if($disable_button === false)
+                            <a style="font-size: 13px" href="{{ route('ichimteam1') }}" class="btn btn-primary">Test
+                                geben</a>
+                         @else
+                             <p1>Test given!</p1>
+                         @endif
+
                     </div>
                 </div>
             </div>
