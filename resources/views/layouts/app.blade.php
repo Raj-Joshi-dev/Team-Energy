@@ -43,7 +43,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/images/Compass_Trainer_Network_LOGO.jpg" style="padding-right: 5px" height="30"
-                        class="d-inline-block align-top" alt="Team Energy">Team-Energy
+                        class="d-inline-block align-top" alt="Team Energy">Team
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
