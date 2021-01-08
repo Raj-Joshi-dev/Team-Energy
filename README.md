@@ -11,7 +11,7 @@ Team Energy is a project focusing on human science and team work. It analyzes pe
 
 -   [Laravel](https://laravel.com/)
 -   [MySQL](https://www.mysql.com/)
--   [Vue.js](https://vuejs.org/)
+-   [Bootstrap](https://getbootstrap.com/)
 -   [D3.js](https://d3js.org/)
 
 ## API Reference
