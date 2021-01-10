@@ -14,6 +14,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Admin\UserController;
+use Admin\TeamController;
 
 Route::view('/', 'home')->name('index');
 Route::view('about-us', 'about')->name('about');
@@ -69,8 +71,13 @@ Route::view('potentialim_graph', 'graphs.potentialimteam_graph')->name('potentia
 Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturimteam2');
 
 
+// Admin Area
+//Route::resource('/admin/users', \App\Http\Controllers\Admin\UserController::class);
 
-
+Route::prefix('admin')->name('admin.')->group(function (){
+    Route::resource('/users', UserController::class);
+    Route::resource('/teams',TeamController::class);
+});
 
 
 

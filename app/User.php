@@ -44,4 +44,14 @@ class User extends Authenticatable
 
         return $this->hasMany(Result::class);
     }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function teams(){
+
+        return $this->belongsTo(Team::class);
+    }
 }
