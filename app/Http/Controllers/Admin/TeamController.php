@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Team;
+use App\User;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -27,7 +28,12 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+
+        $user = User::all();
+
+
+
+        return view('admin.teams.create', compact('user'));
     }
 
     /**
@@ -38,7 +44,12 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Team::create([
+            'name' => $request->name
+        ]);
+
+
+        return redirect(route('admin.teams.index'));
     }
 
     /**

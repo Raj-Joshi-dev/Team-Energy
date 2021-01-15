@@ -39,7 +39,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->except('_token', 'team'));
+
+        $test = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'team_id' => $request->team_id,
+        ]);
+
+        //$user = User::create($request->except('_token'));
 
         return redirect(route('admin.users.index'));
     }

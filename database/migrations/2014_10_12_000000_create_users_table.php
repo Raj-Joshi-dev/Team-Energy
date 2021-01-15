@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('user_id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->unsignedBigInteger('team_id');
+            $table->foreign('team_id')->references('team_id')->on('teams');
             $table->string('password');
             $table->timestamps();
         });
