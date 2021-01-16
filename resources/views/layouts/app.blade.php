@@ -95,7 +95,7 @@
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
+                        <a class="nav-link" href="{{ route('admin.users.index') }}">Benutzer</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-auto">

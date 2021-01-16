@@ -13,6 +13,7 @@
 
 @section('content')
     <div class="container">
+        @include('partials.alerts')
         <div class="row">
             <div class="col-12">
                 <h1 class="float-left">Benutzerverwaltung</h1>
@@ -25,8 +26,8 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">E-Mail-Addresse</th>
+                    <th scope="col">Aktionen</th>
                 </tr>
                 </thead>
                 <tbody>

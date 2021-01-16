@@ -49,6 +49,8 @@ class UserController extends Controller
 
         //$user = User::create($request->except('_token'));
 
+        $request->session()->flash('success', 'Sie haben einen neuen Benutzer erstellt.');
+
         return redirect(route('admin.users.index'));
     }
 
@@ -69,10 +71,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
         $teams = Team::all();
         $user = User::find($id);
+
 
         return view('admin.users.edit', compact('teams', 'user'));
     }
@@ -86,9 +89,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = User::find($id);
 
         $user->update($request->except(['_token', 'teams']));
+
+        if (!$user){
+            $request->session()->flash('error', 'Sie haben den Benutzer bearbeitet.');
+        }
+
+        $request->session()->flash('success', 'Sie haben den Benutzer bearbeitet.');
 
         return redirect(route('admin.users.index'));
     }
@@ -99,9 +108,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         User::destroy($id);
+
+        $request->session()->flash('error', 'Sie haben den Benutzer gelöscht!');
 
         return redirect(route('admin.users.index'));
     }

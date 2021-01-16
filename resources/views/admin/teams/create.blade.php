@@ -11,7 +11,7 @@
 </style>
 @section('content')
     <div class="container">
-        <h1>Create a new User</h1>
+        <h1>Erstelle ein neues Team</h1>
         <div class="card">
             <form method="POST" action="{{ route('admin.teams.store') }}">
                 @csrf

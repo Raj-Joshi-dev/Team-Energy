@@ -25,8 +25,8 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Members</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Mitglieder</th>
+                    <th scope="col">Aktionen</th>
                 </tr>
                 </thead>
                 <tbody>

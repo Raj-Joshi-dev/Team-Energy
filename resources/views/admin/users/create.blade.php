@@ -11,8 +11,9 @@
 </style>
 @section('content')
     <div class="container">
-        <h1>Create a new User</h1>
+        <h1>Erstellen Sie einen neuen Benutzer</h1>
         <div class="card">
+            @include('partials.alerts')
             <form method="POST" action="{{ route('admin.users.store') }}">
                 @csrf
                 <div class="form-group">
@@ -29,7 +30,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">Passwort</label>
                     <input name="password" type="password"
                            class="form-control @error('password') is-invalid @enderror"
                            id="password">
