@@ -32,8 +32,25 @@
                 <tbody>
                 @foreach($teams as $team)
                     <tr>
-                        <th scope="row">{{ $team->team_id }}</th>
+                        <th scope="row">{{ $team->id }}</th>
                         <td>{{ $team->name }}</td>
+                        <td>Platzhalter für Mitglieder</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="{{ route('admin.teams.edit', $team->id) }}"
+                               role="button">Bearbeiten</a>
+                            <button type="button" class="btn btn-sm btn-danger"
+                                    onclick="event.preventDefault();
+                                        document.getElementById('delete-user-form-{{ $team->id }}').submit()">
+                                Löschen
+                            </button>
+                            <form id="delete-user-form-{{ $team->id }}"
+                                  action="{{ route('admin.teams.destroy', $team->id) }}" method="POST"
+                                  style="display: none">
+                                @csrf
+                                @method("DELETE")
+                            </form>
+                        </td>
+
                     </tr>
                 @endforeach
                 </tbody>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Team;
 
 class TeamSeeder extends Seeder
 {
@@ -11,9 +12,20 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        \App\Team::create([
-            'team_id' => 1,
+        Team::create([
             'name' => 'Administrator',
+        ]);
+
+        Team::create([
+            'name' => 'Team 1',
+        ]);
+
+        Team::create([
+            'name' => 'Team 2',
+        ]);
+
+        Team::create([
+            'name' => 'Team 3',
         ]);
     }
 }

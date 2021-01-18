@@ -31,8 +31,6 @@ class TeamController extends Controller
 
         $user = User::all();
 
-
-
         return view('admin.teams.create', compact('user'));
     }
 
@@ -94,6 +92,9 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Team::destroy($id);
+
+        return redirect(route('admin.teams.index'));
     }
 }

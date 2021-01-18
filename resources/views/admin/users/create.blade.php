@@ -41,7 +41,7 @@
                     <label for="teams">Team</label>
                     <select name="team_id" class="form-control">
                         @foreach($teams as $team)
-                            <option value=" {{ $team->team_id }}">{{ $team->name }}</option>
+                            <option value=" {{ $team->id }}">{{ $team->name }}</option>
                         @endforeach
                     </select>
                 </div>

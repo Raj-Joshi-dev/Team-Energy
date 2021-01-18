@@ -16,7 +16,7 @@
             <form method="POST" action="{{ route('admin.teams.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Team Name</label>
+                    <label for="name">Teamname</label>
                     <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                            aria-describedby="name" value="{{ old('name') }} @isset($team) {{ $team->name }} @endisset">
                 </div>

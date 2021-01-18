@@ -43,8 +43,8 @@
                     <label for="teams">Team</label>
                     <select name="team_id" class="form-control">
                         @foreach($teams as $team)
-                            <option value=" {{ $team->team_id }}"
-                                    @if ($team->team_id == $user->team_id) selected @endif>{{ $team->name }}</option>
+                            <option value=" {{ $team->id }}"
+                                    @if ($team->id == $user->team_id) selected @endif>{{ $team->name }}</option>
                         @endforeach
                     </select>
                 </div>
