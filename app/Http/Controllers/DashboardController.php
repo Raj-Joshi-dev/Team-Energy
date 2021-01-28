@@ -9,13 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index() {
-        $user_id = Auth::user()->user_id;
-        $entries = Result::where('user_id', $user_id)->where('kat_id', 1)->get();
+    public function index()
+    {
+        $user_id = Auth::id();
+        $privat = Result::where('user_id', $user_id)->where('kat_id', 1)->get();
 
-        $disable_button = count($entries)>0;
+        $beruf = Result::where('user_id', $user_id)->where('kat_id', 2)->get();
 
-        return view('test.dashboard', compact('disable_button'));
+        $disable_privat = count($privat) > 0;
 
-}
+        $disable_beruf = count($beruf) > 0;
+
+        return view('test.dashboard', compact('disable_privat','disable_beruf'));
+
+    }
 }

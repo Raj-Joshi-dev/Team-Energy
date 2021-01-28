@@ -42,7 +42,7 @@ class ResultController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     /*
     public function store(Request $request)
@@ -269,7 +269,7 @@ class ResultController extends Controller
         $quadrant4_x = number_format($avg_quad4_x, 2, '.', '');
 
         $avg_quad4_y = ResultAnswer::where('result_id', $id)
-            ->where('quadrant', 4)->avg('value_y');   
+            ->where('quadrant', 4)->avg('value_y');
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
@@ -291,6 +291,8 @@ class ResultController extends Controller
 
         $privat->privat_x4 = $quadrant4_x;
         $privat->privat_y4 = $quadrant4_y;
+
+        $privat->save();
 
         return view('graphs.ichimteam1_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
     }
@@ -593,7 +595,7 @@ class ResultController extends Controller
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
         return view('graphs.kulturimteam_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
-        
+
     }
 
 

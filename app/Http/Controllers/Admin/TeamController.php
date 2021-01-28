@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
 {
@@ -18,7 +19,18 @@ class TeamController extends Controller
     {
         $teams = Team::all();
 
-        return view('admin.teams.index', compact('teams'));
+        $test = User::with('teams')->count();
+
+//        foreach ($teams as $team){
+//
+//            foreach ($users as $user) {
+//                $data = $user->team_id;
+//                $test = $user->where('team_id', $data)->get();
+//            }
+//        }
+
+
+        return view('admin.teams.index', compact('teams', 'test'));
     }
 
     /**
@@ -37,7 +49,7 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,7 +65,7 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -64,30 +76,36 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $team = Team::find($id);
+
+        return view('admin.teams.edit', compact('team'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $team = Team::find($id);
+
+        $team->update($request->except(['_token']));
+
+        return redirect(route('admin.teams.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -26,6 +26,8 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Mitglieder</th>
+                    <th scope="col">Hergestellt in</th>
+                    <th scope="col">Aktualisiert am</th>
                     <th scope="col">Aktionen</th>
                 </tr>
                 </thead>
@@ -34,7 +36,9 @@
                     <tr>
                         <th scope="row">{{ $team->id }}</th>
                         <td>{{ $team->name }}</td>
-                        <td>Platzhalter für Mitglieder</td>
+                        <td>{{ $test}}</td>
+                        <td>{{ $team->created_at }}</td>
+                        <td>{{ $team->updated_at }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('admin.teams.edit', $team->id) }}"
                                role="button">Bearbeiten</a>

@@ -74,7 +74,7 @@ Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturim
 // Admin Area
 //Route::resource('/admin/users', \App\Http\Controllers\Admin\UserController::class);
 
-Route::prefix('admin')->name('admin.')->group(function (){
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function (){
     Route::resource('/users', UserController::class);
     Route::resource('/teams',TeamController::class);
 });

@@ -1,39 +1,29 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard | Team-Energy')
+
 @section('content')
 
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>@section('title', 'Dashboard | Team-Energy')</title>
-
-</head>
-
-<body>
 <form action="{{ route('dashboard') }}" method="post">
     <div class="container">
         <div class="card border-warning">
             <div class="card-header" style="font-weight: bold;font-size: 20px">Hallo {{ Auth::user()->name }}! <br>
-                Ihr Dashboard - Bitte wählen Sie einen Test aus</div>
+                Ihr Dashboard - Bitte wählen Sie einen Test aus
+            </div>
 
             <div class="card multi">
                 <div class="card-body">
                     <div class="card-body">
                         <div style="font-weight: bold; font-size: 16px" class="card-title">Ich im Team - Privater
-                            Bereich</div>
-                         @if($disable_button === false)
+                            Bereich
+                        </div>
+                        @if($disable_privat == false)
                             <a style="font-size: 13px" href="{{ route('ichimteam1') }}" class="btn btn-primary">Test
                                 geben</a>
-                         @else
-                             <p1>Test given!</p1>
-                         @endif
-
+                        @else
+                            <p1>Test given!</p1>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -41,9 +31,14 @@
                 <div class="card-body">
                     <div class="card-body">
                         <div style="font-weight: bold; font-size: 16px" class="card-title">Ich im Team - Beruflicher
-                            Bereich</div>
+                            Bereich
+                        </div>
+                        @if($disable_beruf == false)
                         <a style="font-size: 13px" href="{{ route('ichimteam2') }}" class="btn btn-primary">Test
                             geben</a>
+                        @else
+                            <p1>Test given!</p1>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -51,7 +46,8 @@
                 <div class="card-body">
                     <div class="card-body">
                         <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein
-                            Einschätzung</div>
+                            Einschätzung
+                        </div>
                         <a style="font-size: 13px" href="{{ route('kulturimteam') }}" class="btn btn-primary">Test
                             geben</a>
                     </div>
@@ -62,7 +58,7 @@
                     <div class="card-body">
                         <div style="font-weight: bold; font-size: 16px" class="card-title">Potential im Team</div>
                         <a style="font-size: 13px" href="{{ route('potentialimteam') }}"
-                            class="btn btn-success">Ergebnis verfügbar</a>
+                           class="btn btn-success">Ergebnis verfügbar</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +66,8 @@
                 <div class="card-body">
                     <div class="card-body">
                         <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - unsere
-                            Einschätzungen</div>
+                            Einschätzungen
+                        </div>
                         <a style="font-size: 13px" href="{{ route('kulturimteam2') }}" class="btn btn-warning">Zeige
                             ergebnis</a>
                     </div>
@@ -84,11 +81,7 @@
             <a href="{{ route('contact') }}">Kontakt</a> Dankeschön.</p>
     </div>
 
-
-
-
-</body>
-
-</html>
+</form>
 
 @endsection
+

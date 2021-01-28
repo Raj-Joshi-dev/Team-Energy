@@ -27,6 +27,8 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">E-Mail-Addresse</th>
+                    <th scope="col">Hergestellt in</th>
+                    <th scope="col">Aktualisiert am</th>
                     <th scope="col">Aktionen</th>
                 </tr>
                 </thead>
@@ -36,6 +38,8 @@
                         <th scope="row">{{ $user->user_id }}</th>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>{{ $user->created_at }}</td>
+                        <td>{{ $user->updated_at }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->user_id) }}"
                                role="button">Bearbeiten</a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -97,7 +98,7 @@ class UserController extends Controller
             $request->session()->flash('error', 'Sie haben den Benutzer bearbeitet.');
         }
 
-        $request->session()->flash('success', 'Sie haben den Benutzer bearbeitet.');
+        $request->session()->flash('success', 'Sie haben den Benutzer aktualisiert');
 
         return redirect(route('admin.users.index'));
     }
