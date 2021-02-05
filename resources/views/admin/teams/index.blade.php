@@ -36,7 +36,9 @@
                     <tr>
                         <th scope="row">{{ $team->id }}</th>
                         <td>{{ $team->name }}</td>
-                        <td>{{ $test}}</td>
+
+                        <td>{{ $team->users->count() }}</td>
+
                         <td>{{ $team->created_at }}</td>
                         <td>{{ $team->updated_at }}</td>
                         <td>

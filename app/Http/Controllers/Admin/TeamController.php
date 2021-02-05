@@ -19,7 +19,10 @@ class TeamController extends Controller
     {
         $teams = Team::all();
 
-        $test = User::with('teams')->count();
+//        $counts = User::with('teams')->count();
+//        $counts = Team::with('users')->count();
+
+        $teams = Team::with('users')->get();
 
 //        foreach ($teams as $team){
 //
@@ -29,8 +32,13 @@ class TeamController extends Controller
 //            }
 //        }
 
+//        foreach ($teams as $team){
+//
+//            $counts = User::where('team_id', $team->id)->count();
+//
+//        }
 
-        return view('admin.teams.index', compact('teams', 'test'));
+        return view('admin.teams.index', compact('teams'));
     }
 
     /**

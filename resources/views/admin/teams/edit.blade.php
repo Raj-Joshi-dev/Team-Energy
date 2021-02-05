@@ -22,6 +22,18 @@
                            aria-describedby="name" value="{{ old('name') }} @isset($team) {{ $team->name }} @endisset">
                 </div>
 
+                <div class="form-group">
+                    <label for="members">Members</label>
+                    <ul class="list-group">
+                        @foreach($teams as $team)
+                            @foreach($team->users as $user)
+                                {{ $user->name }}
+                            @endforeach
+                        @endforeach
+{{--                        <li class="list-group-item">Member 1</li>--}}
+                    </ul>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
