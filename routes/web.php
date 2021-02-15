@@ -17,12 +17,14 @@ use Illuminate\Support\Facades\Route;
 use Admin\UserController;
 use Admin\TeamController;
 
-Route::view('/', 'home')->name('index');
+// Disable User registration
+Auth::routes(['register' => false]);
+
+Route::view('/', 'home')->name('home');
 Route::view('about-us', 'about')->name('about');
 Route::view('contact', 'contact.index')->name('contact');
 Route::view('information', 'information.display')->name('information');
 Route::view('model', 'information.model')->name('model');
-//Route::view('dashboard', 'test.dashboard')->name('dashboard')->middleware('auth');
 Route::get('dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -80,15 +82,4 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function (){
 });
 
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('main');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
@@ -17,7 +18,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index', ['users' => User::paginate(10)]);
+        if (Gate::allows('is-admin')) {
+            return view('admin.users.index', ['users' => User::paginate(10)]);
+        }
+
+        return abort('403');
+//        $test = view('admin.users.index', ['users' => User::paginate(10)]);
+//
+//        dd($test);
+
+//        return view('admin.users.index', ['users' => User::paginate(10)]);
+
     }
 
     /**
@@ -35,7 +46,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -58,7 +69,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +80,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id, Request $request)
@@ -84,8 +95,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,7 +105,7 @@ class UserController extends Controller
 
         $user->update($request->except(['_token', 'teams']));
 
-        if (!$user){
+        if (!$user) {
             $request->session()->flash('error', 'Sie haben den Benutzer bearbeitet.');
         }
 
@@ -106,7 +117,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id, Request $request)

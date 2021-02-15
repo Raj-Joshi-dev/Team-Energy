@@ -40,7 +40,8 @@ class User extends Authenticatable
 
     protected $primaryKey = 'user_id';
 
-    public function answers(){
+    public function answers()
+    {
 
         return $this->hasMany(Result::class);
     }
@@ -50,8 +51,22 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
-    public function teams(){
-
+    public function team()
+    {
         return $this->belongsTo(Team::class);
+    }
+
+    /**
+     * Check if the user belongs to Admin Team
+     * @param string $team
+     * @return bool
+     */
+
+    public function isAdmin(string $team)
+    {
+
+//        return $this->team()->where('name', $team)->exists();
+//        return $this->team()->where('name', '=', 'Admin')->exists();
+        return $this->team()->where('name', $team)->exists();
     }
 }

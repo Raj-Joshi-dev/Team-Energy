@@ -13,7 +13,7 @@ class TeamSeeder extends Seeder
     public function run()
     {
         Team::create([
-            'name' => 'Administrator',
+            'name' => 'Admin',
         ]);
 
         Team::create([

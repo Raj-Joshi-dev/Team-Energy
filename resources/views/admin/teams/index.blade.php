@@ -13,10 +13,11 @@
 
 @section('content')
     <div class="container">
+        @include('partials.alerts')
         <div class="row">
             <div class="col-12">
                 <h1 class="float-left">Teams</h1>
-                <a class="btn btn-sm btn-success float-right" href="{{ route('admin.teams.create') }}" role="button">Erstellen</a>
+                <a class="btn btn-success float-right" href="{{ route('admin.teams.create') }}" role="button">Erschaffen</a>
             </div>
         </div>
         <div class="card">
@@ -61,6 +62,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $teams->links() }}
         </div>
     </div>
 @endsection

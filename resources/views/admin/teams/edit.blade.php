@@ -11,8 +11,10 @@
 </style>
 @section('content')
     <div class="container">
+        <a class="btn btn-warning float-right" href="{{ route('admin.teams.index') }}" role="button">Zurück zur Teammanagement</a>
         <h1>Team bearbeiten</h1>
         <div class="card">
+            @include('partials.alerts')
             <form method="POST" action="{{ route('admin.teams.update', $team->id) }}">
                 @method('PATCH')
                 @csrf
@@ -25,16 +27,15 @@
                 <div class="form-group">
                     <label for="members">Members</label>
                     <ul class="list-group">
-                        @foreach($teams as $team)
+                        <li class="list-group-item">
                             @foreach($team->users as $user)
-                                {{ $user->name }}
+                                {{ $user->name }},
                             @endforeach
-                        @endforeach
-{{--                        <li class="list-group-item">Member 1</li>--}}
+                        </li>
                     </ul>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-success">Einreichen</button>
+                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button">Absagen</a>
             </form>
         </div>
     </div>

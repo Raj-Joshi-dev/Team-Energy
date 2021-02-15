@@ -80,30 +80,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Anmeldung') }}</a>
                 </li>
-{{--                @if(Route::has('register'))--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link"--}}
-{{--                           href="{{ route('register') }}">{{ __('Registrieren') }}</a>--}}
-{{--                    </li>--}}
-{{--                @endif--}}
             @else
-
+                @if(Auth::user() && !Auth::user()->isAdmin('Admin'))
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.users.index') }}">Benutzer</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.teams.index') }}">Teams</a>
-                    </li>
-                </ul>
-
+                @endif
+                @if(Auth::user() && Auth::user()->isAdmin('Admin'))
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.users.index') }}">Benutzer</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.teams.index') }}">Teams</a>
+                        </li>
+                    </ul>
+                @endif
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

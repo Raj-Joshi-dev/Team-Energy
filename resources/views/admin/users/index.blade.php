@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="float-left">Benutzerverwaltung</h1>
-                <a class="btn btn-sm btn-success float-right" href="{{ route('admin.users.create') }}" role="button">Erstellen</a>
+                <a class="btn btn-success float-right" href="{{ route('admin.users.create') }}" role="button">Erschaffen</a>
             </div>
         </div>
         <div class="card">
@@ -34,29 +34,28 @@
                 </thead>
                 <tbody>
                 @foreach($users as $user)
-                    <tr>
-                        <th scope="row">{{ $user->user_id }}</th>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->created_at }}</td>
-                        <td>{{ $user->updated_at }}</td>
-                        <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->user_id) }}"
-                               role="button">Bearbeiten</a>
-                            <button type="button" class="btn btn-sm btn-danger"
-                                    onclick="event.preventDefault();
-                                        document.getElementById('delete-user-form-{{ $user->user_id }}').submit()">
-                                Löschen
-                            </button>
-                            <form id="delete-user-form-{{ $user->user_id }}"
-                                  action="{{ route('admin.users.destroy', $user->user_id) }}" method="POST"
-                                  style="display: none">
-                                @csrf
-                                @method("DELETE")
-                            </form>
-                        </td>
-
-                    </tr>
+                        <tr>
+                            <th scope="row">{{ $user->user_id }}</th>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->updated_at }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->user_id) }}"
+                                   role="button">Bearbeiten</a>
+                                <button type="button" class="btn btn-sm btn-danger"
+                                        onclick="event.preventDefault();
+                                            document.getElementById('delete-user-form-{{ $user->user_id }}').submit()">
+                                    Löschen
+                                </button>
+                                <form id="delete-user-form-{{ $user->user_id }}"
+                                      action="{{ route('admin.users.destroy', $user->user_id) }}" method="POST"
+                                      style="display: none">
+                                    @csrf
+                                    @method("DELETE")
+                                </form>
+                            </td>
+                        </tr>
                 @endforeach
                 </tbody>
             </table>

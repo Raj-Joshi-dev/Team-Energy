@@ -11,6 +11,7 @@
 </style>
 @section('content')
     <div class="container">
+        <a class="btn btn-warning float-right" href="{{ route('admin.users.index') }}" role="button">Zurück zur Benutzerverwaltung</a>
         <h1>Erstellen Sie einen neuen Benutzer</h1>
         <div class="card">
             @include('partials.alerts')
@@ -45,9 +46,12 @@
                         @endforeach
                     </select>
                 </div>
+                <br>
+                <button type="submit" class="btn btn-success">Einreichen</button>
+                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button">Absagen</a>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
+
     </div>
 @endsection

@@ -7,6 +7,7 @@ use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class TeamController extends Controller
 {
@@ -19,10 +20,17 @@ class TeamController extends Controller
     {
         $teams = Team::all();
 
+        if (Gate::allows('is-admin')) {
+            $teams = Team::with('users')->get();
+            return view('admin.teams.index', ['teams' => Team::paginate(10)]);
+        }
+
+        return abort('403');
+
 //        $counts = User::with('teams')->count();
 //        $counts = Team::with('users')->count();
 
-        $teams = Team::with('users')->get();
+//        $teams = Team::with('users')->get();
 
 //        foreach ($teams as $team){
 //
@@ -37,8 +45,6 @@ class TeamController extends Controller
 //            $counts = User::where('team_id', $team->id)->count();
 //
 //        }
-
-        return view('admin.teams.index', compact('teams'));
     }
 
     /**
@@ -66,6 +72,7 @@ class TeamController extends Controller
             'name' => $request->name
         ]);
 
+        $request->session()->flash('success', 'Sie haben einen neuen Team erstellt.');
 
         return redirect(route('admin.teams.index'));
     }
@@ -89,7 +96,7 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        $team = Team::find($id);
+        $team = Team::with('users')->find($id);
 
         return view('admin.teams.edit', compact('team'));
     }
@@ -107,6 +114,12 @@ class TeamController extends Controller
 
         $team->update($request->except(['_token']));
 
+        if (!$team) {
+            $request->session()->flash('error', 'Sie haben den Team bearbeitet.');
+        }
+
+        $request->session()->flash('success', 'Sie haben den Team aktualisiert');
+
         return redirect(route('admin.teams.index'));
     }
 
@@ -116,10 +129,12 @@ class TeamController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
 
         Team::destroy($id);
+
+        $request->session()->flash('error', 'Sie haben den Team gelöscht!');
 
         return redirect(route('admin.teams.index'));
     }
