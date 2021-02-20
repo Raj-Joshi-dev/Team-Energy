@@ -64,9 +64,6 @@ class User extends Authenticatable
 
     public function isAdmin(string $team)
     {
-
-//        return $this->team()->where('name', $team)->exists();
-//        return $this->team()->where('name', '=', 'Admin')->exists();
         return $this->team()->where('name', $team)->exists();
     }
 }

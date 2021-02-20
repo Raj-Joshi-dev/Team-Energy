@@ -11,7 +11,8 @@
 </style>
 @section('content')
     <div class="container">
-        <a class="btn btn-warning float-right" href="{{ route('admin.teams.index') }}" role="button">Zurück zur Teammanagement</a>
+        <a class="btn btn-warning float-right" href="{{ route('admin.teams.index') }}" role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur
+            Teammanagement</a>
         <h1>Team bearbeiten</h1>
         <div class="card">
             @include('partials.alerts')
@@ -24,18 +25,30 @@
                            aria-describedby="name" value="{{ old('name') }} @isset($team) {{ $team->name }} @endisset">
                 </div>
 
+                {{--                <div class="form-group">--}}
+                {{--                    <label for="members">Mitglieder in diesem Team</label>--}}
+                {{--                    <ul class="list-group">--}}
+                {{--                        <li class="list-group-item">--}}
+                {{--                            @foreach($team->users as $user)--}}
+                {{--                                {{ $user->name }},--}}
+                {{--                            @endforeach--}}
+                {{--                        </li>--}}
+                {{--                    </ul>--}}
+                {{--                </div>--}}
+
                 <div class="form-group">
-                    <label for="members">Members</label>
+                    <label for="members">Mitglieder in diesem Team</label>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            @foreach($team->users as $user)
-                                {{ $user->name }},
-                            @endforeach
+                        @foreach($team->users as $user)
+                            <a href="{{ route('admin.users.edit' , $user->user_id) }}" class="list-group-item list-group-item-action"
+                               aria-current="true">{{ $user->name }}</a>
+                        @endforeach
                         </li>
                     </ul>
                 </div>
-                <button type="submit" class="btn btn-success">Einreichen</button>
-                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button">Absagen</a>
+                <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Bestätigen</button>
+                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button"><i class="fas fa-times"></i>&nbsp;Absagen</a>
             </form>
         </div>
     </div>

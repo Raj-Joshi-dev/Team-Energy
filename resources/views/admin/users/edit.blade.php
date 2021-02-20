@@ -11,7 +11,7 @@
 </style>
 @section('content')
     <div class="container">
-        <a class="btn btn-warning float-right" href="{{ route('admin.users.index') }}" role="button">Zurück zur Benutzerverwaltung</a>
+        <a class="btn btn-warning float-right" href="{{ route('admin.users.index') }}" role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Benutzerverwaltung</a>
         <h1>Benutzer bearbeiten</h1>
         <div class="card">
             @include('partials.alerts')
@@ -44,14 +44,14 @@
                     <label for="teams">Team</label>
                     <select name="team_id" class="form-control">
                         @foreach($teams as $team)
-                            <option value=" {{ $team->id }}"
+                            <option value="{{ $team->id }}"
                                     @if ($team->id == $user->team_id) selected @endif>{{ $team->name }}</option>
                         @endforeach
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Einreichen</button>
-                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button">Absagen</a>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i>&nbsp;Bestätigen</button>
+                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button"><i class="fas fa-times"></i></i>&nbsp;Absagen</a>
             </form>
         </div>
     </div>

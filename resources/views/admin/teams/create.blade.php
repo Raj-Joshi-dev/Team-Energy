@@ -11,7 +11,7 @@
 </style>
 @section('content')
     <div class="container">
-        <a class="btn btn-warning float-right" href="{{ route('admin.teams.index') }}" role="button">Zurück zur Teammanagement</a>
+        <a class="btn btn-warning float-right" href="{{ route('admin.teams.index') }}" role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Teammanagement</a>
         @include('partials.alerts')
         <h1>Erstelle ein neues Team</h1>
         <div class="card">
@@ -23,8 +23,8 @@
                            aria-describedby="name" value="{{ old('name') }} @isset($team) {{ $team->name }} @endisset">
                 </div>
 
-                <button type="submit" class="btn btn-success">Einreichen</button>
-                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button">Absagen</a>
+                <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Bestätigen</button>
+                <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button"><i class="fas fa-window-close"></i>&nbsp;Absagen</a>
             </form>
         </div>
     </div>

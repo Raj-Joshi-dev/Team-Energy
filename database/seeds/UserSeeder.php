@@ -14,9 +14,30 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Raj',
-            'email' => 'admin@admin',
+            'email' => 'admin1@admin',
             'password' => 'password',
             'team_id' => 1,
+        ]);
+
+        User::create([
+            'name' => 'Didi',
+            'email' => 'admin2@admin',
+            'password' => 'password',
+            'team_id' => 1,
+        ]);
+
+        User::create([
+            'name' => 'Marco',
+            'email' => 'marco@synoxa.de',
+            'password' => 'password',
+            'team_id' => 2,
+        ]);
+
+        User::create([
+            'name' => 'Bernd',
+            'email' => 'bernd@test.de',
+            'password' => 'password',
+            'team_id' => 3,
         ]);
     }
 }

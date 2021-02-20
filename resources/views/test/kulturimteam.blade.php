@@ -44,7 +44,7 @@
                                         href="#collapse{{ $question->ques_id }}" aria-expanded="false"
                                         aria-controls="collapse">
                                         <h5 class="mb-0">
-                                            Frage {{ $question->ques_id }}<i class="fa fa-angle-down"></i> <br>
+                                            Frage {{ $question->ques_id }}&nbsp;<i class="fa fa-angle-down"></i> <br>
                                         </h5>
                                     </a>
                                 </div>

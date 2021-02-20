@@ -17,7 +17,8 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="float-left">Teams</h1>
-                <a class="btn btn-success float-right" href="{{ route('admin.teams.create') }}" role="button">Erschaffen</a>
+                <a class="btn btn-light float-right" href="{{ route('admin.teams.create') }}" role="button"><i
+                        class="fas fa-plus-square"></i>&nbsp;Erstelle ein neues Team</a>
             </div>
         </div>
         <div class="card">
@@ -44,11 +45,15 @@
                         <td>{{ $team->updated_at }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('admin.teams.edit', $team->id) }}"
-                               role="button">Bearbeiten</a>
+                               role="button"><i class="fas fa-edit"></i>&nbsp;Bearbeiten</a>
+
+                            <a class="btn btn-sm btn-success" href="{{ route('admin.teams.show', $team->id) }}"
+                               role="button"><i class="fas fa-eye"></i>&nbsp;Anzeigen</a>
+
                             <button type="button" class="btn btn-sm btn-danger"
                                     onclick="event.preventDefault();
-                                        document.getElementById('delete-user-form-{{ $team->id }}').submit()">
-                                Löschen
+                                        document.getElementById('delete-user-form-{{ $team->id }}').submit()"><i
+                                    class="fas fa-trash-alt"></i>&nbsp;Löschen
                             </button>
                             <form id="delete-user-form-{{ $team->id }}"
                                   action="{{ route('admin.teams.destroy', $team->id) }}" method="POST"

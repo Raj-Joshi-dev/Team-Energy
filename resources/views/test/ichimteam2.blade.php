@@ -21,6 +21,7 @@
         <div class="container">
             <div class=" preview">
                 <div class="questions">
+                    <a class="btn btn-warning float-right" href="{{ route('dashboard') }}" role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zu Dashboard</a>
                     <h4>Ich im Team - Beruflicher Bereich</h4>
                 </div>
                 <div class="answerList">
@@ -44,7 +45,7 @@
                                         href="#collapse{{ $question->ques_id }}" aria-expanded="false"
                                         aria-controls="collapse">
                                         <h5 class="mb-0">
-                                            Frage {{ $question->ques_id }}<i class="fa fa-angle-down"></i> <br>
+                                            Frage {{ $question->ques_id }}&nbsp;<i class="fa fa-angle-down"></i> <br>
                                         </h5>
                                     </a>
                                 </div>
@@ -109,8 +110,10 @@
                 <br>
 
                 <div class="container text-center bottom">
-                    <button id="submit-btn" style="font-size:120%" class="btn btn-primary btn-lg"
-                        value="data">Senden</button>
+                    <button id="submit-btn" class="btn btn-primary"
+                            value="data"><i class="fas fa-check"></i>&nbsp;Senden
+                    </button>
+                    <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button"><i class="fas fa-times"></i>&nbsp;Absagen</a>
                 </div>
     </form>
 

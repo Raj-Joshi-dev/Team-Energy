@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Result;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 
 class DashboardController extends Controller
@@ -20,7 +22,13 @@ class DashboardController extends Controller
 
         $disable_beruf = count($beruf) > 0;
 
-        return view('test.dashboard', compact('disable_privat','disable_beruf'));
+        if ($disable_privat && $disable_beruf == true){
+            $enable_potential = true;
+        }
+        else
+            $enable_potential = false;
+
+        return view('test.dashboard', compact('disable_privat','disable_beruf','enable_potential'));
 
     }
 }
