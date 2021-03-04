@@ -15,7 +15,7 @@
         <h1>Benutzer bearbeiten</h1>
         <div class="card">
             @include('partials.alerts')
-            <form method="POST" action="{{ route('admin.users.update', $user->user_id) }}">
+            <form method="POST" action="{{ route('admin.users.update', $user->id) }}">
                 @method('PATCH')
                 @csrf
                 <div class="form-group">

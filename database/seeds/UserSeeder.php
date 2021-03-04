@@ -39,5 +39,12 @@ class UserSeeder extends Seeder
             'password' => 'password',
             'team_id' => 3,
         ]);
+
+        User::create([
+            'name' => 'Test User',
+            'email' => 'test@test.com',
+            'password' => 'password',
+            'team_id' => 4,
+        ]);
     }
 }

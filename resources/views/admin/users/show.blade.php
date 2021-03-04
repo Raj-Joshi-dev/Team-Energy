@@ -16,7 +16,7 @@
                     class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Benutzerverwaltung</a>
             <div class="table">
                 <tr>
-                    <td>ID: {{ $user->user_id }}</td>
+                    <td>ID: {{ $user->id }}</td>
                     <br>
                     <td>Name: {{ $user->name }}</td>
                     <br>
@@ -32,7 +32,7 @@
                 </tr>
             </div>
             <div>
-                <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->user_id) }}"
+                <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->id) }}"
                    role="button"><i class="fas fa-user-edit"></i>&nbsp;Bearbeiten</a>
                 <a class="btn btn-sm btn-secondary" href="{{ url()->previous() }}" role="button"><i
                         class="fas fa-times"></i></i>&nbsp;Absagen</a>

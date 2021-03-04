@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -31,7 +29,15 @@
                     entscheiden Sie in der ausgewählten Theses zwischen <span style="color: red; "><b>„Ja“ oder
                                 „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h5>
             </div>
-
+            @if($errors->any())
+                <div class="alert alert-danger" style="font-size:110%">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <!-- Accordion wrapper -->
             <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 
@@ -65,13 +71,13 @@
                                             <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                           value="ja_x1,ja_y1"
                                                           {{ old('answer.'.$question->ques_id) == "ja_x1,ja_y1" ? 'checked' : '' }}
-                                                          id="answerGroup_1">Ja</label>
+                                                          id="answerGroup_1"> Ja</label>
                                         </li>
                                         <li>
                                             <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                           value="eherja_x1,eherja_y1"
                                                           {{ old('answer.'.$question->ques_id) == "eherja_x1,eherja_y1" ? 'checked' : '' }}
-                                                          id="answerGroup_1">Eher Ja</label>
+                                                          id="answerGroup_1"> Eher Ja</label>
                                         </li>
                                     </ul>
                                     <div class="questions">
@@ -82,13 +88,13 @@
                                             <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                           value="ja_x2,ja_y2"
                                                           {{ old('answer.'.$question->ques_id) == "ja_x2,ja_y2" ? 'checked' : '' }}
-                                                          id="answerGroup_1">Ja</label>
+                                                          id="answerGroup_1"> Ja</label>
                                         </li>
                                         <li>
                                             <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                           value="eherja_x2,eherja_y2"
                                                           {{ old('answer.'.$question->ques_id) == "eherja_x2,eherja_y2" ? 'checked' : '' }}
-                                                          id="answerGroup_1">Eher Ja</label>
+                                                          id="answerGroup_1"> Eher Ja</label>
                                         </li>
                                     </ul>
                                 </div>
@@ -96,15 +102,7 @@
                         </div>
                     @endforeach
                 </div>
-                @if($errors->any())
-                    <div class="alert alert-danger" style="font-size:110%">
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-            @endif
+
             <!-- Accordion card -->
 
             </div>
@@ -123,7 +121,5 @@
 
 
 </body>
-
-</html>
 
 @endsection

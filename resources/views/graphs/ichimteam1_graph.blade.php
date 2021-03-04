@@ -4,12 +4,12 @@
 <html>
 
 <head>
-    <title>Ihr Ergebnisse - Privater Bereich | Team-Energy</title>
+    <title>{{ $user_name }} - Privater Bereich_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="js/d3-3.5.17.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
-    <script src="js/ichimTeamPrivat.js"></script>
+{{--    <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>--}}
+{{--    <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>--}}
+{{--    <script src="js/"></script>--}}
     <style>
         body {
             font: 15px Arial;
@@ -29,12 +29,25 @@
         }
 
     </style>
+    <style type="text/css" media="print">
+        @page
+        {
+            size: auto;   /* auto is the initial value */
+            margin: 1.16cm;  /* this affects the margin in the printer settings */
+        }
+    </style>
 </head>
 @section('content')
+    <div class="container">
+        <h5>Name: {{ $user_name }}</h5>
+        <h5>Team Name: {{ $team_name }}</h5>
+        <h5>Ergebnis-ID: {{ $result_id }}</h5>
+    </div>
     <body>
     <div align="center">
         <div id="graph"></div>
-        <button onclick="window.print()">Downloaden</button>
+        <button class="btn btn-primary" onclick="window.print()" value="Print" >Downloaden</button>
+{{--        <a href="{{ route('pdf.generate') }}" class="btn btn-primary">Generate PDF</a>--}}
     </div>
     <svg></svg>
     <canvas id="canvasId"></canvas>
@@ -91,6 +104,7 @@
             .attr("class", "axis axis--y")
             .attr("transform", "translate(" + (width / 2) + ",0)")
             .call(yAxis) //.tickSize(-width, 0));
+
 
         var x_quad1 = @json($quadrant1_x);
         var y_quad1 = @json($quadrant1_y);

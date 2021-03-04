@@ -17,8 +17,27 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="float-left">Benutzerverwaltung</h1>
-                <a class="btn btn-light float-right" href="{{ route('admin.users.create') }}" role="button"><i
+                <a class="btn btn-light float-right" title="Benutzer erstellen" href="{{ route('admin.users.create') }}" role="button"><i
                         class="fas fa-user-plus"></i>&nbsp;Neuen Benutzer Erstellen</a>
+                <form action="{{ route('admin.users.index') }}" method="GET" role="search">
+
+                    <div class="input-group">
+                        <span class="input-group-btn mr-5 mt-1">
+                            <button class="btn btn-info" type="submit" title="Suche">
+                                <span class="fas fa-search"></span>
+                            </button>
+                        </span>
+                        <input type="text" class="form-control mr-2" placeholder="Benutzer suchen"
+                               id="term">
+                        <a href="{{ route('admin.users.index') }}" class=" mt-1">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button" title="Refresh">
+                                    <span class="fas fa-sync-alt"></span>
+                                </button>
+                            </span>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="card">
@@ -36,19 +55,19 @@
                 <tbody>
                 @foreach($users as $user)
                     <tr>
-                        <th scope="row">{{ $user->user_id }}</th>
+                        <th scope="row">{{ $user->id }}</th>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->user_id) }}"
+                            <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->id) }}"
                                role="button"><i class="fas fa-user-edit"></i>&nbsp;Bearbeiten</a>
 
-                            <a class="btn btn-sm btn-success" href="{{ route('admin.users.show', $user->user_id) }}"
+                            <a class="btn btn-sm btn-success" href="{{ route('admin.users.show', $user->id) }}"
                                role="button"><i class="fas fa-eye"></i>&nbsp;Anzeigen</a>
 
-                            <form action="{{ route('admin.users.destroy', $user->user_id) }}" method="POST"
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
                                   style="display: inline">
                                 @csrf
                                 @method("DELETE")

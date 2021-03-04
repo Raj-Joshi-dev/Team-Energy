@@ -38,12 +38,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $primaryKey = 'user_id';
+//    protected $primaryKey = 'id';
 
-    public function answers()
+    public function results()
     {
-
         return $this->hasMany(Result::class);
+    }
+
+    public function result_answers()
+    {
+        return $this->hasMany(ResultAnswer::class);
     }
 
     public function setPasswordAttribute($password)

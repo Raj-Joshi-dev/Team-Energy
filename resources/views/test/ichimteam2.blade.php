@@ -63,13 +63,13 @@
                                                 <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                         value="ja_x1,ja_y1"
                                                         {{ old('answer.'.$question->ques_id) == "ja_x1,ja_y1" ? 'checked' : '' }}
-                                                        id="answerGroup_1">Ja</label>
+                                                        id="answerGroup_1"> Ja</label>
                                             </li>
                                             <li>
                                                 <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                         value="eherja_x1,eherja_y1"
                                                         {{ old('answer.'.$question->ques_id) == "eherja_x1,eherja_y1" ? 'checked' : '' }}
-                                                        id="answerGroup_1">Eher Ja</label>
+                                                        id="answerGroup_1"> Eher Ja</label>
                                             </li>
                                         </ul>
                                         <div class="questions">
@@ -80,13 +80,13 @@
                                                 <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                         value="ja_x2,ja_y2"
                                                         {{ old('answer.'.$question->ques_id) == "ja_x2,ja_y2" ? 'checked' : '' }}
-                                                        id="answerGroup_1">Ja</label>
+                                                        id="answerGroup_1"> Ja</label>
                                             </li>
                                             <li>
                                                 <label><input type="radio" name="answer[{{ $question->ques_id }}]"
                                                         value="eherja_x2,eherja_y2"
                                                         {{ old('answer.'.$question->ques_id) == "eherja_x2,eherja_y2" ? 'checked' : '' }}
-                                                        id="answerGroup_1">Eher Ja</label>
+                                                        id="answerGroup_1"> Eher Ja</label>
                                             </li>
                                         </ul>
                                     </div>

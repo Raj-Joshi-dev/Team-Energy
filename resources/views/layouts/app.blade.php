@@ -96,6 +96,11 @@
                             <a class="nav-link" href="{{ route('admin.teams.index') }}">Teams</a>
                         </li>
                     </ul>
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.results.index') }}">Ergebnisse</a>
+                        </li>
+                    </ul>
                 @endif
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button"

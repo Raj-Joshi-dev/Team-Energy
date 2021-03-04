@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
 use Admin\TeamController;
+use App\Http\Controllers\PDFController;
 
 // Disable User registration
 Auth::routes(['register' => false]);
@@ -33,9 +34,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('ich-im-team1', 'QuestionsController@add_ichimteam1')->name('ichimteam1')->middleware('auth');
 
-Route::post('test1', 'ResultController@store1')->name('store1');
+Route::post('test1', 'IchimTeamPrivatController@privat_store')->name('store1');
 
-Route::get('result1={id}', 'ResultController@result1')->name('result1')->middleware('auth');
+Route::get('result1={id}', 'IchimTeamPrivatController@privat_result')->name('result1');
 
 Route::view('ichimteam1_graph', 'graphs.ichimteam1_graph')->name('ichimteam1_graph');
 
@@ -73,13 +74,20 @@ Route::view('potentialim_graph', 'graphs.potentialimteam_graph')->name('potentia
 Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturimteam2');
 
 
+// Generate Graph from Admin Panel
+Route::get('/admin/results/{id}/graph', 'ResultController@generate_graph')->name('generate_graph')->middleware('auth');
+
 // Admin Area
 //Route::resource('/admin/users', \App\Http\Controllers\Admin\UserController::class);
 
 Route::prefix('admin')->middleware(['auth','auth.isAdmin'])->name('admin.')->group(function (){
     Route::resource('/users', UserController::class);
     Route::resource('/teams',TeamController::class);
+    Route::resource('/results', ResultController::class);
 });
+
+//Route::get('pdf/preview', [PDFController::class, 'preview'])->name('pdf.preview');
+//Route::get('pdf/generate', [PDFController::class, 'generatePDF'])->name('pdf.generate');
 
 
 //Route::get('/home', 'HomeController@index')->name('home');

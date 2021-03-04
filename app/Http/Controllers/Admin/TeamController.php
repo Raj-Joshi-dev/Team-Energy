@@ -18,14 +18,13 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
 
-        if (Gate::allows('is-admin')) {
-            $teams = Team::with('users')->get();
-            return view('admin.teams.index', ['teams' => Team::paginate(10)]);
-        }
-
-        return abort('403');
+//        if (Gate::allows('is-admin')) {
+//            $teams = Team::with('users')->get();
+//            return view('admin.teams.index', ['teams' => Team::paginate(10)]);
+//        }
+//
+//        return abort('403');
 
 //        $counts = User::with('teams')->count();
 //        $counts = Team::with('users')->count();
@@ -45,6 +44,9 @@ class TeamController extends Controller
 //            $counts = User::where('team_id', $team->id)->count();
 //
 //        }
+
+
+        return view('admin.teams.index', ['teams' => Team::orderByDesc('id')->paginate(10)]);
     }
 
     /**

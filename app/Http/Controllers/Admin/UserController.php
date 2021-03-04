@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use phpDocumentor\Reflection\Types\Null_;
 
 class UserController extends Controller
 {
@@ -16,19 +17,31 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        if (Gate::allows('is-admin')) {
-            return view('admin.users.index', ['users' => User::paginate(10)]);
-        }
-
-        return abort('403');
-//        $test = view('admin.users.index', ['users' => User::paginate(10)]);
+//        if (Gate::allows('is-admin')) {
+//            return view('admin.users.index', ['users' => User::paginate(10)]);
+//        }
 //
-//        dd($test);
+//        return abort('403');
+
+        $users = User::where([
+        ['name', '!=', Null],
+            [function ($query) use ($request) {
+            if (($term = $request->term)) {
+                $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
+            }
+            }]
+        ])
+            ->orderBy("id", "desc")
+            ->paginate(10);
+
+        return view('admin.users.index', compact('users'))
+            ->with('i', (request()->input('page',1) - 1) * 5);
+
+
 
 //        return view('admin.users.index', ['users' => User::paginate(10)]);
-
     }
 
     /**
