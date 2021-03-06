@@ -129,12 +129,6 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
-    ],
-
-    'custom' => [
         'answer.1' => [
             'required' => 'Eine Auswahl für Frage 1 ist erforderlich.',
         ],
@@ -215,7 +209,7 @@ return [
             'required' => 'Eine Auswahl für Frage 20 ist erforderlich.',
         ],
 
-        
+
     ],
 
 
