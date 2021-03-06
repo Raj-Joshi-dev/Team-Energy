@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Listeners\LoginListerner;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -18,8 +20,8 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        'App\Events\IchimTeamPrivatSubmitEvent' => [
-            'App\Listeners\TestCompleteListener'
+        Login::class => [
+            LoginListerner::class,
         ],
     ];
 
