@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
@@ -62,19 +63,21 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
+        $input = $request->all();
+//        $user = User::create([
+//            'name' => $request->name,
+//            'email' => $request->email,
+//            'password' => $request->password,
+//            'team_id' => $request->team_id,
+//        ]);
 
-        $test = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            'team_id' => $request->team_id,
-        ]);
+        $user = User::create($input);
 
         //$user = User::create($request->except('_token'));
 
-        $request->session()->flash('success', 'Sie haben einen neuen Benutzer erstellt.');
+        $request->session()->flash('success', 'Benutzer erfolgreich angelegt!.');
 
         return redirect(route('admin.users.index'));
     }

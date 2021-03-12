@@ -14,14 +14,14 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Raj',
-            'email' => 'admin1@admin',
+            'email' => 'admin1@admin.de',
             'password' => 'password',
             'team_id' => 1,
         ]);
 
         User::create([
             'name' => 'Didi',
-            'email' => 'admin2@admin',
+            'email' => 'admin2@admin.de',
             'password' => 'password',
             'team_id' => 1,
         ]);
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Test User',
-            'email' => 'test@test.com',
+            'email' => 'test@test.de',
             'password' => 'password',
             'team_id' => 4,
         ]);

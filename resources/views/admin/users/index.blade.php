@@ -61,19 +61,19 @@
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('admin.users.edit', $user->id) }}"
-                               role="button"><i class="fas fa-user-edit"></i>&nbsp;Bearbeiten</a>
+                            <a class="btn btn-sm btn-primary" title="Bearbeiten" href="{{ route('admin.users.edit', $user->id) }}"
+                               role="button"><i class="fas fa-user-edit"></i></a>
 
-                            <a class="btn btn-sm btn-success" href="{{ route('admin.users.show', $user->id) }}"
-                               role="button"><i class="fas fa-eye"></i>&nbsp;Anzeigen</a>
+                            <a class="btn btn-sm btn-success" title="Anzeigen" href="{{ route('admin.users.show', $user->id) }}"
+                               role="button"><i class="fas fa-eye"></i></a>
 
                             <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
                                   style="display: inline">
                                 @csrf
                                 @method("DELETE")
-                                <button type="submit" class="btn btn-sm btn-danger"
+                                <button type="submit" class="btn btn-sm btn-danger" title="Löschen"
                                         onclick="return confirm('Bist du sicher?')" role="button"><i
-                                        class="fas fa-trash-alt"></i>&nbsp;Löschen
+                                        class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
 
