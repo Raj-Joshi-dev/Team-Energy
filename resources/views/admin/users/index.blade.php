@@ -17,30 +17,36 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="float-left">Benutzerverwaltung</h1>
-                <a class="btn btn-light float-right" title="Benutzer erstellen" href="{{ route('admin.users.create') }}" role="button"><i
+                <a class="btn btn-light float-right" title="Benutzer erstellen" href="{{ route('admin.users.create') }}"
+                   role="button"><i
                         class="fas fa-user-plus"></i>&nbsp;Neuen Benutzer Erstellen</a>
-                <form action="{{ route('admin.users.index') }}" method="GET" role="search">
+            </div>
+        </div>
+        <div class="card">
+            <div>
+                <div class="mx-auto float-right">
 
-                    <div class="input-group">
-                        <span class="input-group-btn mr-5 mt-1">
+                        <form action="{{ route('admin.users.index') }}" method="GET" role="search">
+
+                            <div class="input-group">
+                        <span class="input-group-btn mr-2 mt-1">
                             <button class="btn btn-info" type="submit" title="Suche">
                                 <span class="fas fa-search"></span>
                             </button>
                         </span>
-                        <input type="text" class="form-control mr-2" placeholder="Benutzer suchen"
-                               id="term">
-                        <a href="{{ route('admin.users.index') }}" class=" mt-1">
+                                <input type="text" class="form-control mr-2" name="term" placeholder="Benutzer suchen" id="term">
+                                <a href="{{ route('admin.users.index') }}" class=" mt-1">
                             <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button" title="Refresh">
+                                <button class="btn btn-danger" type="button" title="Refresh page">
                                     <span class="fas fa-sync-alt"></span>
                                 </button>
                             </span>
-                        </a>
-                    </div>
-                </form>
+                                </a>
+                            </div>
+                        </form>
+
+                </div>
             </div>
-        </div>
-        <div class="card">
             <table class="table">
                 <thead>
                 <tr>
@@ -61,10 +67,12 @@
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" title="Bearbeiten" href="{{ route('admin.users.edit', $user->id) }}"
+                            <a class="btn btn-sm btn-primary" title="Bearbeiten"
+                               href="{{ route('admin.users.edit', $user->id) }}"
                                role="button"><i class="fas fa-user-edit"></i></a>
 
-                            <a class="btn btn-sm btn-success" title="Anzeigen" href="{{ route('admin.users.show', $user->id) }}"
+                            <a class="btn btn-sm btn-success" title="Anzeigen"
+                               href="{{ route('admin.users.show', $user->id) }}"
                                role="button"><i class="fas fa-eye"></i></a>
 
                             <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
