@@ -294,25 +294,25 @@ class ResultController extends Controller
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
-//        $beruf = new IchImTeamBeruf();
-//
-//        $beruf->user_id = Auth::id();
-//
-//        $beruf->result_id = $id;
-//
-//        $beruf->beruf_x1 = $quadrant1_x;
-//        $beruf->beruf_y1 = $quadrant1_y;
-//
-//        $beruf->beruf_x2 = $quadrant2_x;
-//        $beruf->beruf_y2 = $quadrant2_y;
-//
-//        $beruf->beruf_x3 = $quadrant3_x;
-//        $beruf->beruf_y3 = $quadrant3_y;
-//
-//        $beruf->beruf_x4 = $quadrant4_x;
-//        $beruf->beruf_y4 = $quadrant4_y;
-//
-//        $beruf->save();
+        $beruf = new IchImTeamBeruf();
+
+        $beruf->user_id = Auth::id();
+
+        $beruf->result_id = $id;
+
+        $beruf->beruf_x1 = $quadrant1_x;
+        $beruf->beruf_y1 = $quadrant1_y;
+
+        $beruf->beruf_x2 = $quadrant2_x;
+        $beruf->beruf_y2 = $quadrant2_y;
+
+        $beruf->beruf_x3 = $quadrant3_x;
+        $beruf->beruf_y3 = $quadrant3_y;
+
+        $beruf->beruf_x4 = $quadrant4_x;
+        $beruf->beruf_y4 = $quadrant4_y;
+
+        $beruf->save();
 
         return view('graphs.ichimteam2_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
     }

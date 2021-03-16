@@ -29,7 +29,17 @@
             stroke-width: 1;
             shape-rendering: crispEdges;
         }
+    </style>
+    <style type="text/css" media="print">
+        @media print {
+            @page {
+                margin: 0;
+            }
 
+            body {
+                margin: 1.6cm;
+            }
+        }
     </style>
 </head>
 @section('content')

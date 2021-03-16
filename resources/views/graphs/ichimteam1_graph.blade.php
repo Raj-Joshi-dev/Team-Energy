@@ -7,9 +7,9 @@
     <title>{{ $user_name }} - Privater Bereich_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="js/d3-3.5.17.js"></script>
-{{--    <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>--}}
-{{--    <script src="js/"></script>--}}
+    {{--    <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>--}}
+    {{--    <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>--}}
+    {{--    <script src="js/"></script>--}}
     <style>
         body {
             font: 15px Arial;
@@ -27,13 +27,16 @@
             stroke-width: 1;
             shape-rendering: crispEdges;
         }
-
     </style>
     <style type="text/css" media="print">
-        @page
-        {
-            size: auto;   /* auto is the initial value */
-            margin: 1.16cm;  /* this affects the margin in the printer settings */
+        @media print {
+            @page {
+                margin: 0;
+            }
+
+            body {
+                margin: 1.6cm;
+            }
         }
     </style>
 </head>
@@ -46,8 +49,8 @@
     <body>
     <div align="center">
         <div id="graph"></div>
-        <button class="btn btn-primary" onclick="window.print()" value="Print" >Downloaden</button>
-{{--        <a href="{{ route('pdf.generate') }}" class="btn btn-primary">Generate PDF</a>--}}
+        <button class="btn btn-primary" onclick="window.print()" value="Print">Downloaden</button>
+        {{--        <a href="{{ route('pdf.generate') }}" class="btn btn-primary">Generate PDF</a>--}}
     </div>
     <svg></svg>
     <canvas id="canvasId"></canvas>
