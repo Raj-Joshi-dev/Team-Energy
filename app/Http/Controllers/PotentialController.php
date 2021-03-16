@@ -13,7 +13,7 @@ class PotentialController extends Controller
 {
     public function potential_graph()
 
-    {   
+    {
         // user id.
         $id = Auth::id();
 
@@ -41,7 +41,7 @@ class PotentialController extends Controller
 
         $avg_privat_y = ($privat_y1 + $privat_y2 + $privat_y3 + $privat_y4) / 4;
 
-        
+
         // Average of Beruf (x,y) co-ordinates.
         $avg_beruf_x = ($beruf_x1 + $beruf_x2 + $beruf_x3 + $beruf_x4) / 4;
 
@@ -53,13 +53,14 @@ class PotentialController extends Controller
 
         $potential_point_y = ($avg_beruf_y + $avg_privat_y) / 2;
 
+        $user_name = DB::table('users')->where('id', $id)->value('name');
 
-        
+        $team_id = DB::table('users')->where('id', $id)->value('team_id');
 
-
+        $team_name = DB::table('teams')->where('id', $team_id)->value('name');
 
         // Passing middlepoint co-ordinates (x,y) values to frontend.
-        return view('graphs.potentialimteam_graph', compact('potential_point_x','potential_point_y'));
+        return view('graphs.potentialimteam_graph', compact('user_name', 'team_name', 'potential_point_x','potential_point_y'));
 
 
 

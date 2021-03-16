@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\IchImTeamPrivat;
 use App\Key;
 use App\Result;
 use App\ResultAnswer;
@@ -169,25 +170,25 @@ class IchimTeamPrivatController extends Controller
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
 
-//        $privat = new IchImTeamPrivat();
-//
-//        $privat->user_id = Auth::id();
-//
-//        $privat->result_id = $id;
-//
-//        $privat->privat_x1 = $quadrant1_x;
-//        $privat->privat_y1 = $quadrant1_y;
-//
-//        $privat->privat_x2 = $quadrant2_x;
-//        $privat->privat_y2 = $quadrant2_y;
-//
-//        $privat->privat_x3 = $quadrant3_x;
-//        $privat->privat_y3 = $quadrant3_y;
-//
-//        $privat->privat_x4 = $quadrant4_x;
-//        $privat->privat_y4 = $quadrant4_y;
-//
-//        $privat->save();
+        $privat = new IchImTeamPrivat();
+
+        $privat->user_id = Auth::id();
+
+        $privat->result_id = $id;
+
+        $privat->privat_x1 = $quadrant1_x;
+        $privat->privat_y1 = $quadrant1_y;
+
+        $privat->privat_x2 = $quadrant2_x;
+        $privat->privat_y2 = $quadrant2_y;
+
+        $privat->privat_x3 = $quadrant3_x;
+        $privat->privat_y3 = $quadrant3_y;
+
+        $privat->privat_x4 = $quadrant4_x;
+        $privat->privat_y4 = $quadrant4_y;
+
+        $privat->save();
 
 //        $privat_x1 = $quadrant1_x;
 //        $privat_y1 = $quadrant1_y;
