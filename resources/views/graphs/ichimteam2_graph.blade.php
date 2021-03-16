@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
-    <script src="js/ichimTeamBeruf.js"></script>
+{{--    <script src="js/ichimTeamBeruf.js"></script>--}}
 
     <style>
         body {
@@ -37,7 +37,7 @@
 <body>
     <div align="center">
         <div id="graph"></div>
-        <button id="download">Downloaden PDF</button>
+        <button class="btn btn-primary" onclick="window.print()" value="Print" >Downloaden</button>
     </div>
     <svg></svg>
     <canvas id="canvasId"></canvas>

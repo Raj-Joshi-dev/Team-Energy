@@ -15,10 +15,10 @@ class CreatePotentialImTeamsTable extends Migration
     {
         Schema::create('potential_im_teams', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->bigInteger('result_id')->unsigned();
-            $table->foreign('result_id')->references('result_id')->on('results');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('result_id');
+            $table->foreign('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->decimal('privat_x1');
             $table->decimal('privat_y1');
             $table->decimal('privat_x2');

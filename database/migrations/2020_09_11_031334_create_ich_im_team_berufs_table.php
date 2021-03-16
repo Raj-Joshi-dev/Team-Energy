@@ -15,9 +15,10 @@ class CreateIchImTeamBerufsTable extends Migration
     {
         Schema::create('ich_im_team_berufs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
-            $table->bigInteger('result_id')->unsigned();
-            $table->foreign('result_id')->references('result_id')->on('results');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('result_id');
+            $table->foreign('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->decimal('beruf_x1');
             $table->decimal('beruf_y1');
             $table->decimal('beruf_x2');

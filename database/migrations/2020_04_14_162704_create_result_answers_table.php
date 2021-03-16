@@ -15,9 +15,10 @@ class CreateResultAnswersTable extends Migration
     {
         Schema::create('result_answers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->bigInteger('result_id')->unsigned();
-            $table->foreign('result_id')->references('result_id')->on('results');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('result_id');
+            $table->foreign('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->integer('answer_id');
             $table->string('points');
             $table->decimal('value_x');
