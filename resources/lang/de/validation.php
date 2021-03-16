@@ -135,6 +135,89 @@ return [
         ],
     ],
 
+    'custom' => [
+        'answer.1' => [
+            'required' => 'Eine Auswahl für Frage 1 ist erforderlich.',
+        ],
+
+        'answer.2' => [
+            'required' => 'Eine Auswahl für Frage 2 ist erforderlich.',
+        ],
+
+        'answer.3' => [
+            'required' => 'Eine Auswahl für Frage 3 ist erforderlich.',
+        ],
+
+        'answer.4' => [
+            'required' => 'Eine Auswahl für Frage 4 ist erforderlich.',
+        ],
+
+        'answer.5' => [
+            'required' => 'Eine Auswahl für Frage 5 ist erforderlich.',
+        ],
+
+        'answer.6' => [
+            'required' => 'Eine Auswahl für Frage 6 ist erforderlich.',
+        ],
+
+        'answer.7' => [
+            'required' => 'Eine Auswahl für Frage 7 ist erforderlich.',
+        ],
+
+        'answer.8' => [
+            'required' => 'Eine Auswahl für Frage 8 ist erforderlich.',
+        ],
+
+        'answer.9' => [
+            'required' => 'Eine Auswahl für Frage 9 ist erforderlich.',
+        ],
+
+        'answer.10' => [
+            'required' => 'Eine Auswahl für Frage 10 ist erforderlich.',
+        ],
+
+        'answer.11' => [
+            'required' => 'Eine Auswahl für Frage 11 ist erforderlich.',
+        ],
+
+        'answer.12' => [
+            'required' => 'Eine Auswahl für Frage 12 ist erforderlich.',
+        ],
+
+        'answer.13' => [
+            'required' => 'Eine Auswahl für Frage 13 ist erforderlich.',
+        ],
+
+        'answer.14' => [
+            'required' => 'Eine Auswahl für Frage 14 ist erforderlich.',
+        ],
+
+        'answer.15' => [
+            'required' => 'Eine Auswahl für Frage 15 ist erforderlich.',
+        ],
+
+        'answer.16' => [
+            'required' => 'Eine Auswahl für Frage 16 ist erforderlich.',
+        ],
+
+        'answer.17' => [
+            'required' => 'Eine Auswahl für Frage 17 ist erforderlich.',
+        ],
+
+        'answer.18' => [
+            'required' => 'Eine Auswahl für Frage 18 ist erforderlich.',
+        ],
+
+        'answer.19' => [
+            'required' => 'Eine Auswahl für Frage 19 ist erforderlich.',
+        ],
+
+        'answer.20' => [
+            'required' => 'Eine Auswahl für Frage 20 ist erforderlich.',
+        ],
+
+
+    ],
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

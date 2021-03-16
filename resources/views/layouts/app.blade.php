@@ -21,8 +21,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Font Awesome JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
+    <!-- Jquery for Admin Panel -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     <!-- icons of website -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -78,30 +80,6 @@
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Anmeldung') }}</a>
                 </li>
             @else
-                @if(Auth::user() && !Auth::user()->isAdmin('Admin'))
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
-                    </li>
-                </ul>
-                @endif
-                @if(Auth::user() && Auth::user()->isAdmin('Admin'))
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.users.index') }}">Benutzer</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.teams.index') }}">Teams</a>
-                        </li>
-                    </ul>
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.results.index') }}">Ergebnisse</a>
-                        </li>
-                    </ul>
-                @endif
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -109,6 +87,13 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @if(Auth::user() && !Auth::user()->isAdmin('Admin'))
+                            <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                        @endif
+
+                        @if(Auth::user() && Auth::user()->isAdmin('Admin'))
+                            <a href="{{ route('admin-panel') }}" class="dropdown-item">Admin Bereich</a>
+                        @endif
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Abmeldung') }}

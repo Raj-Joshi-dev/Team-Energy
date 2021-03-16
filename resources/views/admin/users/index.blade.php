@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.admin-app')
 
 <style>
     h1 {
@@ -22,31 +22,33 @@
                         class="fas fa-user-plus"></i>&nbsp;Neuen Benutzer Erstellen</a>
             </div>
         </div>
+
         <div class="card">
             <div>
                 <div class="mx-auto float-right">
 
-                        <form action="{{ route('admin.users.index') }}" method="GET" role="search">
+                    <form action="{{ route('admin.users.index') }}" method="GET" role="search">
 
-                            <div class="input-group">
+                        <div class="input-group">
                         <span class="input-group-btn mr-2 mt-1">
                             <button class="btn btn-info" type="submit" title="Suche">
                                 <span class="fas fa-search"></span>
                             </button>
                         </span>
-                                <input type="text" class="form-control mr-2" name="term" placeholder="Benutzer suchen" id="term">
-                                <a href="{{ route('admin.users.index') }}" class=" mt-1">
+                            <input type="text" class="form-control mr-2" name="term" placeholder="Benutzer suchen"
+                                   id="term">
+                            <a href="{{ route('admin.users.index') }}" class=" mt-1">
                             <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button" title="Refresh page">
+                                <button class="btn btn-danger" type="button" title="Refresh">
                                     <span class="fas fa-sync-alt"></span>
                                 </button>
                             </span>
-                                </a>
-                            </div>
-                        </form>
-
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
+
             <table class="table">
                 <thead>
                 <tr>
@@ -90,7 +92,7 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $users->links() }}
+            {{ $users->onEachSide(5)->links() }}
         </div>
     </div>
 @endsection

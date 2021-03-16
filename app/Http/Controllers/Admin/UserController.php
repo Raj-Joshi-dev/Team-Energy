@@ -147,4 +147,9 @@ class UserController extends Controller
 
         return redirect(route('admin.users.index'));
     }
+
+    public function admin()
+    {
+        return view('admin.layouts.admin-app');
+    }
 }

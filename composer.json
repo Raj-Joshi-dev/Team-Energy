@@ -15,7 +15,8 @@
         "juliomotol/laravel-auth-timeout": "^3.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.0"
+        "laravel/ui": "^3.0",
+        "snapappointments/bootstrap-select": "^1.13"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

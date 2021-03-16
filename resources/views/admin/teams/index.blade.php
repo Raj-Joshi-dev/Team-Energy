@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.admin-app')
 
 <style>
     h1 {
@@ -22,6 +22,31 @@
             </div>
         </div>
         <div class="card">
+            <div>
+                <div class="mx-auto float-right">
+
+                    <form action="{{ route('admin.teams.index') }}" method="GET" role="search">
+
+                        <div class="input-group">
+                        <span class="input-group-btn mr-2 mt-1">
+                            <button class="btn btn-info" type="submit" title="Suche">
+                                <span class="fas fa-search"></span>
+                            </button>
+                        </span>
+                            <input type="text" class="form-control mr-2" name="term" placeholder="Team suchen" id="term">
+                            <a href="{{ route('admin.teams.index') }}" class=" mt-1">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button" title="Refresh">
+                                    <span class="fas fa-sync-alt"></span>
+                                </button>
+                            </span>
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
             <table class="table">
                 <thead>
                 <tr>
@@ -44,22 +69,22 @@
                         <td>{{ $team->created_at }}</td>
                         <td>{{ $team->updated_at }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('admin.teams.edit', $team->id) }}"
-                               role="button"><i class="fas fa-edit"></i>&nbsp;Bearbeiten</a>
+                            <a class="btn btn-sm btn-primary" title="Bearbeiten"
+                               href="{{ route('admin.teams.edit', $team->id) }}"
+                               role="button"><i class="fas fa-edit"></i></a>
 
-                            <a class="btn btn-sm btn-success" href="{{ route('admin.teams.show', $team->id) }}"
-                               role="button"><i class="fas fa-eye"></i>&nbsp;Anzeigen</a>
+                            <a class="btn btn-sm btn-success" title="Anzeigen"
+                               href="{{ route('admin.teams.show', $team->id) }}"
+                               role="button"><i class="fas fa-eye"></i></a>
 
-                            <button type="button" class="btn btn-sm btn-danger"
-                                    onclick="event.preventDefault();
-                                        document.getElementById('delete-user-form-{{ $team->id }}').submit()"><i
-                                    class="fas fa-trash-alt"></i>&nbsp;Löschen
-                            </button>
-                            <form id="delete-user-form-{{ $team->id }}"
-                                  action="{{ route('admin.teams.destroy', $team->id) }}" method="POST"
-                                  style="display: none">
+                            <form action="{{ route('admin.teams.destroy', $team->id) }}" method="POST"
+                                  style="display: inline">
                                 @csrf
                                 @method("DELETE")
+                                <button type="submit" class="btn btn-sm btn-danger" title="Löschen"
+                                        onclick="return confirm('Bist du sicher?')" role="button"><i
+                                        class="fas fa-trash-alt"></i>
+                                </button>
                             </form>
                         </td>
 
@@ -67,7 +92,7 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $teams->links() }}
+            {{ $teams->onEachSide(5)->links() }}
         </div>
     </div>
 @endsection

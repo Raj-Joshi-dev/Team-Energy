@@ -133,10 +133,10 @@ class ResultController extends Controller
 //            $privat_x4 = $privat->pluck('privat_x4');
 //            $privat_y4 = $privat->pluck('privat_y4');
 
-            return redirect()->action('IchimTeamPrivatController@privat_result', $id);
+            return redirect()->action([IchimTeamPrivatController::class,'privat_result'], $id);
         } elseif ($kat_id == 2) {
 
-            return redirect()->action('ResultController@result2', $id);
+            return redirect()->action([ResultController::class ,'result2'], $id);
         } else {
             echo 'Do Nothing!';
         }
@@ -249,7 +249,7 @@ class ResultController extends Controller
         }
 
 
-        return redirect()->action('ResultController@result2', $id = $result->id);
+        return redirect()->action([ResultController::class, 'result2'], $id = $result->id);
     }
 
     public function result2($id)

@@ -112,7 +112,7 @@ class IchimTeamPrivatController extends Controller
         }
 
 
-        return redirect()->action('IchimTeamPrivatController@privat_result', $id = $result->id);
+        return redirect()->action([IchimTeamPrivatController::class,'privat_result'], $id = $result->id);
     }
 
     public function privat_result($id)

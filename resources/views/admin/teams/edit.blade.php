@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.admin-app')
 <style>
     h1 {
         margin-bottom: 30px;
@@ -41,7 +41,7 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                         @foreach($team->users as $user)
-                            <a href="{{ route('admin.users.edit' , $user->user_id) }}" class="list-group-item list-group-item-action"
+                            <a href="{{ route('admin.users.edit' , $user->id) }}" class="list-group-item list-group-item-action"
                                aria-current="true">{{ $user->name }}</a>
                         @endforeach
                         </li>

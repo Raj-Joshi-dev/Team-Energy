@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('admin.layouts.admin-app')
 
 @section('content')
     <div class="container">
         <div class="col-12">
             <h1 class="float-left">Ergebnisverwaltung</h1>
         </div>
-        <table class="table table-striped">
+        <table class="table">
             <thead>
             <tr>
                 <th scope="col">Ergebnisse ID</th>
@@ -28,19 +28,19 @@
                     <td>{{ $result->updated_at }}</td>
                     <td>
 
-                        <a class="btn btn-sm btn-primary" href="{{ route('generate_graph', $result->id) }}" target="_blank"
-                           role="button"><i class="fas fa-sticky-note"></i>&nbsp;Grafik</a>
+                        <a class="btn btn-sm btn-primary" title="Grafik" href="{{ route('generate_graph', $result->id) }}" target="_blank"
+                           role="button"><i class="fas fa-sticky-note"></i></a>
 
-                        <a class="btn btn-sm btn-success" href="{{ route('admin.results.show', $result->id) }}"
-                           role="button"><i class="fas fa-eye"></i>&nbsp;Anzeigen</a>
+                        <a class="btn btn-sm btn-success" title="Anzeigen" href="{{ route('admin.results.show', $result->id) }}"
+                           role="button"><i class="fas fa-eye"></i></a>
 
-                        <form action="{{ route('admin.results.destroy', $result->id) }}" method="POST"
+                        <form action="{{ route('admin.results.destroy', $result->id) }}"  title="Löschen" method="POST"
                               style="display: inline">
                             @csrf
                             @method("DELETE")
                             <button type="submit" class="btn btn-sm btn-danger"
                                     onclick="return confirm('Bist du sicher?')" role="button"><i
-                                    class="fas fa-trash-alt"></i>&nbsp;Löschen
+                                    class="fas fa-trash-alt"></i>
                             </button>
                         </form>
                     </td>

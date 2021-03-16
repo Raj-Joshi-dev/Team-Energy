@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.admin-app')
 <style>
     h1 {
         margin-bottom: 30px;

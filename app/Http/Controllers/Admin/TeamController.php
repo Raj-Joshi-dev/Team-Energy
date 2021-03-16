@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTeamRequest;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
 //        if (Gate::allows('is-admin')) {
@@ -39,14 +40,23 @@ class TeamController extends Controller
 //            }
 //        }
 
-//        foreach ($teams as $team){
-//
-//            $counts = User::where('team_id', $team->id)->count();
-//
-//        }
+
+        $teams = Team::where([
+            ['name', '!=', Null],
+            [function ($query) use ($request) {
+                if (($term = $request->term)) {
+                    $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
+                }
+            }]
+        ])
+            ->orderBy("id", "desc")
+            ->paginate(10);
+
+        return view('admin.teams.index', compact('teams'))
+            ->with('i', (request()->input('page',1) - 1) * 5);
 
 
-        return view('admin.teams.index', ['teams' => Team::orderByDesc('id')->paginate(10)]);
+//        return view('admin.teams.index', ['teams' => Team::orderByDesc('id')->paginate(10)]);
     }
 
     /**
@@ -68,11 +78,13 @@ class TeamController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTeamRequest $request)
     {
-        Team::create([
-            'name' => $request->name
-        ]);
+//        Team::create([
+//            'name' => $request->name
+//        ]);
+        $input = $request->all();
+        Team::create($input);
 
         $request->session()->flash('success', 'Sie haben einen neuen Team erstellt.');
 
