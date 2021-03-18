@@ -5,7 +5,7 @@
 
 <head>
 
-    <title>Ihr Potential im Team | Team-Energy</title>
+    <title>{{ $user_name }} - Ihr Potential im Team_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
     <script src="js/d3-3.5.17.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
@@ -44,6 +44,7 @@
     <div class="container">
         <h5>Name: {{ $user_name }}</h5>
         <h5>Team Name: {{ $team_name }}</h5>
+        <h5>Ergebnis-ID: {{ $result_id }}</h5>
     </div>
     <body>
     <div align="center">
