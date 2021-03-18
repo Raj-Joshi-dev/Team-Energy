@@ -16,15 +16,20 @@ class CategoryTableSeeder extends Seeder
                 'kat_id' => 1,
                 'name' => 'Privater Bereich'
             ]);
-    
+
         DB::table('categories')->insert([
                 'kat_id' => 2,
                 'name' => 'Beruflicher Bereich'
             ]);
-    
+
         DB::table('categories')->insert([
                 'kat_id' => 3,
                 'name' => 'Kultur im Team'
+            ]);
+
+        DB::table('categories')->insert([
+                'kat_id' => 4,
+                'name' => 'Potential im Team'
             ]);
     }
 }

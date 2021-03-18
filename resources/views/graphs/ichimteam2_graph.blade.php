@@ -5,6 +5,7 @@
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ $user_name }} - Beruflicher Bereich_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
     <script data-require="d3@3.5.17" data-semver="3.5.17" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
@@ -43,6 +44,11 @@
     </style>
 </head>
 @section('content')
+    <div class="container">
+        <h5>Name: {{ $user_name }}</h5>
+        <h5>Team Name: {{ $team_name }}</h5>
+        <h5>Ergebnis-ID: {{ $result_id }}</h5>
+    </div>
 
 <body>
     <div align="center">

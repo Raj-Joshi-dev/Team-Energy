@@ -15,6 +15,7 @@
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IchimTeamBerufController;
 use App\Http\Controllers\IchimTeamPrivatController;
 use App\Http\Controllers\PotentialController;
 use App\Http\Controllers\QuestionsController;
@@ -50,11 +51,19 @@ Route::view('ichimteam1_graph', 'graphs.ichimteam1_graph')->name('ichimteam1_gra
 
 Route::get('ich-im-team2', [QuestionsController::class, 'add_ichimteam2'])->name('ichimteam2')->middleware(['auth', 'auth.timeout']);
 
-Route::post('test2', [ResultController::class, 'store2'])->name('store2');
+Route::post('test2', [IchimTeamBerufController::class, 'beruf_store'])->name('store2');
 
-Route::get('result2={id}', [ResultController::class, 'result2'])->name('result2')->middleware(['auth', 'auth.timeout']);
+Route::get('result2={id}', [IchimTeamBerufController::class, 'beruf_result'])->name('result2')->middleware(['auth', 'auth.timeout']);
 
 Route::view('ichimteam2_graph', 'graphs.ichimteam2_graph')->name('ichimteam2_graph');
+
+// Potential im Team
+
+Route::get('test4', [PotentialController::class,'potential_store'])->name('potentialimteam')->middleware(['auth', 'auth.timeout']);
+
+Route::get('result4={id}', [PotentialController::class,'potential_result'])->name('result4')->middleware(['auth', 'auth.timeout']);
+
+Route::view('potentialim_graph', 'graphs.potentialimteam_result')->name('potentialimteam_graph');
 
 // Kultur im Team - mein Einschätzung
 
@@ -65,13 +74,6 @@ Route::post('test3', [ResultController::class ,'store3'])->name('store3');
 Route::get('result3={id}', [ResultController::class,'result3'])->name('result3')->middleware(['auth', 'auth.timeout']);
 
 Route::view('kulturimteam_graph', 'graphs.kulturimteam_graph')->name('kulturimteam_graph');
-
-
-// Potential im Team
-
-Route::get('potentialimteam', [PotentialController::class,'potential_graph'])->name('potentialimteam')->middleware(['auth', 'auth.timeout']);
-
-Route::view('potentialim_graph', 'graphs.potentialimteam_graph')->name('potentialimteam_graph');
 
 // Kultur im Team - unsere Einschätzungen
 

@@ -9,7 +9,7 @@
             <thead>
             <tr>
                 <th scope="col">Ergebnisse ID</th>
-                <th scope="col">Benutzer ID</th>
+                <th scope="col">Benutzer Name</th>
                 <th scope="col">Kategorie</th>
                 <th scope="col">Hergestellt in</th>
                 <th scope="col">Aktualisiert am</th>
