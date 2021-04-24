@@ -1,0 +1,19 @@
+[2021-03-27 11:59:08] local.ERROR: Command "route" is not defined.
+
+Did you mean one of these?
+    route:cache
+    route:clear
+    route:list {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"route\" is not defined.
+
+Did you mean one of these?
+    route:cache
+    route:clear
+    route:list at /home/raj/laravel/Team-Energy/src/vendor/symfony/console/Application.php:675)
+[stacktrace]
+#0 /home/raj/laravel/Team-Energy/src/vendor/symfony/console/Application.php(254): Symfony\\Component\\Console\\Application->find()
+#1 /home/raj/laravel/Team-Energy/src/vendor/symfony/console/Application.php(166): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/raj/laravel/Team-Energy/src/vendor/laravel/framework/src/Illuminate/Console/Application.php(92): Symfony\\Component\\Console\\Application->run()
+#3 /home/raj/laravel/Team-Energy/src/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#4 /home/raj/laravel/Team-Energy/src/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
