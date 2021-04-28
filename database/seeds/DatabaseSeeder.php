@@ -1,5 +1,7 @@
 <?php
 
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\RoleUserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KeyTableSeeder::class);
         $this->call(TeamSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(RoleUserSeeder::class);
     }
 }
