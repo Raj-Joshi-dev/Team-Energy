@@ -58,14 +58,28 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="teams">Team</label>&nbsp;<span style="color:#ff0000">*</span>
+                    <label for="teams">Team</label>&nbsp;
                     <select name="team_id" class="form-control">
+                        <option selected value> -- Wähle ein Team aus -- </option>
                         @foreach($teams as $team)
-                            <option value=" {{ $team->id }}">{{ $team->name }}</option>
+                            <option value="{{ $team->id }}">{{ $team->name }}</option>
                         @endforeach
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="teams">Role</label>&nbsp;<span style="color:#ff0000">*</span>
+                    @foreach($roles as $role)
+                        <div class="form-check">
+                            <input class="form-check-input" name="roles" type="radio" value="{{ $role->id }}" id="{{ $role->name }}"
+                                   @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray()))  @endif @endisset checked>
+                            <label for="{{ $role->name }}" class="form-check-label">{{ $role->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
                 <br>
+
+
                 <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Bestätigen</button>
                 <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button"><i
                         class="fas fa-window-close"></i>&nbsp;Absagen</a>

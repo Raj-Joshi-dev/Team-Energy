@@ -66,8 +66,23 @@ class User extends Authenticatable
      * @return bool
      */
 
-    public function isAdmin(string $team)
+//    public function isAdmin(string $team)
+//    {
+//        return $this->team()->where('name', $team)->exists();
+//    }
+
+    public function roles()
     {
-        return $this->team()->where('name', $team)->exists();
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Check if the user has a role
+     * @param string $role
+     * @return bool
+     */
+    public function hasAdminRole(string $role)
+    {
+        return null !== $this->roles()->where('name', $role)->first();
     }
 }

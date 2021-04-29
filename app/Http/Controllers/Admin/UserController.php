@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Role;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
@@ -53,7 +54,9 @@ class UserController extends Controller
     {
         $teams = Team::all();
 
-        return view('admin.users.create', compact('teams'));
+        $roles = Role::all();
+
+        return view('admin.users.create', compact('teams', 'roles'));
     }
 
     /**
@@ -65,6 +68,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $input = $request->all();
+
 //        $user = User::create([
 //            'name' => $request->name,
 //            'email' => $request->email,
@@ -73,6 +77,8 @@ class UserController extends Controller
 //        ]);
 
         $user = User::create($input);
+
+        $user->roles()->sync($request->roles);
 
         //$user = User::create($request->except('_token'));
 
@@ -105,10 +111,10 @@ class UserController extends Controller
     public function edit($id, Request $request)
     {
         $teams = Team::all();
+        $roles = Role::all();
         $user = User::find($id);
 
-
-        return view('admin.users.edit', compact('teams', 'user'));
+        return view('admin.users.edit', compact('teams', 'user', 'roles'));
     }
 
     /**
@@ -122,7 +128,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        $user->update($request->except(['_token', 'teams']));
+        $user->update($request->except(['_token', 'teams', 'roles']));
+        $user->roles()->sync($request->roles);
 
         if (!$user) {
             $request->session()->flash('error', 'Sie haben den Benutzer bearbeitet.');
