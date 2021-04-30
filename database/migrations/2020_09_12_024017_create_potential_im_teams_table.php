@@ -36,6 +36,7 @@ class CreatePotentialImTeamsTable extends Migration
             $table->decimal('beruf_x4');
             $table->decimal('beruf_y4');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

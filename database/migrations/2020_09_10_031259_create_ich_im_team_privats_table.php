@@ -28,6 +28,7 @@ class CreateIchImTeamPrivatsTable extends Migration
             $table->decimal('privat_x4');
             $table->decimal('privat_y4');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

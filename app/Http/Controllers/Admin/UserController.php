@@ -82,7 +82,7 @@ class UserController extends Controller
 
         //$user = User::create($request->except('_token'));
 
-        $request->session()->flash('success', 'Benutzer erfolgreich angelegt!.');
+        $request->session()->flash('success', 'Benutzer erfolgreich angelegt!');
 
         return redirect(route('admin.users.index'));
     }
@@ -135,7 +135,7 @@ class UserController extends Controller
             $request->session()->flash('error', 'Sie haben den Benutzer bearbeitet.');
         }
 
-        $request->session()->flash('success', 'Sie haben den Benutzer aktualisiert');
+        $request->session()->flash('success', 'Sie haben den Benutzer aktualisiert.');
 
         return redirect(route('admin.users.index'));
     }
