@@ -24,7 +24,6 @@
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
                 </svg> {{ __('Team-Energy') }}</a></li>
-        </svg>
         <li class="c-sidebar-nav-title">Verwaltung</li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.users.index') }}">
                 <svg class="c-sidebar-nav-icon">

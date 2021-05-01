@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\IchImTeamBeruf;
 use App\IchImTeamPrivat;
 use App\Key;
+use App\PotentialImTeam;
 use App\Result;
 use App\ResultAnswer;
 use App\User;
@@ -58,8 +59,9 @@ class ResultController extends Controller
      */
     public function show($id)
     {
-        $results = DB::table('result_answers')->where('result_id', $id)->get();
+        $test = Result::all();
 
+        $results = DB::table('result_answers')->where('result_id', $id)->get();
 
 //        $result = ResultAnswer::with('result')->get()->where('result_id', $id);
 

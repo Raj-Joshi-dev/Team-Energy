@@ -61,15 +61,19 @@
                                    href="{{ route('admin.users.show', $user->id) }}"
                                    role="button"><i class="fas fa-eye"></i></a>
 
-                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
-                                      style="display: inline">
-                                    @csrf
-                                    @method("DELETE")
-                                    <button type="submit" class="btn btn-sm btn-danger" title="Löschen"
-                                            onclick="return confirm('Bist du sicher?')" role="button"><i
-                                            class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
+                                @if($user->hasAdminRole('Admin'))
+
+                                @else
+                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
+                                          style="display: inline">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button type="submit" class="btn btn-sm btn-danger" title="Löschen"
+                                                onclick="return confirm('Bist du sicher?')" role="button"><i
+                                                class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                @endif
 
                             </td>
                         </tr>

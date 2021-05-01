@@ -18,7 +18,6 @@
                     </thead>
                     <tbody>
                     @foreach($results as $result)
-
                         <tr>
                             <th scope="row">{{ $result->id }}</th>
                             <td>{{ $result->user->name }}</td>
