@@ -26,6 +26,7 @@ class CreateResultAnswersTable extends Migration
             $table->string('name');
             $table->integer('quadrant');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

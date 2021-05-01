@@ -19,15 +19,11 @@
 </head>
 <body class="c-app">
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-    <div class="c-sidebar-brand d-lg-down-none">
-        <img src="/images/Compass_Trainer_Network_LOGO.jpg" style="padding-right: 5px" height="30"
-             class="d-inline-block align-top" alt="Team Energy">Team-Energy
-
-        <svg class="c-sidebar-brand-minimized" style="padding-right: 5px" height="30" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('/images/Compass_Trainer_Network_LOGO.jpg') }}"></use>
-        </svg>
-    </div>
     <ul class="c-sidebar-nav">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('home') }}">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
+                </svg> {{ __('Team-Energy') }}</a></li>
         <li class="c-sidebar-nav-title">Verwaltung</li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.users.index') }}">
                 <svg class="c-sidebar-nav-icon">
@@ -44,23 +40,6 @@
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-description') }}"></use>
                 </svg>
                 Ergebnis</a></li>
-{{--        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a--}}
-{{--                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">--}}
-{{--                <svg class="c-sidebar-nav-icon">--}}
-{{--                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-cursor') }}"></use>--}}
-{{--                </svg>--}}
-{{--                Buttons</a>--}}
-{{--            <ul class="c-sidebar-nav-dropdown-items">--}}
-{{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/buttons.html"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Buttons</a></li>--}}
-{{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/button-group.html"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Buttons Group</a></li>--}}
-{{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/dropdowns.html"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Dropdowns</a></li>--}}
-{{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="buttons/brand-buttons.html"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Brand Buttons</a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
         <li class="c-sidebar-nav-divider"></li>
     </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"
@@ -75,11 +54,6 @@
                 <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-menu') }}"></use>
             </svg>
         </button>
-        <a class="c-header-brand d-lg-none" href="#">
-            <svg width="118" height="46" alt="CoreUI Logo">
-                <use xlink:href="{{ asset('assets/brand/coreui.svg#full') }}"></use>
-            </svg>
-        </a>
         <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar"
                 data-class="c-sidebar-lg-show" responsive="true">
             <svg class="c-icon c-icon-lg">
@@ -87,11 +61,6 @@
             </svg>
         </button>
         <ul class="c-header-nav ml-auto mr-4">
-            <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link" href="{{ route('home') }}">
-                    <svg class="c-icon">
-                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
-                    </svg>
-                </a></li>
             <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#"
                                                       role="button" aria-haspopup="true"
                                                       aria-expanded="false">{{ Auth::user()->name }}
@@ -103,7 +72,6 @@
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}"></use>
                         </svg>
                         Abmeldung</a>
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                           style="display: none;">
                         @csrf
