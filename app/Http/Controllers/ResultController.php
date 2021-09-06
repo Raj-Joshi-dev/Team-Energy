@@ -8,6 +8,7 @@ use App\Key;
 use App\PotentialImTeam;
 use App\Result;
 use App\ResultAnswer;
+use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,6 @@ class ResultController extends Controller
         $results = Result::with('user')->orderByDesc('id')->paginate(10);
 
         return view('admin.results.index', compact('results'));
-
 
     }
 
@@ -59,11 +59,7 @@ class ResultController extends Controller
      */
     public function show($id)
     {
-        $test = Result::all();
-
         $results = DB::table('result_answers')->where('result_id', $id)->get();
-
-//        $result = ResultAnswer::with('result')->get()->where('result_id', $id);
 
         return view('admin.results.show', compact('results'));
     }

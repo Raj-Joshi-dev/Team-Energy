@@ -8,8 +8,9 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th scope="col">Ergebnisse ID</th>
-                        <th scope="col">Benutzer Name</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Benutzer</th>
+                        <th scope="col">Team</th>
                         <th scope="col">Kategorie</th>
                         <th scope="col">Hergestellt in</th>
                         <th scope="col">Aktualisiert am</th>
@@ -21,7 +22,8 @@
                         <tr>
                             <th scope="row">{{ $result->id }}</th>
                             <td>{{ $result->user->name }}</td>
-                            {{--                    <td>{{ $result->user_id }}</td>--}}
+{{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
+                            <td>{{ $result->user->team->name ?? '-' }}</td>
                             <td>{{ $result->kat_id }}</td>
                             <td>{{ $result->created_at }}</td>
                             <td>{{ $result->updated_at }}</td>
