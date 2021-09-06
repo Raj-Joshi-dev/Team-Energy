@@ -56,17 +56,21 @@
                         </div>
                     </div>
                 </div>
-                {{--            <div class="card multi">--}}
-                {{--                <div class="card-body">--}}
-                {{--                    <div class="card-body">--}}
-                {{--                        <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein--}}
-                {{--                            Einschätzung--}}
-                {{--                        </div>--}}
-                {{--                        <a style="font-size: 13px" href="{{ route('kulturimteam') }}" class="btn btn-primary">Test--}}
-                {{--                            geben</a>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-                {{--            </div>--}}
+                            <div class="card multi">
+                                <div class="card-body">
+                                    <div class="card-body">
+                                        <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein
+                                            Einschätzung
+                                        </div>
+                                        @if($enable_potential == true)
+                                        <a style="font-size: 13px" href="{{ route('kulturimteam') }}" class="btn btn-primary">Test
+                                            geben</a>
+                                        @else
+                                            <p1 style="color: green">Test abgeschlossen! Danke</p1>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                 {{--            <div class="card multi">--}}
                 {{--                <div class="card-body">--}}
                 {{--                    <div class="card-body">--}}

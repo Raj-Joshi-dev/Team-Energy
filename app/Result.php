@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Result extends Model
 {
-    use SoftDeletes;
 
     public function user()
     {

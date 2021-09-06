@@ -126,13 +126,13 @@ class ResultController extends Controller
 //            $privat_x4 = $privat->pluck('privat_x4');
 //            $privat_y4 = $privat->pluck('privat_y4');
 
-            return redirect()->action([IchimTeamPrivatController::class,'privat_result'], $id);
+            return redirect()->action([IchimTeamPrivatController::class, 'privat_result'], $id);
         } elseif ($kat_id == 2) {
 
-            return redirect()->action([IchimTeamBerufController::class ,'beruf_result'], $id);
-        }elseif ($kat_id == 4) {
+            return redirect()->action([IchimTeamBerufController::class, 'beruf_result'], $id);
+        } elseif ($kat_id == 4) {
 
-            return redirect()->action([PotentialController::class ,'potential_result'], $id);
+            return redirect()->action([PotentialController::class, 'potential_result'], $id);
         } else {
             echo 'Do Nothing!';
         }
@@ -198,6 +198,7 @@ class ResultController extends Controller
         $keys = Key::get();
         $result = new Result();
 
+
         $result->user_id = Auth::id();
 
         $result->kat_id = 3;
@@ -258,11 +259,18 @@ class ResultController extends Controller
         }
 
 
-        return redirect()->action('ResultController@result3', $id = $result->id);
+        return redirect()->action([ResultController::class, 'result3'], $id = $result->id);
     }
 
     public function result3($id)
     {
+        $result_id = $id;
+        $user_id = DB::table('result_answers')->where('result_id', $id)->value('user_id');
+        $user_name = DB::table('users')->where('id', $user_id)->value('name');
+        $team_id = DB::table('users')->where('id', $user_id)->value('team_id');
+        $team_name = DB::table('teams')->where('id', $team_id)->value('name');
+
+
         $avg_quad1_x = ResultAnswer::where('result_id', $id)
             ->where('quadrant', 1)->avg('value_x');
 
@@ -303,7 +311,7 @@ class ResultController extends Controller
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
-        return view('graphs.kulturimteam_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
+        return view('graphs.kulturimteam_graph', compact('user_name', 'team_name', 'result_id', 'quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
 
     }
 

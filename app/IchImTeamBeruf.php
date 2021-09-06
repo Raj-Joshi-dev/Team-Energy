@@ -7,5 +7,4 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class IchImTeamBeruf extends Model
 {
-    use SoftDeletes;
 }

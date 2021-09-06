@@ -31,23 +31,23 @@ class PotentialController extends Controller
 
         $potential->result_id = $result->id;
 
-        $potential->privat_x1 = IchImTeamPrivat::where('user_id', $id)->value('privat_x1');
-        $potential->privat_y1 = IchImTeamPrivat::where('user_id', $id)->value('privat_y1');
-        $potential->privat_x2 = IchImTeamPrivat::where('user_id', $id)->value('privat_x2');
-        $potential->privat_y2 = IchImTeamPrivat::where('user_id', $id)->value('privat_y2');
-        $potential->privat_x3 = IchImTeamPrivat::where('user_id', $id)->value('privat_x3');
-        $potential->privat_y3 = IchImTeamPrivat::where('user_id', $id)->value('privat_y3');
-        $potential->privat_x4 = IchImTeamPrivat::where('user_id', $id)->value('privat_x4');
-        $potential->privat_y4 = IchImTeamPrivat::where('user_id', $id)->value('privat_y4');
+        $potential->privat_x1 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x1');
+        $potential->privat_y1 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y1');
+        $potential->privat_x2 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x2');
+        $potential->privat_y2 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y2');
+        $potential->privat_x3 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x3');
+        $potential->privat_y3 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y3');
+        $potential->privat_x4 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x4');
+        $potential->privat_y4 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y4');
 
-        $potential->beruf_x1 = IchImTeamBeruf::where('user_id', $id)->value('beruf_x1');
-        $potential->beruf_y1 = IchImTeamBeruf::where('user_id', $id)->value('beruf_y1');
-        $potential->beruf_x2 = IchImTeamBeruf::where('user_id', $id)->value('beruf_x2');
-        $potential->beruf_y2 = IchImTeamBeruf::where('user_id', $id)->value('beruf_y2');
-        $potential->beruf_x3 = IchImTeamBeruf::where('user_id', $id)->value('beruf_x3');
-        $potential->beruf_y3 = IchImTeamBeruf::where('user_id', $id)->value('beruf_y3');
-        $potential->beruf_x4 = IchImTeamBeruf::where('user_id', $id)->value('beruf_x4');
-        $potential->beruf_y4 = IchImTeamBeruf::where('user_id', $id)->value('beruf_y4');
+        $potential->beruf_x1 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x1');
+        $potential->beruf_y1 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y1');
+        $potential->beruf_x2 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x2');
+        $potential->beruf_y2 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y2');
+        $potential->beruf_x3 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x3');
+        $potential->beruf_y3 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y3');
+        $potential->beruf_x4 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x4');
+        $potential->beruf_y4 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y4');
 
         $potential->save();
 
@@ -59,7 +59,7 @@ class PotentialController extends Controller
     {
 
         // Retrieving data to view.
-        $user_id = DB::table('results')->where('id', $result_id)->value('user_id');
+        $user_id = DB::table('results')->where('id', $result_id)->latest()->value('user_id');
 
         $user_name = DB::table('users')->where('id', $user_id)->value('name');
 
@@ -87,20 +87,22 @@ class PotentialController extends Controller
 
         // Average of Privat (x,y) co-ordinates.
         $avg_privat_x = ($privat_x1 + $privat_x2 + $privat_x3 + $privat_x4) / 4;
-
         $avg_privat_y = ($privat_y1 + $privat_y2 + $privat_y3 + $privat_y4) / 4;
 
 
         // Average of Beruf (x,y) co-ordinates.
         $avg_beruf_x = ($beruf_x1 + $beruf_x2 + $beruf_x3 + $beruf_x4) / 4;
-
         $avg_beruf_y = ($beruf_y1 + $beruf_y2 + $beruf_y3 + $beruf_y4) / 4;
+
+
 
 
         // Middle-point calculation for potential im team.
         $potential_point_x = ($avg_beruf_x + $avg_privat_x) / 2;
 
         $potential_point_y = ($avg_beruf_y + $avg_privat_y) / 2;
+
+//        dd($potential_point_x, $potential_point_y);
 
 
         // Passing middle-point co-ordinates (x,y) values to frontend along with few other variables.
