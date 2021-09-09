@@ -93,9 +93,11 @@ class ResultController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         Result::destroy($id);
+
+        $request->session()->flash('error', 'Sie haben den Ergebnis gelöscht!');
 
         return redirect(route('admin.results.index'));
     }
