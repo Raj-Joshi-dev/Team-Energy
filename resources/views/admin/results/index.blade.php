@@ -10,7 +10,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Benutzer</th>
-                        <th scope="col">Team</th>
+                        <th scope="col">Team Name</th>
                         <th scope="col">Kategorie</th>
                         <th scope="col">Hergestellt in</th>
                         <th scope="col">Aktualisiert am</th>
