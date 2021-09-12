@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Role;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 use phpDocumentor\Reflection\Types\Null_;
 
 class UserController extends Controller
@@ -124,9 +126,24 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $user = User::find($id);
+
+//        $test = $request->validate([
+//            'name' => 'required|min:5|max:255',
+//            'email' => 'required|email:rfc,dns|unique:users',
+//            'password' => 'string|min:8',
+//            'team_id' => 'nullable',
+//            'roles' => 'required',
+//        ]);
+
+//        if ($validated->fails()) {
+//            return redirect()->back()
+//                ->withErrors($validated)
+//                ->withInput();
+//        }
+
 
         $user->update($request->except(['_token', 'teams', 'roles']));
         $user->roles()->sync($request->roles);
