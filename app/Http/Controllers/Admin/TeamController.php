@@ -45,7 +45,7 @@ class TeamController extends Controller
             ['name', '!=', Null],
             [function ($query) use ($request) {
                 if (($term = $request->term)) {
-                    $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
+                    $query->orWhere('name', 'LIKE', $term . '%')->get();
                 }
             }]
         ])

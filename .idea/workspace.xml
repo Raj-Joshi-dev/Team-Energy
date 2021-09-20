@@ -1,38 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Delete VS Code settings">
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/results/partials/category_1.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/results/partials/category_2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-09-14.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-09-17.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Team-Energy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Team-Energy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Visual Changes to Modal and Success/Error Partials.">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Result.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Result.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/admin-app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/admin-app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/results/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/results/result-index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/results/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/results/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/alerts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/alerts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-04-26.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-13.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-09-13.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +187,7 @@
       <workItem from="1631560789340" duration="20162000" />
       <workItem from="1631836596493" duration="11939000" />
       <workItem from="1632172774297" duration="699000" />
-      <workItem from="1632174302076" duration="5265000" />
+      <workItem from="1632174302076" duration="5600000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -225,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631490215833</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Visual Changes to Modal and Success/Error Partials.">
+      <created>1632179882729</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632179882729</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +224,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Delete VS Code settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete VS Code settings" />
+    <MESSAGE value="Visual Changes to Modal and Success/Error Partials." />
+    <option name="LAST_COMMIT_MESSAGE" value="Visual Changes to Modal and Success/Error Partials." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
