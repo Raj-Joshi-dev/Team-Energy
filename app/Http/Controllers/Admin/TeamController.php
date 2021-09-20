@@ -150,7 +150,7 @@ class TeamController extends Controller
 
         Team::destroy($id);
 
-        $request->session()->flash('error', 'Sie haben den Team gelöscht!');
+        $request->session()->flash('success', 'Sie haben den Team gelöscht!');
 
         return redirect(route('admin.teams.index'));
     }

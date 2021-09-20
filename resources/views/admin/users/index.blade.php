@@ -7,10 +7,10 @@
             <div class="card">
                 <div class="card-header" style="font-size: large">Alle Nutzer</div>
                 <div class="card-body">
-                    <a class="btn btn-light float-right" title="Benutzer erstellen"
+                    <a class="btn btn-light float-right" title="Neuen Benutzer anlegen"
                        href="{{ route('admin.users.create') }}"
                        role="button"><i
-                            class="fas fa-user-plus"></i>&nbsp; Neuen Benutzer Erstellen</a>
+                            class="fas fa-user-plus"></i>&nbsp; Neuer Benutzer</a>
                     <div class="mx-auto float-left">
                         <form action="{{ route('admin.users.index') }}" method="GET" role="search">
                             <div class="input-group">
@@ -24,7 +24,8 @@
                                                                  id="term">
                                 <a href="{{ route('admin.users.index') }}" class=" mt-1"> </a>
                                 <span class="input-group-btn mr-2 mt-1">
-                                <button class="btn btn-danger" type="button" onClick="window.location.reload();" title="Refresh">
+                                <button class="btn btn-danger" type="button" onClick="window.location.reload();"
+                                        title="Refresh">
                                     <span class="fas fa-sync-alt"></span>
                                 </button>
                             </span>
@@ -38,7 +39,8 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">E-Mail-Addresse</th>
+                        <th scope="col">E-Mail</th>
+                        <th scope="col">Team</th>
                         <th scope="col">Hergestellt in</th>
                         <th scope="col">Aktualisiert am</th>
                         <th scope="col">Aktionen</th>
@@ -50,6 +52,7 @@
                             <th scope="row">{{ $user->id }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->team->name ?? '-' }}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>{{ $user->updated_at }}</td>
                             <td>
@@ -64,27 +67,31 @@
                                 @if($user->hasAdminRole('Admin'))
 
                                 @else
-                                    <form id="delete-user" action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
+                                    <form id="delete-user" action="{{ route('admin.users.destroy', $user->id) }}"
+                                          method="POST"
                                           style="display: inline">
                                         @csrf
                                         @method("DELETE")
-{{--                                        <button type="submit" class="btn btn-sm btn-danger" title="Löschen"--}}
-{{--                                                onclick="return confirm('Bist du sicher?')" role="button"><i--}}
-{{--                                                class="fas fa-trash-alt"></i>--}}
-{{--                                        </button>--}}
+                                        {{--                                        <button type="submit" class="btn btn-sm btn-danger" title="Löschen"--}}
+                                        {{--                                                onclick="return confirm('Bist du sicher?')" role="button"><i--}}
+                                        {{--                                                class="fas fa-trash-alt"></i>--}}
+                                        {{--                                        </button>--}}
                                     </form>
-                                    <button data-toggle="modal"  data-target="#exampleModal" class="btn btn-sm btn-danger" title="Löschen"
+                                    <button data-toggle="modal" data-target="#exampleModal"
+                                            class="btn btn-sm btn-danger" title="Löschen"
                                             role="button"><i
                                             class="fas fa-trash-alt"></i>
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Benutzer löschen</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -92,8 +99,15 @@
                                                     Möchten Sie den Benutzer wirklich löschen?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbruch</button>
-                                                    <button type="submit" form="delete-user" class="btn btn-danger">Diesen Benutzer löschen</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">
+                                                        <i class="fas fa-fw fa-times" aria-hidden="true"></i>
+                                                        Abbruch
+                                                    </button>
+                                                    <button type="submit" form="delete-user" class="btn btn-danger">
+                                                        <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
+                                                        Diesen Benutzer löschen
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

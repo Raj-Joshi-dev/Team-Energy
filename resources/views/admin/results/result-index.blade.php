@@ -23,7 +23,7 @@
                         <tr>
                             <th scope="row">{{ $result->id }}</th>
                             <td>{{ $result->user->name }}</td>
-{{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
+                            {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
                             <td>{{ $result->user->team->name ?? '-' }}</td>
                             <td>{{ $result->kat_id }}</td>
                             <td>{{ $result->created_at }}</td>
@@ -42,10 +42,10 @@
                                       style="display: inline">
                                     @csrf
                                     @method("DELETE")
-{{--                                    <button type="submit" class="btn btn-sm btn-danger"--}}
-{{--                                            onclick="return confirm('Bist du sicher?')" role="button"><i--}}
-{{--                                            class="fas fa-trash-alt"></i>--}}
-{{--                                    </button>--}}
+                                    {{--                                    <button type="submit" class="btn btn-sm btn-danger"--}}
+                                    {{--                                            onclick="return confirm('Bist du sicher?')" role="button"><i--}}
+                                    {{--                                            class="fas fa-trash-alt"></i>--}}
+                                    {{--                                    </button>--}}
                                 </form>
                                 <button data-toggle="modal"  data-target="#exampleModal" class="btn btn-sm btn-danger" title="Löschen"
                                         role="button"><i
@@ -66,8 +66,14 @@
                                                 Möchten Sie den Ergebnis wirklich löschen?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbruch</button>
-                                                <button type="submit" form="delete-result" class="btn btn-danger">Diesen Ergebnis löschen</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    <i class="fas fa-fw fa-times" aria-hidden="true"></i>
+                                                    Abbruch
+                                                </button>
+                                                <button type="submit" form="delete-result" class="btn btn-danger">
+                                                    <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
+                                                    Diesen Ergebnis löschen
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

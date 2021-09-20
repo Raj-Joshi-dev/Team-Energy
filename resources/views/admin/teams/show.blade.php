@@ -7,7 +7,7 @@
                 <div class="card-header float-left" style="font-size: large">{{ $team->name }}'s Information
                     <a class="btn btn-warning float-right"
                        href="{{ route('admin.users.index') }}"
-                       role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur alle Benutzer</a>
+                       role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Teamsliste</a>
                 </div>
                 <div class="card-body">
                     <div class="table">

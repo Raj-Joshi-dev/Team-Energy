@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UserRequest;
 use App\Role;
 use App\Team;
 use App\User;
@@ -67,7 +68,7 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(UserRequest $request)
     {
         $input = $request->all();
 
@@ -126,24 +127,10 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update($id, UserRequest $request)
     {
+
         $user = User::find($id);
-
-//        $test = $request->validate([
-//            'name' => 'required|min:5|max:255',
-//            'email' => 'required|email:rfc,dns|unique:users',
-//            'password' => 'string|min:8',
-//            'team_id' => 'nullable',
-//            'roles' => 'required',
-//        ]);
-
-//        if ($validated->fails()) {
-//            return redirect()->back()
-//                ->withErrors($validated)
-//                ->withInput();
-//        }
-
 
         $user->update($request->except(['_token', 'teams', 'roles']));
         $user->roles()->sync($request->roles);
@@ -167,7 +154,7 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        $request->session()->flash('error', 'Sie haben den Benutzer gelöscht!');
+        $request->session()->flash('success', 'Sie haben den Benutzer gelöscht!');
 
         return redirect(route('admin.users.index'));
     }

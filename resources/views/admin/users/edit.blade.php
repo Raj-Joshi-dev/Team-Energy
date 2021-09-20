@@ -12,21 +12,27 @@
                 <br>
                 <div class="card-body">
                     <form id="edit-form" method="POST" action="{{ route('admin.users.update', $user->id) }}">
-                        @method('PATCH')
                         @csrf
+                        @method('PATCH')
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                    id="name"
                                    aria-describedby="name"
-                                   value="{{ old('name') }} @isset($user) {{ $user->name }} @endisset">
+                                   value="@isset($user) {{ $user->name }} @endisset">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="email">E-Mail-Addresse</label>
                             <input name="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                    id="email"
                                    aria-describedby="email"
-                                   value="{{ old('email') }} @isset($user) {{ $user->email }} @endisset">
+                                   value="@isset($user) {{ $user->email }} @endisset">
+                            @error('email')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
                         </div>
 
 
@@ -38,22 +44,22 @@
                         {{--                        </div>--}}
 
                         <div class="form-group">
-                            <button class="btn btn-success" type="button" data-toggle="collapse"
-                                    data-target="#collapseExample" aria-expanded="false"
-                                    aria-controls="collapseExample">
-                                Passwort ändern
-                            </button>
-                            <div class="collapse" id="collapseExample">
-                                <label for="password">Neues Kennwort</label>&nbsp;<span style="color:#ff0000">*</span>
+{{--                            <button class="btn btn-success" type="button" data-toggle="collapse"--}}
+                            {{--                                    data-target="#collapseExample" aria-expanded="false"--}}
+                            {{--                                    aria-controls="collapseExample">--}}
+                            {{--                                Passwort ändern--}}
+                            {{--                            </button>--}}
+{{--                            <div class="collapse" id="collapseExample">--}}
+                                <label for="password">Neues Kennwort</label>
                                 <input name="password" type="password"
                                        class="form-control @error('password') is-invalid @enderror"
                                        id="password"
                                        aria-describedby="password">
-                                <input name="checkbox" type="checkbox" onclick="myFunction()"> Show Password
+                                <input name="checkbox" type="checkbox" onclick="myFunction()"> Kennwort anzeigen
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
-                            </div>
+{{--                            </div>--}}
                         </div>
 
 

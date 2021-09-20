@@ -26,7 +26,32 @@ class ResultController extends Controller
     {
         $results = Result::with('user')->orderByDesc('id')->paginate(10);
 
-        return view('admin.results.index', compact('results'));
+//        $results = Result::with('user')->get()->groupBy('kat_id');
+
+//        dd($results);
+
+//        $all_results = Result::with('category')->get()->groupBy('kat_id');
+//
+//        foreach ($all_results as $result) {
+//
+//            if ($result->where('kat_id',1)) {
+//                echo "Result #1";
+//                //Pass results to the view of First Test.
+//            }
+//            elseif ($result->has('category', 2)){
+//                echo "Result #2";
+//                //Pass results to the view of Second Test.
+//            }
+//            elseif ($result->has('category', 3)){
+//                echo "Result #3";
+//                //Pass results to the view of Third Test.
+//            }
+//        }
+
+        return view('admin.results.result-index', compact('results'));
+
+
+//        $results = Result::with('category')->where('kat_id', 2)->get()->dd();
 
     }
 
@@ -97,7 +122,7 @@ class ResultController extends Controller
     {
         Result::destroy($id);
 
-        $request->session()->flash('error', 'Sie haben den Ergebnis gelöscht!');
+        $request->session()->flash('success', 'Sie haben den Ergebnis gelöscht!');
 
         return redirect(route('admin.results.index'));
     }
