@@ -36,36 +36,36 @@
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-group') }}"></use>
                 </svg>
                 Teams</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.index') }}">
-                        <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-description') }}"></use>
-                        </svg>
-                        Ergebnis</a></li>
+        {{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.index') }}">--}}
+        {{--                        <svg class="c-sidebar-nav-icon">--}}
+        {{--                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-description') }}"></use>--}}
+        {{--                        </svg>--}}
+        {{--                        Ergebnis</a></li>--}}
 
-{{--        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a--}}
-{{--                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle">--}}
-{{--                <svg class="c-sidebar-nav-icon">--}}
-{{--                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-description') }}"></use>--}}
-{{--                </svg>--}}
-{{--                Ergebnis</a>--}}
-{{--            <ul class="c-sidebar-nav-dropdown-items">--}}
-{{--                <li class="active">--}}
-{{--                <li class="c-sidebar-nav-item {{(request()->is('admin.results.index')) ? 'active' : ''}}"><a--}}
-{{--                        class="c-sidebar-nav-link"--}}
-{{--                        href="{{ route('admin.results.index') }}"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Ich im Team - Privat</a></li>--}}
-{{--                </li>--}}
-{{--                <li class="c-sidebar-nav-item {{(request()->is('admin.results.index')) ? 'active' : ''}}"><a--}}
-{{--                        class="c-sidebar-nav-link" href="{{ route('admin.results.index') }}"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Ich im Team - Beruf</a></li>--}}
-{{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Potential im Team</a></li>--}}
-{{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Kultur - mein Einschätzung </a></li>--}}
-{{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span--}}
-{{--                            class="c-sidebar-nav-icon"></span> Kultur - unsere Einschätzungen </a></li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a
+                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-description') }}"></use>
+                </svg>
+                Ergebnis</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="active">
+                <li class="c-sidebar-nav-item"><a
+                        class="c-sidebar-nav-link"
+                        href="{{ route('admin.results.category', 1) }}"><span
+                            class="c-sidebar-nav-icon"></span> Ich im Team - Privat</a></li>
+                </li>
+                <li class="c-sidebar-nav-item"><a
+                        class="c-sidebar-nav-link" href="{{ route('admin.results.category', 2) }}"><span
+                            class="c-sidebar-nav-icon"></span>Ich im Team - Beruf</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.category', 3) }}"><span
+                            class="c-sidebar-nav-icon"></span>Potential im Team</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.category', 4) }}"><span
+                            class="c-sidebar-nav-icon"></span>Kultur - mein Einschätzung</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.category', 5) }}"><span
+                            class="c-sidebar-nav-icon"></span>Kultur - unsere Einschätzungen</a></li>
+            </ul>
+        </li>
 
         <li class="c-sidebar-nav-divider"></li>
     </ul>

@@ -84,10 +84,11 @@ Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturim
 Route::get('/admin/results/{id}/graph', [ResultController::class, 'generate_graph'])->name('generate_graph')->middleware(['auth', 'auth.timeout']);
 
 // Admin Area
-Route::get('/admin-panel', [UserController::class, 'admin'])->middleware(['auth','auth.isAdmin', 'auth.timeout'])->name('admin-panel');
+Route::get('/admin', [UserController::class, 'admin'])->middleware(['auth','auth.isAdmin', 'auth.timeout'])->name('admin-panel');
 
 Route::prefix('admin')->middleware(['auth','auth.isAdmin', 'auth.timeout'])->name('admin.')->group(function (){
 //    Route::get('/admin-panel', [UserController::class, 'admin']);
+    Route::get('results/category/{id}', [ResultController::class, 'category'])->name('results.category');
     Route::resource('/users', UserController::class);
     Route::resource('/teams',TeamController::class);
     Route::resource('/results', ResultController::class);

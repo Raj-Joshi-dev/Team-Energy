@@ -24,34 +24,36 @@ class ResultController extends Controller
      */
     public function index()
     {
-        $results = Result::with('user')->orderByDesc('id')->paginate(10);
-
-//        $results = Result::with('user')->get()->groupBy('kat_id');
-
-//        dd($results);
-
-//        $all_results = Result::with('category')->get()->groupBy('kat_id');
-//
-//        foreach ($all_results as $result) {
-//
-//            if ($result->where('kat_id',1)) {
-//                echo "Result #1";
-//                //Pass results to the view of First Test.
-//            }
-//            elseif ($result->has('category', 2)){
-//                echo "Result #2";
-//                //Pass results to the view of Second Test.
-//            }
-//            elseif ($result->has('category', 3)){
-//                echo "Result #3";
-//                //Pass results to the view of Third Test.
-//            }
-//        }
-
-        return view('admin.results.result-index', compact('results'));
 
 
-//        $results = Result::with('category')->where('kat_id', 2)->get()->dd();
+    }
+
+    public function category($id)
+    {
+
+        if ($id == '1') {
+            $results = Result::with('user')->where('kat_id', 1)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category1', compact('results'));
+
+        } elseif ($id == '2') {
+
+            $results = Result::with('user')->where('kat_id', 2)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category2', compact('results'));
+        } elseif ($id == '3') {
+            $results = Result::with('user')->where('kat_id', 3)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category3', compact('results'));
+        } elseif ($id == '4') {
+            $results = Result::with('user')->where('kat_id', 4)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category4', compact('results'));
+        } elseif ($id == '5') {
+            $results = Result::with('user')->where('kat_id', 5)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category5', compact('results'));
+        }
 
     }
 
