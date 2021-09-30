@@ -63,51 +63,58 @@
                                    href="{{ route('admin.teams.show', $team->id) }}"
                                    role="button"><i class="fas fa-eye"></i></a>
 
-                                <form id="delete-team" action="{{ route('admin.teams.destroy', $team->id) }}"
-                                      method="POST"
-                                      style="display: inline">
-                                    @csrf
-                                    @method("DELETE")
-                                    {{--                                    <button type="submit" class="btn btn-sm btn-danger" title="Löschen"--}}
-                                    {{--                                            onclick="return confirm('Bist du sicher?')" role="button"><i--}}
-                                    {{--                                            class="fas fa-trash-alt"></i>--}}
-                                    {{--                                    </button>--}}
-                                </form>
-                                <button data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-danger"
-                                        title="Löschen"
-                                        role="button"><i
-                                        class="fas fa-trash-alt"></i>
-                                </button>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                <button class="btn btn-sm btn-danger" title="Löschen" data-toggle="modal"
+                                        data-target="#exampleModal_{{$team->id}}"
+                                        role="button"><i class="fas fa-trash-alt"></i></button>
+
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="exampleModal_{{$team->id}}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Team löschen</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                        <form action="{{ route('admin.teams.destroy', $team->id) }}" method="post"
+                                              style="display: inline">
+                                            @csrf
+                                            @method("DELETE")
+                                            <div class="modal-content">
+                                                <div class="modal-header alert alert-danger">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        <i  class="fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
+                                                        Team Löschen
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" style="font-size: 15px">
+                                                    Möchten Sie den Team - <b>{{$team->name}}</b> wirklich löschen?
+                                                    <br><br>
+                                                    <p>
+                                                        <b>
+                                                            <strong style="color: red;">Vorsicht:</strong>
+                                                            Bei dieser Aktion werden alle Benutzer innerhalb des Teams
+                                                            gelöscht.
+                                                        </b>
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">
+                                                        <i class="fas fa-fw fa-times" aria-hidden="true"></i>
+                                                        Abbruch
+                                                    </button>
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
+                                                        Diesen Team löschen
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="modal-body">
-                                                Möchten Sie den Team wirklich löschen?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                    <i class="fas fa-fw fa-times" aria-hidden="true"></i>
-                                                    Abbruch
-                                                </button>
-                                                <button type="submit" form="delete-team" class="btn btn-danger">
-                                                    <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
-                                                    Diesen
-                                                    Team löschen
-                                                </button>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
+                                <!-- Delete Modal -->
+
                             </td>
                         </tr>
                     @endforeach

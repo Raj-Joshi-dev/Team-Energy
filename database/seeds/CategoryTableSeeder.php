@@ -24,12 +24,17 @@ class CategoryTableSeeder extends Seeder
 
         DB::table('categories')->insert([
                 'kat_id' => 3,
-                'name' => 'Kultur im Team'
+                'name' => 'Potential im Team'
             ]);
 
         DB::table('categories')->insert([
                 'kat_id' => 4,
-                'name' => 'Potential im Team'
+                'name' => 'Kultur im Team - mein Einschätzung'
+            ]);
+
+        DB::table('categories')->insert([
+                'kat_id' => 5,
+                'name' => 'Kultur im Team - unsere Einschätzungen'
             ]);
     }
 }

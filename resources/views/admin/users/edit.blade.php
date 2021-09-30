@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <label for="teams">Team</label>
                             <select name="team_id" class="form-control">
-                                <option selected value> -- Wähle ein Team aus --</option>
+                                <option selected value> -- Kein Team --</option>
                                 @foreach($teams as $team)
                                     <option value="{{ $team->id }}"
                                             @if ($team->id == $user->team_id) selected @endif>{{ $team->name }}</option>

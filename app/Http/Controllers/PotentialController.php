@@ -21,7 +21,7 @@ class PotentialController extends Controller
 
         $result->user_id = $id;
 
-        $result->kat_id = 4;
+        $result->kat_id = 3;
 
         $result->save();
 

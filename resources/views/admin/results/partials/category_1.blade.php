@@ -1,6 +1,6 @@
 {{--<h2>Result #{{$categoryId}}</h2>--}}
 {{--@foreach ($results as $result)--}}
-{{-- display the Result --}}
+{{-- display the Result--}}
 {{--@endforeach--}}
 {{--@include('admin.results.result-index')--}}
 
@@ -27,7 +27,7 @@
                         <tr>
                             <th scope="row">{{ $result->id }}</th>
                             <td>{{ $result->user->name }}</td>
-                            {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
+{{--                                                        <td>{{ optional($result->user->team)->name }}</td>--}}
                             <td>{{ $result->user->team->name ?? '-' }}</td>
                             <td>{{ $result->kat_id }}</td>
                             <td>{{ $result->created_at }}</td>

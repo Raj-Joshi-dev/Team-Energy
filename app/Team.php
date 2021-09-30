@@ -10,12 +10,17 @@ class Team extends Model
 //    use SoftDeletes;
 
     protected $fillable = [
-        'name'
+        'name', 'switch_id'
     ];
 
     public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function switch_categories()
+    {
+        return $this->belongsToMany(SwitchCategory::class);
     }
 
 }

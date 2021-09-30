@@ -152,7 +152,9 @@ class UserController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        User::destroy($id);
+//        User::destroy($id);
+
+        User::find($id)->delete();
 
         $request->session()->flash('success', 'Sie haben den Benutzer gelöscht!');
 

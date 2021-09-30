@@ -37,47 +37,49 @@
                                    href="{{ route('admin.results.show', $result->id) }}"
                                    role="button"><i class="fas fa-eye"></i></a>
 
-                                <form id="delete-result" action="{{ route('admin.results.destroy', $result->id) }}" title="Löschen"
-                                      method="POST"
-                                      style="display: inline">
-                                    @csrf
-                                    @method("DELETE")
-                                    {{--                                    <button type="submit" class="btn btn-sm btn-danger"--}}
-                                    {{--                                            onclick="return confirm('Bist du sicher?')" role="button"><i--}}
-                                    {{--                                            class="fas fa-trash-alt"></i>--}}
-                                    {{--                                    </button>--}}
-                                </form>
-                                <button data-toggle="modal"  data-target="#exampleModal" class="btn btn-sm btn-danger" title="Löschen"
-                                        role="button"><i
-                                        class="fas fa-trash-alt"></i>
-                                </button>
+                                <button class="btn btn-sm btn-danger" title="Löschen" data-toggle="modal"
+                                        data-target="#exampleModal_{{$result->id}}"
+                                        role="button"><i class="fas fa-trash-alt"></i></button>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="exampleModal_{{$result->id}}" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Ergebnis löschen</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                        <form action="{{ route('admin.results.destroy', $result->id) }}" method="post"
+                                              style="display: inline">
+                                            @csrf
+                                            @method("DELETE")
+                                            <div class="modal-content">
+                                                <div class="modal-header alert alert-danger">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        <i class="fas fa-exclamation-triangle fa-fw"
+                                                           aria-hidden="true"></i>
+                                                        Ergebnis Löschen
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" style="font-size: 15px">
+                                                    Möchten Sie das Ergebnis für - <b>{{$result->user->name}}</b> löschen?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">
+                                                        <i class="fas fa-fw fa-times" aria-hidden="true"></i>
+                                                        Abbruch
+                                                    </button>
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
+                                                        Diesen Ergebnis löschen
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="modal-body">
-                                                Möchten Sie den Ergebnis wirklich löschen?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                    <i class="fas fa-fw fa-times" aria-hidden="true"></i>
-                                                    Abbruch
-                                                </button>
-                                                <button type="submit" form="delete-result" class="btn btn-danger">
-                                                    <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
-                                                    Diesen Ergebnis löschen
-                                                </button>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
+                                <!-- Delete Modal -->
                             </td>
                         </tr>
                     @endforeach

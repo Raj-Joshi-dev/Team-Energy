@@ -153,7 +153,7 @@ class ResultController extends Controller
         } elseif ($kat_id == 2) {
 
             return redirect()->action([IchimTeamBerufController::class, 'beruf_result'], $id);
-        } elseif ($kat_id == 4) {
+        } elseif ($kat_id == 3) {
 
             return redirect()->action([PotentialController::class, 'potential_result'], $id);
         } else {
@@ -224,7 +224,7 @@ class ResultController extends Controller
 
         $result->user_id = Auth::id();
 
-        $result->kat_id = 3;
+        $result->kat_id = 4;
 
         $result->save();
 

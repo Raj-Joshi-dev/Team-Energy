@@ -56,37 +56,86 @@
                         </div>
                     </div>
                 </div>
-                            <div class="card multi">
-                                <div class="card-body">
-                                    <div class="card-body">
-                                        <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein
-                                            Einschätzung
-                                        </div>
-                                        @if($enable_potential == true)
-                                        <a style="font-size: 13px" href="{{ route('kulturimteam') }}" class="btn btn-primary">Test
-                                            geben</a>
-                                        @else
-                                            <p1 style="color: green">Test abgeschlossen! Danke</p1>
-                                        @endif
-                                    </div>
+
+                @if($enable_kultur == true)
+                    <div class="card multi">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein
+                                    Einschätzung
                                 </div>
+                                @if($disable_kultur == false)
+                                    <a style="font-size: 13px" href="{{ route('kulturimteam') }}"
+                                       class="btn btn-primary">Test
+                                        geben</a>
+                                @else
+                                    <p1 style="color: green">Test abgeschlossen! Danke</p1>
+                                @endif
                             </div>
-                {{--            <div class="card multi">--}}
-                {{--                <div class="card-body">--}}
+                        </div>
+                    </div>
+                @endif
+
+                @if($enable_kultur == true)
+                    <div class="card multi">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team -
+                                    unsere
+                                    Einschätzungen
+                                </div>
+                                @if($disable_kultur2 == true)
+                                    <a style="font-size: 13px" href="{{ route('kulturimteam2') }}"
+                                       class="btn btn-primary">Test
+                                        geben</a>
+                                @else
+                                    <p1>Warten auf andere Mitglieder, um den Test abzuschließen!</p1>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+
+
+
+
+
+                {{--                @if($enable_kultur == false)--}}
+                {{--                <div class="card multi">--}}
                 {{--                    <div class="card-body">--}}
-                {{--                        <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - unsere--}}
-                {{--                            Einschätzungen--}}
+                {{--                        <div class="card-body">--}}
+                {{--                            <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein--}}
+                {{--                                Einschätzung--}}
+                {{--                            </div>--}}
+                {{--                                <a style="font-size: 13px" href="{{ route('kulturimteam') }}" class="btn btn-primary">Test--}}
+                {{--                                    geben</a>--}}
                 {{--                        </div>--}}
-                {{--                        <a style="font-size: 13px" href="{{ route('kulturimteam2') }}" class="btn btn-warning">Zeige--}}
-                {{--                            ergebnis</a>--}}
                 {{--                    </div>--}}
                 {{--                </div>--}}
-                {{--            </div>--}}
-                {{--        </div>--}}
-                {{--    </div>--}}
+                {{--                @endif--}}
 
 
+
+
+
+
+                {{--                <div class="card multi">--}}
+                {{--                    <div class="card-body">--}}
+                {{--                        <div class="card-body">--}}
+                {{--                            <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - unsere--}}
+                {{--                                Einschätzungen--}}
+                {{--                            </div>--}}
+                {{--                            <a style="font-size: 13px" href="{{ route('kulturimteam2') }}" class="btn btn-warning">Zeige--}}
+                {{--                                ergebnis</a>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
+        </div>
+
+
+        </div>
         </div>
     </form>
     <div class="container">

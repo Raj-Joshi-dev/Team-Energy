@@ -14,21 +14,24 @@
                     <div class="mx-auto float-left">
                         <form action="{{ route('admin.users.index') }}" method="GET" role="search">
                             <div class="input-group">
-                        <span class="input-group-btn mr-2 mt-1">
-                            <button class="btn btn-info" type="submit" title="Suche">
-                                <span class="fas fa-search"></span>
-                            </button>
-                        </span>
+
                                 <label for="term"></label><input type="text" class="form-control mr-2 mt-1" name="term"
-                                                                 placeholder="Benutzer suchen"
+                                                                 placeholder="Benutzer durchsuchen"
                                                                  id="term">
                                 <a href="{{ route('admin.users.index') }}" class=" mt-1"> </a>
+
                                 <span class="input-group-btn mr-2 mt-1">
-                                <button class="btn btn-danger" type="button" onClick="window.location.reload();"
-                                        title="Refresh">
-                                    <span class="fas fa-sync-alt"></span>
-                                </button>
-                            </span>
+                                    <button class="btn btn-info" type="submit" title="Suche">
+                                        <span class="fas fa-search"></span>
+                                    </button>
+                                </span>
+
+                                <span class="input-group-btn mr-2 mt-1">
+                                    <button class="btn btn-danger" type="button" onClick="window.location.reload();"
+                                            title="Refresh">
+                                        <span class="fas fa-sync-alt"></span>
+                                    </button>
+                                </span>
                             </div>
                         </form>
                     </div>
@@ -67,51 +70,48 @@
                                 @if($user->hasAdminRole('Admin'))
 
                                 @else
-                                    <form id="delete-user" action="{{ route('admin.users.destroy', $user->id) }}"
-                                          method="POST"
-                                          style="display: inline">
-                                        @csrf
-                                        @method("DELETE")
-                                        {{--                                        <button type="submit" class="btn btn-sm btn-danger" title="Löschen"--}}
-                                        {{--                                                onclick="return confirm('Bist du sicher?')" role="button"><i--}}
-                                        {{--                                                class="fas fa-trash-alt"></i>--}}
-                                        {{--                                        </button>--}}
-                                    </form>
-                                    <button data-toggle="modal" data-target="#exampleModal"
-                                            class="btn btn-sm btn-danger" title="Löschen"
-                                            role="button"><i
-                                            class="fas fa-trash-alt"></i>
-                                    </button>
+                                    <button class="btn btn-sm btn-danger" title="Löschen" data-toggle="modal"
+                                            data-target="#exampleModal_{{$user->id}}"
+                                            role="button"><i class="fas fa-trash-alt"></i></button>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    <!-- Delete Modal -->
+                                    <div class="modal fade" id="exampleModal_{{$user->id}}" tabindex="-1" role="dialog"
                                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Benutzer löschen</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="post"
+                                                  style="display: inline">
+                                                @csrf
+                                                @method("DELETE")
+                                                <div class="modal-content">
+                                                    <div class="modal-header alert alert-danger">
+                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                            <i  class="fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
+                                                            Benutzer Löschen
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body" style="font-size: 15px">
+                                                        Möchten Sie den Benuter - <b>{{$user->name}}</b> wirklich löschen?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">
+                                                            <i class="fas fa-fw fa-times" aria-hidden="true"></i>
+                                                            Abbruch
+                                                        </button>
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
+                                                            Diesen Benutzer löschen
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <div class="modal-body">
-                                                    Möchten Sie den Benutzer wirklich löschen?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">
-                                                        <i class="fas fa-fw fa-times" aria-hidden="true"></i>
-                                                        Abbruch
-                                                    </button>
-                                                    <button type="submit" form="delete-user" class="btn btn-danger">
-                                                        <i class="fas fa-fw fa-trash-alt" aria-hidden="true"></i>
-                                                        Diesen Benutzer löschen
-                                                    </button>
-                                                </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
+                                    <!-- Delete Modal -->
                                 @endif
                             </td>
                         </tr>
