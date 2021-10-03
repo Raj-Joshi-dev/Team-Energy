@@ -16,7 +16,10 @@
             @foreach($results as $result)
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
-                    <td>{{ $result->user->name }}</td>
+                    <td>
+                        <a href="{{route('admin.users.edit', $result->user->id)}}"
+                           aria-current="true"> {{ $result->user->name }}</a>
+                    </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
                     <td>{{ $result->user->team->name ?? '-' }}</td>
                     <td>{{ $result->created_at }}</td>
@@ -99,7 +102,10 @@
             @foreach($results as $result)
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
-                    <td>{{ $result->user->name }}</td>
+                    <td>
+                        <a href="{{route('admin.users.edit', $result->user->id)}}"
+                           aria-current="true"> {{ $result->user->name }}</a>
+                    </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
                     <td>{{ $result->user->team->name ?? '-' }}</td>
                     <td>{{ $result->created_at }}</td>
@@ -182,7 +188,10 @@
             @foreach($results as $result)
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
-                    <td>{{ $result->user->name }}</td>
+                    <td>
+                        <a href="{{route('admin.users.edit', $result->user->id)}}"
+                           aria-current="true"> {{ $result->user->name }}</a>
+                    </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
                     <td>{{ $result->user->team->name ?? '-' }}</td>
 
@@ -266,7 +275,10 @@
             @foreach($results as $result)
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
-                    <td>{{ $result->user->name }}</td>
+                    <td>
+                        <a href="{{route('admin.users.edit', $result->user->id)}}"
+                           aria-current="true"> {{ $result->user->name }}</a>
+                    </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
                     <td>{{ $result->user->team->name ?? '-' }}</td>
                     <td>{{ $result->created_at }}</td>
@@ -349,7 +361,10 @@
             @foreach($results as $result)
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
-                    <td>{{ $result->user->name }}</td>
+                    <td>
+                        <a href="{{route('admin.users.edit', $result->user->id)}}"
+                           aria-current="true"> {{ $result->user->name }}</a>
+                    </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
                     <td>{{ $result->user->team->name ?? '-' }}</td>
                     <td>{{ $result->created_at }}</td>

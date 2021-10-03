@@ -55,6 +55,8 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('is-admin');
+
         $teams = Team::all();
 
         $roles = Role::all();

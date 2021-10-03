@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Added Category based switching for tests, improved modal and composer updates.">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/results/category1.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/results/category2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/results/category3.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/results/category4.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/results/category5.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Team-Energy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Team-Energy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Separate sections for every Test result depending on category.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/admin-app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/admin-app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/results/partials/category_1.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/results/partials/category_2.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AccessAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/AccessAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/results/partials/result-display.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/results/partials/result-display.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/results/result-index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/results/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/results/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-30.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-09-30.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +201,8 @@
       <workItem from="1632294337926" duration="44017000" />
       <workItem from="1632725876932" duration="5401000" />
       <workItem from="1632774603674" duration="6661000" />
-      <workItem from="1632977235818" duration="12436000" />
+      <workItem from="1632977235818" duration="14681000" />
+      <workItem from="1633284149441" duration="1340000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -244,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632979974644</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Separate sections for every Test result depending on category.">
+      <created>1632990243505</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632990243505</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +263,8 @@
     <MESSAGE value="Visual Changes to Modal and Success/Error Partials." />
     <MESSAGE value="Search filter by initial keyword in users and teams." />
     <MESSAGE value="Added Category based switching for tests, improved modal and composer updates." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Category based switching for tests, improved modal and composer updates." />
+    <MESSAGE value="Separate sections for every Test result depending on category." />
+    <option name="LAST_COMMIT_MESSAGE" value="Separate sections for every Test result depending on category." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
