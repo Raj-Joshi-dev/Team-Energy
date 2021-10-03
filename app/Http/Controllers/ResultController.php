@@ -126,7 +126,7 @@ class ResultController extends Controller
 
         $request->session()->flash('success', 'Sie haben den Ergebnis gelöscht!');
 
-        return redirect(route('admin.results.index'));
+        return redirect()->back();
     }
 
     /**
