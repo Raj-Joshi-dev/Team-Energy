@@ -22,7 +22,9 @@
                                 <a style="font-size: 13px" href="{{ route('ichimteam1') }}" class="btn btn-primary">Test
                                     geben</a>
                             @else
-                                <p1 style="color: green">Test abgeschlossen! Danke</p1>
+                                {{--                                <p1 style="color: green">Test abgeschlossen! Danke</p1>--}}
+                                <a style="font-size: 13px" href="{{ route('generate_graph', $privat_result_id) }}"
+                                   class="btn btn-success">Ihr Ergebnis</a>
                             @endif
                         </div>
                     </div>
@@ -37,7 +39,9 @@
                                 <a style="font-size: 13px" href="{{ route('ichimteam2') }}" class="btn btn-primary">Test
                                     geben</a>
                             @else
-                                <p1 style="color: green">Test abgeschlossen! Danke</p1>
+{{--                                <p1 style="color: green">Test abgeschlossen! Danke</p1>--}}
+                                <a style="font-size: 13px" href="{{ route('generate_graph', $beruf_result_id) }}"
+                                   class="btn btn-success">Ihr Ergebnis</a>
                             @endif
                         </div>
                     </div>

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Result;
-use App\Team;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,8 +15,10 @@ class DashboardController extends Controller
     {
         $user_id = Auth::id();
         $privat = Result::where('user_id', $user_id)->where('kat_id', 1)->get();
+        $privat_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 1)->value('id');
 
         $beruf = Result::where('user_id', $user_id)->where('kat_id', 2)->get();
+        $beruf_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 2)->value('id');
 
 
         $disable_privat = count($privat) > 0;
@@ -70,7 +70,14 @@ class DashboardController extends Controller
 
 
         return view('test.dashboard', compact('disable_privat', 'disable_beruf', 'enable_potential',
-            'enable_kultur', 'disable_kultur', 'disable_kultur2'));
+            'enable_kultur', 'disable_kultur', 'disable_kultur2', 'privat_result_id', 'beruf_result_id'));
 
+    }
+
+    public function show_results()
+    {
+        $user_id = Auth::id();
+        $privat = Result::where('user_id', $user_id)->where('kat_id', 1)->get();
+        $beruf = Result::where('user_id', $user_id)->where('kat_id', 2)->get();
     }
 }
