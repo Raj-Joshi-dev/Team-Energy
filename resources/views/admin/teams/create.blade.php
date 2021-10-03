@@ -24,6 +24,21 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label for="switch_id">Aktiv-Test</label>&nbsp;<span style="color:#ff0000">*</span>
+                            <div class="form-check">
+                                <input class="form-check-input" name="switch_id" type="radio" id="switch_id"
+                                       value="1" checked>
+                                <label for="category"
+                                       class="form-check-label">Ich im Team</label>
+                                <br>
+                                <input class="form-check-input" name="switch_id" type="radio" id="switch_id"
+                                       value="2">
+                                <label for="category"
+                                       class="form-check-label">Ich im Team und Kultur im Team</label>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Bestätigen
                         </button>
                         <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button"><i

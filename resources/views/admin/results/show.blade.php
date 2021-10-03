@@ -6,8 +6,8 @@
             <div class="card">
                 <div class="card-header float-left" style="font-size: large">Ergebnisdetails
                     <a class="btn btn-warning float-right"
-                       href="{{ route('admin.results.index') }}"
-                       role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur alle Ergebnis</a>
+                       href="{{ url()->previous() }}"
+                       role="button"><i class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Ergebnisliste</a>
                 </div>
                 <table class="table table-bordered">
                     <thead>

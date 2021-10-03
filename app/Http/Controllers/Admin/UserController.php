@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UserRequest;
 use App\Role;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 use phpDocumentor\Reflection\Types\Null_;
 
 class UserController extends Controller
@@ -31,7 +34,7 @@ class UserController extends Controller
         ['name', '!=', Null],
             [function ($query) use ($request) {
             if (($term = $request->term)) {
-                $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
+                $query->orWhere('name', 'LIKE', $term . '%')->get();
             }
             }]
         ])
@@ -52,6 +55,8 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('is-admin');
+
         $teams = Team::all();
 
         $roles = Role::all();
@@ -65,7 +70,7 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(UserRequest $request)
     {
         $input = $request->all();
 
@@ -124,8 +129,9 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, UserRequest $request)
     {
+
         $user = User::find($id);
 
         $user->update($request->except(['_token', 'teams', 'roles']));
@@ -148,9 +154,11 @@ class UserController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        User::destroy($id);
+//        User::destroy($id);
 
-        $request->session()->flash('error', 'Sie haben den Benutzer gelöscht!');
+        User::find($id)->delete();
+
+        $request->session()->flash('success', 'Sie haben den Benutzer gelöscht!');
 
         return redirect(route('admin.users.index'));
     }

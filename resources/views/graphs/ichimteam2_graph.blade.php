@@ -1,38 +1,29 @@
 @extends('layouts.app')
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $user_name }} - Beruflicher Bereich_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
-    <script data-require="d3@3.5.17" data-semver="3.5.17" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
-{{--    <script src="js/ichimTeamBeruf.js"></script>--}}
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
-        body {
-            font: 15px Arial;
+        .center {
+            margin: 0 auto;
+            text-align: center;
         }
 
-        path {
-            stroke: steelblue;
-            stroke-width: 2;
+        .text {
+            font-family: 'Arial', serif;
+            font-size: 14px;
         }
 
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: grey;
-            stroke-width: 1;
-            shape-rendering: crispEdges;
-        }
-    </style>
-    <style type="text/css" media="print">
         @media print {
+            #printPageButton {
+                display: none;
+            }
             @page {
                 margin: 0;
             }
@@ -49,209 +40,212 @@
         <h5>Team Name: {{ $team_name }}</h5>
         <h5>Ergebnis-ID: {{ $result_id }}</h5>
     </div>
+    <body>
+    <div class="center">
+        <!-- SVG dimensions -->
+        <svg width="820" height="820" padding="150" xmlns="http://www.w3.org/2000/svg">
 
-<body>
-    <div align="center">
-        <div id="graph"></div>
-        <button class="btn btn-primary" onclick="window.print()" value="Print" >Downloaden</button>
+            <!-- Inner-Rectangle -->
+            <rect x="70" y="110" width="710" height="590" fill="none" stroke="black" stroke-width="border"/>
+
+            <!-- user data container -->
+            <g id="data"></g>
+
+            <!-- Cartesian Axes -->
+
+            <!-- Y-Axis -->
+            <g>
+                <path d="M410 145 V 665" stroke="black" stroke-width="1"></path>
+            </g>
+
+            <!-- X-Axis -->
+            <g>
+                <path d="M150 410 H 665" stroke="black" stroke-width="1"></path>
+            </g>
+
+            <!-- QUADRANT 1 -->
+
+            <!-- Top point - Stabilität -->
+            <text class="text" transform="translate(385,135)">Stabilität</text>
+
+            <!-- QUADRANT 2 -->
+
+            <!-- Side-right point - Selbstverwirklichung -->
+            <text class="text" transform="translate(640,400)">Selbstverwirklichung</text>
+
+
+            <!-- QUADRANT 3 -->
+
+            <!-- Bottom point - Flexibilität -->
+            <text class="text" transform="translate(380,685)">Flexibilität</text>
+
+
+            <!-- QUADRANT 4 -->
+
+            <!-- Side-left point - Gemeinsinn -->
+            <text class="text" transform="translate(90,400)">Gemeinsinn</text>
+
+            <text class="description" style="font-weight: bold;" x="350" y="100">ICH IM TEAM - Beruflich</text>
+            <text class="description" x="70" y="715">Hier sehen Sie das Ergebnis aus Ihrer Eingabe zum</text>
+            <text class="description" style="font-weight: bold;" x="435" y="715">beruflichen Bereich.</text>
+            <text class="description" x="585" y="715">Es zeigt Ihnen den Schwerpunkt/</text>
+            <text class="description" x="70" y="735">Mittelpunkt der vier Seiten Ihrer Persönlichkeit. Diese kann zum privaten Bereich Abweichungen aufzeigen,</text>
+            <text class="description" x="70" y="755">weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet
+                wird.</text>
+            <text class="description" style="font-size: 12px;" x="70" y="775">Wir empfehlen Ihnen dazu auch die
+                Ausführungen im Kapitel 10 und 11 aus dem Buch:</text>
+            <text class="description" style="font-size: 12px;" x="70" y="792">,,Dynamik in Gruppen“ von Eberhard Stahl
+                aus dem Beltz Verlag PVU</text>
+            <text class="description" style="font-size: 12px;" x="70" y="810">ISBN 3-407-27515-0</text>
+
+
+        </svg>
+        <div class="center">
+            <button class="btn btn-primary" id="printPageButton" onClick="window.print();">Downloaden</button>
+        </div>
     </div>
-    <svg></svg>
-    <canvas id="canvasId"></canvas>
-</body>
-<script type="application/javascript">
-    // graph dimensions
-    var width = 820,
-        height = 820,
-        padding = 150;
-
-    // svg container
-    var vis = d3.select("#graph")
-        .append("svg")
-        // .attr("style", "outline: solid black;")
-        .attr("width", height)
-        .attr("height", width);
-
-    var border = 1;
-    var bordercolor = 'black';
-
-    vis.append("rect")
-        .attr("x", 70)
-        .attr("y", 65)
-        .attr("height", 630)
-        .attr("width", 700)
-        .style("stroke", bordercolor)
-        .style("fill", "none")
-        .style("stroke-width", border);
-
-    var xScale = d3.scale.linear().domain([1, -1]).range([width - padding, padding]);
-    var yScale = d3.scale.linear().domain([-1, 1]).range([height - padding, padding]);
-
-    // y axis
-    var yAxis = d3.svg.axis()
-        .orient("left")
-        .tickValues([])
-        .scale(yScale);
-
-    // x axis
-    var xAxis = d3.svg.axis()
-        .orient("bottom")
-        .tickValues([])
-        .scale(xScale);
 
 
-    var xAxisPlot = vis.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + (height / 2) + ")")
-        .call(xAxis) //.tickSize(-height, 0));
+    <script type="application/javascript">
+        const container = document.getElementById('data');
+        const center = 410;
+        const range = 250;
+        const ns = 'http://www.w3.org/2000/svg';
+        const maxUsers = 1;
+        const useBackground = maxUsers <= 5;
+        let added = 0;
+        let userG = document.createElementNS(ns, 'g');
 
-    var yAxisPlot = vis.append("g")
-        .attr("class", "axis axis--y")
-        .attr("transform", "translate(" + (width / 2) + ",0)")
-        .call(yAxis) //.tickSize(-width, 0));
+        function addUser(pts, label) {
+            added += 1;
 
-    var x_quad1 = @json($quadrant1_x);
-    var y_quad1 = @json($quadrant1_y);
+            // label
+            let hue = added * 40 % 255;
+            let color = `hsl(${hue}, 80%, 60%)`;
+            let text = document.createElementNS(ns, 'text');
+            let textX = center + range;
+            let textY = center - range - 40 + added * 15;
+            let pipX = textX - 6;
+            let pipY = textY - 4;
+            text.appendChild(document.createTextNode(label));
+            text.setAttribute('x', textX)
+            text.setAttribute('y', textY);
+            text.classList.add('text');
+            userG.appendChild(text);
 
-    var x_quad2 = @json($quadrant2_x);
-    var y_quad2 = @json($quadrant2_y);
+            // label pip to quadrant pip
+            // let line = document.createElementNS(ns, 'path');
+            // line.setAttribute('d', `M${pipX},${pipY} L${pts[0].x},${pts[0].y}`);
+            // line.setAttribute('stroke', 'gray')
+            // userG.appendChild(line);
 
-    var x_quad3 = @json($quadrant3_x);
-    var y_quad3 = @json($quadrant3_y);
+            // label pip
+            let pip = document.createElementNS(ns, 'circle');
+            pip.setAttribute('cx', pipX)
+            pip.setAttribute('cy', pipY)
+            pip.setAttribute('r', 5)
+            pip.setAttribute('fill', '#ff0000')
+            userG.appendChild(pip);
 
-    var x_quad4 = @json($quadrant4_x);
-    var y_quad4 = @json($quadrant4_y);
+            // background
+            let bg = document.createElementNS(ns, 'path');
+            let path = pts.map(({x, y}, n) => {
+                return `${n === 0 ? 'M' : 'L'}${x},${y} `;
+            }).join('') + 'Z';
+            bg.setAttribute('d', path);
+            if (useBackground) {
+                bg.setAttribute('fill', 'rgba(0, 0, 200, 0.2)');
+                bg.setAttribute('stroke', 'none');
+            } else {
+                bg.setAttribute('fill', 'none');
+                bg.setAttribute('stroke', 'steelblue');
+            }
+            userG.appendChild(bg);
 
-    var data = [{
-        x: x_quad1,
-        y: y_quad1
-    }, {
-        x: x_quad2,
-        y: y_quad2
-    }, {
-        x: x_quad3,
-        y: y_quad3
-    }, {
-        x: x_quad4,
-        y: y_quad4
-    }];
+            //edge points
+            pts.forEach(({x, y}, n) => {
+                let node = document.createElementNS(ns, 'circle');
+                node.setAttribute('cx', ~~x)
+                node.setAttribute('cy', ~~y)
+                node.setAttribute('r', 5)
+                node.setAttribute('fill', color)
+                userG.appendChild(node);
+            })
 
-    var data2 = data.concat([{
-        x: d3.sum(data, d => d.x) / data.length,
-        y: d3.sum(data, d => d.y) / data.length
-    }]);
+            container.appendChild(userG);
+        }
 
-    vis.append("text")
-        .style("font", "16px")
-        .attr("font-weight", 700)
-        .attr("transform", "translate(340,50)")
-        .text("ICH IM TEAM")
-        .append("tspan")
-        .attr("font-weight", 700)
-        .text(" - BERUFLICH")
+        function generateRandomUser() {
+            const user = consumeAPI()
+            return calculatePlot(user)
+        }
 
+        function consumeAPI() {
 
+            var x_quad1 = {{ $quadrant1_x }};
+            var y_quad1 = {{ $quadrant1_y }};
 
-    vis.selectAll(".xaxis text") // select all the text elements for the xaxis
-        .attr("transform", function (d) {
-            return "translate(" + this.getBBox().height * -2 + "," + this.getBBox().height + ")rotate(-45)";
-        });
+            var x_quad2 = {{ $quadrant2_x }};
+            var y_quad2 = {{ $quadrant2_y }};
 
-    vis.append("text")
-        .style("font", "14px 'Arial'")
-        .attr("transform", "translate(90,400)")
-        .text("Gemeinsinn");
+            var x_quad3 = {{ $quadrant3_x }};
+            var y_quad3 = {{ $quadrant3_y }};
 
-    vis.append("text")
-        .style("font", "14px 'Arial'")
-        .attr("transform", "translate(380,685)")
-        .text("Flexibilität");
+            var x_quad4 = {{ $quadrant4_x }};
+            var y_quad4 = {{ $quadrant4_y }};
 
-    vis.append("text")
-        .style("font", "14px 'Arial'")
-        .attr("transform", "translate(375,145)")
-        .text("Stabilität");
+            return {
+                x1: (x_quad1 * range),
+                y1: (y_quad1 * range),
+                x2: (x_quad2 * range),
+                y2: (y_quad2 * range),
+                x3: (x_quad3 * range),
+                y3: (y_quad3 * range),
+                x4: (x_quad4 * range),
+                y4: (y_quad4 * range)
+            }
+        }
 
-    vis.append("text")
-        .style("font", "14px 'Arial'")
-        .attr("transform", "translate(640,400)")
-        .text("Selbstverwirklichung");
+        function calculatePlot(user) {
+            return [{
+                x: center + user.x1,
+                y: center - user.y1
+            }, {
+                x: center + user.x2,
+                y: center - user.y2
+            }, {
+                x: center + user.x3,
+                y: center - user.y3
+            }, {
+                x: center + user.x4,
+                y: center - user.y4
+            }]
+        }
 
-    vis.selectAll(".point")
-        .data(data)
-        .enter().append("circle")
-        .attr("class", "point")
-        .attr("r", 5)
-        .style("fill", "steelblue")
-        .attr("cx", function (d) {
-            return xScale(d.x);
-        })
-        .attr("cy", function (d) {
-            return yScale(d.y);
-        });
+        const additionReducer = (accumulator, currentValue) => {
+            return accumulator + currentValue
+        }
 
-    vis.append('path')
-        .datum(data)
-        .attr('fill', '#00FFFF')
-        .attr("opacity", "0.5")
-        .attr('stroke', '#69b3a2')
-        .attr('stroke-width', 1.5)
-        .attr('d', d => d3.svg.line()
-            .x(d => xScale(d.x))
-            .y(d => yScale(d.y))(d) + 'Z')
+        function calculateMidPoint(plot) {
+            // console.log(plot)
+            let node = document.createElementNS(ns, 'circle');
+            let color = '#ff0000'
+            node.setAttribute('cx', (plot.map(point => point.x).reduce(additionReducer, 0)) / 4)
+            node.setAttribute('cy', (plot.map(point => point.y).reduce(additionReducer, 0)) / 4)
+            node.setAttribute('r', 5)
+            node.setAttribute('fill', color)
+            userG.appendChild(node);
 
-    vis.selectAll(".point")
-        .data(data2)
-        .enter().append("circle")
-        .attr("class", "point")
-        .attr("r", 5)
-        .style("fill", "red")
-        .attr("cx", function (d) {
-            return xScale(d.x);
-        })
-        .attr("cy", function (d) {
-            return yScale(d.y);
-        });
+        }
 
-    vis.append("text")
-        .style("font", "15px 'Arial'")
-        .attr("transform", "translate(70,710)")
-        .attr("font-weight", 300)
-        .text("Hier sehen Sie das Ergebnis aus Ihrer Eingabe zum ")
-        .append("tspan")
-        .attr("font-weight", 700)
-        .text("beruflichen Bereich")
-        .append("tspan")
-        .attr("font-weight", 300)
-        .text(". Es zeigt Ihnen den Schwerpunkt/")
-
-    vis.append("text")
-        .style("font", "15px 'Arial'")
-        .attr("transform", "translate(70,730)")
-        .text(
-            "Mittelpunkt der vier Seiten Ihrer Persönlichkeit. Diese kann zum beruflichen Bereich Abweichungen aufzeigen,"
-        );
-
-    vis.append("text")
-        .style("font", "15px 'Arial'")
-        .attr("transform", "translate(70,750)")
-        .text("weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet wird.");
-
-    vis.append("text")
-        .style("font", "12px 'Arial'")
-        .attr("transform", "translate(70,770)")
-        .text("Wir empfehlen Ihnen dazu auch die Ausführungen im Kapitel 10 und 11 aus dem Buch:");
-
-    vis.append("text")
-        .style("font", "12px 'Arial'")
-        .attr("transform", "translate(70,790)")
-        .text("„Dynamik in Gruppen“ von Eberhard Stahl aus dem Beltz Verlag PVU");
-
-    vis.append("text")
-        .style("font", "12px 'Arial'")
-        .attr("transform", "translate(70,810)")
-        .text("ISBN 3-407-27515-0");
-
-</script>
+        for (let i = 0; i < maxUsers; i++) {
+            let plot = generateRandomUser();
+            let label = `Mittelpunkt`;
+            addUser(plot, label);
+            calculateMidPoint(plot);
+        }
+    </script>
+    </body>
 
 </html>
 @endsection

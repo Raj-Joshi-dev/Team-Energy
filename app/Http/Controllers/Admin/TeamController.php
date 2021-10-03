@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTeamRequest;
 use App\Team;
@@ -45,7 +46,7 @@ class TeamController extends Controller
             ['name', '!=', Null],
             [function ($query) use ($request) {
                 if (($term = $request->term)) {
-                    $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
+                    $query->orWhere('name', 'LIKE', $term . '%')->get();
                 }
             }]
         ])
@@ -66,10 +67,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-
-        $user = User::all();
-
-        return view('admin.teams.create', compact('user'));
+        return view('admin.teams.create');
     }
 
     /**
@@ -150,7 +148,7 @@ class TeamController extends Controller
 
         Team::destroy($id);
 
-        $request->session()->flash('error', 'Sie haben den Team gelöscht!');
+        $request->session()->flash('success', 'Sie haben den Team gelöscht!');
 
         return redirect(route('admin.teams.index'));
     }

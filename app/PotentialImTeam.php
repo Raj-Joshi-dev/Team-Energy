@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PotentialImTeam extends Model
 {
-    use SoftDeletes;
+
 }

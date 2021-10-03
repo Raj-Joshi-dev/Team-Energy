@@ -8,6 +8,7 @@ use App\Key;
 use App\PotentialImTeam;
 use App\Result;
 use App\ResultAnswer;
+use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,10 +24,36 @@ class ResultController extends Controller
      */
     public function index()
     {
-        $results = Result::with('user')->orderByDesc('id')->paginate(10);
 
-        return view('admin.results.index', compact('results'));
 
+    }
+
+    public function category($id)
+    {
+
+        if ($id == '1') {
+            $results = Result::with('user')->where('kat_id', 1)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category1', compact('results'));
+
+        } elseif ($id == '2') {
+
+            $results = Result::with('user')->where('kat_id', 2)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category2', compact('results'));
+        } elseif ($id == '3') {
+            $results = Result::with('user')->where('kat_id', 3)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category3', compact('results'));
+        } elseif ($id == '4') {
+            $results = Result::with('user')->where('kat_id', 4)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category4', compact('results'));
+        } elseif ($id == '5') {
+            $results = Result::with('user')->where('kat_id', 5)->orderByDesc('id')->paginate(10);
+
+            return view('admin.results.category5', compact('results'));
+        }
 
     }
 
@@ -59,11 +86,7 @@ class ResultController extends Controller
      */
     public function show($id)
     {
-        $test = Result::all();
-
         $results = DB::table('result_answers')->where('result_id', $id)->get();
-
-//        $result = ResultAnswer::with('result')->get()->where('result_id', $id);
 
         return view('admin.results.show', compact('results'));
     }
@@ -97,9 +120,11 @@ class ResultController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         Result::destroy($id);
+
+        $request->session()->flash('success', 'Sie haben den Ergebnis gelöscht!');
 
         return redirect(route('admin.results.index'));
     }
@@ -126,13 +151,13 @@ class ResultController extends Controller
 //            $privat_x4 = $privat->pluck('privat_x4');
 //            $privat_y4 = $privat->pluck('privat_y4');
 
-            return redirect()->action([IchimTeamPrivatController::class,'privat_result'], $id);
+            return redirect()->action([IchimTeamPrivatController::class, 'privat_result'], $id);
         } elseif ($kat_id == 2) {
 
-            return redirect()->action([IchimTeamBerufController::class ,'beruf_result'], $id);
-        }elseif ($kat_id == 4) {
+            return redirect()->action([IchimTeamBerufController::class, 'beruf_result'], $id);
+        } elseif ($kat_id == 3) {
 
-            return redirect()->action([PotentialController::class ,'potential_result'], $id);
+            return redirect()->action([PotentialController::class, 'potential_result'], $id);
         } else {
             echo 'Do Nothing!';
         }
@@ -198,9 +223,10 @@ class ResultController extends Controller
         $keys = Key::get();
         $result = new Result();
 
+
         $result->user_id = Auth::id();
 
-        $result->kat_id = 3;
+        $result->kat_id = 4;
 
         $result->save();
 
@@ -258,11 +284,18 @@ class ResultController extends Controller
         }
 
 
-        return redirect()->action('ResultController@result3', $id = $result->id);
+        return redirect()->action([ResultController::class, 'result3'], $id = $result->id);
     }
 
     public function result3($id)
     {
+        $result_id = $id;
+        $user_id = DB::table('result_answers')->where('result_id', $id)->value('user_id');
+        $user_name = DB::table('users')->where('id', $user_id)->value('name');
+        $team_id = DB::table('users')->where('id', $user_id)->value('team_id');
+        $team_name = DB::table('teams')->where('id', $team_id)->value('name');
+
+
         $avg_quad1_x = ResultAnswer::where('result_id', $id)
             ->where('quadrant', 1)->avg('value_x');
 
@@ -303,7 +336,7 @@ class ResultController extends Controller
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
-        return view('graphs.kulturimteam_graph', compact('quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
+        return view('graphs.kulturimteam_graph', compact('user_name', 'team_name', 'result_id', 'quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
 
     }
 

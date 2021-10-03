@@ -3,11 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Result extends Model
 {
-    use SoftDeletes;
 
     public function user()
     {
@@ -17,5 +15,10 @@ class Result extends Model
     public function result_answers()
     {
         return $this->hasMany(ResultAnswer::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

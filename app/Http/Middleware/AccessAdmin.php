@@ -22,7 +22,11 @@ class AccessAdmin
             return $next($request);
         }
 
-        return redirect('/');
+        else
+            abort(403);
 
+//        return redirect('/');
+
+        return $next($request);
     }
 }
