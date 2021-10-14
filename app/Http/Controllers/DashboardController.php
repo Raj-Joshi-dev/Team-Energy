@@ -73,11 +73,4 @@ class DashboardController extends Controller
             'enable_kultur', 'disable_kultur', 'disable_kultur2', 'privat_result_id', 'beruf_result_id'));
 
     }
-
-    public function show_results()
-    {
-        $user_id = Auth::id();
-        $privat = Result::where('user_id', $user_id)->where('kat_id', 1)->get();
-        $beruf = Result::where('user_id', $user_id)->where('kat_id', 2)->get();
-    }
 }

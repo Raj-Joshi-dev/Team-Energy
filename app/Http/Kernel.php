@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\AccessAdmin;
+use App\Http\Middleware\ResultAccess;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -57,6 +58,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.isAdmin' => \App\Http\Middleware\AccessAdmin::class,
         'auth.timeout' => \JulioMotol\AuthTimeout\Middleware\AuthTimeoutMiddleware::class,
+        'auth.result-access' => \App\Http\Middleware\ResultAccess::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

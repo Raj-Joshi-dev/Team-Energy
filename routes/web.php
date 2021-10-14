@@ -41,7 +41,7 @@ Route::get('ich-im-team1', [QuestionsController::class ,'add_ichimteam1'])->name
 
 Route::post('test1', [IchimTeamPrivatController::class ,'privat_store'])->name('store1');
 
-Route::get('result1={id}', [IchimTeamPrivatController::class ,'privat_result'])->name('result1')->middleware(['auth', 'auth.timeout']);
+Route::get('result1={id}', [IchimTeamPrivatController::class ,'privat_result'])->name('result1')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
 Route::view('ichimteam1_graph', 'graphs.ichimteam1_graph')->name('ichimteam1_graph');
 
@@ -53,15 +53,15 @@ Route::get('ich-im-team2', [QuestionsController::class, 'add_ichimteam2'])->name
 
 Route::post('test2', [IchimTeamBerufController::class, 'beruf_store'])->name('store2');
 
-Route::get('result2={id}', [IchimTeamBerufController::class, 'beruf_result'])->name('result2')->middleware(['auth', 'auth.timeout']);
+Route::get('result2={id}', [IchimTeamBerufController::class, 'beruf_result'])->name('result2')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
 Route::view('ichimteam2_graph', 'graphs.ichimteam2_graph')->name('ichimteam2_graph');
 
 // Potential im Team
 
-Route::get('test4', [PotentialController::class,'potential_store'])->name('potentialimteam')->middleware(['auth', 'auth.timeout']);
+Route::get('test3', [PotentialController::class,'potential_store'])->name('potentialimteam')->middleware(['auth', 'auth.timeout']);
 
-Route::get('result4={id}', [PotentialController::class,'potential_result'])->name('result4')->middleware(['auth', 'auth.timeout']);
+Route::get('result3={id}', [PotentialController::class,'potential_result'])->name('result3')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
 Route::view('potentialim_graph', 'graphs.potentialimteam_result')->name('potentialimteam_graph');
 
@@ -69,9 +69,9 @@ Route::view('potentialim_graph', 'graphs.potentialimteam_result')->name('potenti
 
 Route::get('kultur-im-team', [QuestionsController::class ,'add_kulturimteam'])->name('kulturimteam')->middleware(['auth', 'auth.timeout']);
 
-Route::post('test3', [ResultController::class ,'store3'])->name('store3');
+Route::post('test4', [ResultController::class ,'store3'])->name('store3');
 
-Route::get('result3={id}', [ResultController::class,'result3'])->name('result3')->middleware(['auth', 'auth.timeout']);
+Route::get('result4={id}', [ResultController::class,'result3'])->name('result4')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
 Route::view('kulturimteam_graph', 'graphs.kulturimteam_graph')->name('kulturimteam_graph');
 
@@ -81,7 +81,7 @@ Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturim
 
 
 // Generate Graph from Admin Panel
-Route::get('/admin/results/{id}/graph', [ResultController::class, 'generate_graph'])->name('generate_graph')->middleware(['auth', 'auth.timeout', 'auth.isAdmin']);
+Route::get('/admin/results/{id}/graph', [ResultController::class, 'generate_graph'])->name('generate_graph')->middleware(['auth', 'auth.timeout']);
 
 // Admin Area
 Route::get('/admin', [UserController::class, 'admin'])->middleware(['auth','auth.isAdmin', 'auth.timeout'])->name('admin-panel');

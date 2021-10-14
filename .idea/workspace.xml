@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Initial - composer updates">
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Fixed Delete Modal to return on same result category page.">
+      <change afterPath="$PROJECT_DIR$/app/Policies/UserPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-14.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IchimTeamPrivatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IchimTeamPrivatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-08-14.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-08-26.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-03.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +25,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="new-graph-implementation" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -205,6 +216,7 @@
       <workItem from="1632774603674" duration="6661000" />
       <workItem from="1632977235818" duration="14681000" />
       <workItem from="1633284149441" duration="1340000" />
+      <workItem from="1634191387792" duration="11316000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
