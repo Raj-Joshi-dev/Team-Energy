@@ -74,18 +74,6 @@
                                 @endforeach
                             </select>
                         </div>
-
-                        <div class="form-group">
-                            <label for="teams">Role</label>
-                            @foreach($roles as $role)
-                                <div class="form-check">
-                                    <input class="form-check-input" name="roles[]" type="radio" value="{{ $role->id }}"
-                                           id="{{ $role->name }}"
-                                           @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray())) checked @endif @endisset>
-                                    <label for="{{ $role->name }}" class="form-check-label">{{ $role->name }}</label>
-                                </div>
-                            @endforeach
-                        </div>
                     </form>
 
                     <button data-toggle="modal"  data-target="#exampleModal" class="btn btn-primary"><i class="fas fa-check"></i>&nbsp;Bestätigen

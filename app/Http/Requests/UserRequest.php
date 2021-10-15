@@ -58,7 +58,6 @@ class UserRequest extends FormRequest
 
 //            'password' => [$passwordRule, Password::defaults()],
             'team_id' => 'nullable',
-            'roles' => 'required',
         ];
     }
 

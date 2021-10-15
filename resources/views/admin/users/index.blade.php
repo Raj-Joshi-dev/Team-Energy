@@ -67,9 +67,7 @@
                                    href="{{ route('admin.users.show', $user->id) }}"
                                    role="button"><i class="fas fa-eye"></i></a>
 
-                                @if($user->hasAdminRole('Admin'))
-
-                                @else
+                                @if(auth()->user()->is_admin)
                                     <button class="btn btn-sm btn-danger" title="Löschen" data-toggle="modal"
                                             data-target="#exampleModal_{{$user->id}}"
                                             role="button"><i class="fas fa-trash-alt"></i></button>

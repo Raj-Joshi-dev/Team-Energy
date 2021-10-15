@@ -23,7 +23,7 @@ class ResultAccess
 
         $user_id = Result::with('user')->where('id', $url)->value('user_id');
 
-        if (Auth::id() == $user_id or Gate::allows('is-admin')) {
+        if (Auth::id() == $user_id or \auth()->user()->is_admin) {
             return $next($request);
         }
         else

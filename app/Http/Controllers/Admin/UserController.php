@@ -37,7 +37,7 @@ class UserController extends Controller
                 $query->orWhere('name', 'LIKE', $term . '%')->get();
             }
             }]
-        ])
+        ])->where('id', '!=', Auth::id())
             ->orderBy("id", "desc")
             ->paginate(10);
 
@@ -55,13 +55,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        $this->authorize('is-admin');
-
         $teams = Team::all();
 
-        $roles = Role::all();
-
-        return view('admin.users.create', compact('teams', 'roles'));
+        return view('admin.users.create', compact('teams'));
     }
 
     /**
@@ -83,7 +79,7 @@ class UserController extends Controller
 
         $user = User::create($input);
 
-        $user->roles()->sync($request->roles);
+//        $user->roles()->sync($request->roles);
 
         //$user = User::create($request->except('_token'));
 
@@ -116,10 +112,9 @@ class UserController extends Controller
     public function edit($id, Request $request)
     {
         $teams = Team::all();
-        $roles = Role::all();
         $user = User::find($id);
 
-        return view('admin.users.edit', compact('teams', 'user', 'roles'));
+        return view('admin.users.edit', compact('teams', 'user'));
     }
 
     /**
@@ -134,8 +129,7 @@ class UserController extends Controller
 
         $user = User::find($id);
 
-        $user->update($request->except(['_token', 'teams', 'roles']));
-        $user->roles()->sync($request->roles);
+        $user->update($request->except(['_token']));
 
         if (!$user) {
             $request->session()->flash('error', 'Sie haben den Benutzer bearbeitet.');
