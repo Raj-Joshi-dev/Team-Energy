@@ -7,7 +7,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $user_name }} - Beruflicher Bereich_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
+    @if($team_name == null)
+        <title>{{ $user_name }} - Beruflicher Bereich_#{{ $result_id }} | Team-Energy</title>
+    @else
+        <title>{{ $user_name }} - Beruflicher Bereich_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
+    @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
         .center {
@@ -24,6 +28,7 @@
             #printPageButton {
                 display: none;
             }
+
             @page {
                 margin: 0;
             }
@@ -37,8 +42,12 @@
 @section('content')
     <div class="container">
         <h5>Name: {{ $user_name }}</h5>
-        <h5>Team Name: {{ $team_name }}</h5>
-        <h5>Ergebnis-ID: {{ $result_id }}</h5>
+        @if($team_name == null)
+            <h5>Ergebnis-ID: {{ $result_id }}</h5>
+        @else
+            <h5>Team Name: {{ $team_name }}</h5>
+            <h5>Ergebnis-ID: {{ $result_id }}</h5>
+        @endif
     </div>
     <body>
     <div class="center">
@@ -89,13 +98,18 @@
             <text class="description" x="70" y="715">Hier sehen Sie das Ergebnis aus Ihrer Eingabe zum</text>
             <text class="description" style="font-weight: bold;" x="435" y="715">beruflichen Bereich.</text>
             <text class="description" x="585" y="715">Es zeigt Ihnen den Schwerpunkt/</text>
-            <text class="description" x="70" y="735">Mittelpunkt der vier Seiten Ihrer Persönlichkeit. Diese kann zum privaten Bereich Abweichungen aufzeigen,</text>
+            <text class="description" x="70" y="735">Mittelpunkt der vier Seiten Ihrer Persönlichkeit. Diese kann zum
+                privaten Bereich Abweichungen aufzeigen,
+            </text>
             <text class="description" x="70" y="755">weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet
-                wird.</text>
+                wird.
+            </text>
             <text class="description" style="font-size: 12px;" x="70" y="775">Wir empfehlen Ihnen dazu auch die
-                Ausführungen im Kapitel 10 und 11 aus dem Buch:</text>
+                Ausführungen im Kapitel 10 und 11 aus dem Buch:
+            </text>
             <text class="description" style="font-size: 12px;" x="70" y="792">,,Dynamik in Gruppen“ von Eberhard Stahl
-                aus dem Beltz Verlag PVU</text>
+                aus dem Beltz Verlag PVU
+            </text>
             <text class="description" style="font-size: 12px;" x="70" y="810">ISBN 3-407-27515-0</text>
 
 
