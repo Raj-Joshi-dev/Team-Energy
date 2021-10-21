@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Added a checkbox to view password while creating user in Admin Panel.">
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Refactored displaying team name based on if the user is present in a team or not.">
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-21.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/graphs/ichimteam1_graph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/graphs/ichimteam1_graph.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/graphs/ichimteam2_graph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/graphs/ichimteam2_graph.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/graphs/potentialimteam_graph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/graphs/potentialimteam_graph.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-06.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +212,7 @@
       <workItem from="1633284149441" duration="1340000" />
       <workItem from="1634191387792" duration="21550000" />
       <workItem from="1634847556385" duration="230000" />
-      <workItem from="1634847810788" duration="1696000" />
+      <workItem from="1634847810788" duration="3203000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -275,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634848849376</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactored displaying team name based on if the user is present in a team or not.">
+      <created>1634849702334</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1634849702334</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +313,7 @@
     <MESSAGE value="Added ResultAccess Middleware to prevent a user to access other user's results." />
     <MESSAGE value="New Middleware IsAdminMiddleware.php and fixed some slugs with protection. Completely removed role management!" />
     <MESSAGE value="Added a checkbox to view password while creating user in Admin Panel." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a checkbox to view password while creating user in Admin Panel." />
+    <MESSAGE value="Refactored displaying team name based on if the user is present in a team or not." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored displaying team name based on if the user is present in a team or not." />
   </component>
 </project>

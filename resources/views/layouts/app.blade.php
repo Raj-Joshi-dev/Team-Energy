@@ -91,7 +91,7 @@
                             <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
                         @endif
 
-                        @if(Auth::user() && Auth::user()->is_admin))
+                        @if(Auth::user() && Auth::user()->is_admin)
                             <a href="{{ route('admin-panel') }}" class="dropdown-item">Admin Bereich</a>
                         @endif
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

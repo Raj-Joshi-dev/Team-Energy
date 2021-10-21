@@ -63,7 +63,6 @@ Route::get('test3', [PotentialController::class,'potential_store'])->name('poten
 
 Route::get('result3={id}', [PotentialController::class,'potential_result'])->name('result3')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
-Route::view('potentialim_graph', 'graphs.potentialimteam_result')->name('potentialimteam_graph');
 
 // Kultur im Team - mein Einschätzung
 
