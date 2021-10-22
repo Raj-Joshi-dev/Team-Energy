@@ -26,7 +26,11 @@
 
         @media print {
             #printPageButton {
-                display: none;
+                display: none !important;
+            }
+
+            #noprint {
+                display: none !important;
             }
 
             @page {
@@ -41,6 +45,12 @@
 </head>
 @section('content')
     <div class="container">
+        @if(auth()->user()->is_admin)
+
+        @else
+            <a id="noprint" class="btn btn-warning float-right" href="{{ route('dashboard') }}" role="button"><i
+                    class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zu Dashboard</a>
+        @endif
         <h5>Name: {{ $user_name }}</h5>
         @if($team_name == null)
             <h5>Ergebnis-ID: {{ $result_id }}</h5>
@@ -48,6 +58,7 @@
             <h5>Team Name: {{ $team_name }}</h5>
             <h5>Ergebnis-ID: {{ $result_id }}</h5>
         @endif
+
     </div>
     <body>
     <div class="center">

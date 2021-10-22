@@ -28,7 +28,7 @@ class AccessAdmin
 //        return redirect('/');
 
         if (!auth()->check() || !auth()->user()->is_admin) {
-            abort(403);
+            abort(403, 'Zugang Verboten');
         }
 
         return $next($request);

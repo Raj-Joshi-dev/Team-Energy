@@ -12,9 +12,7 @@ class QuestionsController extends Controller
 {
     public function add_ichimteam1()
     {
-        $user_id = Auth::id();
-
-        $result = Result::with('user')->where('user_id', $user_id)->exists();
+        $result = Result::with('user')->where('user_id', Auth::id())->where('kat_id', 1)->exists();
 
         if ($result == false)
         {
@@ -28,9 +26,8 @@ class QuestionsController extends Controller
 
     public function add_ichimteam2()
     {
-        $user_id = Auth::id();
 
-        $result = Result::with('user')->where('user_id', $user_id)->exists();
+        $result = Result::with('user')->where('user_id', Auth::id())->where('kat_id', 2)->exists();
 
         if ($result == false)
         {
@@ -44,9 +41,8 @@ class QuestionsController extends Controller
 
     public function add_kulturimteam()
     {
-        $user_id = Auth::id();
 
-        $result = Result::with('user')->where('user_id', $user_id)->exists();
+        $result = Result::with('user')->where('user_id', Auth::id())->where('kat_id', 3)->exists();
 
         if ($result == false)
         {

@@ -80,7 +80,7 @@ Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturim
 
 
 // Generate Graph from Admin Panel
-Route::get('/admin/results/{id}/graph', [ResultController::class, 'generate_graph'])->name('generate_graph')->middleware(['auth', 'auth.timeout']);
+Route::get('/results/{id}/graph', [ResultController::class, 'generate_graph'])->name('generate_graph')->middleware(['auth', 'auth.timeout']);
 
 // Admin Area
 Route::get('/admin', [UserController::class, 'admin'])->middleware(['auth', 'is_admin', 'auth.timeout'])->name('admin-panel');
