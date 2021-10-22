@@ -36,6 +36,8 @@ class DashboardController extends Controller
         $potential_check = Result::where('user_id', $user_id)->where('kat_id', 3)->exists();
         $potential_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 3)->value('id');
 
+        $kultur_single_result_id =  DB::table('results')->where('user_id', $user_id)->where('kat_id', 4)->value('id');
+
 //        dd($potential_check);
 
 //        if ($disable_kultur == true){
@@ -78,7 +80,7 @@ class DashboardController extends Controller
 
         return view('test.dashboard', compact('disable_privat', 'disable_beruf', 'enable_potential',
             'enable_kultur', 'disable_kultur', 'disable_kultur2', 'privat_result_id', 'beruf_result_id', 'potential_check',
-        'potential_result_id'));
+        'potential_result_id', 'kultur_single_result_id'));
 
     }
 }

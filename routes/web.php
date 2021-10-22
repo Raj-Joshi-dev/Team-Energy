@@ -68,9 +68,9 @@ Route::get('result3={id}', [PotentialController::class,'potential_result'])->nam
 
 Route::get('kultur-im-team', [QuestionsController::class ,'add_kulturimteam'])->name('kulturimteam')->middleware(['auth', 'auth.timeout']);
 
-Route::post('test4', [ResultController::class ,'store3'])->name('store3');
+Route::post('test4', [\App\Http\Controllers\KulturimTeamSingleController::class ,'kultur_single_store'])->name('store3');
 
-Route::get('result4={id}', [ResultController::class,'result3'])->name('result4')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
+Route::get('result4={id}', [\App\Http\Controllers\KulturimTeamSingleController::class, 'kultur_single_result'])->name('result4')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
 Route::view('kulturimteam_graph', 'graphs.kulturimteam_graph')->name('kulturimteam_graph');
 

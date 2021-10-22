@@ -42,7 +42,7 @@ class QuestionsController extends Controller
     public function add_kulturimteam()
     {
 
-        $result = Result::with('user')->where('user_id', Auth::id())->where('kat_id', 3)->exists();
+        $result = Result::with('user')->where('user_id', Auth::id())->where('kat_id', 4)->exists();
 
         if ($result == false)
         {
