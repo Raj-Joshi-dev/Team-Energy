@@ -40,6 +40,7 @@
                             <input name="password" type="password"
                                    class="form-control @error('password') is-invalid @enderror"
                                    id="password">
+                            <input name="checkbox" type="checkbox" onclick="myFunction()"> Kennwort anzeigen
                             @error('password')
                             <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
@@ -55,17 +56,17 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <label for="teams">Role</label>&nbsp;<span style="color:#ff0000">*</span>
-                            @foreach($roles as $role)
-                                <div class="form-check">
-                                    <input class="form-check-input" name="roles" type="radio" value="{{ $role->id }}"
-                                           id="{{ $role->name }}"
-                                           @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray()))  @endif @endisset checked>
-                                    <label for="{{ $role->name }}" class="form-check-label">{{ $role->name }}</label>
-                                </div>
-                            @endforeach
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="teams">Role</label>&nbsp;<span style="color:#ff0000">*</span>--}}
+{{--                            @foreach($roles as $role)--}}
+{{--                                <div class="form-check">--}}
+{{--                                    <input class="form-check-input" name="roles" type="radio" value="{{ $role->id }}"--}}
+{{--                                           id="{{ $role->name }}"--}}
+{{--                                           @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray()))  @endif @endisset checked>--}}
+{{--                                    <label for="{{ $role->name }}" class="form-check-label">{{ $role->name }}</label>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
                         <br>
                         <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Bestätigen
                         </button>
@@ -77,4 +78,14 @@
             </div>
         </div>
     </div>
+    <script>
+        function myFunction() {
+            let x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 @endsection

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'team_id',
+        'name', 'email', 'password', 'team_id', 'is_admin',
     ];
 
     /**
@@ -72,18 +72,18 @@ class User extends Authenticatable
 //        return $this->team()->where('name', $team)->exists();
 //    }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
+//    public function roles()
+//    {
+//        return $this->belongsToMany(Role::class);
+//    }
 
     /**
      * Check if the user has a role
      * @param string $role
      * @return bool
      */
-    public function hasAdminRole(string $role)
-    {
-        return null !== $this->roles()->where('name', $role)->first();
-    }
+//    public function hasAdminRole(string $role)
+//    {
+//        return null !== $this->roles()->where('name', $role)->first();
+//    }
 }

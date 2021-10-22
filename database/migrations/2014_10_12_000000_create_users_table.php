@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('team_id')->nullable();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->string('password');
+            $table->boolean('is_admin')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

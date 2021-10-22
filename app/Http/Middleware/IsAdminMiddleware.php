@@ -2,12 +2,10 @@
 
 namespace App\Http\Middleware;
 
-
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
-class AccessAdmin
+class IsAdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,17 +14,8 @@ class AccessAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-//        if (Gate::allows('is-admin')) {
-//            return $next($request);
-//        }
-//
-//        else
-//            abort(403);
-
-//        return redirect('/');
-
         if (!auth()->check() || !auth()->user()->is_admin) {
             abort(403, 'Zugang Verboten');
         }

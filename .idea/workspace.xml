@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Separate sections for every Test result depending on category.">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AccessAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/AccessAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/results/partials/result-display.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/results/partials/result-display.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -207,6 +203,9 @@
       <workItem from="1632774603674" duration="6661000" />
       <workItem from="1632977235818" duration="14681000" />
       <workItem from="1633284149441" duration="1340000" />
+      <workItem from="1634191387792" duration="21550000" />
+      <workItem from="1634847556385" duration="230000" />
+      <workItem from="1634847810788" duration="18573000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -243,7 +242,63 @@
       <option name="project" value="LOCAL" />
       <updated>1632990243505</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Initial - composer updates">
+      <created>1633286408651</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633286408651</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added ResultAccess Middleware to prevent a user to access other user's results.">
+      <created>1634212471593</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1634212471593</updated>
+    </task>
+    <task id="LOCAL-00008" summary="New Middleware IsAdminMiddleware.php and fixed some slugs with protection. Completely removed role management!">
+      <created>1634294850061</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1634294850061</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added a checkbox to view password while creating user in Admin Panel.">
+      <created>1634848849376</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1634848849376</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Refactored displaying team name based on if the user is present in a team or not.">
+      <created>1634849702334</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1634849702334</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Stop user from accessing the Questions URL after submitting the test.">
+      <created>1634851500880</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1634851500880</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes in regard to URL blocking!">
+      <created>1634864822276</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1634864822276</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixed and refactored Kultur im Team single user implementation along with some UX improvements.">
+      <created>1634903408045</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1634903408045</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,17 +323,15 @@
     <MESSAGE value="Search filter by initial keyword in users and teams." />
     <MESSAGE value="Added Category based switching for tests, improved modal and composer updates." />
     <MESSAGE value="Separate sections for every Test result depending on category." />
-    <option name="LAST_COMMIT_MESSAGE" value="Separate sections for every Test result depending on category." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/admin/layouts/admin-app.blade.php</url>
-          <line>100</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Initial - composer updates" />
+    <MESSAGE value="Added ResultAccess Middleware to prevent a user to access other user's results." />
+    <MESSAGE value="New Middleware IsAdminMiddleware.php and fixed some slugs with protection. Completely removed role management!" />
+    <MESSAGE value="Added a checkbox to view password while creating user in Admin Panel." />
+    <MESSAGE value="Refactored displaying team name based on if the user is present in a team or not." />
+    <MESSAGE value="Stop user from accessing the Questions URL after submitting the test." />
+    <MESSAGE value="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes with regards to URL blocking!" />
+    <MESSAGE value="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes in regard to URL blocking!" />
+    <MESSAGE value="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
   </component>
 </project>

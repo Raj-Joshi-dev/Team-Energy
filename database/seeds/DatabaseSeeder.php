@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(\Database\Seeders\SwitchCategorySeeder::class);
         $this->call(TeamSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(RoleSeeder::class);
-        $this->call(RoleUserSeeder::class);
+//        $this->call(RoleSeeder::class);
+//        $this->call(RoleUserSeeder::class);
     }
 }

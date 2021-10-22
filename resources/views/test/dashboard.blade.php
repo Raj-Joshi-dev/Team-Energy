@@ -22,7 +22,9 @@
                                 <a style="font-size: 13px" href="{{ route('ichimteam1') }}" class="btn btn-primary">Test
                                     geben</a>
                             @else
-                                <p1 style="color: green">Test abgeschlossen! Danke</p1>
+                                {{--                                <p1 style="color: green">Test abgeschlossen! Danke</p1>--}}
+                                <a style="font-size: 13px" href="{{ route('generate_graph', $privat_result_id) }}"
+                                   class="btn btn-success">Ihr Ergebnis</a>
                             @endif
                         </div>
                     </div>
@@ -37,7 +39,9 @@
                                 <a style="font-size: 13px" href="{{ route('ichimteam2') }}" class="btn btn-primary">Test
                                     geben</a>
                             @else
-                                <p1 style="color: green">Test abgeschlossen! Danke</p1>
+                                {{--                                <p1 style="color: green">Test abgeschlossen! Danke</p1>--}}
+                                <a style="font-size: 13px" href="{{ route('generate_graph', $beruf_result_id) }}"
+                                   class="btn btn-success">Ihr Ergebnis</a>
                             @endif
                         </div>
                     </div>
@@ -48,8 +52,14 @@
                         <div class="card-body">
                             <div style="font-weight: bold; font-size: 16px" class="card-title">Potential im Team</div>
                             @if($enable_potential == true)
-                                <a style="font-size: 13px" href="{{ route('potentialimteam') }}"
-                                   class="btn btn-success">Ergebnis verfügbar</a>
+                                @if($potential_check == false)
+                                    <a style="font-size: 13px; color: black" href="{{ route('potentialimteam') }}"
+                                       class="btn btn-warning">Ergebnis Erhalten</a>
+                                @else
+                                    <a style="font-size: 13px"
+                                       href="{{ route('generate_graph', $potential_result_id) }}"
+                                       class="btn btn-success">Ihr Ergebnis</a>
+                                @endif
                             @else
                                 <p1>Warten auf Testergebnisse von: Ich im Team - Privat und Beruf!</p1>
                             @endif
@@ -69,7 +79,9 @@
                                        class="btn btn-primary">Test
                                         geben</a>
                                 @else
-                                    <p1 style="color: green">Test abgeschlossen! Danke</p1>
+{{--                                    <p1 style="color: green">Test abgeschlossen! Danke</p1>--}}
+                                    <a style="font-size: 13px" href="{{ route('generate_graph', $kultur_single_result_id) }}"
+                                       class="btn btn-success">Ihr Ergebnis</a>
                                 @endif
                             </div>
                         </div>

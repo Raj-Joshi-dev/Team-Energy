@@ -14,44 +14,54 @@ class PotentialController extends Controller
     public function potential_store()
 
     {
-        // user id.
-        $id = Auth::id();
+        //Insert Check condition
 
-        $result = new Result();
+        $result_check = Result::with('user')->where('user_id', Auth::id())->where('kat_id', 3)->exists();
 
-        $result->user_id = $id;
+        if ($result_check == false)
+        {
+            // user id.
+            $id = Auth::id();
 
-        $result->kat_id = 3;
+            $result = new Result();
 
-        $result->save();
+            $result->user_id = $id;
 
-        $potential = new PotentialImTeam();
+            $result->kat_id = 3;
 
-        $potential->user_id = $id;
+            $result->save();
 
-        $potential->result_id = $result->id;
+            $potential = new PotentialImTeam();
 
-        $potential->privat_x1 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x1');
-        $potential->privat_y1 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y1');
-        $potential->privat_x2 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x2');
-        $potential->privat_y2 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y2');
-        $potential->privat_x3 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x3');
-        $potential->privat_y3 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y3');
-        $potential->privat_x4 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x4');
-        $potential->privat_y4 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y4');
+            $potential->user_id = $id;
 
-        $potential->beruf_x1 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x1');
-        $potential->beruf_y1 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y1');
-        $potential->beruf_x2 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x2');
-        $potential->beruf_y2 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y2');
-        $potential->beruf_x3 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x3');
-        $potential->beruf_y3 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y3');
-        $potential->beruf_x4 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x4');
-        $potential->beruf_y4 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y4');
+            $potential->result_id = $result->id;
 
-        $potential->save();
+            $potential->privat_x1 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x1');
+            $potential->privat_y1 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y1');
+            $potential->privat_x2 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x2');
+            $potential->privat_y2 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y2');
+            $potential->privat_x3 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x3');
+            $potential->privat_y3 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y3');
+            $potential->privat_x4 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_x4');
+            $potential->privat_y4 = IchImTeamPrivat::where('user_id', $id)->latest()->value('privat_y4');
 
-        return redirect()->action([PotentialController::class, 'potential_result'], $result_id = $result->id);
+            $potential->beruf_x1 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x1');
+            $potential->beruf_y1 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y1');
+            $potential->beruf_x2 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x2');
+            $potential->beruf_y2 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y2');
+            $potential->beruf_x3 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x3');
+            $potential->beruf_y3 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y3');
+            $potential->beruf_x4 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_x4');
+            $potential->beruf_y4 = IchImTeamBeruf::where('user_id', $id)->latest()->value('beruf_y4');
+
+            $potential->save();
+
+            return redirect()->action([PotentialController::class, 'potential_result'], $result_id = $result->id);
+        }
+
+        else
+            return abort('403', 'Test bereits abgeschickt, bitte überprüfen Sie das Dashboard oder kontaktieren Sie den Admin!');
 
     }
 

@@ -31,17 +31,9 @@
                                 „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h5>
             </div>
 
-            @if($errors->any())
-                <div class="alert alert-danger" style="font-size:110%">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-        @endif
+        @include('partials.alerts')
 
-            <!--Accordion wrapper-->
+        <!--Accordion wrapper-->
             <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 
                 <!-- Accordion card -->
@@ -49,7 +41,7 @@
                     @foreach($questions as $question)
                         <div class="card">
 
-                        <!-- Card header -->
+                            <!-- Card header -->
 
                             <div class="card-header" role="tab" id="headingOne">
                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
