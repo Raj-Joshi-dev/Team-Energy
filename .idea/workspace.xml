@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes in regard to URL blocking!">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamSingleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/KulturimTeamSingleRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/graphs/kulturimteam_graph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/graphs/kulturimteam_graph.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/ichimteam1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test/ichimteam1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/ichimteam2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test/ichimteam2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test/kulturimteam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test/kulturimteam.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-10-22.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-22.log" afterDir="false" />
-    </list>
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,7 +205,7 @@
       <workItem from="1633284149441" duration="1340000" />
       <workItem from="1634191387792" duration="21550000" />
       <workItem from="1634847556385" duration="230000" />
-      <workItem from="1634847810788" duration="18156000" />
+      <workItem from="1634847810788" duration="18573000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -305,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634864822276</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed and refactored Kultur im Team single user implementation along with some UX improvements.">
+      <created>1634903408045</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1634903408045</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +331,7 @@
     <MESSAGE value="Stop user from accessing the Questions URL after submitting the test." />
     <MESSAGE value="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes with regards to URL blocking!" />
     <MESSAGE value="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes in regard to URL blocking!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes in regard to URL blocking!" />
+    <MESSAGE value="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
   </component>
 </project>
