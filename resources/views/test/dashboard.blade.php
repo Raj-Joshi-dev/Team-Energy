@@ -79,8 +79,9 @@
                                        class="btn btn-primary">Test
                                         geben</a>
                                 @else
-{{--                                    <p1 style="color: green">Test abgeschlossen! Danke</p1>--}}
-                                    <a style="font-size: 13px" href="{{ route('generate_graph', $kultur_single_result_id) }}"
+                                    {{--                                    <p1 style="color: green">Test abgeschlossen! Danke</p1>--}}
+                                    <a style="font-size: 13px"
+                                       href="{{ route('generate_graph', $kultur_single_result_id) }}"
                                        class="btn btn-success">Ihr Ergebnis</a>
                                 @endif
                             </div>
@@ -144,10 +145,6 @@
                 {{--                    </div>--}}
                 {{--                </div>--}}
             </div>
-        </div>
-
-
-        </div>
         </div>
     </form>
     <div class="container">

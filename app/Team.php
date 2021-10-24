@@ -10,7 +10,7 @@ class Team extends Model
 //    use SoftDeletes;
 
     protected $fillable = [
-        'name', 'switch_id'
+        'name', 'members', 'switch_id',
     ];
 
     public function users()

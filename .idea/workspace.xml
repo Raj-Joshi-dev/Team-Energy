@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Updated gitignore">
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-10-22.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-22.log" afterDir="false" />
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Added members to a team with max and min numbers. Display the same in admin panel, some UX improvements. Initial Kultur im Team multi setup.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamMultiController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-23.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-24.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PotentialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PotentialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreTeamRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreTeamRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Team.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2013_01_09_120005_create_teams_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_01_09_120005_create_teams_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-13.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-14.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="authorization-security" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -208,6 +231,7 @@
       <workItem from="1634191387792" duration="21550000" />
       <workItem from="1634847556385" duration="230000" />
       <workItem from="1634847810788" duration="18573000" />
+      <workItem from="1634967125448" duration="20031000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -300,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634903408045</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Composer Updates">
+      <created>1634904412922</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1634904412922</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +365,8 @@
     <MESSAGE value="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes with regards to URL blocking!" />
     <MESSAGE value="Prevent users from resubmitting potential im team on button click, wrote appropriate abort messages, added few UX changes on result display, many more changes in regard to URL blocking!" />
     <MESSAGE value="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
+    <MESSAGE value="Composer Updates" />
+    <MESSAGE value="Added members to a team with max and min numbers. Display the same in admin panel, some UX improvements. Initial Kultur im Team multi setup." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added members to a team with max and min numbers. Display the same in admin panel, some UX improvements. Initial Kultur im Team multi setup." />
   </component>
 </project>

@@ -36,12 +36,18 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Mitglieder</th>
-                        <th scope="col">Hergestellt in</th>
-                        <th scope="col">Aktualisiert am</th>
-                        <th scope="col">Aktionen</th>
+                        <th rowspan="2">ID</th>
+                        <th scope="col" rowspan="2">Name</th>
+                        <th scope="col" colspan="2" style="text-align: center">Mitglieder</th>
+{{--                        <th scope="col">Max. Mitglieder</th>--}}
+                        <th scope="col" rowspan="2">Hergestellt in</th>
+                        <th scope="col" rowspan="2">Aktualisiert am</th>
+                        <th scope="col" rowspan="2">Aktionen</th>
+                    </tr>
+                    <tr>
+                        <!-- skip 1st column because it merges vertically -->
+                        <th>Aktiv</th>
+                        <th>Max</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,9 +55,8 @@
                         <tr>
                             <th scope="row">{{ $team->id }}</th>
                             <td>{{ $team->name }}</td>
-
                             <td>{{ $team->users->count() }}</td>
-
+                            <td>{{ $team->members }}</td>
                             <td>{{ $team->created_at }}</td>
                             <td>{{ $team->updated_at }}</td>
                             <td>
