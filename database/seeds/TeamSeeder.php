@@ -14,13 +14,11 @@ class TeamSeeder extends Seeder
     {
         Team::create([
             'name' => 'Ich im Team',
-            'members' => 5,
             'switch_id' => 1
         ]);
 
         Team::create([
             'name' => 'Ich & Kultur Combo',
-            'members' => 5,
             'switch_id' => 2
         ]);
     }

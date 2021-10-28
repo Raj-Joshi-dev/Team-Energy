@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\KulturimTeamSingleRequest;
+use App\KulturimTeamSingle;
 use App\Result;
 use App\ResultAnswer;
 use Illuminate\Http\Request;
@@ -125,6 +126,26 @@ class KulturimTeamSingleController extends Controller
             ->where('quadrant', 4)->avg('value_y');
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
+
+        $kultur_single = new KulturimTeamSingle();
+
+        $kultur_single->user_id = Auth::id();
+
+        $kultur_single->result_id = $id;
+
+        $kultur_single->kultur_x1 = $quadrant1_x;
+        $kultur_single->kultur_y1 = $quadrant1_y;
+
+        $kultur_single->kultur_x2 = $quadrant2_x;
+        $kultur_single->kultur_y2 = $quadrant2_y;
+
+        $kultur_single->kultur_x3 = $quadrant3_x;
+        $kultur_single->kultur_y3 = $quadrant3_y;
+
+        $kultur_single->kultur_x4 = $quadrant4_x;
+        $kultur_single->kultur_y4 = $quadrant4_y;
+
+        $kultur_single->save();
 
         return view('graphs.kulturimteam_graph', compact('user_name', 'team_name', 'result_id',
             'quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));

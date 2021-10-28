@@ -23,16 +23,16 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                             <br>
-                            <label for="members">Mitglieder</label>&nbsp;<span style="color:#ff0000">*</span>
-                            <br>
-                            <input type="number" id="members" name="members" class="form-group" min="2" max="10"
-                                   value="5"
-                                   oninvalid="this.setCustomValidity('Mitglieder muss zwischen 2 und 10 Stellen haben.')"
-                                   required>
-                            <label for="Mitglieder">(Min 2 - Max 10)</label>
-                            @error('members')
-                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                            @enderror
+{{--                            <label for="members">Mitglieder</label>&nbsp;<span style="color:#ff0000">*</span>--}}
+{{--                            <br>--}}
+{{--                            <input type="number" id="members" name="members" class="form-group" min="2" max="10"--}}
+{{--                                   value="5"--}}
+{{--                                   oninvalid="this.setCustomValidity('Mitglieder muss zwischen 2 und 10 Stellen haben.')"--}}
+{{--                                   required>--}}
+{{--                            <label for="Mitglieder">(Min 2 - Max 10)</label>--}}
+{{--                            @error('members')--}}
+{{--                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>--}}
+{{--                            @enderror--}}
                         </div>
 
                         <div class="form-group">

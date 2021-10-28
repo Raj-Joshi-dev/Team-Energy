@@ -6,8 +6,8 @@
             @include('partials.alerts')
             <div class="card">
                 <div class="card-header float-left" style="font-size: large">Erstellen Sie einen neuen Benutzer
-                        <a class="btn btn-warning float-right" href="{{ route('admin.users.index') }}" role="button"><i
-                                class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Benutzerverwaltung</a>
+                    <a class="btn btn-warning float-right" href="{{ route('admin.users.index') }}" role="button"><i
+                            class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Benutzerverwaltung</a>
                 </div>
                 <br>
                 <div class="card-body">
@@ -51,22 +51,24 @@
                             <select name="team_id" class="form-control">
                                 <option selected value> -- Kein Team --</option>
                                 @foreach($teams as $team)
-                                    <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                    @if($team->users->count() <= 4)
+                                        <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
 
-{{--                        <div class="form-group">--}}
-{{--                            <label for="teams">Role</label>&nbsp;<span style="color:#ff0000">*</span>--}}
-{{--                            @foreach($roles as $role)--}}
-{{--                                <div class="form-check">--}}
-{{--                                    <input class="form-check-input" name="roles" type="radio" value="{{ $role->id }}"--}}
-{{--                                           id="{{ $role->name }}"--}}
-{{--                                           @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray()))  @endif @endisset checked>--}}
-{{--                                    <label for="{{ $role->name }}" class="form-check-label">{{ $role->name }}</label>--}}
-{{--                                </div>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
+                        {{--                        <div class="form-group">--}}
+                        {{--                            <label for="teams">Role</label>&nbsp;<span style="color:#ff0000">*</span>--}}
+                        {{--                            @foreach($roles as $role)--}}
+                        {{--                                <div class="form-check">--}}
+                        {{--                                    <input class="form-check-input" name="roles" type="radio" value="{{ $role->id }}"--}}
+                        {{--                                           id="{{ $role->name }}"--}}
+                        {{--                                           @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray()))  @endif @endisset checked>--}}
+                        {{--                                    <label for="{{ $role->name }}" class="form-check-label">{{ $role->name }}</label>--}}
+                        {{--                                </div>--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </div>--}}
                         <br>
                         <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Bestätigen
                         </button>
