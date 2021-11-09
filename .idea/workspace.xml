@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Added members to a team with max and min numbers. Display the same in admin panel, some UX improvements. Initial Kultur im Team multi setup.">
-      <change afterPath="$PROJECT_DIR$/app/KulturimTeamMulti.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/KulturimTeamSingle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_10_27_220655_create_kulturim_team_multis_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_10_27_220928_create_kulturim_team_singles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-28.log" afterDir="false" />
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Removed members per team which caused too much logic, instead hide the teams in user create form when team is above certain limit. Other clean-up and refactoring.">
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-29.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-11-01.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-11-04.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-11-09.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IchimTeamBerufController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IchimTeamBerufController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IchimTeamPrivatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IchimTeamPrivatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamMultiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamMultiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamSingleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamSingleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreTeamRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreTeamRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/UserPolicy.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2013_01_09_120005_create_teams_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_01_09_120005_create_teams_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TeamSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_27_220928_create_kulturim_team_singles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_27_220928_create_kulturim_team_singles_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-17.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/graphs/kulturimteam2_graph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/graphs/kulturimteam2_graph.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/graphs/kulturimteam_graph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/graphs/kulturimteam_graph.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-22.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-23.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-24.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-25.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-09-27.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2021-10-28.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-10-28.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,11 +200,19 @@
       <recent name="C:\laragon\www\Team-Energy\resources\views\admin\results" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.KulturimTeamMultiController.php">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="KulturimTeamMultiController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamMultiController.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.KulturimTeamMultiController.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -228,7 +238,14 @@
       <workItem from="1634847810788" duration="18573000" />
       <workItem from="1634967125448" duration="20656000" />
       <workItem from="1635361949121" duration="6151000" />
-      <workItem from="1635410228279" duration="11201000" />
+      <workItem from="1635410228279" duration="22243000" />
+      <workItem from="1635506077813" duration="14085000" />
+      <workItem from="1635679520876" duration="7085000" />
+      <workItem from="1635743234021" duration="22265000" />
+      <workItem from="1635802022025" duration="2024000" />
+      <workItem from="1636019557867" duration="7828000" />
+      <workItem from="1636290634123" duration="4509000" />
+      <workItem from="1636439046049" duration="4392000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -335,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635076849284</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Removed members per team which caused too much logic, instead hide the teams in user create form when team is above certain limit. Other clean-up and refactoring.">
+      <created>1635430563111</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1635430563111</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,6 +395,7 @@
     <MESSAGE value="Fixed and refactored Kultur im Team single user implementation along with some UX improvements." />
     <MESSAGE value="Composer Updates" />
     <MESSAGE value="Added members to a team with max and min numbers. Display the same in admin panel, some UX improvements. Initial Kultur im Team multi setup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added members to a team with max and min numbers. Display the same in admin panel, some UX improvements. Initial Kultur im Team multi setup." />
+    <MESSAGE value="Removed members per team which caused too much logic, instead hide the teams in user create form when team is above certain limit. Other clean-up and refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed members per team which caused too much logic, instead hide the teams in user create form when team is above certain limit. Other clean-up and refactoring." />
   </component>
 </project>

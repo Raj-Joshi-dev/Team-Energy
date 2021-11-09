@@ -51,7 +51,7 @@
                             <select name="team_id" class="form-control">
                                 <option selected value> -- Kein Team --</option>
                                 @foreach($teams as $team)
-                                    @if($team->users->count() <= 4)
+                                    @if($team->users->count() <= 9)
                                         <option value="{{ $team->id }}">{{ $team->name }}</option>
                                     @endif
                                 @endforeach

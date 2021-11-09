@@ -194,17 +194,17 @@
 
         function consumeAPI() {
 
-            var x_quad1 = {{ $quadrant1_x }};
-            var y_quad1 = {{ $quadrant1_y }};
+            var x_quad1 = @json($quadrant1_x);
+            var y_quad1 = @json($quadrant1_y);
 
-            var x_quad2 = {{ $quadrant2_x }};
-            var y_quad2 = {{ $quadrant2_y }};
+            var x_quad2 = @json($quadrant2_x);
+            var y_quad2 = @json($quadrant2_y);
 
-            var x_quad3 = {{ $quadrant3_x }};
-            var y_quad3 = {{ $quadrant3_y }};
+            var x_quad3 = @json($quadrant3_x);
+            var y_quad3 = @json($quadrant3_y);
 
-            var x_quad4 = {{ $quadrant4_x }};
-            var y_quad4 = {{ $quadrant4_y }};
+            var x_quad4 = @json($quadrant4_x);
+            var y_quad4 = @json($quadrant4_y);
 
             return {
                 x1: (x_quad1 * range),

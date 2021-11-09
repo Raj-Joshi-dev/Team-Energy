@@ -50,6 +50,10 @@
                             </div>
                         </div>
 
+                        <div>
+                            <strong style="color: red">Hinweis: Es können maximal 10 Benutzer pro Team teilnehmen.</strong>
+                        </div>
+                        <br>
                         <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Bestätigen
                         </button>
                         <a class="btn btn-secondary" href="{{ url()->previous() }}" role="button"><i

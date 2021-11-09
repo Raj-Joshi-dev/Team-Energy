@@ -17,6 +17,7 @@ class CreateKulturimTeamSinglesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('team_id');
             $table->unsignedBigInteger('result_id');
             $table->foreign('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->decimal('kultur_x1');
@@ -27,6 +28,8 @@ class CreateKulturimTeamSinglesTable extends Migration
             $table->decimal('kultur_y3');
             $table->decimal('kultur_x4');
             $table->decimal('kultur_y4');
+            $table->decimal('midpoint_x');
+            $table->decimal('midpoint_y');
             $table->timestamps();
         });
     }
