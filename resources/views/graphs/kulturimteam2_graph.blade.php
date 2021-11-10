@@ -52,9 +52,8 @@
                     class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zu Dashboard</a>
         @endif
 {{--            @if($team_name == null)--}}
-                <h5>Ergebnis-ID: </h5>
 {{--            @else--}}
-                <h5>Team Name: </h5>
+                <h5>Team Name: {{ $team_name }}</h5>
                 <h5>Ergebnis-ID: </h5>
 {{--            @endif--}}
     </div>

@@ -15,6 +15,9 @@ class CreateKulturimTeamMultisTable extends Migration
     {
         Schema::create('kulturim_team_multis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('team_id');
+            $table->unsignedBigInteger('result_id');
+            $table->foreign('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->timestamps();
         });
     }

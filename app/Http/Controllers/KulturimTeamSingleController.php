@@ -6,7 +6,6 @@ use App\Http\Requests\KulturimTeamSingleRequest;
 use App\KulturimTeamSingle;
 use App\Result;
 use App\ResultAnswer;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -150,9 +149,6 @@ class KulturimTeamSingleController extends Controller
 
             $kultur_single->kultur_x4 = $quadrant4_x;
             $kultur_single->kultur_y4 = $quadrant4_y;
-
-            $kultur_single->midpoint_x = ($quadrant1_x + $quadrant2_x + $quadrant3_x + $quadrant4_x) / 4;
-            $kultur_single->midpoint_y = ($quadrant1_y + $quadrant2_y + $quadrant3_y + $quadrant4_y) / 4;
 
             $kultur_single->save();
         }

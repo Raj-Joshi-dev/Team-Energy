@@ -18,7 +18,7 @@
                             <div style="font-weight: bold; font-size: 16px" class="card-title">Ich im Team - Privater
                                 Bereich
                             </div>
-                            @if($disable_privat == false)
+                            @if($privat == false)
                                 <a style="font-size: 13px" href="{{ route('ichimteam1') }}" class="btn btn-primary">Test
                                     geben</a>
                             @else
@@ -35,7 +35,7 @@
                             <div style="font-weight: bold; font-size: 16px" class="card-title">Ich im Team - Beruflicher
                                 Bereich
                             </div>
-                            @if($disable_beruf == false)
+                            @if($beruf == false)
                                 <a style="font-size: 13px" href="{{ route('ichimteam2') }}" class="btn btn-primary">Test
                                     geben</a>
                             @else
@@ -74,7 +74,7 @@
                                 <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein
                                     Einschätzung
                                 </div>
-                                @if($disable_kultur == false)
+                                @if($kultur1 == false)
                                     <a style="font-size: 13px" href="{{ route('kulturimteam') }}"
                                        class="btn btn-primary">Test
                                         geben</a>
@@ -97,10 +97,10 @@
                                     unsere
                                     Einschätzungen
                                 </div>
-                                @if($disable_kultur2 == true)
-                                    <a style="font-size: 13px" href="{{ route('kulturimteam2') }}"
-                                       class="btn btn-primary">Test
-                                        geben</a>
+                                @if($kultur2 == true)
+                                    <a style="font-size: 13px"
+                                       href="{{ route('generate_graph', $kultur_multi_result_id) }}"
+                                       class="btn btn-success">Ihr Ergebnis</a>
                                 @else
                                     <p1>Warten auf andere Mitglieder, um den Test abzuschließen!</p1>
                                 @endif

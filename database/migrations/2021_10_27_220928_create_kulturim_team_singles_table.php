@@ -28,8 +28,6 @@ class CreateKulturimTeamSinglesTable extends Migration
             $table->decimal('kultur_y3');
             $table->decimal('kultur_x4');
             $table->decimal('kultur_y4');
-            $table->decimal('midpoint_x');
-            $table->decimal('midpoint_y');
             $table->timestamps();
         });
     }

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Result;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Gate;
 
 
 class DashboardController extends Controller
@@ -14,38 +12,24 @@ class DashboardController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $privat = Result::where('user_id', $user_id)->where('kat_id', 1)->get();
+
+        // Check for Ich im Team - Privat
+        $privat = Result::where('user_id', $user_id)->where('kat_id', 1)->exists();
         $privat_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 1)->value('id');
 
-        $beruf = Result::where('user_id', $user_id)->where('kat_id', 2)->get();
+        // Check for Ich im Team - Beruf
+        $beruf = Result::where('user_id', $user_id)->where('kat_id', 2)->exists();
         $beruf_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 2)->value('id');
 
-
-        $disable_privat = count($privat) > 0;
-
-        $disable_beruf = count($beruf) > 0;
-
-
-        if ($disable_privat && $disable_beruf == true) {
+        // Check to enable or disable Potential im Team
+        if ($privat && $beruf == true) {
             $enable_potential = true;
         } else
             $enable_potential = false;
 
-
         // Check for Potential im Team
         $potential_check = Result::where('user_id', $user_id)->where('kat_id', 3)->exists();
         $potential_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 3)->value('id');
-
-        $kultur_single_result_id =  DB::table('results')->where('user_id', $user_id)->where('kat_id', 4)->value('id');
-
-//        dd($potential_check);
-
-//        if ($disable_kultur == true){
-//            $enable_kultur = true;
-//        }
-//        else
-//            $enable_kultur = false;
-
 
 
         // SWITCH Logic
@@ -59,28 +43,18 @@ class DashboardController extends Controller
         } else
             $enable_kultur = false;
 
+        // Check for Kultur im Team - Single
+        $kultur1 = Result::where('user_id', $user_id)->where('kat_id', 4)->exists();
+        $kultur_single_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 4)->value('id');
 
-        $kultur = Result::where('user_id', $user_id)->where('kat_id', 4)->get();
-        $disable_kultur = count($kultur) > 0;
-
-        if ($disable_kultur == true) {
-            $disable_kultur = true;
-        }
-        else
-            $disable_kultur = false;
-
-        $kultur2 = Result::where('user_id', $user_id)->where('kat_id', 5)->get();
-        $disable_kultur2 = count($kultur2) > 0;
-
-        if ($disable_kultur2 == true) {
-            $disable_kultur2 = true;
-        } else
-            $disable_kultur2 = false;
+        // Check for Kultur im Team - Multi
+        $kultur2 = Result::where('user_id', $user_id)->where('kat_id', 5)->exists();
+        $kultur_multi_result_id = DB::table('results')->where('user_id', $user_id)->where('kat_id', 5)->value('id');
 
 
-        return view('test.dashboard', compact('disable_privat', 'disable_beruf', 'enable_potential',
-            'enable_kultur', 'disable_kultur', 'disable_kultur2', 'privat_result_id', 'beruf_result_id', 'potential_check',
-        'potential_result_id', 'kultur_single_result_id'));
+        return view('test.dashboard', compact('privat', 'beruf', 'enable_potential',
+            'enable_kultur', 'privat_result_id', 'beruf_result_id', 'potential_check', 'kultur1',
+            'potential_result_id', 'kultur_single_result_id', 'kultur2', 'kultur_multi_result_id'));
 
     }
 }
