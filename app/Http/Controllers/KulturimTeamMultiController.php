@@ -12,8 +12,8 @@ class KulturimTeamMultiController extends Controller
 {
     public function multi_kultur_store()
     {
-        //Check if the results already exists for the user belonging to his team.
-        $multi_kultur_check = Result::with('users')->where('user_id', Auth::id())->where('kat_id', 5)->exists();
+        // Check if the results already exists for the user belonging to his team.
+        $multi_kultur_check = KulturimTeamMulti::where('team_id', Auth::user()->team_id)->exists();
 
         // If not then create result
         if ($multi_kultur_check == false) {
@@ -32,11 +32,26 @@ class KulturimTeamMultiController extends Controller
             $multi_kultur->result_id = $result->id;
             $multi_kultur->save();
 
-            // Check whether all the active members have finished tests?
+//            // Check whether all the active members have finished tests?
+//
+//            // 1. Get count of users in the same team.
+//            $same_team_users = DB::table('users')->where('team_id', $team_id)->count();
+//
+//            //  2. Check if they have completed Kultur im Team - single test & their result exists.
+//
+//            // Result Count of completed Ich im Team tests.
+//            $member_count = KulturimTeamSingle::all()->where('team_id', $team_id)->count();
+//
+//            // Check condition
+//            if ($same_team_users == $member_count){
+//                return redirect()->action([KulturimTeamMultiController::class, 'multi_kultur_result'], $result_id = $result->id);
+//            }
+//            else
+//                return "Don't show Results";
+
 
             return redirect()->action([KulturimTeamMultiController::class, 'multi_kultur_result'], $result_id = $result->id);
-        }
-        else
+        } else
             // Abort Message!
             abort('403', 'Test bereits abgeschickt, bitte überprüfen Sie das Dashboard oder kontaktieren Sie den Admin.');
 
@@ -49,7 +64,7 @@ class KulturimTeamMultiController extends Controller
         $team_id = DB::table('users')->where('id', $user_id)->value('team_id');
         $members = KulturimTeamSingle::where('team_id', $team_id)->get();
         $team_name = DB::table('teams')->where('id', $team_id)->value('name');
-        $member_count = KulturimTeamSingle::all()->where('team_id', $team_id)->count();
+        $member_count = KulturimTeamSingle::where('team_id', $team_id)->count();
 
         // Pass Values of Kultur im Team Single to frontend.
         $graphs = $members->map(function ($member) {

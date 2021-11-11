@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Kultur im Team Multi is fully functional now! Aadded new artisan command to clear logs: php artisan logs:clear">
-      <change afterPath="$PROJECT_DIR$/storage/logs/laravel-2021-11-09.log" afterDir="false" />
+    <list default="true" id="f7015d28-df45-4818-b6ed-52a0b15c0078" name="Changes" comment="Fixed multi-user result generation and cleaned up Dashboard code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamMultiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamMultiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamSingleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/KulturimTeamSingleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PotentialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PotentialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_11_031334_create_ich_im_team_berufs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_11_031334_create_ich_im_team_berufs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_27_220655_create_kulturim_team_multis_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_27_220655_create_kulturim_team_multis_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_27_220928_create_kulturim_team_singles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_27_220928_create_kulturim_team_singles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/graphs/kulturimteam2_graph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/graphs/kulturimteam2_graph.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -236,7 +228,8 @@
       <workItem from="1635802022025" duration="2024000" />
       <workItem from="1636019557867" duration="7828000" />
       <workItem from="1636290634123" duration="4509000" />
-      <workItem from="1636439046049" duration="19573000" />
+      <workItem from="1636439046049" duration="28516000" />
+      <workItem from="1636628682129" duration="8060000" />
     </task>
     <task id="LOCAL-00001" summary="Delete VS Code settings">
       <created>1631490215833</created>
@@ -357,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636444468348</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed multi-user result generation and cleaned up Dashboard code.">
+      <created>1636582003467</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1636582003467</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,6 +395,7 @@
     <MESSAGE value="Added members to a team with max and min numbers. Display the same in admin panel, some UX improvements. Initial Kultur im Team multi setup." />
     <MESSAGE value="Removed members per team which caused too much logic, instead hide the teams in user create form when team is above certain limit. Other clean-up and refactoring." />
     <MESSAGE value="Kultur im Team Multi is fully functional now! Aadded new artisan command to clear logs: php artisan logs:clear" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kultur im Team Multi is fully functional now! Aadded new artisan command to clear logs: php artisan logs:clear" />
+    <MESSAGE value="Fixed multi-user result generation and cleaned up Dashboard code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed multi-user result generation and cleaned up Dashboard code." />
   </component>
 </project>

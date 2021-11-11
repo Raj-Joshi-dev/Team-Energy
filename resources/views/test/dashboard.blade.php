@@ -97,10 +97,15 @@
                                     unsere
                                     Einschätzungen
                                 </div>
-                                @if($kultur2 == true)
-                                    <a style="font-size: 13px"
-                                       href="{{ route('generate_graph', $kultur_multi_result_id) }}"
-                                       class="btn btn-success">Ihr Ergebnis</a>
+                                @if($enable_kultur2_result == true)
+                                    @if($kultur2_check == false)
+                                        <a style="font-size: 13px; color: black" href="{{ route('kulturimteam2') }}"
+                                           class="btn btn-warning">Ergebnis Erhalten</a>
+                                    @else
+                                        <a style="font-size: 13px"
+                                           href="{{ route('generate_graph', $kultur_multi_result_id) }}"
+                                           class="btn btn-success">Ihr Ergebnis</a>
+                                    @endif
                                 @else
                                     <p1>Warten auf andere Mitglieder, um den Test abzuschließen!</p1>
                                 @endif
