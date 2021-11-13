@@ -22,7 +22,6 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\ResultController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PDFController;
 
 // Disable User registration
 Auth::routes(['register' => false]);
