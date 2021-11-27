@@ -132,26 +132,30 @@ class IchimTeamPrivatController extends Controller
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
+        $ich_im_privat = IchImTeamPrivat::where('result_id', $result_id)->exists();
 
-        $privat = new IchImTeamPrivat();
+        if ($ich_im_privat == false) {
 
-        $privat->user_id = Auth::id();
+            $privat = new IchImTeamPrivat();
 
-        $privat->result_id = $id;
+            $privat->user_id = Auth::id();
 
-        $privat->privat_x1 = $quadrant1_x;
-        $privat->privat_y1 = $quadrant1_y;
+            $privat->result_id = $id;
 
-        $privat->privat_x2 = $quadrant2_x;
-        $privat->privat_y2 = $quadrant2_y;
+            $privat->privat_x1 = $quadrant1_x;
+            $privat->privat_y1 = $quadrant1_y;
 
-        $privat->privat_x3 = $quadrant3_x;
-        $privat->privat_y3 = $quadrant3_y;
+            $privat->privat_x2 = $quadrant2_x;
+            $privat->privat_y2 = $quadrant2_y;
 
-        $privat->privat_x4 = $quadrant4_x;
-        $privat->privat_y4 = $quadrant4_y;
+            $privat->privat_x3 = $quadrant3_x;
+            $privat->privat_y3 = $quadrant3_y;
 
-        $privat->save();
+            $privat->privat_x4 = $quadrant4_x;
+            $privat->privat_y4 = $quadrant4_y;
+
+            $privat->save();
+        }
 
        return view('graphs.ichimteam1_graph', compact('user_name', 'team_name', 'result_id', 'quadrant1_x', 'quadrant1_y', 'quadrant2_x', 'quadrant2_y', 'quadrant3_x', 'quadrant3_y', 'quadrant4_x', 'quadrant4_y'));
     }

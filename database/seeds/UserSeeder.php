@@ -25,5 +25,7 @@ class UserSeeder extends Seeder
             'password' => 'password',
             'is_admin' => false,
         ]);
+
+        User::factory()->times(20)->create();
     }
 }
