@@ -25,7 +25,7 @@ class StoreTeamRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:20',
-//            'members' => 'required|integer|between:2,10',
+            'members' => 'required|integer|between:2,30',
             'switch_id' => 'required'
         ];
     }
