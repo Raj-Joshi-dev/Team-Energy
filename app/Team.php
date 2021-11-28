@@ -12,7 +12,7 @@ class Team extends Model
 use HasFactory;
 
     protected $fillable = [
-        'name', 'members', 'switch_id',
+        'name', 'max_members', 'switch_id',
     ];
 
     public function users()
