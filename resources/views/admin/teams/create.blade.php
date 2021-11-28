@@ -23,15 +23,15 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                             <br>
-                            <label for="members">Mitglieder</label>&nbsp;<span style="color:#ff0000">*</span>
+                            <label for="max_members">Mitglieder</label>&nbsp;<span style="color:#ff0000">*</span>
                             <br>
-                            <input type="number" id="members" name="members" class="form-group" min="2" max="30"
+                            <input type="number" id="max_members" name="max_members" class="form-group" min="2" max="30"
                                    value="5" pattern=".{2,30}" style="width: 5em; height: 2em"
                                    oninvalid="setCustomValidity('Mitglieder muss zwischen 2 und 30 Stellen haben.')"
                                    oninput="setCustomValidity('')"
                                    required>
                             <label for="Mitglieder">(Min 2 - Max 30)</label>
-                            @error('members')
+                            @error('max_members')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
