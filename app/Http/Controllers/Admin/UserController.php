@@ -38,7 +38,7 @@ class UserController extends Controller
                     $query->orWhere('name', 'LIKE', $term . '%')->get();
                 }
             }]
-        ])->where('id', '!=', Auth::id())
+        ])->where('is_admin', '!=', true)
             ->orderBy("id", "desc")
             ->paginate(10);
 

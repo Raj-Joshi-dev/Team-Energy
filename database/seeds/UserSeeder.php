@@ -23,9 +23,9 @@ class UserSeeder extends Seeder
             'name' => 'Raj',
             'email' => 'test@test.de',
             'password' => 'password',
-            'is_admin' => false,
+            'is_admin' => true,
         ]);
 
-        User::factory()->times(20)->create();
+//        User::factory()->times(20)->create();
     }
 }

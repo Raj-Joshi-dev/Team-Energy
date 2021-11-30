@@ -54,7 +54,7 @@
 {{--            @if($team_name == null)--}}
 {{--            @else--}}
                 <h5>Team Name: {{ $team_name }}</h5>
-                <h5>Ergebnis-ID: </h5>
+                <h5>Ergebnis-ID: {{ $result_id }} </h5>
 {{--            @endif--}}
     </div>
     <body>
