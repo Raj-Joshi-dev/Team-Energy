@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header float-left" style="font-size: large">Team Bearbeiten
                     <a class="btn btn-warning float-right" href="{{ route('admin.teams.index') }}" role="button"><i
-                            class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur Teamsliste</a>
+                            class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zur alle Teams</a>
                 </div>
                 <div class="card-body">
                     <form id="edit-team" method="POST" action="{{ route('admin.teams.update', $team->id) }}">
@@ -19,8 +19,7 @@
                                    id="name"
                                    aria-describedby="name"
                                    value="{{ old('name') }} @isset($team) {{ $team->name }} @endisset"> <br>
-                            @if($team->users->count() != 0)
-                            <label for="members">Team-Mitglieder</label>
+                            <label for="members">Mitglieder in diesem Team</label>
                             <div class="list-group">
                                 @foreach($team->users as $user)
                                     <a href="{{ route('admin.users.edit' , $user->id) }}"
@@ -28,9 +27,6 @@
                                        aria-current="true">{{ $user->name }}</a>
                                 @endforeach
                             </div>
-                            @else
-
-                            @endif
                         </div>
                     </form>
 

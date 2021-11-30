@@ -2,17 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Team extends Model
 {
 //    use SoftDeletes;
-use HasFactory;
 
     protected $fillable = [
-        'name', 'max_members', 'switch_id',
+        'name', 'switch_id'
     ];
 
     public function users()

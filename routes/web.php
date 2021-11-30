@@ -22,6 +22,7 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\ResultController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 
 // Disable User registration
 Auth::routes(['register' => false]);
@@ -36,13 +37,14 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 // Ich Im Team-Privater Bereich
 
 
-Route::get('ich-im-team1', [QuestionsController::class, 'add_ichimteam1'])->name('ichimteam1')->middleware(['auth', 'auth.timeout']);
+Route::get('ich-im-team1', [QuestionsController::class ,'add_ichimteam1'])->name('ichimteam1')->middleware(['auth', 'auth.timeout']);
 
-Route::post('test1', [IchimTeamPrivatController::class, 'privat_store'])->name('store1');
+Route::post('test1', [IchimTeamPrivatController::class ,'privat_store'])->name('store1');
 
-Route::get('result1={id}', [IchimTeamPrivatController::class, 'privat_result'])->name('result1')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
+Route::get('result1={id}', [IchimTeamPrivatController::class ,'privat_result'])->name('result1')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
 Route::view('ichimteam1_graph', 'graphs.ichimteam1_graph')->name('ichimteam1_graph');
+
 
 
 // Ich im Team-Beruflicher Bereich
@@ -57,16 +59,16 @@ Route::view('ichimteam2_graph', 'graphs.ichimteam2_graph')->name('ichimteam2_gra
 
 // Potential im Team
 
-Route::get('test3', [PotentialController::class, 'potential_store'])->name('potentialimteam')->middleware(['auth', 'auth.timeout']);
+Route::get('test3', [PotentialController::class,'potential_store'])->name('potentialimteam')->middleware(['auth', 'auth.timeout']);
 
-Route::get('result3={id}', [PotentialController::class, 'potential_result'])->name('result3')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
+Route::get('result3={id}', [PotentialController::class,'potential_result'])->name('result3')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
 
 // Kultur im Team - mein Einschätzung
 
-Route::get('kultur-im-team', [QuestionsController::class, 'add_kulturimteam'])->name('kulturimteam')->middleware(['auth', 'auth.timeout']);
+Route::get('kultur-im-team', [QuestionsController::class ,'add_kulturimteam'])->name('kulturimteam')->middleware(['auth', 'auth.timeout']);
 
-Route::post('test4', [\App\Http\Controllers\KulturimTeamSingleController::class, 'kultur_single_store'])->name('store3');
+Route::post('test4', [\App\Http\Controllers\KulturimTeamSingleController::class ,'kultur_single_store'])->name('store3');
 
 Route::get('result4={id}', [\App\Http\Controllers\KulturimTeamSingleController::class, 'kultur_single_result'])->name('result4')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
 
@@ -74,9 +76,7 @@ Route::view('kulturimteam_graph', 'graphs.kulturimteam_graph')->name('kulturimte
 
 // Kultur im Team - unsere Einschätzungen
 
-Route::get('test5', [\App\Http\Controllers\KulturimTeamMultiController::class, 'multi_kultur_store'])->name('kulturimteam2')->middleware(['auth', 'auth.timeout']);
-
-Route::get('result5={id}', [\App\Http\Controllers\KulturimTeamMultiController::class, 'multi_kultur_result'])->name('result5')->middleware(['auth', 'auth.timeout', 'auth.result-access']);
+Route::view('kulturimteam2_graph', 'graphs.kulturimteam2_graph')->name('kulturimteam2');
 
 
 // Generate Graph from Admin Panel
@@ -85,11 +85,11 @@ Route::get('/results/{id}/graph', [ResultController::class, 'generate_graph'])->
 // Admin Area
 Route::get('/admin', [UserController::class, 'admin'])->middleware(['auth', 'is_admin', 'auth.timeout'])->name('admin-panel');
 
-Route::prefix('admin')->middleware(['auth', 'is_admin', 'auth.timeout'])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth','is_admin', 'auth.timeout'])->name('admin.')->group(function (){
 //    Route::get('/admin-panel', [UserController::class, 'admin']);
     Route::get('results/category/{id}', [ResultController::class, 'category'])->name('results.category');
     Route::resource('/users', UserController::class);
-    Route::resource('/teams', TeamController::class);
+    Route::resource('/teams',TeamController::class);
     Route::resource('/results', ResultController::class);
 });
 
