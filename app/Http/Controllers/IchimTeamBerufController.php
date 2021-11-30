@@ -116,25 +116,30 @@ class IchimTeamBerufController extends Controller
 
         $quadrant4_y = number_format($avg_quad4_y, 2, '.', '');
 
-        $beruf = new IchImTeamBeruf();
+        $ich_im_beruf = IchImTeamBeruf::where('result_id', $id)->exists();
 
-        $beruf->user_id = Auth::id();
+        if ($ich_im_beruf == false) {
+            $beruf = new IchImTeamBeruf();
 
-        $beruf->result_id = $id;
+            $beruf->user_id = Auth::id();
 
-        $beruf->beruf_x1 = $quadrant1_x;
-        $beruf->beruf_y1 = $quadrant1_y;
+            $beruf->result_id = $id;
 
-        $beruf->beruf_x2 = $quadrant2_x;
-        $beruf->beruf_y2 = $quadrant2_y;
+            $beruf->beruf_x1 = $quadrant1_x;
+            $beruf->beruf_y1 = $quadrant1_y;
 
-        $beruf->beruf_x3 = $quadrant3_x;
-        $beruf->beruf_y3 = $quadrant3_y;
+            $beruf->beruf_x2 = $quadrant2_x;
+            $beruf->beruf_y2 = $quadrant2_y;
 
-        $beruf->beruf_x4 = $quadrant4_x;
-        $beruf->beruf_y4 = $quadrant4_y;
+            $beruf->beruf_x3 = $quadrant3_x;
+            $beruf->beruf_y3 = $quadrant3_y;
 
-        $beruf->save();
+            $beruf->beruf_x4 = $quadrant4_x;
+            $beruf->beruf_y4 = $quadrant4_y;
+
+            $beruf->save();
+        }
+
 
         $user_id = DB::table('result_answers')->where('result_id', $id)->value('user_id');
 

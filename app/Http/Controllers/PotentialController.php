@@ -18,8 +18,7 @@ class PotentialController extends Controller
 
         $result_check = Result::with('user')->where('user_id', Auth::id())->where('kat_id', 3)->exists();
 
-        if ($result_check == false)
-        {
+        if ($result_check == false) {
             // user id.
             $id = Auth::id();
 
@@ -58,9 +57,7 @@ class PotentialController extends Controller
             $potential->save();
 
             return redirect()->action([PotentialController::class, 'potential_result'], $result_id = $result->id);
-        }
-
-        else
+        } else
             return abort('403', 'Test bereits abgeschickt, bitte überprüfen Sie das Dashboard oder kontaktieren Sie den Admin!');
 
     }
@@ -99,24 +96,16 @@ class PotentialController extends Controller
         $avg_privat_x = ($privat_x1 + $privat_x2 + $privat_x3 + $privat_x4) / 4;
         $avg_privat_y = ($privat_y1 + $privat_y2 + $privat_y3 + $privat_y4) / 4;
 
-
         // Average of Beruf (x,y) co-ordinates.
         $avg_beruf_x = ($beruf_x1 + $beruf_x2 + $beruf_x3 + $beruf_x4) / 4;
         $avg_beruf_y = ($beruf_y1 + $beruf_y2 + $beruf_y3 + $beruf_y4) / 4;
 
-
-
-
         // Middle-point calculation for potential im team.
         $potential_point_x = ($avg_beruf_x + $avg_privat_x) / 2;
-
         $potential_point_y = ($avg_beruf_y + $avg_privat_y) / 2;
 
-//        dd($potential_point_x, $potential_point_y);
-
-
         // Passing middle-point co-ordinates (x,y) values to frontend along with few other variables.
-        return view('graphs.potentialimteam_graph', compact('user_name', 'result_id', 'team_name', 'potential_point_x','potential_point_y'));
+        return view('graphs.potentialimteam_graph', compact('user_name', 'result_id', 'team_name', 'potential_point_x', 'potential_point_y'));
     }
 
 

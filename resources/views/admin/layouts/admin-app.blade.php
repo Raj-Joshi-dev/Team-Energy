@@ -26,16 +26,16 @@
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
                 </svg> {{ __('Team-Energy') }}</a></li>
         <li class="c-sidebar-nav-title">Verwaltung</li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.users.index') }}">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-user')}}"></use>
-                </svg>
-                Benutzer</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.teams.index') }}">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-group') }}"></use>
                 </svg>
                 Teams</a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.users.index') }}">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-user')}}"></use>
+                </svg>
+                Benutzer</a></li>
         {{--                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.index') }}">--}}
         {{--                        <svg class="c-sidebar-nav-icon">--}}
         {{--                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-description') }}"></use>--}}
@@ -51,18 +51,21 @@
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="active">
                 <li class="c-sidebar-nav-item"><a
-                        class="c-sidebar-nav-link"
+                        class="c-sidebar-nav-link" style="margin-left: -1rem"
                         href="{{ route('admin.results.category', 1) }}"><span
                             class="c-sidebar-nav-icon"></span> Ich im Team - Privat</a></li>
-                </li>
                 <li class="c-sidebar-nav-item"><a
-                        class="c-sidebar-nav-link" href="{{ route('admin.results.category', 2) }}"><span
+                        class="c-sidebar-nav-link" style="margin-left: -1rem"
+                        href="{{ route('admin.results.category', 2) }}"><span
                             class="c-sidebar-nav-icon"></span>Ich im Team - Beruf</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.category', 3) }}"><span
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" style="margin-left: -1rem"
+                                                  href="{{ route('admin.results.category', 3) }}"><span
                             class="c-sidebar-nav-icon"></span>Potential im Team</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.category', 4) }}"><span
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" style="margin-left: -1rem"
+                                                  href="{{ route('admin.results.category', 4) }}"><span
                             class="c-sidebar-nav-icon"></span>Kultur - mein Einschätzung</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.results.category', 5) }}"><span
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" style="margin-left: -1rem"
+                                                  href="{{ route('admin.results.category', 5) }}"><span
                             class="c-sidebar-nav-icon"></span>Kultur - unsere Einschätzungen</a></li>
             </ul>
         </li>
