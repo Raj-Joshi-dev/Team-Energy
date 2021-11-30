@@ -19,7 +19,6 @@ class CreateResultsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('kat_id');
             $table->foreign('kat_id')->references('kat_id')->on('categories');
-            $table->boolean('kultur_multi')->default(0);
             $table->timestamps();
         });
     }

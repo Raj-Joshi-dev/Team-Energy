@@ -11,7 +11,6 @@ use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use phpDocumentor\Reflection\Types\Null_;
@@ -32,18 +31,18 @@ class UserController extends Controller
 //        return abort('403');
 
         $users = User::where([
-            ['name', '!=', Null],
+        ['name', '!=', Null],
             [function ($query) use ($request) {
-                if (($term = $request->term)) {
-                    $query->orWhere('name', 'LIKE', $term . '%')->get();
-                }
+            if (($term = $request->term)) {
+                $query->orWhere('name', 'LIKE', $term . '%')->get();
+            }
             }]
-        ])->where('is_admin', '!=', true)
+        ])->where('id', '!=', Auth::id())
             ->orderBy("id", "desc")
             ->paginate(10);
 
         return view('admin.users.index', compact('users'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page',1) - 1) * 5);
 
 
 //        return view('admin.users.index', ['users' => User::paginate(10)]);
@@ -98,10 +97,10 @@ class UserController extends Controller
     public function show($id)
     {
 
-        $user = User::find($id);
-        $teams = Team::all();
+      $user = User::find($id);
+      $teams = Team::all();
 
-        return view('admin.users.show', compact('user', 'teams'));
+      return view('admin.users.show', compact('user','teams'));
     }
 
     /**

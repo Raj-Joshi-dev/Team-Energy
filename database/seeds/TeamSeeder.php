@@ -12,18 +12,14 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-//        Team::create([
-//            'name' => 'Ich im Team',
-//            'max_members' => 10,
-//            'switch_id' => 1
-//        ]);
-//
-//        Team::create([
-//            'name' => 'Ich & Kultur Combo',
-//            'max_members' => 10,
-//            'switch_id' => 2
-//        ]);
-//
-//        Team::factory()->times(5)->create();
+        Team::create([
+            'name' => 'Ich im Team',
+            'switch_id' => 1
+        ]);
+
+        Team::create([
+            'name' => 'Ich & Kultur Combo',
+            'switch_id' => 2
+        ]);
     }
 }

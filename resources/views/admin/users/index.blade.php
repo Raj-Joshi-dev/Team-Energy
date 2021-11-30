@@ -27,10 +27,10 @@
                                 </span>
 
                                 <span class="input-group-btn mr-2 mt-1">
-                                    <a class="btn btn-danger" role="button" href="{{ route('admin.users.index') }}"
-                                       title="Refresh">
+                                    <button class="btn btn-danger" type="button" onClick="window.location.reload();"
+                                            title="Refresh">
                                         <span class="fas fa-sync-alt"></span>
-                                    </a>
+                                    </button>
                                 </span>
                             </div>
                         </form>
@@ -83,8 +83,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header alert alert-danger">
                                                         <h5 class="modal-title" id="exampleModalLabel">
-                                                            <i class="fas fa-exclamation-triangle fa-fw"
-                                                               aria-hidden="true"></i>
+                                                            <i  class="fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
                                                             Benutzer Löschen
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
@@ -93,8 +92,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body" style="font-size: 15px">
-                                                        Möchten Sie den Benuter - <b>{{$user->name}}</b> wirklich
-                                                        löschen?
+                                                        Möchten Sie den Benuter - <b>{{$user->name}}</b> wirklich löschen?
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"

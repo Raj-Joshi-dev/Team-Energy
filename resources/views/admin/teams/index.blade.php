@@ -12,23 +12,21 @@
                     <div class="mx-auto float-left">
                         <form action="{{ route('admin.teams.index') }}" method="GET" role="search">
                             <div class="input-group">
-
+                        <span class="input-group-btn mr-2 mt-1">
+                            <button class="btn btn-info" type="submit" title="Suche">
+                                <span class="fas fa-search"></span>
+                            </button>
+                        </span>
                                 <label for="term"></label><input type="text" class="form-control mr-2 mt-1" name="term"
                                                                  placeholder="Team suchen"
                                                                  id="term">
                                 <a href="{{ route('admin.teams.index') }}" class=" mt-1"> </a>
                                 <span class="input-group-btn mr-2 mt-1">
-                            <button class="btn btn-info" type="submit" title="Suche">
-                                <span class="fas fa-search"></span>
-                            </button>
-                        </span>
-                                <span class="input-group-btn mr-2 mt-1">
-                                <a class="btn btn-danger" role="button" href="{{ route('admin.teams.index') }}"
-                                   title="Refresh">
+                                <button class="btn btn-danger" type="button" onClick="window.location.reload();"
+                                        title="Refresh">
                                     <span class="fas fa-sync-alt"></span>
-                                </a>
+                                </button>
                             </span>
-
                             </div>
                         </form>
                     </div>
@@ -38,18 +36,12 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th rowspan="2">ID</th>
-                        <th scope="col" rowspan="2">Name</th>
-                        <th scope="col" colspan="2" style="text-align: center">Mitglieder</th>
-                        {{--                        <th scope="col">Max. Mitglieder</th>--}}
-                        <th scope="col" rowspan="2">Hergestellt in</th>
-                        <th scope="col" rowspan="2">Aktualisiert am</th>
-                        <th scope="col" rowspan="2">Aktionen</th>
-                    </tr>
-                    <tr>
-                        <!-- skip 1st column because it merges vertically -->
-                        <th>Aktiv</th>
-                        <th>Max</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Mitglieder</th>
+                        <th scope="col">Hergestellt in</th>
+                        <th scope="col">Aktualisiert am</th>
+                        <th scope="col">Aktionen</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -57,8 +49,9 @@
                         <tr>
                             <th scope="row">{{ $team->id }}</th>
                             <td>{{ $team->name }}</td>
+
                             <td>{{ $team->users->count() }}</td>
-                            <td>{{ $team->max_members }}</td>
+
                             <td>{{ $team->created_at }}</td>
                             <td>{{ $team->updated_at }}</td>
                             <td>
@@ -86,8 +79,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header alert alert-danger">
                                                     <h5 class="modal-title" id="exampleModalLabel">
-                                                        <i class="fas fa-exclamation-triangle fa-fw"
-                                                           aria-hidden="true"></i>
+                                                        <i  class="fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
                                                         Team Löschen
                                                     </h5>
                                                     <button type="button" class="close" data-dismiss="modal"

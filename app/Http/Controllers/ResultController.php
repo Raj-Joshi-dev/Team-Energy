@@ -161,9 +161,6 @@ class ResultController extends Controller
         } elseif ($kat_id == 4) {
 
             return redirect()->action([KulturimTeamSingleController::class, 'kultur_single_result'], $id);
-        }elseif ($kat_id == 5) {
-
-            return redirect()->action([KulturimTeamMultiController::class, 'multi_kultur_result'], $id);
         }
 
         else {

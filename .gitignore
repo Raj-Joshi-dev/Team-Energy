@@ -6,6 +6,10 @@
 .env
 .env.backup
 .phpunit.result.cache
+<<<<<<< HEAD
+=======
+.idea
+>>>>>>> parent of 8f0c8e96 (Merge remote-tracking branch 'origin/master')
 Homestead.json
 Homestead.yaml
 npm-debug.log
