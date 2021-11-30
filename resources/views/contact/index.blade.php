@@ -7,7 +7,7 @@
 
     <p style="font-size:120%;">Sie erreichen uns unter folgender Telefonnummer </p>
 
-    <p style="font-size:120%;">Handy: +49 1754035510</p>
+    <p style="font-size:120%;">Handy Nr.: +49 1754035510</p>
 
     <p style="font-size:120%;">Büro: +49 (0) 9544-982544</p>
 
