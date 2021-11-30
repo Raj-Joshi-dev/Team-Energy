@@ -24,6 +24,7 @@ class KulturimTeamMultiController extends Controller
             $result = new Result();
             $result->user_id = Auth::id();
             $result->kat_id = 5;
+            $result->kultur_multi = 1;
             $result->save();
 
             // Create new entry in Multi Kultur table
@@ -66,6 +67,7 @@ class KulturimTeamMultiController extends Controller
         $team_name = DB::table('teams')->where('id', $team_id)->value('name');
         $member_count = KulturimTeamSingle::where('team_id', $team_id)->count();
 
+
         // Pass Values of Kultur im Team Single to frontend.
         $graphs = $members->map(function ($member) {
             return [
@@ -80,6 +82,6 @@ class KulturimTeamMultiController extends Controller
             ];
         });
 
-        return view('graphs.kulturimteam2_graph', compact('members', 'graphs', 'member_count', 'team_name'));
+        return view('graphs.kulturimteam2_graph', compact('members', 'graphs', 'member_count', 'team_name', 'result_id'));
     }
 }

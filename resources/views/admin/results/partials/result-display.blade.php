@@ -350,7 +350,7 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Benutzer</th>
+{{--                <th scope="col">Benutzer</th>--}}
                 <th scope="col">Team Name</th>
                 <th scope="col">Hergestellt in</th>
                 <th scope="col">Aktualisiert am</th>
@@ -361,10 +361,10 @@
             @foreach($results as $result)
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
-                    <td>
-                        <a href="{{route('admin.users.edit', $result->user->id)}}"
-                           aria-current="true"> {{ $result->user->name }}</a>
-                    </td>
+{{--                    <td>--}}
+{{--                        <a href="{{route('admin.users.edit', $result->user->id)}}"--}}
+{{--                           aria-current="true"> {{ $result->user->name }}</a>--}}
+{{--                    </td>--}}
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
                     <td>{{ $result->user->team->name ?? '-' }}</td>
                     <td>{{ $result->created_at }}</td>

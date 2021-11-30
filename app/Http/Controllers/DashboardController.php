@@ -70,7 +70,7 @@ class DashboardController extends Controller
 
 
         $kultur2_check = KulturimTeamMulti::where('team_id', Auth::user()->team_id)->exists();
-        $kultur_multi_result_id = DB::table('results')->where('user_id', Auth::id())->where('kat_id', 5)->value('id');
+        $kultur_multi_result_id = DB::table('results')->where('kultur_multi', 1)->value('id');
 
 
         return view('test.dashboard', compact('privat', 'beruf', 'enable_potential',
