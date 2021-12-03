@@ -16,4 +16,3 @@
     <p style="font-size:120%;">der E-Mail Adresse: kretschmar@compass-training.de</p>
 </div>
 @endsection
-@endsection
