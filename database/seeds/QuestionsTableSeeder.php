@@ -312,7 +312,7 @@ class QuestionsTableSeeder extends Seeder
         DB::table('questions')->insert([
             'tid' => 34,
             'kat_id' => 3,
-            'these1' => 'Neue Mitarbeitersollen sich eingliedern und uns unterstützen.',
+            'these1' => 'Neue Mitarbeiter sollen sich eingliedern und uns unterstützen.',
             'these2' => 'Neue Mitarbeiter sollen bei uns frischen Wind bringen und Routinen in Frage stellen.',
             'ques_id' => 4
         ]);
@@ -353,7 +353,7 @@ class QuestionsTableSeeder extends Seeder
         DB::table('questions')->insert([
             'tid' => 39,
             'kat_id' => 3,
-            'these1' => 'Wenn jemand krank wird, geht er nach hause, bevor er Andere ansteckt oder es ihn richtig „umhaut“.',
+            'these1' => 'Wenn jemand krank wird, geht er nach Hause, bevor er Andere ansteckt oder es ihn richtig „umhaut“.',
             'these2' => 'Bevor hier jemand wegen Krankheit fehlt, muss er schon auf der Krankenbahre raus getragen werden.',
             'ques_id' => 9
         ]);
@@ -361,7 +361,7 @@ class QuestionsTableSeeder extends Seeder
         DB::table('questions')->insert([
             'tid' => 40,
             'kat_id' => 3,
-            'these1' => 'Wir brauchen keine Regeln für Kaffe- oder Spülmaschine. Jeder packt ohne Aufforderung an.',
+            'these1' => 'Wir brauchen keine Regeln für Kaffee oder Spülmaschine. Jeder packt ohne Aufforderung an.',
             'these2' => 'Wir haben klare Verhaltensregeln für das Zusammenleben im Büro/der Arbeit.',
             'ques_id' => 10
         ]);
@@ -445,6 +445,6 @@ class QuestionsTableSeeder extends Seeder
             'ques_id' => 20
         ]);
 
-        
+
     }
 }

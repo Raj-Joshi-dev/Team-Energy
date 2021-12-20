@@ -110,9 +110,9 @@
             <text class="description" style="font-weight: bold;" x="435" y="715">privaten Bereich.</text>
             <text class="description" x="563" y="715">Es zeigt Ihnen den Schwerpunkt/</text>
             <text class="description" x="70" y="735">Mittelpunkt der vier Seiten Ihrer Persönlichkeit. Diese kann zum
-                beruflichen Bereich Abweichungen aufzeigen,
+                beruflichen Bereich Abweichungen
             </text>
-            <text class="description" x="70" y="755">weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet
+            <text class="description" x="70" y="755">aufzeigen, weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet
                 wird.
             </text>
             <text class="description" style="font-size: 12px;" x="70" y="775">Wir empfehlen Ihnen dazu auch die

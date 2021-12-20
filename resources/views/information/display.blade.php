@@ -40,8 +40,7 @@
                                         beruflichen Funktion Ihre Potentiale aussch&ouml;pfen oder falsch eingesetzt
                                         sind.
                                         Sie k&ouml;nnen bewusste Entscheidungen zu einer gew&uuml;nschten Entwicklung
-                                        treffen und erhalten Hinweise auf die Entwicklungsrichtung - und
-                                        ma&szlig;nahmen.
+                                        treffen und erhalten Hinweise auf die Entwicklungsmaßnahmen.
                                     </div>
                                 </div>
                             </div>
@@ -61,11 +60,11 @@
                                         Individuen
                                         in Ihrem Team in einer Gesamtschau. Sie erkennen, ob Sie &uuml;berwiegend
                                         &bdquo;von
-                                        der gleichen Art&ldquo; oder bunt gemischt&ldquo; sind. Sie erkennen, welche Art
+                                        der gleichen Art&ldquo; oder &bdquo;bunt gemischt&ldquo; sind. Sie erkennen, welche Art
                                         vonAufgaben Ihnen als Team besonders liegen und womit Sie wahrscheinlich
                                         Schwierigkeiten haben. Sie k&ouml;nnen bewusste Entscheidungen zu einer
                                         gew&uuml;nschten Entwicklung treffen und erhalten Hinweise auf die
-                                        Entwicklungsrichtung und - ma&szlig;nahmen.
+                                        Entwicklungsmaßnahmen.
                                     </div>
                                 </div>
                             </div>

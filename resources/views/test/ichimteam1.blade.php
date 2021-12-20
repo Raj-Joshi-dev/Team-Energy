@@ -25,7 +25,7 @@
                     <h4>Ich im Team - Privater Bereich</h4>
                 </div>
                 <div class="answerList">
-                    <h5>Bitte wählen Sie im folgenden, bei jeder Frage zuerst eine der beiden Thesen aus. <br> Danach
+                    <h5>Bitte wählen Sie im folgenden, bei jeder Frage zu erst eine der beiden Thesen aus. <br> Danach
                         entscheiden Sie in der ausgewählten Theses zwischen <span style="color: red; "><b>„Ja“ oder
                                 „Eher Ja“</b></span>. <br> Dann gehen Sie zur nächsten Frage!</h5>
                 </div>

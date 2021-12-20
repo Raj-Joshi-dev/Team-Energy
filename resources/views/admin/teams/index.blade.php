@@ -8,7 +8,7 @@
                 <div class="card-header" style="font-size: large">Alle Teams</div>
                 <div class="card-body">
                     <a class="btn btn-light float-right" href="{{ route('admin.teams.create') }}" role="button"><i
-                            class="fas fa-plus-square"></i>&nbsp;Neuer Team</a>
+                            class="fas fa-plus-square"></i>&nbsp;Neues Team</a>
                     <div class="mx-auto float-left">
                         <form action="{{ route('admin.teams.index') }}" method="GET" role="search">
                             <div class="input-group">

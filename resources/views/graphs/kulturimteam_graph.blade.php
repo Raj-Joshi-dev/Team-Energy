@@ -102,7 +102,7 @@
             <text class="description" x="70" y="715">Hier sehen Sie das Ergebnis aus Ihrer Eingabe zum</text>
             <text class="description" style="font-weight: bold;" x="437" y="715">Kultur im Team.</text>
             <text class="description" x="558" y="715">Es zeigt Ihnen den Schwerpunkt/</text>
-            <text class="description" x="70" y="735">Mittelpunkt der von Ihnen wahrgenommenen Wirklichkeit. im Arbeitsalltag Ihres Teams.</text>
+            <text class="description" x="70" y="735">Mittelpunkt der von Ihnen wahrgenommenen Wirklichkeit im Arbeitsalltag Ihres Teams.</text>
             <text class="description" x="70" y="755">Andere Teammitglieder könnten dies anders wahrnehmen.</text>
             <text class="description" style="font-size: 12px;" x="70" y="775">Wir empfehlen Ihnen dazu auch die
                 Ausführungen im Kapitel 10 und 11 aus dem Buch:</text>

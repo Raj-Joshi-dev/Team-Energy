@@ -63,7 +63,7 @@
                             class="c-sidebar-nav-icon"></span>Potential im Team</a></li>
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" style="margin-left: -1rem"
                                                   href="{{ route('admin.results.category', 4) }}"><span
-                            class="c-sidebar-nav-icon"></span>Kultur - mein Einschätzung</a></li>
+                            class="c-sidebar-nav-icon"></span>Kultur - meine Einschätzung</a></li>
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" style="margin-left: -1rem"
                                                   href="{{ route('admin.results.category', 5) }}"><span
                             class="c-sidebar-nav-icon"></span>Kultur - unsere Einschätzungen</a></li>
