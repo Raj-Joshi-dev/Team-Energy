@@ -25,15 +25,15 @@
         <p style="font-size:120%;"><strong>COMPASS TRAINER NETWORK® ist eine Kooperation von Trainern und
                 Beratern.</strong></p>
 
-        <p style="font-size:120%;">Sie beraten, begleiten und trainieren Manager, Führungskräfte aller Ebenen, und
-            Fachkräfte von nationalen und internationalen Wirtschaftsunternehmen in unterschiedlichen Themenbereichen.
+        <p style="font-size:120%;">Sie beraten, begleiten und trainieren Manager, Führungskräfte aller Ebenen und
+            Fachkräfte von nationalen und internationaler Wirtschaftsunternehmen in unterschiedlichen Themenbereichen.
         </p>
 
         <p style="font-size:120%;">Jeder Trainer ist selbstständiger Unternehmer und hat seine eigenen Schwerpunkte und
             Fachgebiete. Erfahrungsaustausch und Nutzung von Synergieeffekten sind ein wichtiger Bestandteil zur
-            Qualitätssteigerung und Qualitätssicherung für unsere Kunden.</p>
+            Qualitätssteigerung und -sicherung für unsere Kunden.</p>
 
-        <p style="font-size:120%;">COMPASS steht synonym für einen Kartenkompass, der hilft den richtigen Weg zu finden,
+        <p style="font-size:120%;">COMPASS steht synonym für einen Kartenkompass, der hilft, den richtigen Weg zu finden,
             konsequent zu gehen und das Ziel zu erreichen.</p>
 
         <p style="font-size:120%;">COMPASS steht aber auch für ein handlungs- und erlebnisorientiertes Lernen in freier
@@ -41,7 +41,7 @@
             werden in praktischen Übungen und Rollenspielen sofort erlebt und bewirken damit stärker gewünschte
             Verhaltensänderungen. Wir arbeiten und trainieren mit hohem Praxisbezug.</p>
 
-        <p style="font-size:120%;">Trainer und Berater von COMPASS TRAINER NETWORK® sowie die Kooperationspartner haben
+        <p style="font-size:120%;">Trainer und Berater von COMPASS TRAINER NETWORK® und die Kooperationspartner haben
             schriftlich erklärt, dass die Beratungen und Seminare frei von sektiererischen Einflüssen sind und sie sich
             davon distanzieren.</p>
 

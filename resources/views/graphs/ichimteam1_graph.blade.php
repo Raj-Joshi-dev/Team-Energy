@@ -112,7 +112,7 @@
             <text class="description" x="70" y="735">Mittelpunkt der vier Seiten Ihrer Persönlichkeit. Diese kann zum
                 beruflichen Bereich Abweichungen
             </text>
-            <text class="description" x="70" y="755">aufzeigen, weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet
+            <text class="description" x="70" y="755">aufweisen, weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet
                 wird.
             </text>
             <text class="description" style="font-size: 12px;" x="70" y="775">Wir empfehlen Ihnen dazu auch die

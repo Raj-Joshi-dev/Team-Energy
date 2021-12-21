@@ -28,7 +28,7 @@
                                         <button id="acclaimTooltip" style="font-weight: bold;font-size: 20px"
                                             title="Ich im Team" type="button" class="btn btn-light"
                                             data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne" aria-multiselectable="true">Ich Im Team</button>
+                                            aria-controls="collapseOne" aria-multiselectable="true">Ich im Team</button>
                                     </h5>
                                 </div>
                                 <div class="collapse" id="collapseOne" aria-labelledby="headerOne"
