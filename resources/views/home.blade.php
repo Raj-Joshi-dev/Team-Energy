@@ -18,7 +18,7 @@
         <p style="font-size:120%">Wir beleuchten ein Team aus 3 Perspektiven (Ich im Team, Potentiale im Team und Kultur
             im Team), um die gewonnenen Erkenntnisse mit den Zielen und Aufgaben des Teams zu vergleichen. Passen
             Potentiale und Kultur zu den Aufgaben oder liegen die Schwerpunkte &ndash; im Modell gesprochen &ndash;
-            in unterschiedlichen Quadranten. Das gibt die Antwort auf die entscheidende Frage: <strong>Wie soll sich das
+            in unterschiedlichen Quadranten? Das gibt die Antwort auf die entscheidende Frage: <strong>Wie soll sich das
                 Team kurzfristig aufstellen, gibt es Entwicklungsbedarf und wenn ja, in welche Richtung?</strong></p>
         <p style="font-size:120%">Sie k&ouml;nnen alle Fragebogen &uuml;ber das Internet bearbeiten und erhalten sofort
             eine Auswertung. Wir erl&auml;utern Ihnen die detaillierten Ergebnisse im pers&ouml;nlichen Gespr&auml;ch.
