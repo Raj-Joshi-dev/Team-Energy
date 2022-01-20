@@ -152,7 +152,7 @@ class QuestionsTableSeeder extends Seeder
             'tid' => 16,
             'kat_id' => 1,
             'these1' => 'Auf Schwächere muss man Rücksicht nehmen.',
-            'these2' => 'Auch Schwächere müssen sich bemühen und dürfgen es sich nicht bequem machen.',
+            'these2' => 'Auch Schwächere müssen sich bemühen und dürfen es sich nicht bequem machen.',
             'ques_id' => 16
 
         ]);
