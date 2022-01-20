@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@section('title','Ich im Team - Beruflicher Bereich | Team-Energy')</title>
+    <title>@section('title','Ich im Team | Beruflicher Bereich | Team-Energy')</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/ques.css') }}" rel="stylesheet">
