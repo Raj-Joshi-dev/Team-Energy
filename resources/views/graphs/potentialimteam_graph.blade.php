@@ -105,22 +105,21 @@
             <text class="text" transform="translate(90,400)">Gemeinsinn</text>
 
             <text class="description" style="font-weight: bold;" x="350" y="100">POTENTIAL IM TEAM</text>
-            <text class="description" x="70" y="715">Hier sehen Sie das Ergebnis aus Ihrer Eingabe zum</text>
-            <text class="description" style="font-weight: bold;" x="435" y="715">privaten Bereich.</text>
-            <text class="description" x="563" y="715">Es zeigt Ihnen den Schwerpunkt/</text>
-            <text class="description" x="70" y="735">Mittelpunkt der vier Seiten Ihrer Persönlichkeit. Diese kann zum
-                beruflichen Bereich Abweichungen aufzeigen,
+            <text class="description" style="font-size: 14px" x="70" y="715">Hier sehen Sie die Potentiale im Team.</text>
+            <text class="description" style="font-size: 14px" x="315" y="715">Es ist jeweils das Ergebnis aus dem beruflichen Kontext. Es kann für das Team</text>
+            <text class="description" style="font-size: 14px" x="70" y="735">ein Hinweis sein, bei bestimmten Aufgabenstellungen und Herausforderungen hinzuschauen, wer im Team das
             </text>
-            <text class="description" x="70" y="755">weil ein bestimmtes Rollenverhalten im beruflichen Kontext erwartet
-                wird.
+            <text class="description" style="font-size: 14px" x="70" y="755">erforderliche Potential dafür mitbringt, z.B. wer ausgleichend und ausbalancierend auf das Team einwirken
+                und seine
             </text>
-            <text class="description" style="font-size: 12px;" x="70" y="775">Wir empfehlen Ihnen dazu auch die
+            <text class="description" style="font-size: 14px" x="70" y="775">Fähigkeiten und sozialen Kompetenzen einbringen könnte.</text>
+            <text class="description" style="font-size: 12px;" x="70" y="795">Wir empfehlen Ihnen dazu auch die
                 Ausführungen im Kapitel 10 und 11 aus dem Buch:
             </text>
-            <text class="description" style="font-size: 12px;" x="70" y="792">,,Dynamik in Gruppen“ von Eberhard Stahl
-                aus dem Beltz Verlag PVU
+            <text class="description" style="font-size: 12px;" x="70" y="812">,,Dynamik in Gruppen“ von Eberhard Stahl
+                aus dem Beltz Verlag PVU (ISBN 3-407-27515-0)
             </text>
-            <text class="description" style="font-size: 12px;" x="70" y="810">ISBN 3-407-27515-0</text>
+            <text class="description" style="font-size: 12px;" x="70" y="830">ISBN 3-407-27515-0</text>
 
 
         </svg>
