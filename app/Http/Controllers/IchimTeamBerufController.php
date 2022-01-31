@@ -125,6 +125,8 @@ class IchimTeamBerufController extends Controller
 
             $beruf->result_id = $id;
 
+            $beruf->team_id = Auth::user()->team_id;
+
             $beruf->beruf_x1 = $quadrant1_x;
             $beruf->beruf_y1 = $quadrant1_y;
 

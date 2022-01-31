@@ -177,7 +177,7 @@
             <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Benutzer</th>
+{{--                <th scope="col">Benutzer</th>--}}
                 <th scope="col">Team Name</th>
                 <th scope="col">Hergestellt in</th>
                 <th scope="col">Aktualisiert am</th>
@@ -189,22 +189,17 @@
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
                     <td>
-                        <a href="{{route('admin.users.edit', $result->user->id)}}"
-                           aria-current="true"> {{ $result->user->name }}</a>
+                        <a href="{{route('admin.teams.edit', $result->user->team_id)}}"
+                           aria-current="true"> {{ $result->user->team->name }}</a>
                     </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
-                    <td>{{ $result->user->team->name ?? '-' }}</td>
-
+{{--                    <td>{{ $result->user->team->name ?? '-' }}</td>--}}
                     <td>{{ $result->created_at }}</td>
                     <td>{{ $result->updated_at }}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" title="Grafik"
                            href="{{ route('generate_graph', $result->id) }}" target="_blank"
                            role="button"><i class="fas fa-sticky-note"></i></a>
-
-                        <a class="btn btn-sm btn-success" title="Anzeigen"
-                           href="{{ route('admin.results.show', $result->id) }}"
-                           role="button"><i class="fas fa-eye"></i></a>
 
                         <button class="btn btn-sm btn-danger" title="Löschen" data-toggle="modal"
                                 data-target="#exampleModal_{{$result->id}}"
@@ -361,22 +356,18 @@
             @foreach($results as $result)
                 <tr>
                     <th scope="row">{{ $result->id }}</th>
-{{--                    <td>--}}
-{{--                        <a href="{{route('admin.users.edit', $result->user->id)}}"--}}
-{{--                           aria-current="true"> {{ $result->user->name }}</a>--}}
-{{--                    </td>--}}
+                    <td>
+                        <a href="{{route('admin.teams.edit', $result->user->team_id)}}"
+                           aria-current="true"> {{ $result->user->team->name }}</a>
+                    </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
-                    <td>{{ $result->user->team->name ?? '-' }}</td>
+{{--                    <td>{{ $result->user->team->name ?? '-' }}</td>--}}
                     <td>{{ $result->created_at }}</td>
                     <td>{{ $result->updated_at }}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" title="Grafik"
                            href="{{ route('generate_graph', $result->id) }}" target="_blank"
                            role="button"><i class="fas fa-sticky-note"></i></a>
-
-                        <a class="btn btn-sm btn-success" title="Anzeigen"
-                           href="{{ route('admin.results.show', $result->id) }}"
-                           role="button"><i class="fas fa-eye"></i></a>
 
                         <button class="btn btn-sm btn-danger" title="Löschen" data-toggle="modal"
                                 data-target="#exampleModal_{{$result->id}}"

@@ -47,25 +47,28 @@
                     </div>
                 </div>
 
-                <div class="card multi">
-                    <div class="card-body">
+                @if($enable_potential == true)
+                    <div class="card multi">
                         <div class="card-body">
-                            <div style="font-weight: bold; font-size: 16px" class="card-title">Potential im Team</div>
-                            @if($enable_potential == true)
-                                @if($potential_check == false)
-                                    <a style="font-size: 13px; color: black" href="{{ route('potentialimteam') }}"
-                                       class="btn btn-warning">Ergebnis Erhalten</a>
+                            <div class="card-body">
+                                <div style="font-weight: bold; font-size: 16px" class="card-title">Potential im Team
+                                </div>
+                                @if($enable_potential_result == true)
+                                    @if($potential_result_check == false)
+                                        <a style="font-size: 13px; color: black" href="{{ route('potentialimteam') }}"
+                                           class="btn btn-warning">Ergebnis Erhalten</a>
+                                    @else
+                                        <a style="font-size: 13px"
+                                           href="{{ route('generate_graph', $potential_result_id) }}"
+                                           class="btn btn-success">Ihr Ergebnis</a>
+                                    @endif
                                 @else
-                                    <a style="font-size: 13px"
-                                       href="{{ route('generate_graph', $potential_result_id) }}"
-                                       class="btn btn-success">Ihr Ergebnis</a>
+                                    <p1>Warten auf andere Mitglieder, um den Test abzuschließen!</p1>
                                 @endif
-                            @else
-                                <p1>Warten auf Testergebnisse von: Ich im Team - Privat und Beruf!</p1>
-                            @endif
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
 
                 @if($enable_kultur == true)
                     <div class="card multi">
@@ -113,42 +116,6 @@
                         </div>
                     </div>
                 @endif
-
-
-
-
-
-
-                {{--                @if($enable_kultur == false)--}}
-                {{--                <div class="card multi">--}}
-                {{--                    <div class="card-body">--}}
-                {{--                        <div class="card-body">--}}
-                {{--                            <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - mein--}}
-                {{--                                Einschätzung--}}
-                {{--                            </div>--}}
-                {{--                                <a style="font-size: 13px" href="{{ route('kulturimteam') }}" class="btn btn-primary">Test--}}
-                {{--                                    geben</a>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-                {{--                @endif--}}
-
-
-
-
-
-
-                {{--                <div class="card multi">--}}
-                {{--                    <div class="card-body">--}}
-                {{--                        <div class="card-body">--}}
-                {{--                            <div style="font-weight: bold; font-size: 16px" class="card-title">Kultur im Team - unsere--}}
-                {{--                                Einschätzungen--}}
-                {{--                            </div>--}}
-                {{--                            <a style="font-size: 13px" href="{{ route('kulturimteam2') }}" class="btn btn-warning">Zeige--}}
-                {{--                                ergebnis</a>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
             </div>
         </div>
     </form>
