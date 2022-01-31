@@ -142,6 +142,8 @@ class IchimTeamPrivatController extends Controller
 
             $privat->result_id = $id;
 
+            $privat->team_id = Auth::user()->team_id;
+
             $privat->privat_x1 = $quadrant1_x;
             $privat->privat_y1 = $quadrant1_y;
 

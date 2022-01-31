@@ -17,6 +17,8 @@ class CreateIchImTeamPrivatsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('team_id')->nullable();
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->unsignedBigInteger('result_id');
             $table->foreign('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->decimal('privat_x1');

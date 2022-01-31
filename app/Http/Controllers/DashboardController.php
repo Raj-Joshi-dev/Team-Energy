@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\IchImTeamBeruf;
+use App\IchImTeamPrivat;
 use App\KulturimTeamMulti;
 use App\KulturimTeamSingle;
+use App\PotentialImTeam;
 use App\Result;
+use App\Team;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +18,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $loggedIN_user_team_id = Auth::user()->team_id;
+
         // Check for Ich im Team - Privat
         $privat = Result::where('user_id', Auth::id())->where('kat_id', 1)->exists();
         $privat_result_id = DB::table('results')->where('user_id', Auth::id())->where('kat_id', 1)->value('id');
@@ -23,14 +29,28 @@ class DashboardController extends Controller
         $beruf_result_id = DB::table('results')->where('user_id', Auth::id())->where('kat_id', 2)->value('id');
 
         // Check to enable or disable Potential im Team
-        if ($privat && $beruf == true) {
-            $enable_potential = true;
-        } else
+        if ($loggedIN_user_team_id == null) {
             $enable_potential = false;
+        } else
+            $enable_potential = true;
+
+        // Now check if all the users belonging to the team of logged in user have completed Privat and Beruf
+        $same_team_users = User::with('team')->where('team_id', Auth::user()->team_id)->count();
+        $privat_count = IchImTeamPrivat::where('team_id', $loggedIN_user_team_id)->count();
+        $beruf_count = IchImTeamBeruf::where('team_id', $loggedIN_user_team_id)->count();
+
+        if ($same_team_users == $privat_count and $same_team_users == $beruf_count) {
+            $enable_potential_result = true;
+        } else
+            $enable_potential_result = false;
+
+        $potential_result_check = PotentialImTeam::where('team_id', $loggedIN_user_team_id)->exists();
+        $potential_result_id = DB::table('results')->where('potential_team', 1)->value('id');
+
 
         // Check for Potential im Team
-        $potential_check = Result::where('user_id', Auth::id())->where('kat_id', 3)->exists();
-        $potential_result_id = DB::table('results')->where('user_id', Auth::id())->where('kat_id', 3)->value('id');
+//        $potential_check = Result::where('user_id', Auth::id())->where('kat_id', 3)->exists();
+//        $potential_result_id = DB::table('results')->where('user_id', Auth::id())->where('kat_id', 3)->value('id');
 
 
         // SWITCH Logic
@@ -73,9 +93,9 @@ class DashboardController extends Controller
         $kultur_multi_result_id = DB::table('results')->where('kultur_multi', 1)->value('id');
 
 
-        return view('test.dashboard', compact('privat', 'beruf', 'enable_potential',
-            'enable_kultur', 'privat_result_id', 'beruf_result_id', 'potential_check', 'kultur1',
-            'potential_result_id', 'kultur_single_result_id', 'kultur2_check', 'kultur_multi_result_id', 'enable_kultur2_result'));
+        return view('test.dashboard', compact('privat', 'beruf', 'enable_potential', 'potential_result_id',
+            'enable_kultur', 'privat_result_id', 'beruf_result_id', 'enable_potential_result', 'kultur1',
+            'potential_result_check', 'kultur_single_result_id', 'kultur2_check', 'kultur_multi_result_id', 'enable_kultur2_result'));
 
     }
 }

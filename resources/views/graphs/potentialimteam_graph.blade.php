@@ -7,11 +7,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @if($team_name == null)
-        <title>{{ $user_name }} - Ihr Potential im Team_#{{ $result_id }} | Team-Energy</title>
-    @else
-        <title>{{ $user_name }} - Ihr Potential im Team_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>
-    @endif
+{{--    @if($team_name == null)--}}
+{{--        <title>{{ $user_name }} - Ihr Potential im Team_#{{ $result_id }} | Team-Energy</title>--}}
+{{--    @else--}}
+{{--        <title>{{ $user_name }} - Ihr Potential im Team_#{{ $result_id }}_{{ $team_name }} | Team-Energy</title>--}}
+{{--    @endif--}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
         .center {
@@ -51,13 +51,11 @@
             <a id="noprint" class="btn btn-warning float-right" href="{{ route('dashboard') }}" role="button"><i
                     class="fas fa-arrow-circle-left"></i>&nbsp;Zurück zu Dashboard</a>
         @endif
-        <h5>Name: {{ $user_name }}</h5>
-        @if($team_name == null)
-            <h5>Ergebnis-ID: {{ $result_id }}</h5>
-        @else
+            {{--            @if($team_name == null)--}}
+            {{--            @else--}}
             <h5>Team Name: {{ $team_name }}</h5>
-            <h5>Ergebnis-ID: {{ $result_id }}</h5>
-        @endif
+            <h5>Ergebnis-ID: {{ $result_id }} </h5>
+            {{--            @endif--}}
     </div>
     <body>
     <div class="center">
@@ -134,8 +132,8 @@
         const center = 410;
         const range = 250;
         const ns = 'http://www.w3.org/2000/svg';
-        const maxUsers = 1;
-        const useBackground = maxUsers <= 5;
+        const maxUsers = @json($member_count);
+        // const useBackground = maxUsers <= 5;
         let added = 0;
         let userG = document.createElementNS(ns, 'g');
 
@@ -150,7 +148,7 @@
             let textY = center - range - 40 + added * 15;
             let pipX = textX - 6;
             let pipY = textY - 4;
-            text.appendChild(document.createTextNode(label));
+            // text.appendChild(document.createTextNode(label));
             text.setAttribute('x', textX)
             text.setAttribute('y', textY);
             text.classList.add('text');
@@ -163,37 +161,37 @@
             // userG.appendChild(line);
 
             // label pip
-            let pip = document.createElementNS(ns, 'circle');
-            pip.setAttribute('cx', pipX)
-            pip.setAttribute('cy', pipY)
-            pip.setAttribute('r', 5)
-            pip.setAttribute('fill', 'purple')
-            userG.appendChild(pip);
+            // let pip = document.createElementNS(ns, 'circle');
+            // pip.setAttribute('cx', pipX)
+            // pip.setAttribute('cy', pipY)
+            // pip.setAttribute('r', 5)
+            // pip.setAttribute('fill', 'purple')
+            // userG.appendChild(pip);
 
             // background
-            let bg = document.createElementNS(ns, 'path');
-            let path = pts.map(({x, y}, n) => {
-                return `${n === 0 ? 'M' : 'L'}${x},${y} `;
-            }).join('') + 'Z';
-            bg.setAttribute('d', path);
-            if (useBackground) {
-                bg.setAttribute('fill', 'rgba(0, 0, 200, 0.2)');
-                bg.setAttribute('stroke', 'none');
-            } else {
-                bg.setAttribute('fill', 'none');
-                bg.setAttribute('stroke', 'steelblue');
-            }
-            userG.appendChild(bg);
+            // let bg = document.createElementNS(ns, 'path');
+            // let path = pts.map(({x, y}, n) => {
+            //     return `${n === 0 ? 'M' : 'L'}${x},${y} `;
+            // }).join('') + 'Z';
+            // bg.setAttribute('d', path);
+            // if (useBackground) {
+            //     bg.setAttribute('fill', 'rgba(0, 0, 200, 0.2)');
+            //     bg.setAttribute('stroke', 'none');
+            // } else {
+            //     bg.setAttribute('fill', 'none');
+            //     bg.setAttribute('stroke', 'steelblue');
+            // }
+            // userG.appendChild(bg);
 
             //edge points
-            pts.forEach(({x, y}, n) => {
-                let node = document.createElementNS(ns, 'circle');
-                node.setAttribute('cx', ~~x)
-                node.setAttribute('cy', ~~y)
-                node.setAttribute('r', 5)
-                node.setAttribute('fill', color)
-                userG.appendChild(node);
-            })
+            // pts.forEach(({x, y}, n) => {
+            //     let node = document.createElementNS(ns, 'circle');
+            //     node.setAttribute('cx', ~~x)
+            //     node.setAttribute('cy', ~~y)
+            //     node.setAttribute('r', 5)
+            //     node.setAttribute('fill', color)
+            //     userG.appendChild(node);
+            // })
 
             container.appendChild(userG);
         }
@@ -203,22 +201,46 @@
             return calculatePlot(user)
         }
 
+        let graphs = @json($graphs);
+
         function consumeAPI() {
 
-            var x_pot = {{ $potential_point_x }};
-            var y_pot = {{ $potential_point_y }};
+            const value = graphs.pop();
+
+            const x_1 = value.quadrant1_x;
+            const y_1 = value.quadrant1_y;
+            const x_2 = value.quadrant2_x;
+            const y_2 = value.quadrant2_y;
+            const x_3 = value.quadrant3_x;
+            const y_3 = value.quadrant3_y;
+            const x_4 = value.quadrant4_x;
+            const y_4 = value.quadrant4_y;
 
             return {
-                x: (x_pot * range),
-                y: (y_pot * range)
-
-            }
+                x1: x_1 * range,
+                y1: y_1 * range,
+                x2: x_2 * range,
+                y2: y_2 * range,
+                x3: x_3 * range,
+                y3: y_3 * range,
+                x4: x_4 * range,
+                y4: y_4 * range,
+            };
         }
 
         function calculatePlot(user) {
             return [{
-                x: center + user.x,
-                y: center - user.y
+                x: center + user.x1,
+                y: center - user.y1
+            }, {
+                x: center + user.x2,
+                y: center - user.y2
+            }, {
+                x: center + user.x3,
+                y: center - user.y3
+            }, {
+                x: center + user.x4,
+                y: center - user.y4
             }]
         }
 
@@ -226,23 +248,23 @@
             return accumulator + currentValue
         }
 
-        // function calculateMidPoint(plot) {
-        //     // console.log(plot)
-        //     let node = document.createElementNS(ns, 'circle');
-        //     let color = '#ff0000'
-        //     node.setAttribute('cx', (plot.map(point => point.x).reduce(additionReducer, 0)) / 4)
-        //     node.setAttribute('cy', (plot.map(point => point.y).reduce(additionReducer, 0)) / 4)
-        //     node.setAttribute('r', 5)
-        //     node.setAttribute('fill', color)
-        //     userG.appendChild(node);
-        //
-        // }
+        function calculateMidPoint(plot) {
+            // console.log(plot)
+            let node = document.createElementNS(ns, 'circle');
+            let color = '#ff0000'
+            node.setAttribute('cx', (plot.map(point => point.x).reduce(additionReducer, 0)) / 4)
+            node.setAttribute('cy', (plot.map(point => point.y).reduce(additionReducer, 0)) / 4)
+            node.setAttribute('r', 5)
+            node.setAttribute('fill', color)
+            userG.appendChild(node);
+
+        }
 
         for (let i = 0; i < maxUsers; i++) {
             let plot = generateRandomUser();
-            let label = `Mittelpunkt`;
-            addUser(plot, label);
-            // calculateMidPoint(plot);
+            // let label = `Mittelpunkt`;
+            addUser(plot);
+            calculateMidPoint(plot);
         }
     </script>
     </body>

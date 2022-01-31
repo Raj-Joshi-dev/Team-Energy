@@ -27,9 +27,13 @@ class ResultAccess
             ->where('user_id', $user_id)
             ->where('kultur_multi', 1)->exists();
 
-//        dd($check_kultur_multi);
+        $check_potential_team = DB::table('results')
+            ->where('user_id', $user_id)
+            ->where('potential_team', 1)->exists();
 
-        if (Auth::id() == $user_id or \auth()->user()->is_admin or $check_kultur_multi == true) {
+//        dd($check_potential_team);
+
+        if (Auth::id() == $user_id or \auth()->user()->is_admin or $check_kultur_multi == true or $check_potential_team == true) {
             return $next($request);
         } else
             abort(403, 'Zugang Verboten');
