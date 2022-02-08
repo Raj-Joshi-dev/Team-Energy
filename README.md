@@ -2,8 +2,8 @@
 
 Team Energy is a project focusing on human science and team work. It analyzes people's personality based on three types of Test. Output of the results is a graph plot in a cartesian plane.
 
-## Build status
-----Testing------
+## Active Website
+https://compass-teamenergy.de/
 
 ## Tech/framework used
 
@@ -12,7 +12,6 @@ Team Energy is a project focusing on human science and team work. It analyzes pe
 -   [Laravel](https://laravel.com/)
 -   [MySQL](https://www.mysql.com/)
 -   [Bootstrap](https://getbootstrap.com/)
--   [D3.js](https://d3js.org/)
 
 ## API Reference
 
