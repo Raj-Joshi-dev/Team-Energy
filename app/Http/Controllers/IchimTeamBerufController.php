@@ -18,6 +18,8 @@ class IchimTeamBerufController extends Controller
 
         $result->user_id = Auth::id();
 
+        $result->team_id = Auth::user()->team_id;
+
         $result->kat_id = 2;
 
         $result->save();

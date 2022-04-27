@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTeamRequest;
+use App\IchImTeamPrivat;
+use App\Result;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
@@ -54,7 +56,7 @@ class TeamController extends Controller
             ->paginate(10);
 
         return view('admin.teams.index', compact('teams'))
-            ->with('i', (request()->input('page',1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5);
 
 
 //        return view('admin.teams.index', ['teams' => Team::orderByDesc('id')->paginate(10)]);
@@ -99,7 +101,26 @@ class TeamController extends Controller
     {
         $team = Team::with('users')->find($id);
 
-        return view('admin.teams.show', compact('team'));
+        $users = User::with('team')->where('team_id', $id)->get();
+
+//        $max_member_count = Team::where('id', $id)->value('max_members');
+//        $active_members = User::where('team_id', $id)->count();
+//
+//        if (IchImTeamPrivat::where('team_id', $id)->count() === $max_member_count){
+//            $privat = true;
+//        } else
+//            $privat = false;
+
+
+        $test_users = Result::with('user')
+            ->where('team_id', $id)
+            ->get()->unique('kat_id');
+
+
+//        dd($test_users);
+//        dd($test_users);
+
+        return view('admin.teams.show', compact('team', 'users', 'test_users'));
     }
 
     /**
@@ -112,7 +133,9 @@ class TeamController extends Controller
     {
         $team = Team::with('users')->find($id);
 
-        return view('admin.teams.edit', compact('team'));
+        $users = User::with('team')->where('team_id', $id)->get();
+
+        return view('admin.teams.edit', compact('team', 'users'));
     }
 
     /**

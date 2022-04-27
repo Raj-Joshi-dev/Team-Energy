@@ -2,7 +2,7 @@
     <div class="alert alert-success alert-dismissable">
         <a aria-label="close" class="close" data-dismiss="alert" href="#">&times;</a>
         <h4>
-            <i aria-hidden="true" class="icon fa fa-check fa-fw"></i> Erfolg
+            <i aria-hidden="true" class="fa-solid fa-circle-check"></i> Erfolg
         </h4>{{ session('success') }}
     </div>
 @endif

@@ -26,6 +26,7 @@ class PotentialController extends Controller
             //create new result entry in Results table.
             $result = new Result();
             $result->user_id = Auth::id();
+            $result->team_id = Auth::user()->team_id;
             $result->kat_id = 3;
             $result->potential_team = 1;
             $result->save();
