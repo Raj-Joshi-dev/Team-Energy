@@ -1,6 +1,8 @@
 @isset($category1)
     <div class="card">
-        <div class="card-header" style="font-size: large">Ich im Team - Privater Bereich</div>
+        <div class="card-header" style="margin-bottom: 0; background-color: rgba(0,0,0,.03); font-size: large;">Ich im
+            Team - Privater Bereich
+        </div>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -58,7 +60,8 @@
                                             </button>
                                         </div>
                                         <div class="modal-body" style="font-size: 15px">
-                                            Möchten Sie das <b>Ich im Team - Privater Bereich</b> ergebnis für <b>{{$result->user->name}}</b> löschen?
+                                            Möchten Sie das <b>Ich im Team - Privater Bereich</b> ergebnis für
+                                            <b>{{$result->user->name}}</b> löschen?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -86,7 +89,9 @@
 
 @isset($category2)
     <div class="card">
-        <div class="card-header" style="font-size: large">Ich im Team - Beruflicher Bereich</div>
+        <div class="card-header" style="margin-bottom: 0; background-color: rgba(0,0,0,.03); font-size: large;">Ich im
+            Team - Beruflicher Bereich
+        </div>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -144,7 +149,8 @@
                                             </button>
                                         </div>
                                         <div class="modal-body" style="font-size: 15px">
-                                            Möchten Sie das <b>Ich im Team - Beruflicher Bereich</b> ergebnis für <b>{{$result->user->name}}</b> löschen?
+                                            Möchten Sie das <b>Ich im Team - Beruflicher Bereich</b> ergebnis für
+                                            <b>{{$result->user->name}}</b> löschen?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -172,12 +178,14 @@
 
 @isset($category3)
     <div class="card">
-        <div class="card-header" style="font-size: large">Potential im Team</div>
+        <div class="card-header" style="margin-bottom: 0; background-color: rgba(0,0,0,.03); font-size: large;">
+            Potential im Team
+        </div>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th scope="col">ID</th>
-{{--                <th scope="col">Benutzer</th>--}}
+                {{--                <th scope="col">Benutzer</th>--}}
                 <th scope="col">Team Name</th>
                 <th scope="col">Hergestellt in</th>
                 <th scope="col">Aktualisiert am</th>
@@ -193,7 +201,7 @@
                            aria-current="true"> {{ $result->user->team->name }}</a>
                     </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
-{{--                    <td>{{ $result->user->team->name ?? '-' }}</td>--}}
+                    {{--                    <td>{{ $result->user->team->name ?? '-' }}</td>--}}
                     <td>{{ $result->created_at }}</td>
                     <td>{{ $result->updated_at }}</td>
                     <td>
@@ -226,7 +234,8 @@
                                             </button>
                                         </div>
                                         <div class="modal-body" style="font-size: 15px">
-                                            Möchten Sie das <b>Potential im Team</b> ergebnis für <b>{{$result->user->name}}</b> löschen?
+                                            Möchten Sie das <b>Potential im Team</b> ergebnis für
+                                            <b>{{$result->user->name}}</b> löschen?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -254,7 +263,9 @@
 
 @isset($category4)
     <div class="card">
-        <div class="card-header" style="font-size: large">Kultur - mein Einschätzung</div>
+        <div class="card-header" style="margin-bottom: 0; background-color: rgba(0,0,0,.03); font-size: large;">Kultur -
+            mein Einschätzung
+        </div>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -312,7 +323,8 @@
                                             </button>
                                         </div>
                                         <div class="modal-body" style="font-size: 15px">
-                                            Möchten Sie das <b>Kultur - mein Einschätzung</b> ergebnis für <b>{{$result->user->name}}</b> löschen?
+                                            Möchten Sie das <b>Kultur - mein Einschätzung</b> ergebnis für
+                                            <b>{{$result->user->name}}</b> löschen?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -340,12 +352,14 @@
 
 @isset($category5)
     <div class="card">
-        <div class="card-header" style="font-size: large">Kultur - unsere Einschätzungen</div>
+        <div class="card-header" style="margin-bottom: 0; background-color: rgba(0,0,0,.03); font-size: large;">Kultur -
+            unsere Einschätzungen
+        </div>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th scope="col">ID</th>
-{{--                <th scope="col">Benutzer</th>--}}
+                {{--                <th scope="col">Benutzer</th>--}}
                 <th scope="col">Team Name</th>
                 <th scope="col">Hergestellt in</th>
                 <th scope="col">Aktualisiert am</th>
@@ -361,7 +375,7 @@
                            aria-current="true"> {{ $result->user->team->name }}</a>
                     </td>
                     {{--                            <td>{{ optional($result->user->team)->name }}</td>--}}
-{{--                    <td>{{ $result->user->team->name ?? '-' }}</td>--}}
+                    {{--                    <td>{{ $result->user->team->name ?? '-' }}</td>--}}
                     <td>{{ $result->created_at }}</td>
                     <td>{{ $result->updated_at }}</td>
                     <td>
@@ -394,7 +408,8 @@
                                             </button>
                                         </div>
                                         <div class="modal-body" style="font-size: 15px">
-                                            Möchten Sie das <b>Kultur - unsere Einschätzungen</b> ergebnis für <b>{{$result->user->name}}</b> löschen?
+                                            Möchten Sie das <b>Kultur - unsere Einschätzungen</b> ergebnis für
+                                            <b>{{$result->user->name}}</b> löschen?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"

@@ -5,7 +5,9 @@
         <div class="fade-in">
             @include('partials.alerts')
             <div class="card">
-                <div class="card-header" style="font-size: large">Alle Nutzer</div>
+                <div style="margin-bottom: 0; background-color: rgba(0,0,0,.03); font-size: large;" class="card-header">
+                    Alle Benutzer
+                </div>
                 <div class="card-body">
                     <a class="btn btn-light float-right" title="Neuen Benutzer anlegen"
                        href="{{ route('admin.users.create') }}"
@@ -13,7 +15,7 @@
                             class="fas fa-user-plus"></i>&nbsp; Neuer Benutzer</a>
                     <div class="mx-auto float-left">
                         <form action="{{ route('admin.users.index') }}" method="GET" role="search">
-                            <div class="input-group">
+                            <div style="width: 110%" class="input-group">
 
                                 <label for="term"></label><input type="text" class="form-control mr-2 mt-1" name="term"
                                                                  placeholder="Benutzer durchsuchen"
@@ -37,15 +39,15 @@
                     </div>
                 </div>
 
-                <table class="table table-bordered">
+                <table style="margin-bottom: 0" class="table table-bordered mb-2">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">E-Mail</th>
                         <th scope="col">Team</th>
-                        <th scope="col">Hergestellt in</th>
-                        <th scope="col">Aktualisiert am</th>
+                        <th scope="col">Erstellt</th>
+                        <th scope="col">Aktualisiert</th>
                         <th scope="col">Aktionen</th>
                     </tr>
                     </thead>

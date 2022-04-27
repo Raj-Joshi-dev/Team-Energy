@@ -5,13 +5,15 @@
         <div class="fade-in">
             @include('partials.alerts')
             <div class="card">
-                <div class="card-header" style="font-size: large">Alle Teams</div>
+                <div class="card-header" style="font-size: large; margin-bottom: 0; background-color: rgba(0,0,0,.03);">
+                    Alle Teams
+                </div>
                 <div class="card-body">
                     <a class="btn btn-light float-right" href="{{ route('admin.teams.create') }}" role="button"><i
-                            class="fas fa-plus-square"></i>&nbsp;Neues Team</a>
+                            class="fa-solid fa-user-plus"></i>&nbsp; Neues Team</a>
                     <div class="mx-auto float-left">
                         <form action="{{ route('admin.teams.index') }}" method="GET" role="search">
-                            <div class="input-group">
+                            <div class="input-group" style="width: 110%">
 
                                 <label for="term"></label><input type="text" class="form-control mr-2 mt-1" name="term"
                                                                  placeholder="Team suchen"
@@ -35,15 +37,15 @@
                 </div>
 
 
-                <table class="table table-bordered">
+                <table style="margin-bottom: 0" class="table table-bordered mb-2">
                     <thead>
                     <tr>
                         <th rowspan="2">ID</th>
                         <th scope="col" rowspan="2">Name</th>
                         <th scope="col" colspan="2" style="text-align: center">Mitglieder</th>
                         {{--                        <th scope="col">Max. Mitglieder</th>--}}
-                        <th scope="col" rowspan="2">Hergestellt in</th>
-                        <th scope="col" rowspan="2">Aktualisiert am</th>
+                        <th scope="col" rowspan="2">Erstellt</th>
+                        <th scope="col" rowspan="2">Aktualisiert</th>
                         <th scope="col" rowspan="2">Aktionen</th>
                     </tr>
                     <tr>

@@ -23,6 +23,7 @@ class KulturimTeamMultiController extends Controller
             //create new result entry in Results table.
             $result = new Result();
             $result->user_id = Auth::id();
+            $result->team_id = Auth::user()->team_id;
             $result->kat_id = 5;
             $result->kultur_multi = 1;
             $result->save();
