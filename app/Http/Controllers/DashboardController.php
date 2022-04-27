@@ -8,7 +8,6 @@ use App\KulturimTeamMulti;
 use App\KulturimTeamSingle;
 use App\PotentialImTeam;
 use App\Result;
-use App\Team;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -45,12 +44,11 @@ class DashboardController extends Controller
             $enable_potential_result = false;
 
         $potential_result_check = PotentialImTeam::where('team_id', $loggedIN_user_team_id)->exists();
-        $potential_result_id = DB::table('results')->where('potential_team', 1)->value('id');
+        $potential_result_id = DB::table('results')->where('team_id', $loggedIN_user_team_id)->where('kat_id', 3)->value('id');
 
 
         // Check for Potential im Team
 //        $potential_check = Result::where('user_id', Auth::id())->where('kat_id', 3)->exists();
-//        $potential_result_id = DB::table('results')->where('user_id', Auth::id())->where('kat_id', 3)->value('id');
 
 
         // SWITCH Logic
