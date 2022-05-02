@@ -18,9 +18,6 @@
                                    href="{{ route('admin.users.index') }}"
                                    role="button"><i class="fa-solid fa-angles-left"></i>&nbsp;Zurück zur
                                     Benutzerliste</a>
-                                <a class="btn btn-light float-right"
-                                   onclick="history.back()"
-                                   role="button"><i class="fa-solid fa-angle-left"></i>&nbsp;Zurück</a>
                             </div>
                             <div class="card" style="margin-bottom: 0;">
                                 <h4 class="text-muted text-center">{{ $user->name }}</h4>

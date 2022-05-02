@@ -15,7 +15,8 @@
                                     Benutzer
                                     <a class="btn btn-light float-right"
                                        href="{{ route('admin.users.index') }}"
-                                       role="button"><i class="fa-solid fa-angles-left"></i>&nbsp;Zurück zur Benutzerliste</a>
+                                       role="button"><i class="fa-solid fa-angles-left"></i>&nbsp;Zurück zur
+                                        Benutzerliste</a>
                                 </div>
                             </div>
                             <br>
@@ -119,7 +120,7 @@
                                         <button type="submit" class="btn btn-success mr-1 col-5"><i
                                                 class="fa-solid fa-floppy-disk"></i>&nbsp;Bestätigen
                                         </button>
-                                        <a class="btn btn-secondary ml-1 col-5" onclick="history.back()"
+                                        <a class="btn btn-secondary ml-1 col-5" href="{{ url()->previous() }}"
                                            role="button"><i
                                                 class="fas fa-times"></i>&nbsp;Absagen</a>
                                     </div>

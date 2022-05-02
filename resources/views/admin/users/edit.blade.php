@@ -15,9 +15,6 @@
                                    href="{{ route('admin.users.index') }}"
                                    role="button"><i class="fa-solid fa-angles-left"></i>&nbsp;Zurück zur
                                     Benutzerliste</a>
-                                <a class="btn btn-light mr-1 float-right"
-                                   href="{{ route('admin.users.show', $user->id) }}"
-                                   role="button"><i class="fa-solid fa-angle-left"></i>&nbsp;Zurück zur Benutzer</a>
                             </div>
                             <br>
                             <div class="card-body">
@@ -132,7 +129,8 @@
                                 </form>
 
                                 <div class="justify-content-center row">
-                                    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-success mr-1 col-5"><i
+                                    <button data-toggle="modal" data-target="#exampleModal"
+                                            class="btn btn-success mr-1 col-5"><i
                                             class="fa-solid fa-floppy-disk"></i>&nbsp;Bestätigen
                                     </button>
                                     <!-- Modal -->
@@ -167,7 +165,8 @@
                                         </div>
                                     </div>
 
-                                    <a class="btn btn-secondary ml-1 col-5" onclick="history.back()" role="button"><i
+                                    <a class="btn btn-secondary ml-1 col-5" href="{{ url()->previous() }}"
+                                       role="button"><i
                                             class="fas fa-times"></i>&nbsp;Absagen</a>
                                 </div>
                             </div>

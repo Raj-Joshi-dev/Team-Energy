@@ -100,7 +100,7 @@
                                         <button type="submit" class="btn btn-success mr-1 col-5"><i
                                                 class="fas fa-check"></i>&nbsp;Bestätigen
                                         </button>
-                                        <a class="btn btn-secondary col-5" onclick="history.back()"
+                                        <a class="btn btn-secondary col-5" href="{{ url()->previous() }}"
                                            role="button"><i
                                                 class="fas fa-window-close"></i>&nbsp;Absagen</a>
                                     </div>
