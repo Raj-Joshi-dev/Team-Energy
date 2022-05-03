@@ -17,7 +17,8 @@
                             </div>
                             <br>
                             <div class="card-body">
-                                < method="POST" action="{{ route('admin.teams.store') }}">
+                                <method
+                                = "POST" action="{{ route('admin.teams.store') }}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="name" style="font-size: medium" class="col-md-3 col-form-label">Team
@@ -110,6 +111,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 @endsection
