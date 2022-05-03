@@ -10,7 +10,7 @@
                         <div class="card">
                             <div class="card-header float-left"
                                  style="font-size: large; margin-bottom: 0; background-color: rgba(0,0,0,.03);">
-                                Erstellen Sie einen neu Team
+                                Erstellen Sie ein neues Team
                                 <a class="btn btn-light float-right" href="{{ route('admin.teams.index') }}"
                                    role="button"><i
                                         class="fa-solid fa-angles-left"></i>&nbsp; Zurück zum Teamliste</a>
