@@ -84,6 +84,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $results->onEachSide(5)->links() }}
     </div>
 @endisset
 
@@ -173,6 +174,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $results->onEachSide(5)->links() }}
     </div>
 @endisset
 
@@ -258,6 +260,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $results->onEachSide(5)->links() }}
     </div>
 @endisset
 
@@ -347,6 +350,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $results->onEachSide(5)->links() }}
     </div>
 @endisset
 
@@ -432,5 +436,6 @@
             @endforeach
             </tbody>
         </table>
+        {{ $results->onEachSide(5)->links() }}
     </div>
 @endisset
